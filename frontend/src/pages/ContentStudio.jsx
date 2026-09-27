@@ -834,7 +834,7 @@ export default function ContentStudio() {
           {TEMPLATES.map(t => (
             <button
               key={t.id}
-              onClick={() => { setTemplate(t.id); setAiCaption('') }}
+              onClick={() => { setTemplate(t.id); setCaption('') }}
               className={`shrink-0 px-5 py-3 rounded-xl border text-sm font-medium transition-all duration-200 ${
                 template === t.id
                   ? 'border-accent-cyan/40 bg-accent-cyan/10 text-accent-cyan shadow-lg shadow-accent-cyan/5'
