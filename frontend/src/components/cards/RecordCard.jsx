@@ -1,4 +1,4 @@
-import { NEON_COLORS, FONTS, cardContainerStyle, dotGridBackground, watermarkStyle, CARD_DIMENSIONS, scaledFont } from './cardStyles'
+import { NEON_COLORS, FONTS, cardContainerStyle, dotGridBackground, watermarkStyle, CARD_DIMENSIONS, scaledFont, WATERMARK_TEXT } from './cardStyles'
 
 export default function RecordCard({ title, value, subtitle, description, dimensions = CARD_DIMENSIONS.twitter }) {
   const isPortrait = dimensions.height > dimensions.width
@@ -45,7 +45,7 @@ export default function RecordCard({ title, value, subtitle, description, dimens
         </div>
       </div>
 
-      <div style={watermarkStyle()}>@Crickrida &bull; Cricket via Stats</div>
+      <div style={watermarkStyle()}>{WATERMARK_TEXT}</div>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react'
+import MakeCardButton from '../components/ui/MakeCardButton'
 import { useTournament } from '../contexts/TournamentContext'
 import { useParams, Link } from 'react-router-dom'
 import {
@@ -708,6 +709,7 @@ export default function MatchDetail() {
               {match.season && (
                 <Badge text={`Season ${match.season}`} color="muted" />
               )}
+              <MakeCardButton label="Make a result card" params={{ t: 'match', match: matchId }} />
             </div>
           </div>
           {/* Score summary */}

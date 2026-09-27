@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback } from 'react'
+import MakeCardButton from '../components/ui/MakeCardButton'
 import { Link } from 'react-router-dom'
 import { useFetch } from '../hooks/useFetch'
 import { getBattingLeaderboard, getSeasons, getTeams } from '../lib/api'
@@ -150,9 +151,12 @@ export default function BattingRecords() {
         url="/batting"
       />
       {/* Header */}
-      <div>
-        <h1 className="text-3xl font-heading font-bold text-text-primary">Batting Records</h1>
-        <p className="text-text-secondary text-sm mt-1">Top run scorers across {tournament.name} {tournament.competitionLabelPlural.toLowerCase()}</p>
+      <div className="flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <h1 className="text-3xl font-heading font-bold text-text-primary">Batting Records</h1>
+          <p className="text-text-secondary text-sm mt-1">Top run scorers across {tournament.name} {tournament.competitionLabelPlural.toLowerCase()}</p>
+        </div>
+        <MakeCardButton label="Share the top 5" params={{ t: 'leaderboard', stat: 'runs' }} />
       </div>
 
       {/* Filters */}

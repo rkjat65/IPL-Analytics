@@ -1,4 +1,4 @@
-import { NEON_COLORS, FONTS, cardContainerStyle, dotGridBackground, watermarkStyle, formatNumber, formatDecimal, CARD_DIMENSIONS, scaledSize, scaledFont } from './cardStyles'
+import { NEON_COLORS, FONTS, cardContainerStyle, dotGridBackground, watermarkStyle, formatNumber, formatDecimal, CARD_DIMENSIONS, scaledSize, scaledFont, WATERMARK_TEXT } from './cardStyles'
 import PlayerAvatar from '../ui/PlayerAvatar'
 
 function StatBar({ label, val1, val2, sf }) {
@@ -199,7 +199,7 @@ export default function ComparisonCard({ player1 = {}, player2 = {}, metric = 'b
         </div>
       </div>
 
-      <div style={watermarkStyle()}>@Crickrida &bull; Cricket via Stats</div>
+      <div style={watermarkStyle()}>{WATERMARK_TEXT}</div>
     </div>
   )
 }

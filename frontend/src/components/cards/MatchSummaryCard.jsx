@@ -1,4 +1,4 @@
-import { NEON_COLORS, FONTS, cardContainerStyle, dotGridBackground, watermarkStyle, CARD_DIMENSIONS, scaledFont } from './cardStyles'
+import { NEON_COLORS, FONTS, cardContainerStyle, dotGridBackground, watermarkStyle, CARD_DIMENSIONS, scaledFont, WATERMARK_TEXT } from './cardStyles'
 import { getTeamColor, getTeamAbbr } from '../../constants/teams'
 
 export default function MatchSummaryCard({ team1, team2, team1Score, team2Score, winner, margin, venue, date, potm, dimensions = CARD_DIMENSIONS.twitter }) {
@@ -80,7 +80,7 @@ export default function MatchSummaryCard({ team1, team2, team1Score, team2Score,
         </div>
       </div>
 
-      <div style={watermarkStyle()}>@Crickrida &bull; Cricket via Stats</div>
+      <div style={watermarkStyle()}>{WATERMARK_TEXT}</div>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
+import MakeCardButton from '../components/ui/MakeCardButton'
 import { useTournament } from '../contexts/TournamentContext'
 import { useFetch } from '../hooks/useFetch'
 import { getTeamStats, getTeamSeasons, getTeamH2H, getTeams } from '../lib/api'
@@ -165,6 +166,7 @@ export default function TeamProfile() {
               {decoded}
             </h1>
             <div className="h-1 w-24 rounded-full mt-2" style={{ backgroundColor: color }} />
+            <MakeCardButton className="mt-3" label="Make a form card" params={{ t: 'team_form', team: decoded }} />
           </div>
         </div>
       </div>

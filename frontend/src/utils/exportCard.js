@@ -1,6 +1,6 @@
 import { toPng, toJpeg } from 'html-to-image'
 
-export async function exportAsImage(element, filename = 'rkjat65-stat', format = 'png') {
+export async function exportAsImage(element, filename = 'crickrida-card', format = 'png') {
   if (!element) throw new Error('No element provided')
 
   // Temporarily remove preview scaling for full-resolution capture
@@ -34,7 +34,7 @@ export async function exportAsImage(element, filename = 'rkjat65-stat', format =
   return dataUrl
 }
 
-export function downloadImage(dataUrl, filename = 'rkjat65-stat') {
+export function downloadImage(dataUrl, filename = 'crickrida-card') {
   const link = document.createElement('a')
   link.download = filename
   link.href = dataUrl
@@ -44,7 +44,7 @@ export function downloadImage(dataUrl, filename = 'rkjat65-stat') {
 }
 
 export async function copyToClipboard(element) {
-  const dataUrl = await exportAsImage(element, 'rkjat65-stat', 'png')
+  const dataUrl = await exportAsImage(element, 'crickrida-card', 'png')
   const res = await fetch(dataUrl)
   const blob = await res.blob()
   await navigator.clipboard.write([
