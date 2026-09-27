@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
+import { useTournament } from '../contexts/TournamentContext'
 import { useFetch } from '../hooks/useFetch'
 import { getVenueStats, getVenueTopPerformers } from '../lib/api'
 import SEO, { SITE_URL } from '../components/SEO'
@@ -32,6 +33,7 @@ function ChartTooltip({ active, payload, label }) {
 }
 
 export default function VenueProfile() {
+  const tournament = useTournament()
   const { venueName } = useParams()
   const decoded = decodeURIComponent(venueName)
 
@@ -47,8 +49,8 @@ export default function VenueProfile() {
 
   const canonicalPath = `/venues/${encodeURIComponent(decoded)}`
   const seoDescription = stats?.stats
-    ? `${decoded} IPL venue stats: ${stats.stats.matches} matches hosted, average first-innings score of ${formatDecimal(stats.stats.avg_1st_innings, 1)}, and ${stats.stats.bat_first_win_pct ? `${formatDecimal(stats.stats.bat_first_win_pct, 1)}% bat-first win rate` : 'detailed chase vs defend records'}. See top run-scorers, top wicket-takers, and full ground analytics on Crickrida.`
-    : `IPL venue analytics, match history, top performers, and ground records for ${decoded}.`
+    ? `${decoded} ${tournament.shortName} venue stats: ${stats.stats.matches} matches hosted, average first-innings score of ${formatDecimal(stats.stats.avg_1st_innings, 1)}, and ${stats.stats.bat_first_win_pct ? `${formatDecimal(stats.stats.bat_first_win_pct, 1)}% bat-first win rate` : 'detailed chase vs defend records'}. See top run-scorers, top wicket-takers, and full ground analytics on Crickrida.`
+    : `${tournament.shortName} venue analytics, match history, top performers, and ground records for ${decoded}.`
 
   const venueSchema = {
     '@context': 'https://schema.org',
@@ -66,7 +68,7 @@ export default function VenueProfile() {
 
   const seoEl = (
     <SEO
-      title={`${decoded} — IPL Venue Stats, Records & Analytics`}
+      title={`${decoded} — ${tournament.shortName} Venue Stats, Records & Analytics`}
       description={seoDescription}
       url={canonicalPath}
       type="place"

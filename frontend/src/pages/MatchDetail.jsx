@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react'
+import { useTournament } from '../contexts/TournamentContext'
 import { useParams, Link } from 'react-router-dom'
 import {
   BarChart, Bar, LineChart, Line, AreaChart, Area,
@@ -50,6 +51,7 @@ function ManhattanTooltip({ active, payload, label }) {
 }
 
 export default function MatchDetail() {
+  const tournament = useTournament()
   const { matchId } = useParams()
   const [activeTab, setActiveTab] = useState('Scorecard')
 
@@ -169,7 +171,7 @@ export default function MatchDetail() {
   }
 
   const canonicalPath = `/matches/${encodeURIComponent(matchId)}`
-  const matchTitle = `${match.team1} vs ${match.team2}${match.season ? ` — IPL ${match.season}` : ''}`
+  const matchTitle = `${match.team1} vs ${match.team2}${match.season ? ` — ${tournament.shortName} ${match.season}` : ''}`
   const seoDescription = `${match.team1} vs ${match.team2}${match.venue ? ` at ${match.venue}` : ''}${match.date ? ` on ${formatDate(match.date)}` : ''}. ${
     match.winner
       ? `${match.winner} won by ${match.win_by_runs > 0 ? `${match.win_by_runs} runs` : `${match.win_by_wickets} wickets`}.`

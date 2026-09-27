@@ -1,4 +1,4 @@
-"""Image generation endpoints: branded stat card images, OG images, AI backgrounds."""
+"""Image generation endpoints: branded stat card images and social preview (OG) images."""
 
 import os
 import io
@@ -134,27 +134,28 @@ def draw_particles(draw, width, height, color, count=30):
         draw.ellipse([x - size, y - size, x + size, y + size], fill=(*color, alpha))
 
 
-def get_font(size: int, bold: bool = False):
-    font_names = [
-        "C:/Windows/Fonts/consola.ttf",
-        "C:/Windows/Fonts/consolab.ttf",
-        "C:/Windows/Fonts/segoeui.ttf",
-        "C:/Windows/Fonts/segoeuib.ttf",
-        "C:/Windows/Fonts/arial.ttf",
-        "C:/Windows/Fonts/arialbd.ttf",
-    ]
-    if bold:
-        for name in [font_names[1], font_names[3], font_names[5]]:
-            try:
-                return ImageFont.truetype(name, size)
-            except (OSError, IOError):
-                continue
-    for name in font_names:
+FONTS_DIR = os.path.join(os.path.dirname(__file__), "..", "fonts")
+_font_cache: dict = {}
+
+
+def get_font(size: int, bold: bool = False, family: str = "SpaceGrotesk"):
+    """Load a bundled font (SIL OFL) so images render the same on every host.
+
+    Falls back to Pillow's built-in font only if the bundled files are missing.
+    """
+    key = (family, size, bold)
+    if key in _font_cache:
+        return _font_cache[key]
+    try:
+        font = ImageFont.truetype(os.path.join(FONTS_DIR, f"{family}.ttf"), size)
         try:
-            return ImageFont.truetype(name, size)
-        except (OSError, IOError):
-            continue
-    return ImageFont.load_default()
+            font.set_variation_by_axes([700 if bold else 400])
+        except (OSError, AttributeError, ValueError):
+            pass
+    except (OSError, IOError):
+        font = ImageFont.load_default(size=size)
+    _font_cache[key] = font
+    return font
 
 
 # ── Generate Functions ────────────────────────────────────────────────────────
@@ -333,7 +334,7 @@ def generate_stat_card_image(req: ImageGenRequest) -> bytes:
     # Watermark — always visible
     wm_size = max(14, int(16 * sf))
     font_wm = get_font(wm_size)
-    wm_text = "@Rkjat65 • Data doesn't lie."
+    wm_text = "crickrida.rkjat.in • Cricket via Stats"
     wm_bbox = draw.textbbox((0, 0), wm_text, font=font_wm)
     wm_w = wm_bbox[2] - wm_bbox[0]
     draw.text((w - wm_w - int(24 * sf), h - int(36 * sf)), wm_text, fill=(*PALETTE["muted"], 150), font=font_wm)
@@ -347,62 +348,105 @@ def generate_stat_card_image(req: ImageGenRequest) -> bytes:
     return output.getvalue()
 
 
-def generate_og_image(title: str, subtitle: str = None, stat: str = None) -> bytes:
+def _wrap(draw, text: str, font, max_width: int, max_lines: int) -> list[str]:
+    """Greedy word wrap; the last line is ellipsised if the text doesn't fit."""
+    words, lines, current = (text or "").split(), [], ""
+    for word in words:
+        test = f"{current} {word}".strip()
+        if draw.textlength(test, font=font) <= max_width or not current:
+            current = test
+        else:
+            lines.append(current)
+            current = word
+    if current:
+        lines.append(current)
+    if len(lines) > max_lines:
+        lines = lines[:max_lines]
+        last = lines[-1]
+        while last and draw.textlength(last + "…", font=font) > max_width:
+            last = last[:-1]
+        lines[-1] = last.rstrip() + "…"
+    return lines
+
+
+def generate_og_image(
+    title: str,
+    subtitle: str = None,
+    stat: str = None,
+    *,
+    kicker: str = None,
+    stats: list | None = None,
+    accent: tuple = None,
+) -> bytes:
+    """1200x630 social preview card: brand, kicker, title, subtitle, stat tiles."""
     w, h = 1200, 630
+    pad = 64
+    accent = accent or PALETTE["cyan"]
     img = Image.new("RGBA", (w, h), (*PALETTE["bg"], 255))
     draw = ImageDraw.Draw(img, "RGBA")
 
-    draw_dot_grid(draw, w, h, PALETTE["muted"], spacing=30, opacity=20)
-    img = draw_glow_circle(img, 900, 150, 250, PALETTE["cyan"], alpha=25)
-    img = draw_glow_circle(img, 100, 500, 200, PALETTE["magenta"], alpha=20)
+    draw_dot_grid(draw, w, h, PALETTE["muted"], spacing=30, opacity=18)
+    img = draw_glow_circle(img, 1040, 90, 300, accent, alpha=28)
+    img = draw_glow_circle(img, 80, 600, 240, PALETTE["magenta"], alpha=18)
     draw = ImageDraw.Draw(img, "RGBA")
+    draw_accent_bar(draw, 0, 0, w, 6, accent, PALETTE["magenta"])
 
-    draw_accent_bar(draw, 0, 0, w, 5, PALETTE["cyan"], PALETTE["magenta"])
+    # Brand + kicker
+    draw.text((pad, 48), "CRICKRIDA", fill=(*accent, 255), font=get_font(28, bold=True))
+    kicker = kicker or f"{get_tournament().short_name} analytics"
+    draw.text((pad, 88), kicker.upper(), fill=(*PALETTE["muted"], 230),
+              font=get_font(18, family="JetBrainsMono"))
 
-    font_brand = get_font(22, bold=True)
-    draw.text((48, 40), "RKJAT65", fill=(*PALETTE["cyan"], 255), font=font_brand)
-    font_sub = get_font(14)
-    draw.text((48, 68), f"{get_tournament().short_name.upper()} ANALYTICS", fill=(*PALETTE["muted"], 200), font=font_sub)
-
-    font_title = get_font(52, bold=True)
-    words = title.split()
-    lines = []
-    current = ""
-    for word in words:
-        test = f"{current} {word}".strip()
-        bbox = draw.textbbox((0, 0), test, font=font_title)
-        if bbox[2] - bbox[0] > w - 120:
-            if current:
-                lines.append(current)
-            current = word
-        else:
-            current = test
-    if current:
-        lines.append(current)
-
-    y = 140
-    for line in lines[:3]:
-        draw.text((48, y), line, fill=(*PALETTE["text"], 255), font=font_title)
-        y += 64
+    # Title (shrinks for long names)
+    y = 150
+    for size in (72, 62, 54):
+        font_title = get_font(size, bold=True)
+        lines = _wrap(draw, title, font_title, w - 2 * pad, 2)
+        if len(lines) == 1 or size == 54:
+            break
+    for line in lines:
+        draw.text((pad, y), line, fill=(*PALETTE["text"], 255), font=font_title)
+        y += int(font_title.size * 1.12)
 
     if subtitle:
-        font_subt = get_font(22)
-        draw.text((48, y + 10), subtitle, fill=(*PALETTE["muted"], 200), font=font_subt)
+        font_sub = get_font(28, family="Inter")
+        for line in _wrap(draw, subtitle, font_sub, w - 2 * pad, 2):
+            draw.text((pad, y + 8), line, fill=(*PALETTE["muted"], 235), font=font_sub)
+            y += 38
 
-    if stat:
-        font_stat = get_font(96, bold=True)
-        stat_bbox = draw.textbbox((0, 0), stat, font=font_stat)
-        stat_w = stat_bbox[2] - stat_bbox[0]
-        draw.text((w - stat_w - 60, h // 2 - 60), stat, fill=(*PALETTE["cyan"], 200), font=font_stat)
+    tiles = list(stats or [])[:4]
+    if stat and not tiles:
+        tiles = [("", stat)]
+    if tiles:
+        gap = 20
+        tile_w = (w - 2 * pad - gap * (len(tiles) - 1)) // len(tiles)
+        tile_h = 120
+        ty = h - pad - tile_h - 20
+        font_label = get_font(17, family="JetBrainsMono")
+        colors = [accent, PALETTE["magenta"], PALETTE["lime"], PALETTE["amber"]]
+        for i, (label, value) in enumerate(tiles):
+            tx = pad + i * (tile_w + gap)
+            color = colors[i % len(colors)]
+            draw.rounded_rectangle([tx, ty, tx + tile_w, ty + tile_h], radius=16,
+                                   fill=(*PALETTE["card"], 235), outline=(*color, 110), width=2)
+            if label:
+                draw.text((tx + 22, ty + 18), str(label).upper(), fill=(*color, 255), font=font_label)
+            value = str(value)
+            for size in (48, 40, 32, 26):
+                font_val = get_font(size, bold=True)
+                if draw.textlength(value, font=font_val) <= tile_w - 44:
+                    break
+            draw.text((tx + 22, ty + (50 if label else 34)), value, fill=(*PALETTE["text"], 255), font=font_val)
 
-    draw.rectangle([0, h - 4, w, h], fill=(*PALETTE["cyan"], 150))
-
-    font_wm = get_font(15)
-    draw.text((48, h - 45), "rkjat65.cricket • Data doesn't lie.", fill=(*PALETTE["muted"], 150), font=font_wm)
+    # Footer
+    font_wm = get_font(18, family="JetBrainsMono")
+    site = "crickrida.rkjat.in"
+    draw.text((w - pad - draw.textlength(site, font=font_wm), h - 44), site,
+              fill=(*PALETTE["muted"], 200), font=font_wm)
+    draw.rectangle([0, h - 5, w, h], fill=(*accent, 160))
 
     output = io.BytesIO()
-    img = img.convert("RGB")
-    img.save(output, format="PNG", quality=95)
+    img.convert("RGB").save(output, format="PNG", optimize=True)
     return output.getvalue()
 
 
@@ -453,7 +497,7 @@ async def generate_image(req: ImageGenRequest):
         img_bytes = generate_stat_card_image(req)
         set_cache(cache_key, img_bytes)
         return Response(content=img_bytes, media_type="image/png",
-                       headers={"X-Cache": "MISS", "Content-Disposition": "inline; filename=rkjat65-card.png"})
+                       headers={"X-Cache": "MISS", "Content-Disposition": "inline; filename=crickrida-card.png"})
     except Exception as e:
         raise HTTPException(500, f"Image generation failed: {str(e)}")
 

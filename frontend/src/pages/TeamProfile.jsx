@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
+import { useTournament } from '../contexts/TournamentContext'
 import { useFetch } from '../hooks/useFetch'
 import { getTeamStats, getTeamSeasons, getTeamH2H, getTeams } from '../lib/api'
 import SEO, { SITE_URL } from '../components/SEO'
@@ -39,6 +40,7 @@ function ChartTooltip({ active, payload, label }) {
 }
 
 export default function TeamProfile() {
+  const tournament = useTournament()
   const { teamName } = useParams()
   const decoded = decodeURIComponent(teamName)
   const color = getTeamColor(decoded)
@@ -62,8 +64,8 @@ export default function TeamProfile() {
 
   const canonicalPath = `/teams/${encodeURIComponent(decoded)}`
   const seoDescription = stats
-    ? `${decoded} IPL stats: ${formatNumber(stats.matches)} matches played, ${formatNumber(stats.wins)} wins, ${formatNumber(stats.losses)} losses${stats.titles ? `, and ${stats.titles} IPL title${stats.titles > 1 ? 's' : ''}` : ''}. Explore ${decoded}'s season-by-season performance, head-to-head records, and franchise history on Crickrida.`
-    : `IPL franchise profile, match records, season history, and head-to-head stats for ${decoded}.`
+    ? `${decoded} ${tournament.shortName} stats: ${formatNumber(stats.matches)} matches played, ${formatNumber(stats.wins)} wins, ${formatNumber(stats.losses)} losses${stats.titles ? `, and ${stats.titles} ${tournament.shortName} title${stats.titles > 1 ? 's' : ''}` : ''}. Explore ${decoded}'s season-by-season performance, head-to-head records, and franchise history on Crickrida.`
+    : `${tournament.shortName} team profile, match records, season history, and head-to-head stats for ${decoded}.`
 
   const teamSchema = {
     '@context': 'https://schema.org',
@@ -74,8 +76,8 @@ export default function TeamProfile() {
     sport: 'Cricket',
     memberOf: {
       '@type': 'SportsOrganization',
-      name: 'Indian Premier League',
-      alternateName: 'IPL',
+      name: tournament.name,
+      alternateName: tournament.shortName,
     },
   }
 
@@ -87,7 +89,7 @@ export default function TeamProfile() {
 
   const seoEl = (
     <SEO
-      title={`${decoded} — IPL Team Profile, Stats & Records`}
+      title={`${decoded} — ${tournament.shortName} Team Profile, Stats & Records`}
       description={seoDescription}
       url={canonicalPath}
       type="profile"

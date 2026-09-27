@@ -266,7 +266,7 @@ export default function Seasons() {
           <label className="text-text-secondary text-sm font-body">{tournament.competitionLabel}</label>
           <select
             value={selectedYear}
-            onChange={(e) => navigate(`/seasons/${e.target.value}`)}
+            onChange={(e) => navigate(`/seasons/${encodeURIComponent(e.target.value)}`)}
             className={selectClass}
             style={selectStyle}
           >

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTournament } from '../contexts/TournamentContext'
 import { useParams, useLocation, Link } from 'react-router-dom'
 import { useFetch } from '../hooks/useFetch'
 import {
@@ -54,6 +55,7 @@ const darkTooltipStyle = {
 }
 
 export default function PlayerProfile() {
+  const tournament = useTournament()
   const { playerName } = useParams()
   const location = useLocation()
   const fromBowling = location.pathname.startsWith('/bowling/')
@@ -96,18 +98,18 @@ export default function PlayerProfile() {
   if (hasBatting) {
     const c = batting.career
     seoDescriptionParts.push(
-      `${decodedName} has scored ${formatNumber(c.runs)} runs in ${c.matches} IPL matches at an average of ${formatDecimal(c.avg)} and strike rate of ${formatDecimal(c.sr)}.`
+      `${decodedName} has scored ${formatNumber(c.runs)} runs in ${c.matches} ${tournament.shortName} matches at an average of ${formatDecimal(c.avg)} and strike rate of ${formatDecimal(c.sr)}.`
     )
   }
   if (hasBowling) {
     const c = bowling.career
     seoDescriptionParts.push(
-      `As a bowler, ${decodedName} has taken ${formatNumber(c.wickets)} wickets in ${c.matches} IPL matches at an economy of ${formatDecimal(c.economy)}.`
+      `As a bowler, ${decodedName} has taken ${formatNumber(c.wickets)} wickets in ${c.matches} ${tournament.shortName} matches at an economy of ${formatDecimal(c.economy)}.`
     )
   }
   const seoDescription = seoDescriptionParts.length
-    ? `${seoDescriptionParts.join(' ')} View full IPL career stats, season-by-season records, and head-to-head matchups for ${decodedName} on Crickrida.`
-    : `IPL career statistics, batting and bowling records, and performance analysis for ${decodedName}.`
+    ? `${seoDescriptionParts.join(' ')} View full ${tournament.shortName} career stats, season-by-season records, and head-to-head matchups for ${decodedName} on Crickrida.`
+    : `${tournament.shortName} career statistics, batting and bowling records, and performance analysis for ${decodedName}.`
 
   const personSchema = {
     '@context': 'https://schema.org',
@@ -119,8 +121,8 @@ export default function PlayerProfile() {
       ? {
           memberOf: {
             '@type': 'SportsOrganization',
-            name: 'Indian Premier League',
-            alternateName: 'IPL',
+            name: tournament.name,
+            alternateName: tournament.shortName,
           },
         }
       : {}),
@@ -134,7 +136,7 @@ export default function PlayerProfile() {
 
   const seoEl = (
     <SEO
-      title={`${decodedName} — IPL Stats, Records & Career Profile`}
+      title={`${decodedName} — ${tournament.shortName} Stats, Records & Career Profile`}
       description={seoDescription}
       url={canonicalPath}
       type="profile"

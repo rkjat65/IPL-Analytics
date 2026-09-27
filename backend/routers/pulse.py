@@ -29,7 +29,7 @@ def _score(base: int, **boosts) -> int:
     return max(0, min(100, s))
 
 
-def _tweet(headline: str, detail: str = "", hashtags: str = "#IPL #CricketStats #RKJAT65") -> str:
+def _tweet(headline: str, detail: str = "", hashtags: str = "#IPL #CricketStats #Crickrida") -> str:
     parts = [headline]
     if detail:
         parts.append("")

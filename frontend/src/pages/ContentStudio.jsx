@@ -823,8 +823,8 @@ export default function ContentStudio() {
   return (
     <div className="space-y-6">
       <SEO
-        title="Content Studio — Create Branded IPL Cricket Stat Cards"
-        description="Create stunning branded IPL cricket stat cards, match summaries, player comparisons, and season recaps for social media sharing."
+        title="Studio — Free Cricket Stat Card Maker"
+        description={`Turn any ${tournament.shortName} stat into a branded card for X, Instagram, LinkedIn or stories — player stats, match summaries, comparisons and season recaps. Free, no sign-up.`}
         url="/content-studio"
       />
       {/* Template picker */}
