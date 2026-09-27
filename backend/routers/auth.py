@@ -119,8 +119,15 @@ def verify_password(password: str, stored: str) -> bool:
 # ── Admin check ─────────────────────────────────────────────────────
 
 def _is_admin(user: dict) -> bool:
-    """Check if the user is the platform admin by email."""
-    return user.get("email", "").lower() == ADMIN_EMAIL
+    """Check if the user is the platform admin.
+
+    The email must match ADMIN_EMAIL *and* be verified (Google sign-in or a
+    completed email password reset). Otherwise anyone could register the
+    admin address with a password before the real admin does.
+    """
+    return bool(user.get("is_verified")) and (
+        user.get("email", "").lower() == ADMIN_EMAIL
+    )
 
 
 # ── Session helpers ──────────────────────────────────────────────────
@@ -184,7 +191,7 @@ def get_current_user(
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
     row = db.execute(
         """
-        SELECT u.id, u.name, u.email, u.avatar_url, u.plan
+        SELECT u.id, u.name, u.email, u.avatar_url, u.plan, u.is_verified
         FROM sessions s JOIN users u ON s.user_id = u.id
         WHERE s.token = ? AND s.expires_at > ?
         """,
@@ -192,7 +199,9 @@ def get_current_user(
     ).fetchone()
     if not row:
         return None
-    return _user_dict(row)
+    user = _user_dict(row)
+    user["is_verified"] = bool(row["is_verified"])
+    return user
 
 
 # ── Endpoints ────────────────────────────────────────────────────────
@@ -457,11 +466,16 @@ def reset_password(body: ResetPasswordRequest):
 
     pw_hash = hash_password(body.password)
     db.execute(
-        "UPDATE users SET password_hash = ?, updated_at = datetime('now') WHERE id = ?",
+        """
+        UPDATE users SET password_hash = ?, is_verified = 1,
+               updated_at = datetime('now')
+        WHERE id = ?
+        """,
         (pw_hash, row["user_id"]),
     )
-    # Delete the used reset token
-    db.execute("DELETE FROM sessions WHERE token = ?", (f"reset:{body.token}",))
+    # The reset link proves mailbox ownership: drop the used token and every
+    # other session, so nobody who knew the old password stays signed in.
+    db.execute("DELETE FROM sessions WHERE user_id = ?", (row["user_id"],))
     db.commit()
 
     return {"detail": "Password reset successfully. You can now sign in with your new password."}
@@ -682,6 +696,10 @@ def google_login(body: GoogleLoginRequest):
         raise HTTPException(
             status_code=401, detail="Google account has no email"
         )
+    if str(data.get("email_verified", "")).lower() != "true":
+        raise HTTPException(
+            status_code=401, detail="Google account email is not verified"
+        )
 
     db = get_auth_db()
 
@@ -692,11 +710,19 @@ def google_login(body: GoogleLoginRequest):
 
     if row:
         user_id = row["id"]
+        if not row["is_verified"]:
+            # An unverified email/password account may have been registered by
+            # someone else squatting this address. Google proves ownership, so
+            # drop that password and its sessions before linking.
+            db.execute(
+                "UPDATE users SET password_hash = NULL WHERE id = ?", (user_id,)
+            )
+            db.execute("DELETE FROM sessions WHERE user_id = ?", (user_id,))
         db.execute(
             """
             UPDATE users
             SET google_id = ?, avatar_url = COALESCE(?, avatar_url),
-                updated_at = datetime('now')
+                is_verified = 1, updated_at = datetime('now')
             WHERE id = ?
             """,
             (google_id, picture, user_id),

@@ -1,6 +1,5 @@
 """Team endpoints: stats, seasons, head-to-head, comparison."""
 
-import os
 from pathlib import Path
 from fastapi import APIRouter, Query, HTTPException
 from fastapi.responses import FileResponse

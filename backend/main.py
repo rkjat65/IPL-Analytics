@@ -1,6 +1,5 @@
 """FastAPI application for IPL Analytics Dashboard."""
 
-import asyncio
 import logging
 import os
 from contextlib import asynccontextmanager

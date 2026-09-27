@@ -2,7 +2,6 @@
 
 import os
 import re
-import time
 import json
 from typing import Optional
 
@@ -217,8 +216,15 @@ FORBIDDEN_KEYWORDS = [
     "INSERT", "UPDATE", "DELETE", "DROP", "ALTER", "CREATE",
     "TRUNCATE", "REPLACE", "MERGE", "GRANT", "REVOKE",
     "EXEC", "EXECUTE", "CALL", "COPY", "ATTACH", "DETACH",
-    "PRAGMA", "EXPORT", "IMPORT", "INSTALL", "LOAD",
+    "PRAGMA", "EXPORT", "IMPORT", "INSTALL", "LOAD", "SET", "RESET",
 ]
+
+# Table functions that read host files or remote URLs (read_csv, read_text,
+# read_parquet, glob, ...). The DuckDB connection also disables external
+# access; this is a second line of defence for AI-generated SQL.
+FILE_ACCESS_PATTERN = re.compile(
+    r"\b(READ_\w+|GLOB|PARQUET_\w+|SNIFF_CSV|ICEBERG_\w+|DELTA_SCAN|SQLITE_\w+|POSTGRES_\w+|MYSQL_\w+)\s*\(",
+)
 
 def _extract_last_n(question: str) -> int | None:
     """Return N if the question asks about the 'last N matches', else None."""
@@ -293,6 +299,11 @@ def validate_sql(sql: str) -> bool:
     for kw in FORBIDDEN_KEYWORDS:
         if re.search(rf'\b{kw}\b', cleaned):
             return False
+    if FILE_ACCESS_PATTERN.search(cleaned):
+        return False
+    # Quoted file paths/URLs used directly as tables (FROM 'x.csv')
+    if re.search(r"\bFROM\s+'", cleaned) or re.search(r"\bJOIN\s+'", cleaned):
+        return False
     # No semicolons in the middle (prevent injection of multiple statements)
     if ";" in sql.strip().rstrip(";"):
         return False
@@ -469,7 +480,6 @@ Return ONLY the DuckDB SQL query:"""
         if "LIMIT" not in raw_sql.upper():
             raw_sql += " LIMIT 20"
 
-        start = time.time()
         try:
             data = query(raw_sql)
         except Exception as db_err:
@@ -498,7 +508,6 @@ Generate a corrected DuckDB SQL query. Return ONLY the SQL:"""
             data = query(fixed_sql)
             raw_sql = fixed_sql
 
-        elapsed = time.time() - start
 
         # Cap data at 50 rows
         data = data[:50]

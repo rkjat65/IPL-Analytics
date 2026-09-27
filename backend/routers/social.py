@@ -31,7 +31,7 @@ TWITTER_ACCESS_SECRET = os.getenv("TWITTER_ACCESS_SECRET", "")
 
 if all([TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET]):
     try:
-        import tweepy
+        import tweepy  # noqa: F401  (availability check)
         TWITTER_AVAILABLE = True
     except ImportError:
         TWITTER_AVAILABLE = False

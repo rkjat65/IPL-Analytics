@@ -53,7 +53,7 @@ The date-year option normalizes Cricsheet seasons to the edition year, including
 
 ---
 
-## 3. Deploying to Oracle Hosting (141.253.98.100)
+## 3. Deploying to Oracle Hosting
 
 The application is hosted on Oracle Cloud. Both `ipl.duckdb` and `t20_world_cup.duckdb` are bundled inside the Docker image, so you must redeploy to see new data.
 
@@ -67,11 +67,11 @@ python ingest.py
 # 2. Build the production image locally
 docker build -t ipl-analytics .
 
-# 3. Transfer and Load (Using the oracle.key in backend/)
-docker save ipl-analytics | ssh -i backend/oracle.key opc@141.253.98.100 "docker load"
+# 3. Transfer and Load (key kept OUTSIDE the repo, e.g. ~/.ssh/crickrida_oracle)
+docker save ipl-analytics | ssh -i ~/.ssh/crickrida_oracle "$REMOTE_USER@$ORACLE_IP" "docker load"
 
 # 4. Restart the live service
-ssh -i backend/oracle.key opc@141.253.98.100 "docker stop ipl-analytics || true && docker run -d --name ipl-analytics --restart always -p 80:8000 -v /data:/data -e DUCKDB_PATH=/app/ipl.duckdb ipl-analytics"
+ssh -i ~/.ssh/crickrida_oracle "$REMOTE_USER@$ORACLE_IP" "docker stop ipl-analytics || true && docker run -d --name ipl-analytics --restart always -p 80:8000 -v /data:/data -e DUCKDB_PATH=/app/ipl.duckdb ipl-analytics"
 ```
 
 ---
@@ -83,9 +83,9 @@ I have set up a workflow in `.github/workflows/deploy.yml`. Once configured, eve
 ### 4.1 Required Setup (One-time)
 Go to your GitHub Repository > **Settings** > **Secrets and variables** > **Actions** and add these **Repository Secrets**:
 
-1.  **`ORACLE_IP`**: `141.253.98.100`
+1.  **`ORACLE_IP`**: your server's public IP
 2.  **`REMOTE_USER`**: `opc`
-3.  **`SSH_PRIVATE_KEY`**: Copy the entire content of `backend/oracle.key`.
+3.  **`SSH_PRIVATE_KEY`**: Copy the entire content of your deploy private key (keep it in `~/.ssh/`, never in this repo).
 4.  **`VITE_GOOGLE_CLIENT_ID`**: Your Google Client ID (from `.env`).
 
 ### 4.2 The Automated Workflow
@@ -106,6 +106,6 @@ Go to your GitHub Repository > **Settings** > **Secrets and variables** > **Acti
 
 ## 5. Maintenance Commands
 
-*   **View Live Logs**: `ssh -i backend/oracle.key opc@141.253.98.100 "docker logs -f ipl-analytics"`
-*   **Check Disk Usage**: `ssh -i backend/oracle.key opc@141.253.98.100 "df -h"`
-*   **Prune Old Images**: `ssh -i backend/oracle.key opc@141.253.98.100 "docker image prune -af"`
+*   **View Live Logs**: `ssh -i ~/.ssh/crickrida_oracle "$REMOTE_USER@$ORACLE_IP" "docker logs -f ipl-analytics"`
+*   **Check Disk Usage**: `ssh -i ~/.ssh/crickrida_oracle "$REMOTE_USER@$ORACLE_IP" "df -h"`
+*   **Prune Old Images**: `ssh -i ~/.ssh/crickrida_oracle "$REMOTE_USER@$ORACLE_IP" "docker image prune -af"`
