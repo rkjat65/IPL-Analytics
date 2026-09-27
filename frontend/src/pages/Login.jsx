@@ -12,7 +12,7 @@ export default function LoginPage({ inline = false }) {
   const { login, isAuthenticated } = useAuth()
   const navigate = useNavigate()
 
-  // Modes: 'login' | 'register' | 'forgot' | 'reset'
+  // Modes: 'login' | 'forgot' | 'reset' (admin-only; there is no public registration)
   const [mode, setMode] = useState('login')
   const [formData, setFormData] = useState({
     name: '',
@@ -32,7 +32,7 @@ export default function LoginPage({ inline = false }) {
 
   useEffect(() => {
     if (!inline && isAuthenticated) {
-      navigate('/dashboard', { replace: true })
+      navigate('/admin', { replace: true })
     }
   }, [isAuthenticated, inline, navigate])
 
@@ -59,7 +59,7 @@ export default function LoginPage({ inline = false }) {
       }
       const data = await res.json()
       login(data.token, data.user)
-      if (!inline) navigate('/dashboard', { replace: true })
+      if (!inline) navigate('/admin', { replace: true })
     } catch (err) {
       setSubmitError(err.message || 'Google sign-in failed')
     } finally {
@@ -125,15 +125,10 @@ export default function LoginPage({ inline = false }) {
       if (!formData.confirmNewPassword) newErrors.confirmNewPassword = 'Please confirm password'
       else if (formData.newPassword !== formData.confirmNewPassword) newErrors.confirmNewPassword = 'Passwords do not match'
     } else {
-      if (mode === 'register' && !formData.name.trim()) newErrors.name = 'Name is required'
       if (!formData.email.trim()) newErrors.email = 'Email is required'
       else if (!validateEmail(formData.email)) newErrors.email = 'Invalid email format'
       if (!formData.password) newErrors.password = 'Password is required'
       else if (formData.password.length < 6) newErrors.password = 'Password must be at least 6 characters'
-      if (mode === 'register') {
-        if (!formData.confirmPassword) newErrors.confirmPassword = 'Please confirm your password'
-        else if (formData.password !== formData.confirmPassword) newErrors.confirmPassword = 'Passwords do not match'
-      }
     }
 
     setErrors(newErrors)
@@ -181,24 +176,19 @@ export default function LoginPage({ inline = false }) {
           setSubmitSuccess('')
         }, 2000)
       } else {
-        // Login or Register
-        const endpoint = mode === 'register' ? '/api/auth/register' : '/api/auth/login'
-        const body = mode === 'register'
-          ? { name: formData.name, email: formData.email, password: formData.password }
-          : { email: formData.email, password: formData.password }
-
-        const res = await fetch(endpoint, {
+        const body = { email: formData.email, password: formData.password }
+        const res = await fetch('/api/auth/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(body),
         })
         if (!res.ok) {
           const errData = await res.json().catch(() => ({}))
-          throw new Error(errData.detail || (mode === 'register' ? 'Registration failed' : 'Invalid credentials'))
+          throw new Error(errData.detail || 'Invalid credentials')
         }
         const data = await res.json()
         login(data.token, data.user)
-        if (!inline) navigate('/dashboard', { replace: true })
+        if (!inline) navigate('/admin', { replace: true })
       }
     } catch (err) {
       setSubmitError(err.message || 'Something went wrong')
@@ -216,19 +206,17 @@ export default function LoginPage({ inline = false }) {
 
   const getTitle = () => {
     switch (mode) {
-      case 'register': return 'Create Account'
       case 'forgot': return 'Forgot Password'
       case 'reset': return 'Reset Password'
-      default: return 'Sign In'
+      default: return 'Admin Sign In'
     }
   }
 
   const getSubtitle = () => {
     switch (mode) {
-      case 'register': return 'Join Crickrida for full access'
       case 'forgot': return 'Enter your email to reset your password'
       case 'reset': return 'Enter the reset token and your new password'
-      default: return 'Access comprehensive IPL analytics'
+      default: return 'For site administrators only'
     }
   }
 
@@ -268,8 +256,8 @@ export default function LoginPage({ inline = false }) {
               </div>
             )}
 
-            {/* Google Sign-In (login/register only) */}
-            {(mode === 'login' || mode === 'register') && GOOGLE_CLIENT_ID && (
+            {/* Google Sign-In */}
+            {mode === 'login' && GOOGLE_CLIENT_ID && (
               <>
                 <div ref={googleBtnRef} className="w-full flex justify-center mb-6" />
                 <div className="flex items-center gap-4 mb-6">
@@ -330,20 +318,9 @@ export default function LoginPage({ inline = false }) {
                 </>
               )}
 
-              {/* LOGIN / REGISTER MODE */}
-              {(mode === 'login' || mode === 'register') && (
+              {/* LOGIN MODE */}
+              {mode === 'login' && (
                 <>
-                  {mode === 'register' && (
-                    <div>
-                      <label htmlFor="auth-name" className="block text-text-secondary text-sm font-medium mb-1.5">Full Name</label>
-                      <input id="auth-name" name="name" type="text" value={formData.name} onChange={handleChange}
-                        placeholder="Your full name"
-                        className={`w-full px-4 py-2.5 rounded-lg bg-[#0A0A0F] border text-text-primary text-sm placeholder-text-muted/50
-                          focus:outline-none focus:ring-2 focus:ring-accent-cyan/40 focus:border-accent-cyan/60 transition-all
-                          ${errors.name ? 'border-accent-magenta/60' : 'border-[#1E1E2A]'}`} />
-                      {errors.name && <p className="mt-1 text-xs text-accent-magenta">{errors.name}</p>}
-                    </div>
-                  )}
 
                   <div>
                     <label htmlFor="auth-email" className="block text-text-secondary text-sm font-medium mb-1.5">Email</label>
@@ -366,24 +343,13 @@ export default function LoginPage({ inline = false }) {
                       )}
                     </div>
                     <input id="auth-password" name="password" type="password" value={formData.password} onChange={handleChange}
-                      placeholder="Min. 6 characters" autoComplete={mode === 'register' ? 'new-password' : 'current-password'}
+                      placeholder="Min. 6 characters" autoComplete="current-password"
                       className={`w-full px-4 py-2.5 rounded-lg bg-[#0A0A0F] border text-text-primary text-sm placeholder-text-muted/50
                         focus:outline-none focus:ring-2 focus:ring-accent-cyan/40 focus:border-accent-cyan/60 transition-all
                         ${errors.password ? 'border-accent-magenta/60' : 'border-[#1E1E2A]'}`} />
                     {errors.password && <p className="mt-1 text-xs text-accent-magenta">{errors.password}</p>}
                   </div>
 
-                  {mode === 'register' && (
-                    <div>
-                      <label htmlFor="auth-confirm-password" className="block text-text-secondary text-sm font-medium mb-1.5">Confirm Password</label>
-                      <input id="auth-confirm-password" name="confirmPassword" type="password" value={formData.confirmPassword} onChange={handleChange}
-                        placeholder="Repeat your password" autoComplete="new-password"
-                        className={`w-full px-4 py-2.5 rounded-lg bg-[#0A0A0F] border text-text-primary text-sm placeholder-text-muted/50
-                          focus:outline-none focus:ring-2 focus:ring-accent-cyan/40 focus:border-accent-cyan/60 transition-all
-                          ${errors.confirmPassword ? 'border-accent-magenta/60' : 'border-[#1E1E2A]'}`} />
-                      {errors.confirmPassword && <p className="mt-1 text-xs text-accent-magenta">{errors.confirmPassword}</p>}
-                    </div>
-                  )}
                 </>
               )}
 
@@ -394,20 +360,18 @@ export default function LoginPage({ inline = false }) {
                   flex items-center justify-center gap-2">
                 {submitting && <div className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin" />}
                 {mode === 'forgot' ? 'Send Reset Link' :
-                 mode === 'reset' ? 'Reset Password' :
-                 mode === 'register' ? 'Create Account' : 'Sign In'}
+                 mode === 'reset' ? 'Reset Password' : 'Sign In'}
               </button>
             </form>
 
             {/* Footer links */}
             <div className="mt-6 text-center space-y-2">
-              {(mode === 'login' || mode === 'register') && (
+              {mode === 'login' && !inline && (
                 <p className="text-text-muted text-sm">
-                  {mode === 'register' ? 'Already have an account?' : "Don't have an account?"}{' '}
-                  <button onClick={() => switchMode(mode === 'register' ? 'login' : 'register')}
-                    className="text-accent-cyan hover:underline font-medium transition-colors">
-                    {mode === 'register' ? 'Sign In' : 'Create Account'}
-                  </button>
+                  Not an admin?{' '}
+                  <a href="/dashboard" className="text-accent-cyan hover:underline font-medium transition-colors">
+                    Explore Crickrida — it&apos;s free, no account needed
+                  </a>
                 </p>
               )}
               {(mode === 'forgot' || mode === 'reset') && (

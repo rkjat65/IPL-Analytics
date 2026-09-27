@@ -12,10 +12,5 @@ python-multipart>=0.0.9
 pydantic>=2.9.0
 Pillow>=10.0.0
 
-# AI (Gemini)
-google-generativeai>=0.7.0
-google-genai>=1.0.0
-
 # Dev / tooling
 ruff>=0.4.0
-razorpay>=2.0.0

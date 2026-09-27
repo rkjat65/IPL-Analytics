@@ -43,12 +43,6 @@ EXPOSE_RESET_TOKEN = os.environ.get("EXPOSE_RESET_TOKEN", "").lower() in {
 
 # ── Pydantic models ─────────────────────────────────────────────────
 
-class RegisterRequest(BaseModel):
-    email: str
-    name: str
-    password: str
-
-
 class LoginRequest(BaseModel):
     email: str
     password: str
@@ -91,6 +85,7 @@ class UserResponse(BaseModel):
     email: str
     avatar_url: Optional[str] = None
     plan: Optional[str] = "free"
+    is_admin: bool = False
 
 
 class AuthResponse(BaseModel):
@@ -117,6 +112,23 @@ def verify_password(password: str, stored: str) -> bool:
 
 
 # ── Admin check ─────────────────────────────────────────────────────
+
+ADMIN_ONLY_DETAIL = "Sign-in is only available to site administrators."
+
+
+def _is_admin_email(email: str) -> bool:
+    return (email or "").strip().lower() == ADMIN_EMAIL
+
+
+def require_admin(authorization: Optional[str] = Header(None)) -> dict:
+    """FastAPI dependency: the request must carry a verified admin session."""
+    user = get_current_user(authorization)
+    if not user:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    if not _is_admin(user):
+        raise HTTPException(status_code=403, detail="Admin access only")
+    return user
+
 
 def _is_admin(user: dict) -> bool:
     """Check if the user is the platform admin.
@@ -160,6 +172,11 @@ def _user_dict(row) -> dict:
         d["plan"] = row["plan"] or "free"
     except (IndexError, KeyError):
         d["plan"] = "free"
+    try:
+        d["is_verified"] = bool(row["is_verified"])
+    except (IndexError, KeyError):
+        d["is_verified"] = False
+    d["is_admin"] = _is_admin(d)
     return d
 
 
@@ -199,52 +216,15 @@ def get_current_user(
     ).fetchone()
     if not row:
         return None
-    user = _user_dict(row)
-    user["is_verified"] = bool(row["is_verified"])
-    return user
+    return _user_dict(row)
 
 
 # ── Endpoints ────────────────────────────────────────────────────────
 
-@router.post("/register", response_model=AuthResponse)
-def register(body: RegisterRequest):
-    _validate_email(body.email)
-    _validate_password(body.password)
-    if not body.name.strip():
-        raise HTTPException(status_code=400, detail="Name is required")
-
-    db = get_auth_db()
-    existing = db.execute(
-        "SELECT id FROM users WHERE email = ?", (body.email.lower(),)
-    ).fetchone()
-    if existing:
-        raise HTTPException(status_code=409, detail="Email already registered")
-
-    user_id = str(uuid4())
-    pw_hash = hash_password(body.password)
-    db.execute(
-        """
-        INSERT INTO users (id, email, name, password_hash, auth_provider, is_verified, last_login, login_count)
-        VALUES (?, ?, ?, ?, 'email', 0, datetime('now'), 1)
-        """,
-        (user_id, body.email.lower(), body.name.strip(), pw_hash),
-    )
-    db.commit()
-
-    token = _create_session(user_id)
-    return {
-        "token": token,
-        "user": {
-            "id": user_id,
-            "name": body.name.strip(),
-            "email": body.email.lower(),
-            "avatar_url": None,
-        },
-    }
-
-
 @router.post("/login", response_model=AuthResponse)
 def login(body: LoginRequest):
+    if not _is_admin_email(body.email):
+        raise HTTPException(status_code=403, detail=ADMIN_ONLY_DETAIL)
     db = get_auth_db()
     row = db.execute(
         "SELECT * FROM users WHERE email = ?", (body.email.lower(),)
@@ -411,8 +391,9 @@ def forgot_password(body: ForgotPasswordRequest):
         (body.email.lower(),),
     ).fetchone()
 
-    # Always return success to prevent email enumeration
-    if not row:
+    # Always return success to prevent email enumeration. Only the admin
+    # account can sign in, so only it can receive a reset link.
+    if not row or not _is_admin_email(body.email):
         return {"detail": "If an account with that email exists, a reset link has been generated."}
 
     # Create reset token
@@ -700,6 +681,8 @@ def google_login(body: GoogleLoginRequest):
         raise HTTPException(
             status_code=401, detail="Google account email is not verified"
         )
+    if not _is_admin_email(email):
+        raise HTTPException(status_code=403, detail=ADMIN_ONLY_DETAIL)
 
     db = get_auth_db()
 

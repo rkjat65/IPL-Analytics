@@ -3,8 +3,17 @@ import SEO from '../components/SEO'
 
 const API_BASE = '/api'
 
+// Social tools are admin-only: send the admin session with every request.
+const authHeaders = () => {
+  const token = localStorage.getItem('auth_token')
+  return token ? { Authorization: `Bearer ${token}` } : {}
+}
+
 const fetchJSON = (url, opts = {}) =>
-  fetch(`${window.location.origin}${url}`, opts).then(r => {
+  fetch(`${window.location.origin}${url}`, {
+    ...opts,
+    headers: { ...authHeaders(), ...(opts.headers || {}) },
+  }).then(r => {
     if (!r.ok) return r.json().then(e => { throw new Error(e.detail || 'Request failed') })
     return r.json()
   })
@@ -105,7 +114,7 @@ export default function SocialCompose() {
 
   const handleDeleteDraft = async (id) => {
     try {
-      await fetch(`${window.location.origin}${API_BASE}/social/drafts/${id}`, { method: 'DELETE' })
+      await fetch(`${window.location.origin}${API_BASE}/social/drafts/${id}`, { method: 'DELETE', headers: authHeaders() })
       setDrafts(prev => prev.filter(d => d.id !== id))
     } catch {}
   }

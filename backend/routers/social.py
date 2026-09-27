@@ -5,10 +5,17 @@ import json
 from datetime import datetime
 from typing import Optional
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 
-router = APIRouter(prefix="/api/social", tags=["Social"])
+from .auth import require_admin
+
+# Posting to the brand's social accounts is an admin-only tool.
+router = APIRouter(
+    prefix="/api/social",
+    tags=["Social"],
+    dependencies=[Depends(require_admin)],
+)
 
 # ── Storage for drafts and scheduled posts ────────────────────────────────────
 DRAFTS_DIR = os.path.join(os.path.dirname(__file__), "..", "cache", "drafts")

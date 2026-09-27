@@ -255,48 +255,6 @@ class ApiService {
         await client.get('/seasons/${Uri.encodeComponent(season)}/cap-race'),
       );
 
-  // ── AI ────────────────────────────────────────────────
-  Future<Map<String, dynamic>> getAiStatus() async =>
-      asStringKeyedMap(await client.get('/ai/status'));
-
-  Future<Map<String, dynamic>> askCricket(
-    String question, {
-    String? season,
-  }) async => asStringKeyedMap(
-    await client.post(
-      '/ai/query',
-      body: {
-        'question': question,
-        if (season != null && season.isNotEmpty) 'season': season,
-      },
-    ),
-  );
-
-  Future<Map<String, dynamic>> generateCommentary(
-    Map<String, dynamic> data,
-  ) async => asStringKeyedMap(await client.post('/ai/commentary', body: data));
-
-  Future<Map<String, dynamic>> generateThread(
-    String topic,
-    Map<String, dynamic> data,
-  ) async => asStringKeyedMap(
-    await client.post('/ai/thread', body: {'topic': topic, 'data': data}),
-  );
-
-  Future<List<String>> getAiSuggestions() async {
-    final data = await client.get('/ai/suggestions');
-    if (data is List) return data.map((e) => e.toString()).toList();
-    if (data is Map && data['suggestions'] is List) {
-      return (data['suggestions'] as List).map((e) => e.toString()).toList();
-    }
-    return [];
-  }
-
-  Future<Map<String, dynamic>> generateAiImage(
-    Map<String, dynamic> data,
-  ) async =>
-      asStringKeyedMap(await client.post('/ai/generate-image', body: data));
-
   // ── Images ────────────────────────────────────────────
   Future<Map<String, dynamic>> generateCardImage(
     Map<String, dynamic> data,
@@ -356,62 +314,4 @@ class ApiService {
       body: {'card_config': cardConfig, 'dimensions': ?dimensions},
     ),
   );
-
-  // ── Social ────────────────────────────────────────────
-  Future<Map<String, dynamic>> getSocialStatus() async =>
-      asStringKeyedMap(await client.get('/social/status'));
-
-  Future<List<String>> getHashtags({String category = 'general'}) async {
-    final data = await client.get(
-      '/social/hashtags',
-      params: {'category': category},
-    );
-    if (data is Map && data['hashtags'] is List) {
-      return (data['hashtags'] as List).map((e) => e.toString()).toList();
-    }
-    if (data is List) return data.map((e) => e.toString()).toList();
-    return [];
-  }
-
-  Future<List<dynamic>> getOptimalTimes({String platform = 'twitter'}) async {
-    final data = await client.get(
-      '/social/optimal-times',
-      params: {'platform': platform},
-    );
-    if (data is Map && data['times'] is List) return data['times'] as List;
-    if (data is List) return data;
-    return [];
-  }
-
-  Future<List<Map<String, dynamic>>> getDrafts() async {
-    final data = await client.get('/social/drafts');
-    return asMapList(data, 'drafts');
-  }
-
-  Future<Map<String, dynamic>> saveDraft(Map<String, dynamic> body) async =>
-      asStringKeyedMap(await client.post('/social/drafts', body: body));
-
-  Future<void> deleteDraft(String id) async =>
-      client.delete('/social/drafts/$id');
-
-  Future<Map<String, dynamic>> previewCompose(
-    Map<String, dynamic> body,
-  ) async => asStringKeyedMap(
-    await client.post('/social/compose/preview', body: body),
-  );
-
-  Future<Map<String, dynamic>> postTwitter(Map<String, dynamic> body) async =>
-      asStringKeyedMap(await client.post('/social/post/twitter', body: body));
-
-  Future<Map<String, dynamic>> postThread(Map<String, dynamic> body) async =>
-      asStringKeyedMap(await client.post('/social/post/thread', body: body));
-
-  // ── Billing ───────────────────────────────────────────
-  Future<dynamic> getBillingPlans() => client.get('/billing/plans');
-
-  Future<Map<String, dynamic>> getBillingUsage() async =>
-      asStringKeyedMap(await client.get('/billing/usage'));
-
-  Future<Map<String, dynamic>> checkFeatureQuota(String feature) async =>
-      asStringKeyedMap(await client.get('/billing/check/$feature'));
 }
