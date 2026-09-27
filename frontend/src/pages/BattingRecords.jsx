@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback } from 'react'
+import useUrlState from '../hooks/useUrlState'
 import MakeCardButton from '../components/ui/MakeCardButton'
 import { Link } from 'react-router-dom'
 import { useFetch } from '../hooks/useFetch'
@@ -64,10 +65,11 @@ const rankAccent = (rank) => {
 export default function BattingRecords() {
   const tournament = useTournament()
   const chartRef = useRef(null)
-  const [season, setSeason] = useState('')
-  const [team, setTeam] = useState('')
-  const [sortBy, setSortBy] = useState('runs')
-  const [minBalls, setMinBalls] = useState(0)
+  // Filters live in the URL so a filtered leaderboard can be shared
+  const [season, setSeason] = useUrlState('season', '')
+  const [team, setTeam] = useUrlState('team', '')
+  const [sortBy, setSortBy] = useUrlState('sort', 'runs')
+  const [minBalls, setMinBalls] = useUrlState('min_balls', 0)
   const [downloading, setDownloading] = useState(false)
 
   const handleDownloadChart = useCallback(async () => {

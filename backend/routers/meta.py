@@ -1,11 +1,13 @@
 """Meta endpoints: seasons, teams, players search."""
 
+from functools import lru_cache
+
 from fastapi import APIRouter, Query
 from pydantic import BaseModel, Field
 
 from ..database import query, normalize_team
 from ..player_resolve import canonical_player_slug
-from ..tournaments import get_tournament, public_tournaments
+from ..tournaments import get_tournament, get_tournament_slug, public_tournaments
 
 router = APIRouter(prefix="/api/meta", tags=["meta"])
 
@@ -50,6 +52,20 @@ def list_teams():
     return sorted(set(normalize_team(r["team"]) for r in rows))
 
 
+@lru_cache(maxsize=4)
+def _player_prominence(slug: str) -> dict[str, int]:
+    """Matches played per player, used to rank search results."""
+    rows = query(
+        """
+        SELECT name, COUNT(DISTINCT match_id) AS matches FROM (
+            SELECT batter AS name, match_id FROM deliveries
+            UNION ALL SELECT bowler AS name, match_id FROM deliveries
+        ) GROUP BY name
+        """
+    )
+    return {r["name"]: r["matches"] for r in rows}
+
+
 @router.get("/players")
 def search_players(q: str = Query("", min_length=0)):
     if not q:
@@ -57,10 +73,24 @@ def search_players(q: str = Query("", min_length=0)):
         return [r["name"] for r in rows]
 
     rows = query(
-        "SELECT DISTINCT name FROM players WHERE LOWER(name) LIKE '%' || LOWER(?) || '%' ORDER BY name LIMIT 50",
+        "SELECT DISTINCT name FROM players WHERE LOWER(name) LIKE '%' || LOWER(?) || '%' LIMIT 500",
         [q],
     )
-    return [r["name"] for r in rows]
+    # Best matches first: surname/word starts with the query, then the players
+    # people are most likely looking for (most matches).
+    term = q.strip().lower()
+    played = _player_prominence(get_tournament_slug())
+
+    def rank(name: str):
+        words = name.lower().split()
+        return (
+            0 if name.lower() == term else 1,
+            0 if any(w.startswith(term) for w in words) else 1,
+            -played.get(name, 0),
+            name,
+        )
+
+    return sorted((r["name"] for r in rows), key=rank)[:50]
 
 
 @router.post("/players/batch-lookup")
