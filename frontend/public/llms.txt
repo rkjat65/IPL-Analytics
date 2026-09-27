@@ -35,7 +35,10 @@ Crickrida (https://crickrida.rkjat.in) is an open analytics platform for the Ind
 - /h2h — Head-to-head team and player comparisons
 - /charts — Statistical breakdowns and trend visualizations
 - /pulse — Trending insights, streaks and On This Day
-- /content-studio — Free stat-card studio
+- /content-studio — Free stat-card studio (player, match, comparison, season, Top 5 cards)
+- /fantasy — Fantasy picks: projected points, suggested XI, captain and vice-captain
+- /quiz — "Guess the player" stats quiz
+- /batting/compare, /bowling/compare — Compare players side by side
 - /faq — Frequently asked questions about the IPL (history, rules, format, auctions, records, players)
 
 ## Contact & attribution

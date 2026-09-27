@@ -7,7 +7,7 @@
  *   and refresh it in the background (stale-while-revalidate).
  * Admin, auth and social requests are never cached.
  */
-const VERSION = 'v1'
+const VERSION = 'v2'
 const STATIC = `crickrida-static-${VERSION}`
 const PAGES = `crickrida-pages-${VERSION}`
 const DATA = `crickrida-data-${VERSION}`
@@ -89,7 +89,7 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(networkFirstPage(request))
   } else if (path.startsWith('/assets/') || path.startsWith('/fonts/') || path.startsWith('/icons/')) {
     event.respondWith(cacheFirst(request))
-  } else if (path.startsWith('/api/') && !path.startsWith('/api/og')) {
+  } else if (path.startsWith('/api/') && !path.startsWith('/api/og') && !path.startsWith('/api/quiz')) {
     event.respondWith(staleWhileRevalidate(event))
   }
 })

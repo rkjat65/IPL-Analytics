@@ -141,6 +141,26 @@ const navItems = [
     ),
   },
   {
+    to: '/fantasy',
+    label: 'Fantasy',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 shrink-0">
+        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+      </svg>
+    ),
+  },
+  {
+    to: '/quiz',
+    label: 'Quiz',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 shrink-0">
+        <rect x="3" y="3" width="18" height="18" rx="3" />
+        <path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.7-2.4 2.3-2.4 3.8" />
+        <path d="M12 17h.01" />
+      </svg>
+    ),
+  },
+  {
     to: '/faq',
     label: 'FAQ',
     icon: (

@@ -18,6 +18,9 @@ const VenueProfile = lazy(() => import('./pages/VenueProfile'))
 const Seasons = lazy(() => import('./pages/Seasons'))
 const HeadToHead = lazy(() => import('./pages/HeadToHead'))
 const BattingCompare = lazy(() => import('./pages/BattingCompare'))
+const BowlingCompare = lazy(() => import('./pages/BowlingCompare'))
+const Fantasy = lazy(() => import('./pages/Fantasy'))
+const Quiz = lazy(() => import('./pages/Quiz'))
 const ContentStudio = lazy(() => import('./pages/ContentStudio'))
 const SocialCompose = lazy(() => import('./pages/SocialCompose'))
 const CricketPulse = lazy(() => import('./pages/CricketPulse'))
@@ -61,6 +64,9 @@ export default function App() {
         <Route path="/batting/compare" element={<BattingCompare />} />
         <Route path="/batting/:playerName" element={<PlayerProfile />} />
         <Route path="/bowling" element={<BowlingRecords />} />
+        <Route path="/bowling/compare" element={<BowlingCompare />} />
+        <Route path="/fantasy" element={<Fantasy />} />
+        <Route path="/quiz" element={<Quiz />} />
         <Route path="/bowling/:playerName" element={<PlayerProfile />} />
         <Route path="/teams" element={<Teams />} />
         <Route path="/teams/:teamName" element={<TeamProfile />} />
