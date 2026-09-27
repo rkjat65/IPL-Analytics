@@ -23,6 +23,7 @@ import PlayerImpact from './pages/PlayerImpact'
 import Charts from './pages/Charts'
 import FAQ from './pages/FAQ'
 import Admin from './pages/Admin'
+import NotFound from './pages/NotFound'
 import { AccountDeletion, PrivacyPolicy, TermsOfUse } from './pages/Legal'
 
 export default function App() {
@@ -64,6 +65,7 @@ export default function App() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
         <Route path="/admin/social" element={<ProtectedRoute><SocialCompose /></ProtectedRoute>} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   )

@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
+import { useTournament } from '../contexts/TournamentContext'
 import {
   RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
   RadialBarChart, RadialBar,
@@ -173,6 +174,7 @@ function RadarTooltip({ active, payload }) {
 
 /* ── Main Page Component ─────────────────────────────────── */
 export default function PlayerImpactPage() {
+  const tournament = useTournament()
   const [searchInput, setSearchInput] = useState('')
   const [suggestions, setSuggestions] = useState([])
   const [showSuggestions, setShowSuggestions] = useState(false)
@@ -251,8 +253,8 @@ export default function PlayerImpactPage() {
   return (
     <div className="min-h-screen" style={{ background: C.bg }}>
       <SEO
-        title="IPL Player Impact Index — Batting, Bowling & All-Rounder Ratings"
-        description="Analyze any IPL player's match impact with advanced batting, bowling, and all-rounder metrics powered by statistical models — go beyond raw stats to see who really wins matches."
+        title={`${tournament.shortName} Player Impact Index — Batting, Bowling & All-Rounder Ratings`}
+        description={`Analyze any ${tournament.shortName} player's match impact with advanced batting, bowling, and all-rounder metrics powered by statistical models — go beyond raw stats to see who really wins matches.`}
         url="/player-impact"
       />
 

@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react'
+import { useTournament } from '../contexts/TournamentContext'
 import { useFetch } from '../hooks/useFetch'
 import { searchPlayers, getPlayerBatting } from '../lib/api'
 import SEO from '../components/SEO'
@@ -30,6 +31,7 @@ const darkTooltipStyle = {
 }
 
 export default function BattingCompare() {
+  const tournament = useTournament()
   const [query, setQuery] = useState('')
   const [searchResults, setSearchResults] = useState([])
   const [searching, setSearching] = useState(false)
@@ -143,8 +145,8 @@ export default function BattingCompare() {
   return (
     <div className="space-y-8">
       <SEO
-        title="IPL Batting Comparison Tool — Compare Player Stats Side by Side"
-        description="Compare any IPL batters side by side — runs, average, strike rate, centuries, and more — with radar charts and head-to-head visual breakdowns."
+        title={`${tournament.shortName} Batting Comparison Tool — Compare Player Stats Side by Side`}
+        description={`Compare any ${tournament.shortName} batters side by side — runs, average, strike rate, centuries, and more — with radar charts and head-to-head visual breakdowns.`}
         url="/batting/compare"
       />
       {/* Header */}

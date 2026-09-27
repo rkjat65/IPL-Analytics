@@ -7,7 +7,7 @@ from ..tournaments import get_tournament_slug
 router = APIRouter(prefix="/api/seasons", tags=["seasons"])
 
 
-@router.get("/{season}/groups")
+@router.get("/{season:path}/groups")
 def season_groups(season: str):
     """Return the group/stage scopes available for a tournament edition."""
     if get_tournament_slug() != "t20wc":
@@ -20,7 +20,7 @@ def season_groups(season: str):
     """, [season])
 
 
-@router.get("/{season}/summary")
+@router.get("/{season:path}/summary")
 def season_summary(season: str):
     summary = query("""
         SELECT
@@ -121,7 +121,7 @@ def season_summary(season: str):
     return result
 
 
-@router.get("/{season}/points-table")
+@router.get("/{season:path}/points-table")
 def points_table(
     season: str,
     group: str | None = Query(None),
@@ -261,7 +261,7 @@ def points_table(
     return rows
 
 
-@router.get("/{season}/cap-race")
+@router.get("/{season:path}/cap-race")
 def cap_race(season: str):
     """Orange cap (runs) and purple cap (wickets) race - cumulative match by match for top 5."""
     # Orange cap race
