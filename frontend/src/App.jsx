@@ -1,33 +1,47 @@
+import { lazy, Suspense } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Layout from './components/layout/Layout'
 import ProtectedRoute from './components/auth/ProtectedRoute'
-import Dashboard from './pages/Dashboard'
-import Login from './pages/Login'
-import Matches from './pages/Matches'
-import MatchDetail from './pages/MatchDetail'
-import BattingRecords from './pages/BattingRecords'
-import BowlingRecords from './pages/BowlingRecords'
-import PlayerProfile from './pages/PlayerProfile'
-import Teams from './pages/Teams'
-import TeamProfile from './pages/TeamProfile'
-import Venues from './pages/Venues'
-import VenueProfile from './pages/VenueProfile'
-import Seasons from './pages/Seasons'
-import HeadToHead from './pages/HeadToHead'
-import BattingCompare from './pages/BattingCompare'
-import ContentStudio from './pages/ContentStudio'
-import SocialCompose from './pages/SocialCompose'
-// AdvancedAnalytics removed — Team Form Index moved to Content Studio
-import CricketPulse from './pages/CricketPulse'
-import PlayerImpact from './pages/PlayerImpact'
-import Charts from './pages/Charts'
-import FAQ from './pages/FAQ'
-import Admin from './pages/Admin'
-import NotFound from './pages/NotFound'
-import { AccountDeletion, PrivacyPolicy, TermsOfUse } from './pages/Legal'
+
+// Every page is its own chunk, downloaded when first visited.
+const Dashboard = lazy(() => import('./pages/Dashboard'))
+const Login = lazy(() => import('./pages/Login'))
+const Matches = lazy(() => import('./pages/Matches'))
+const MatchDetail = lazy(() => import('./pages/MatchDetail'))
+const BattingRecords = lazy(() => import('./pages/BattingRecords'))
+const BowlingRecords = lazy(() => import('./pages/BowlingRecords'))
+const PlayerProfile = lazy(() => import('./pages/PlayerProfile'))
+const Teams = lazy(() => import('./pages/Teams'))
+const TeamProfile = lazy(() => import('./pages/TeamProfile'))
+const Venues = lazy(() => import('./pages/Venues'))
+const VenueProfile = lazy(() => import('./pages/VenueProfile'))
+const Seasons = lazy(() => import('./pages/Seasons'))
+const HeadToHead = lazy(() => import('./pages/HeadToHead'))
+const BattingCompare = lazy(() => import('./pages/BattingCompare'))
+const ContentStudio = lazy(() => import('./pages/ContentStudio'))
+const SocialCompose = lazy(() => import('./pages/SocialCompose'))
+const CricketPulse = lazy(() => import('./pages/CricketPulse'))
+const PlayerImpact = lazy(() => import('./pages/PlayerImpact'))
+const Charts = lazy(() => import('./pages/Charts'))
+const FAQ = lazy(() => import('./pages/FAQ'))
+const Admin = lazy(() => import('./pages/Admin'))
+const NotFound = lazy(() => import('./pages/NotFound'))
+const legal = (name) => lazy(() => import('./pages/Legal').then(m => ({ default: m[name] })))
+const PrivacyPolicy = legal('PrivacyPolicy')
+const TermsOfUse = legal('TermsOfUse')
+const AccountDeletion = legal('AccountDeletion')
+
+// Warm the chunks visitors open most, once the first page is idle.
+if (typeof window !== 'undefined') {
+  const warm = () => {
+    import('./pages/BattingRecords'); import('./pages/Matches'); import('./pages/PlayerProfile')
+  }
+  ;(window.requestIdleCallback || ((cb) => setTimeout(cb, 2000)))(warm)
+}
 
 export default function App() {
   return (
+    <Suspense fallback={<div className="min-h-screen bg-bg-primary" />}>
     <Routes>
       {/* Default: land straight on the dashboard */}
       <Route path="/" element={<Navigate to="/dashboard" replace />} />
@@ -68,5 +82,6 @@ export default function App() {
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
+    </Suspense>
   )
 }

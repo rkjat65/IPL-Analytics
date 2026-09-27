@@ -34,7 +34,7 @@ function playerAvatarUrl(name, size = 28) {
   return `${AVATAR_BASE}?name=${encodeURIComponent(initials)}&size=${size}&background=16161F&color=00E5FF&bold=true&font-size=0.45`
 }
 function realPlayerImageUrl(name) {
-  return `/api/players/${encodeURIComponent(name)}/image`
+  return `/api/players/${encodeURIComponent(name)}/image?w=160`
 }
 
 /* ── Draw Animation Hook (line grows slowly for recording) ── */

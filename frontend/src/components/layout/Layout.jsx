@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import Sidebar from './Sidebar'
 import Header from './Header'
+import PageSkeleton from '../ui/PageSkeleton'
 import { useTournament } from '../../contexts/TournamentContext'
 
 export default function Layout({ children }) {
@@ -19,7 +20,9 @@ export default function Layout({ children }) {
         <main className="flex-1 overflow-auto p-6">
           <div className="max-w-[1440px] mx-auto">
             <div key={tournament}>
-              {children || <Outlet />}
+              <Suspense fallback={<PageSkeleton />}>
+                {children || <Outlet />}
+              </Suspense>
             </div>
           </div>
         </main>

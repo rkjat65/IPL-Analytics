@@ -1,5 +1,6 @@
 """Player endpoints: batting/bowling leaderboards, profiles, matchups."""
 
+import hashlib
 from pathlib import Path
 from fastapi import APIRouter, Query, HTTPException
 from fastapi.responses import FileResponse
@@ -18,7 +19,14 @@ def find_player_image_file(raw_name: str) -> Path | None:
         return None
 
     candidates = [decoded]
-    for role in ("bat", "bowl"):
+    # Only resolve display names ("Virat Kohli" -> "V Kohli"). A name that is
+    # already a real player must not fall back to someone sharing the surname
+    # (the resolver maps an unknown "T Kohli" bowler to "V Kohli").
+    is_known_player = bool(query(
+        "SELECT 1 FROM deliveries WHERE batter = ? OR bowler = ? LIMIT 1",
+        [decoded, decoded],
+    ))
+    for role in () if is_known_player else ("bat", "bowl"):
         try:
             resolved = resolve_player_name(decoded, role)
             if resolved and resolved not in candidates:
@@ -47,6 +55,34 @@ def _player_image_response(path: Path):
     ext = path.suffix.lower().lstrip(".")
     media = PLAYER_IMAGE_MEDIA.get(ext, "image/png")
     return FileResponse(path, media_type=media)
+
+
+# Source photos are up to ~2 MB; avatars are 24–96 px. Serve small square
+# WebP thumbnails (face-biased crop) at a few fixed sizes, cached on disk.
+THUMB_SIZES = (48, 96, 160, 256, 512)
+THUMB_DIR = Path(__file__).parent.parent / "cache" / "thumbs"
+
+
+def player_thumbnail(path: Path, width: int) -> Path | None:
+    from PIL import Image, ImageOps
+
+    size = next((s for s in THUMB_SIZES if s >= width), THUMB_SIZES[-1])
+    stat = path.stat()
+    key = hashlib.sha1(f"{path.name}|{stat.st_size}|{stat.st_mtime_ns}|{size}".encode()).hexdigest()[:24]
+    out = THUMB_DIR / f"{key}.webp"
+    if out.is_file():
+        return out
+    try:
+        with Image.open(path) as im:
+            im = ImageOps.exif_transpose(im).convert("RGBA")
+            im = ImageOps.fit(im, (size, size), Image.LANCZOS, centering=(0.5, 0.3))
+            THUMB_DIR.mkdir(parents=True, exist_ok=True)
+            tmp = out.with_suffix(".tmp")
+            im.save(tmp, "WEBP", quality=82, method=6)
+            tmp.replace(out)
+    except (OSError, ValueError):
+        return None  # not a readable image
+    return out
 
 router = APIRouter(prefix="/api/players", tags=["players"])
 
@@ -277,13 +313,19 @@ def available_images():
 
 
 @router.get("/{player_name}/image")
-def player_image(player_name: str):
+def player_image(player_name: str, w: int | None = Query(None, ge=16, le=1024)):
     """Serve player image from backend/player_images if present.
 
     Resolves display names via player_resolve (bat/bowl) and falls back to
     case-insensitive filename match so scorecard names map to files on disk.
+    With ``w``, returns a square WebP thumbnail at least that wide.
     """
     path = find_player_image_file(player_name)
+    if path and w:
+        thumb = player_thumbnail(path, w)
+        if thumb:
+            return FileResponse(thumb, media_type="image/webp")
+        raise HTTPException(status_code=404, detail="No image available")
     if path:
         return _player_image_response(path)
     raise HTTPException(status_code=404, detail="No image available")

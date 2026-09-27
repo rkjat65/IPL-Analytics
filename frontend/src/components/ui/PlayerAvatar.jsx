@@ -64,14 +64,15 @@ export default function PlayerAvatar({
     // Fetch the available images list (single request, cached globally)
     fetchAvailableImages().then(available => {
       if (available.has(name)) {
-        setResolvedUrl(`/api/players/${encodeURIComponent(name)}/image`)
+        // Ask for a thumbnail at the rendered size (2x for sharp retina/exports)
+        setResolvedUrl(`/api/players/${encodeURIComponent(name)}/image?w=${Math.min(512, Math.ceil(size * 2))}`)
         setImgError(false)
         setImgLoaded(false)
       } else {
         setResolvedUrl(null)
       }
     })
-  }, [name, imageUrl])
+  }, [name, imageUrl, size])
 
   const { initials, gradient, fontSize } = useMemo(() => {
     const h = hashName(name)
@@ -186,6 +187,8 @@ export default function PlayerAvatar({
 
       {showImage && (
         <img
+          loading="lazy"
+          decoding="async"
           src={resolvedUrl}
           alt={name}
           onError={() => setImgError(true)}

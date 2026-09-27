@@ -16,11 +16,13 @@ except ImportError:
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse, HTMLResponse, Response
 
 from . import seo
 from .auth_db import init_auth_db
+from .http_cache import HttpCacheMiddleware
 from .routers import meta, matches, players, teams, analytics, venues, seasons, images, social, advanced, pulse, auth
 from .tournaments import get_tournament_slug, reset_tournament, set_tournament
 
@@ -68,6 +70,11 @@ async def select_tournament(request, call_next):
         return response
     finally:
         reset_tournament(token)
+
+
+# Outermost last: gzip wraps the cache, which stores uncompressed bodies.
+app.add_middleware(HttpCacheMiddleware)
+app.add_middleware(GZipMiddleware, minimum_size=1024)
 
 # API Routers
 app.include_router(meta.router)
