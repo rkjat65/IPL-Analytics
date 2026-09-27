@@ -12,7 +12,7 @@ try:
 except ImportError:
     pass
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
@@ -97,6 +97,21 @@ if TEAM_IMAGES_DIR.is_dir():
 # This avoids needing a separate frontend server.
 FRONTEND_DIST = Path(__file__).resolve().parent.parent / "frontend" / "dist"
 
+
+def resolve_static_file(root: Path, requested: str) -> Path | None:
+    """Return the file under ``root`` for ``requested``, or None.
+
+    Rejects anything that resolves outside ``root`` (e.g. ``..%2f`` path
+    traversal), so only the frontend build is ever served.
+    """
+    if not requested:
+        return None
+    root = root.resolve()
+    candidate = (root / requested).resolve()
+    if candidate.is_relative_to(root) and candidate.is_file():
+        return candidate
+    return None
+
 if FRONTEND_DIST.is_dir():
     # Serve static assets (JS, CSS, images)
     app.mount("/assets", StaticFiles(directory=str(FRONTEND_DIST / "assets")), name="static-assets")
@@ -105,7 +120,9 @@ if FRONTEND_DIST.is_dir():
     @app.get("/{full_path:path}")
     async def serve_frontend(full_path: str):
         """Serve React SPA — all non-API routes return index.html."""
-        file_path = FRONTEND_DIST / full_path
-        if full_path and file_path.is_file():
+        if full_path == "api" or full_path.startswith("api/"):
+            raise HTTPException(status_code=404, detail="Not found")
+        file_path = resolve_static_file(FRONTEND_DIST, full_path)
+        if file_path:
             return FileResponse(str(file_path))
         return FileResponse(str(FRONTEND_DIST / "index.html"))
