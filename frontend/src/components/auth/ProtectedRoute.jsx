@@ -1,5 +1,7 @@
 import { useAuth } from '../../contexts/AuthContext'
-import LoginPage from '../../pages/Login'
+import { lazy, Suspense } from 'react'
+
+const LoginPage = lazy(() => import('../../pages/Login'))
 
 export default function ProtectedRoute({ children }) {
   const { user, isAuthenticated, loading } = useAuth()
@@ -16,7 +18,7 @@ export default function ProtectedRoute({ children }) {
   }
 
   if (!isAuthenticated) {
-    return <LoginPage inline />
+    return <Suspense fallback={null}><LoginPage inline /></Suspense>
   }
 
   if (!user?.is_admin) {
