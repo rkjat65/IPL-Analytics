@@ -1,4 +1,4 @@
-import { NEON_COLORS, BOX_COLORS, FONTS, cardContainerStyle, dotGridBackground, watermarkStyle, formatNumber, formatDecimal, CARD_DIMENSIONS, scaledFont, scaledSize } from './cardStyles'
+import { NEON_COLORS, BOX_COLORS, FONTS, cardContainerStyle, dotGridBackground, watermarkStyle, formatNumber, formatDecimal, CARD_DIMENSIONS, scaledFont, scaledSize, WATERMARK_TEXT } from './cardStyles'
 import { getTeamColor } from '../../constants/teams'
 import PlayerAvatar from '../ui/PlayerAvatar'
 
@@ -100,7 +100,7 @@ export default function PlayerStatCard({ playerName, stats = {}, type = 'batting
         )}
       </div>
 
-      <div style={watermarkStyle()}>@Crickrida &bull; Cricket via Stats</div>
+      <div style={watermarkStyle()}>{WATERMARK_TEXT}</div>
     </div>
   )
 }

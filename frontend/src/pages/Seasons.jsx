@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import MakeCardButton from '../components/ui/MakeCardButton'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useFetch } from '../hooks/useFetch'
 import SEO from '../components/SEO'
@@ -262,7 +263,10 @@ export default function Seasons() {
             {tournament.competitionLabel} overview, standings, and leader races
           </p>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
+          {selectedYear && (
+            <MakeCardButton label="Make a recap card" params={{ t: 'season', season: selectedYear }} />
+          )}
           <label className="text-text-secondary text-sm font-body">{tournament.competitionLabel}</label>
           <select
             value={selectedYear}

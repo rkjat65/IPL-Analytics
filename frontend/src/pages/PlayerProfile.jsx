@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import MakeCardButton from '../components/ui/MakeCardButton'
 import { useTournament } from '../contexts/TournamentContext'
 import { useParams, useLocation, Link } from 'react-router-dom'
 import { useFetch } from '../hooks/useFetch'
@@ -165,12 +166,13 @@ export default function PlayerProfile() {
     <div className="space-y-8">
       {seoEl}
       {/* Player Header */}
-      <div className="flex items-center gap-5">
+      <div className="flex flex-wrap items-center gap-5">
         <PlayerAvatar name={decodedName} size={72} shape="circle" />
-        <div>
+        <div className="flex-1 min-w-0">
           <h1 className="text-3xl font-heading font-bold text-text-primary">{decodedName}</h1>
           <p className="text-text-secondary text-sm mt-1">Career statistics and performance analysis</p>
         </div>
+        <MakeCardButton params={{ t: 'player', player: decodedName, type: fromBowling || !hasBatting ? 'bowling' : 'batting' }} />
       </div>
 
       {/* Tab Switcher */}

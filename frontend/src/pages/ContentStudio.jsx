@@ -1,14 +1,16 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { apiUrl, getSeasons, getTeams, searchPlayers, getPlayerBatting, getPlayerBowling, getPlayerBattingMatchups, getPlayerBowlingMatchups, getMatches, getMatch, getSeasonSummary } from '../lib/api'
+import { useSearchParams } from 'react-router-dom'
+import { apiUrl, getSeasons, getTeams, searchPlayers, getPlayerBatting, getPlayerBowling, getPlayerBattingMatchups, getPlayerBowlingMatchups, getMatches, getMatch, getSeasonSummary, getBattingLeaderboard, getBowlingLeaderboard } from '../lib/api'
 import SEO from '../components/SEO'
 import { exportAsImage, downloadImage, copyToClipboard } from '../utils/exportCard'
-import { CARD_DIMENSIONS } from '../components/cards/cardStyles'
+import { CARD_DIMENSIONS, WATERMARK_TEXT } from '../components/cards/cardStyles'
 import PlayerStatCard from '../components/cards/PlayerStatCard'
 import MatchSummaryCard from '../components/cards/MatchSummaryCard'
 import ComparisonCard from '../components/cards/ComparisonCard'
 import RecordCard from '../components/cards/RecordCard'
 import SeasonRecapCard from '../components/cards/SeasonRecapCard'
 import MatchupCard from '../components/cards/MatchupCard'
+import LeaderboardCard from '../components/cards/LeaderboardCard'
 import PlayerAvatar from '../components/ui/PlayerAvatar'
 import { useTournament } from '../contexts/TournamentContext'
 import { buildCaption, statLines } from '../utils/caption'
@@ -22,7 +24,21 @@ const TEMPLATES = [
   { id: 'record', label: 'Record Card', color: '#FFB800' },
   { id: 'season', label: 'Season Recap', color: '#00E5FF' },
   { id: 'team_form', label: 'Team Form', color: '#22D3EE' },
+  { id: 'leaderboard', label: 'Top 5', color: '#FFB800' },
 ]
+
+// Top-5 leaderboard stats. minBalls keeps rate stats to regular players.
+const LEADERBOARD_METRICS = [
+  { id: 'runs', label: 'Most runs', kind: 'bat', sort: 'runs', value: r => r.runs, detail: r => `${r.innings} inns · avg ${r.avg ?? '–'} · SR ${r.sr ?? '–'}` },
+  { id: 'sixes', label: 'Most sixes', kind: 'bat', sort: 'sixes', value: r => r.sixes, detail: r => `${r.runs} runs · SR ${r.sr ?? '–'}` },
+  { id: 'fours', label: 'Most fours', kind: 'bat', sort: 'fours', value: r => r.fours, detail: r => `${r.runs} runs in ${r.innings} inns` },
+  { id: 'hundreds', label: 'Most hundreds', kind: 'bat', sort: 'hundreds', value: r => r.hundreds, detail: r => `${r.runs} runs · HS ${r.highest}` },
+  { id: 'sr', label: 'Best strike rate', kind: 'bat', sort: 'sr', minBalls: [500, 120], value: r => r.sr, detail: r => `${r.runs} runs off ${r.balls} balls` },
+  { id: 'wickets', label: 'Most wickets', kind: 'bowl', sort: 'wickets', value: r => r.wickets, detail: r => `${r.innings} inns · econ ${r.economy ?? '–'} · best ${r.best_figures ?? '–'}` },
+  { id: 'economy', label: 'Best economy', kind: 'bowl', sort: 'economy', minBalls: [600, 150], value: r => r.economy, detail: r => `${r.wickets} wkts in ${r.overs} overs` },
+]
+const TEMPLATE_IDS = new Set(TEMPLATES.map(t => t.id))
+const FORMAT_IDS = new Set(['twitter', 'instagram', 'linkedin', 'portrait'])
 
 const FORMAT_OPTIONS = [
   { id: 'twitter', label: 'Twitter', dims: CARD_DIMENSIONS.twitter },
@@ -71,8 +87,13 @@ function PlayerSearchInput({ query, setQuery, results, setResults, onSelect, sel
 export default function ContentStudio() {
   const tournament = useTournament()
   const cardRef = useRef(null)
-  const [template, setTemplate] = useState('player')
-  const [format, setFormat] = useState('twitter')
+  // Every card is a shareable URL: the initial state comes from the query
+  // string, and the query string follows the state (see syncing effect below).
+  const [searchParams] = useSearchParams()
+  const q = (key, fallback = '') => searchParams.get(key) ?? fallback
+  const initialTemplate = TEMPLATE_IDS.has(q('t')) ? q('t') : 'player'
+  const [template, setTemplate] = useState(initialTemplate)
+  const [format, setFormat] = useState(FORMAT_IDS.has(q('f')) ? q('f') : 'twitter')
   const [status, setStatus] = useState(null)
 
   // Data sources
@@ -83,13 +104,13 @@ export default function ContentStudio() {
   const [matchList, setMatchList] = useState([])
 
   // Player stat card state
-  const [playerName, setPlayerName] = useState('')
-  const [playerType, setPlayerType] = useState('batting')
+  const [playerName, setPlayerName] = useState(initialTemplate === 'player' ? q('player') : '')
+  const [playerType, setPlayerType] = useState(q('type') === 'bowling' ? 'bowling' : 'batting')
   const [playerStats, setPlayerStats] = useState({})
   const [playerLoading, setPlayerLoading] = useState(false)
 
   // Match summary state
-  const [matchId, setMatchId] = useState('')
+  const [matchId, setMatchId] = useState(initialTemplate === 'match' ? q('match') : '')
   const [matchData, setMatchData] = useState({})
   const [matchSeason, setMatchSeason] = useState('')
   const [matchTeam, setMatchTeam] = useState('')
@@ -97,45 +118,54 @@ export default function ContentStudio() {
   // Comparison state
   const [p1Query, setP1Query] = useState('')
   const [p1Results, setP1Results] = useState([])
-  const [p1Name, setP1Name] = useState('')
+  const [p1Name, setP1Name] = useState(initialTemplate === 'comparison' ? q('p1') : '')
   const [p1Stats, setP1Stats] = useState({})
   const [p2Query, setP2Query] = useState('')
   const [p2Results, setP2Results] = useState([])
-  const [p2Name, setP2Name] = useState('')
+  const [p2Name, setP2Name] = useState(initialTemplate === 'comparison' ? q('p2') : '')
   const [p2Stats, setP2Stats] = useState({})
   const [compMetric, setCompMetric] = useState('batting')
-  const [p1Type, setP1Type] = useState('batting')
-  const [p2Type, setP2Type] = useState('batting')
+  const [p1Type, setP1Type] = useState(q('t1') === 'bowling' ? 'bowling' : 'batting')
+  const [p2Type, setP2Type] = useState(q('t2') === 'bowling' ? 'bowling' : 'batting')
 
   // Record card state
-  const [recordTitle, setRecordTitle] = useState('')
-  const [recordValue, setRecordValue] = useState('')
-  const [recordSubtitle, setRecordSubtitle] = useState('')
-  const [recordDesc, setRecordDesc] = useState('')
+  const [recordTitle, setRecordTitle] = useState(q('title'))
+  const [recordValue, setRecordValue] = useState(q('value'))
+  const [recordSubtitle, setRecordSubtitle] = useState(q('sub'))
+  const [recordDesc, setRecordDesc] = useState(q('desc'))
 
   // Season recap state
-  const [selectedSeason, setSelectedSeason] = useState('')
+  const [selectedSeason, setSelectedSeason] = useState(initialTemplate === 'season' ? q('season') : '')
   const [seasonData, setSeasonData] = useState({})
 
   // Bat v Ball state
   const [bvbPlayerQuery, setBvbPlayerQuery] = useState('')
   const [bvbPlayerResults, setBvbPlayerResults] = useState([])
-  const [bvbPlayerName, setBvbPlayerName] = useState('')
+  const [bvbPlayerName, setBvbPlayerName] = useState(initialTemplate === 'bat_v_ball' ? q('bat') : '')
   const [bvbMatchups, setBvbMatchups] = useState([])
   const [bvbOpponent, setBvbOpponent] = useState('')
   const [bvbStats, setBvbStats] = useState({})
 
+  // Opponents requested by a shared link, applied once matchups load
+  const pendingBvbOpponent = useRef(initialTemplate === 'bat_v_ball' ? q('bowl') : '')
+  const pendingBlvbOpponent = useRef(initialTemplate === 'ball_v_bat' ? q('bat') : '')
+
+  // Top-5 leaderboard state
+  const [lbMetric, setLbMetric] = useState(LEADERBOARD_METRICS.some(m => m.id === q('stat')) ? q('stat') : 'runs')
+  const [lbSeason, setLbSeason] = useState(initialTemplate === 'leaderboard' ? q('season') : '')
+  const [lbRows, setLbRows] = useState([])
+
   // Ball v Bat state
   const [blvbPlayerQuery, setBlvbPlayerQuery] = useState('')
   const [blvbPlayerResults, setBlvbPlayerResults] = useState([])
-  const [blvbPlayerName, setBlvbPlayerName] = useState('')
+  const [blvbPlayerName, setBlvbPlayerName] = useState(initialTemplate === 'ball_v_bat' ? q('bowl') : '')
   const [blvbMatchups, setBlvbMatchups] = useState([])
   const [blvbOpponent, setBlvbOpponent] = useState('')
   const [blvbStats, setBlvbStats] = useState({})
 
   // Team Form state
-  const [tfTeam, setTfTeam] = useState('')
-  const [tfLastN, setTfLastN] = useState(10)
+  const [tfTeam, setTfTeam] = useState(initialTemplate === 'team_form' ? q('team') : '')
+  const [tfLastN, setTfLastN] = useState([5, 10, 15, 20].includes(Number(q('n'))) ? Number(q('n')) : 10)
   const [tfData, setTfData] = useState(null)
   const [tfLoading, setTfLoading] = useState(false)
 
@@ -152,7 +182,9 @@ export default function ContentStudio() {
     const params = { limit: 500 }
     if (matchSeason) params.season = matchSeason
     if (matchTeam) params.team = matchTeam
-    getMatches(params).then(r => setMatchList(r.matches || r || [])).catch(() => {})
+    let current = true // ignore stale responses
+    getMatches(params).then(r => current && setMatchList(r.matches || r || [])).catch(() => {})
+    return () => { current = false }
   }, [matchSeason, matchTeam])
 
   // Player search
@@ -167,10 +199,12 @@ export default function ContentStudio() {
   // Load player stats when selected
   useEffect(() => {
     if (!playerName) return
+    let current = true // ignore stale responses
     setPlayerLoading(true)
     const fetcher = playerType === 'batting' ? getPlayerBatting : getPlayerBowling
     fetcher(playerName)
       .then(data => {
+        if (!current) return
         const c = data.career || data || {}
         if (playerType === 'batting') {
           setPlayerStats({
@@ -198,15 +232,18 @@ export default function ContentStudio() {
           })
         }
       })
-      .catch(() => setPlayerStats({}))
+      .catch(() => current && setPlayerStats({}))
       .finally(() => setPlayerLoading(false))
+    return () => { current = false }
   }, [playerName, playerType])
 
   // Load match data
   useEffect(() => {
     if (!matchId) return
+    let current = true // ignore stale responses
     getMatch(matchId)
       .then(data => {
+        if (!current) return
         const info = data.info || data || {}
         const sc = data.scorecards || []
         const team1Score = sc[0]?.total_runs
@@ -214,7 +251,8 @@ export default function ContentStudio() {
         const margin = info.win_by_runs ? `${info.win_by_runs} runs` : info.win_by_wickets ? `${info.win_by_wickets} wickets` : ''
         setMatchData({ ...info, team1_score: team1Score, team2_score: team2Score, margin })
       })
-      .catch(() => setMatchData({}))
+      .catch(() => current && setMatchData({}))
+    return () => { current = false }
   }, [matchId])
 
   // Comparison player search
@@ -233,8 +271,10 @@ export default function ContentStudio() {
   // Load comparison player stats (per-player type)
   useEffect(() => {
     if (!p1Name) return
+    let current = true // ignore stale responses
     const fetcher = p1Type === 'batting' ? getPlayerBatting : getPlayerBowling
     fetcher(p1Name).then(data => {
+      if (!current) return
       const d = data.career || data || {}
       setP1Stats(p1Type === 'batting' ? {
         runs: d.runs ?? d.total_runs, avg: d.avg ?? d.average, sr: d.sr ?? d.strike_rate,
@@ -246,13 +286,16 @@ export default function ContentStudio() {
         four_wickets: d.four_w ?? d.four_wickets,
         five_wickets: d.five_w ?? d.five_wickets,
       })
-    }).catch(() => setP1Stats({}))
+    }).catch(() => current && setP1Stats({}))
+    return () => { current = false }
   }, [p1Name, p1Type])
 
   useEffect(() => {
     if (!p2Name) return
+    let current = true // ignore stale responses
     const fetcher = p2Type === 'batting' ? getPlayerBatting : getPlayerBowling
     fetcher(p2Name).then(data => {
+      if (!current) return
       const d = data.career || data || {}
       setP2Stats(p2Type === 'batting' ? {
         runs: d.runs ?? d.total_runs, avg: d.avg ?? d.average, sr: d.sr ?? d.strike_rate,
@@ -264,14 +307,17 @@ export default function ContentStudio() {
         four_wickets: d.four_w ?? d.four_wickets,
         five_wickets: d.five_w ?? d.five_wickets,
       })
-    }).catch(() => setP2Stats({}))
+    }).catch(() => current && setP2Stats({}))
+    return () => { current = false }
   }, [p2Name, p2Type])
 
   // Season recap
   useEffect(() => {
     if (!selectedSeason) return
+    let current = true // ignore stale responses
     getSeasonSummary(selectedSeason)
       .then(data => {
+        if (!current) return
         const oc = data.orange_cap
         const pc = data.purple_cap
         const mp = data.most_pom
@@ -287,7 +333,8 @@ export default function ContentStudio() {
           best_economy: typeof be === 'object' ? `${be.player} (${be.economy})` : be || '-',
         })
       })
-      .catch(() => setSeasonData({}))
+      .catch(() => current && setSeasonData({}))
+    return () => { current = false }
   }, [selectedSeason])
 
   // Bat v Ball player search
@@ -301,7 +348,7 @@ export default function ContentStudio() {
   useEffect(() => {
     if (!bvbPlayerName) return
     getPlayerBattingMatchups(bvbPlayerName)
-      .then(data => { setBvbMatchups(data || []); setBvbOpponent(''); setBvbStats({}) })
+      .then(data => { setBvbMatchups(data || []); setBvbOpponent(pendingBvbOpponent.current); pendingBvbOpponent.current = ''; setBvbStats({}) })
       .catch(() => setBvbMatchups([]))
   }, [bvbPlayerName])
 
@@ -323,7 +370,7 @@ export default function ContentStudio() {
   useEffect(() => {
     if (!blvbPlayerName) return
     getPlayerBowlingMatchups(blvbPlayerName)
-      .then(data => { setBlvbMatchups(data || []); setBlvbOpponent(''); setBlvbStats({}) })
+      .then(data => { setBlvbMatchups(data || []); setBlvbOpponent(pendingBlvbOpponent.current); pendingBlvbOpponent.current = ''; setBlvbStats({}) })
       .catch(() => setBlvbMatchups([]))
   }, [blvbPlayerName])
 
@@ -343,6 +390,83 @@ export default function ContentStudio() {
       .then(d => { setTfData(d); setTfLoading(false) })
       .catch(() => { setTfData(null); setTfLoading(false) })
   }, [tfTeam, tfLastN, template])
+
+  // Top-5 leaderboard data
+  const lbConfig = LEADERBOARD_METRICS.find(m => m.id === lbMetric) || LEADERBOARD_METRICS[0]
+  useEffect(() => {
+    if (template !== 'leaderboard') return
+    const fetcher = lbConfig.kind === 'bat' ? getBattingLeaderboard : getBowlingLeaderboard
+    const minBalls = lbConfig.minBalls ? lbConfig.minBalls[lbSeason ? 1 : 0] : undefined
+    let current = true // ignore responses for a stat/season the user has since changed
+    fetcher({ sort_by: lbConfig.sort, limit: 5, season: lbSeason || undefined, min_balls: minBalls })
+      .then(rows => current && setLbRows((rows || []).slice(0, 5).map(r => ({
+        player: r.player,
+        value: lbConfig.value(r),
+        detail: lbConfig.detail(r),
+      }))))
+      .catch(() => current && setLbRows([]))
+    return () => { current = false }
+  }, [template, lbConfig, lbSeason])
+
+  // Keep the URL in step with the card so it can be shared or bookmarked.
+  const studioParams = useCallback(() => {
+    const p = { t: template, f: format }
+    switch (template) {
+      case 'player': Object.assign(p, { player: playerName, type: playerType }); break
+      case 'match': p.match = matchId; break
+      case 'comparison': Object.assign(p, { p1: p1Name, p2: p2Name, t1: p1Type, t2: p2Type }); break
+      case 'bat_v_ball': Object.assign(p, { bat: bvbPlayerName, bowl: bvbOpponent }); break
+      case 'ball_v_bat': Object.assign(p, { bowl: blvbPlayerName, bat: blvbOpponent }); break
+      case 'record': Object.assign(p, { title: recordTitle, value: recordValue, sub: recordSubtitle, desc: recordDesc }); break
+      case 'season': p.season = selectedSeason; break
+      case 'team_form': Object.assign(p, { team: tfTeam, n: tfLastN }); break
+      case 'leaderboard': Object.assign(p, { stat: lbMetric, season: lbSeason }); break
+    }
+    const params = new URLSearchParams()
+    params.set('tournament', tournament.tournament)
+    Object.entries(p).forEach(([k, v]) => { if (v !== '' && v != null) params.set(k, v) })
+    return params
+  }, [template, format, playerName, playerType, matchId, p1Name, p2Name, p1Type, p2Type, bvbPlayerName, bvbOpponent,
+      blvbPlayerName, blvbOpponent, recordTitle, recordValue, recordSubtitle, recordDesc, selectedSeason, tfTeam, tfLastN,
+      lbMetric, lbSeason, tournament.tournament])
+
+  useEffect(() => {
+    const url = `${window.location.pathname}?${studioParams().toString()}`
+    // replaceState keeps React Router's own history state intact
+    window.history.replaceState(window.history.state, '', url)
+  }, [studioParams])
+
+  const handleCopyLink = useCallback(async () => {
+    const url = `${window.location.origin}/content-studio?${studioParams().toString()}`
+    try {
+      await navigator.clipboard.writeText(url)
+      setStatus('Link copied!')
+    } catch {
+      setStatus('Copy failed')
+    }
+    setTimeout(() => setStatus(null), 2000)
+  }, [studioParams])
+
+  const handleDownloadAll = useCallback(async () => {
+    const original = format
+    try {
+      for (const f of FORMAT_OPTIONS) {
+        setStatus(`Exporting ${f.label}...`)
+        setFormat(f.id)
+        // let the card re-render (and images settle) at this size
+        await new Promise(r => setTimeout(r, 450))
+        const dataUrl = await exportAsImage(cardRef.current, `crickrida-${template}-${f.id}`, 'png')
+        downloadImage(dataUrl, `crickrida-${template}-${f.id}.png`)
+      }
+      setStatus('Downloaded all sizes!')
+    } catch (err) {
+      console.error(err)
+      setStatus('Export failed')
+    } finally {
+      setFormat(original)
+      setTimeout(() => setStatus(null), 2500)
+    }
+  }, [format, template])
 
   const currentDims = FORMAT_OPTIONS.find(f => f.id === format)?.dims || CARD_DIMENSIONS.twitter
 
@@ -428,6 +552,11 @@ export default function ContentStudio() {
           seasonData.most_sixes && `Most sixes: ${seasonData.most_sixes}`,
         ].filter(Boolean)
         break
+      case 'leaderboard':
+        headline = `${lbConfig.label} — ${t} ${lbSeason || 'all-time'} 🏆`
+        lines = lbRows.map((r, i) => `${i + 1}. ${r.player} — ${r.value}`)
+        tags = [lbRows[0]?.player]
+        break
       case 'team_form':
         headline = `${tfTeam || 'Team'} form check 📈`
         lines = [
@@ -438,7 +567,7 @@ export default function ContentStudio() {
         break
     }
     setCaption(buildCaption({ headline, lines, tags, tournament: t, url: 'crickrida.rkjat.in' }))
-  }, [template, tournament, playerName, playerType, playerStats, matchData, p1Name, p1Stats, p2Name, p2Stats, recordTitle, recordValue, recordSubtitle, recordDesc, seasonData, selectedSeason, bvbPlayerName, bvbOpponent, bvbStats, blvbPlayerName, blvbOpponent, blvbStats, tfTeam, tfData])
+  }, [template, tournament, playerName, playerType, playerStats, matchData, p1Name, p1Stats, p2Name, p2Stats, recordTitle, recordValue, recordSubtitle, recordDesc, seasonData, selectedSeason, bvbPlayerName, bvbOpponent, bvbStats, blvbPlayerName, blvbOpponent, blvbStats, tfTeam, tfData, lbConfig, lbSeason, lbRows])
 
   function renderDataInputs() {
     switch (template) {
@@ -675,6 +804,27 @@ export default function ContentStudio() {
           </div>
         )
 
+      case 'leaderboard':
+        return (
+          <div className="space-y-4">
+            <div>
+              <label htmlFor="lb-metric" className="block text-xs font-mono text-text-muted mb-1">Stat</label>
+              <select id="lb-metric" value={lbMetric} onChange={e => setLbMetric(e.target.value)}
+                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary focus:outline-none focus:border-accent-cyan/50">
+                {LEADERBOARD_METRICS.map(m => <option key={m.id} value={m.id}>{m.label}</option>)}
+              </select>
+            </div>
+            <div>
+              <label htmlFor="lb-season" className="block text-xs font-mono text-text-muted mb-1">{tournament.competitionLabel}</label>
+              <select id="lb-season" value={lbSeason} onChange={e => setLbSeason(e.target.value)}
+                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary focus:outline-none focus:border-accent-cyan/50">
+                <option value="">All-time</option>
+                {seasons.slice().reverse().map(s => <option key={s} value={s}>{s}</option>)}
+              </select>
+            </div>
+          </div>
+        )
+
       case 'team_form':
         return (
           <div className="space-y-4">
@@ -761,6 +911,16 @@ export default function ContentStudio() {
             dimensions={currentDims}
           />
         )
+      case 'leaderboard':
+        return (
+          <LeaderboardCard
+            title={lbConfig.label}
+            subtitle={lbSeason || 'All-time'}
+            rows={lbRows}
+            valueLabel={lbConfig.label.replace(/^(Most|Best) /, '')}
+            dimensions={currentDims}
+          />
+        )
       case 'team_form': {
         const fi = tfData?.form_index ?? 0
         const streak = tfData?.current_streak ?? ''
@@ -810,7 +970,7 @@ export default function ContentStudio() {
                       </div>
                     </div>
                   </div>
-                  <p style={{ color: '#60607A', fontSize: sf(12), textAlign: 'right', fontFamily: 'monospace', margin: 0 }}>@Crickrida &bull; Cricket via Stats</p>
+                  <p style={{ color: '#60607A', fontSize: sf(12), textAlign: 'right', fontFamily: 'monospace', margin: 0 }}>{WATERMARK_TEXT}</p>
                 </div>
               </div>
         )
@@ -895,6 +1055,28 @@ export default function ContentStudio() {
               </svg>
               Copy to Clipboard
             </button>
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                onClick={handleDownloadAll}
+                title="Download this card for X, Instagram, LinkedIn and stories"
+                className="flex items-center justify-center gap-1.5 px-3 py-2 bg-bg-elevated text-text-secondary border border-border-subtle rounded-lg text-xs font-medium hover:text-text-primary transition-colors"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
+                  <rect x="3" y="3" width="7" height="9" rx="1" /><rect x="14" y="3" width="7" height="5" rx="1" /><rect x="14" y="12" width="7" height="9" rx="1" /><rect x="3" y="16" width="7" height="5" rx="1" />
+                </svg>
+                All sizes
+              </button>
+              <button
+                onClick={handleCopyLink}
+                title="Copy a link that opens this exact card"
+                className="flex items-center justify-center gap-1.5 px-3 py-2 bg-bg-elevated text-text-secondary border border-border-subtle rounded-lg text-xs font-medium hover:text-text-primary transition-colors"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                </svg>
+                Share link
+              </button>
+            </div>
 
             {/* Caption writer */}
             <button
