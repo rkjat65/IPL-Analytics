@@ -1,3 +1,5 @@
+import AnimatedNumber from './AnimatedNumber'
+
 export default function StatCard({ label, value, delta, color = 'cyan', className = '' }) {
   const colorMap = {
     cyan: 'text-accent-cyan stat-glow-cyan',
@@ -12,7 +14,7 @@ export default function StatCard({ label, value, delta, color = 'cyan', classNam
         {label}
       </p>
       <p className={`text-3xl font-heading font-bold ${colorMap[color] || ''} leading-tight break-words`}>
-        {value}
+        <AnimatedNumber value={value} />
       </p>
       {delta !== undefined && (
         <p className={`text-xs mt-1 ${delta >= 0 ? 'text-success' : 'text-danger'}`}>

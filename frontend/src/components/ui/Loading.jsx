@@ -20,11 +20,19 @@ export function Spinner({ size = 'md', className = '' }) {
   )
 }
 
+// Content-shaped placeholder instead of a spinner: the layout doesn't jump
+// when data arrives, and it feels faster.
 export default function Loading({ message = 'Loading...' }) {
   return (
-    <div className="flex flex-col items-center justify-center py-20 gap-4">
-      <Spinner size="lg" />
-      <p className="text-text-secondary font-body text-sm">{message}</p>
+    <div className="space-y-4 py-4" role="status" aria-live="polite">
+      <span className="sr-only">{message}</span>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {[0, 1, 2, 3].map(i => (
+          <div key={i} className="h-20 rounded-lg bg-bg-card border border-border-subtle animate-pulse" style={{ animationDelay: `${i * 90}ms` }} />
+        ))}
+      </div>
+      <div className="h-56 rounded-lg bg-bg-card border border-border-subtle animate-pulse" />
+      <p className="text-center text-text-muted font-mono text-xs">{message}</p>
     </div>
   )
 }
