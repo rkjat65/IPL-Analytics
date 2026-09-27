@@ -5,6 +5,7 @@ import SEO from '../components/SEO'
 import Loading from '../components/ui/Loading'
 import { formatDecimal } from '../utils/format'
 import { getTeamColor } from '../constants/teams'
+import { useTournament } from '../contexts/TournamentContext'
 import TeamLogo from '../components/ui/TeamLogo'
 import { useState, useEffect } from 'react'
 
@@ -71,6 +72,7 @@ function TeamCard({ team }) {
 }
 
 export default function Teams() {
+  const tournament = useTournament()
   const { data: teams, loading, error } = useFetch(() => getTeams(), [])
 
   if (error) {
@@ -85,14 +87,14 @@ export default function Teams() {
   return (
     <div className="space-y-8">
       <SEO
-        title="IPL Teams — Franchise Stats, Win Records & History"
-        description="Explore analytics for every IPL franchise: win rates, performance stats, season-by-season records, and historical data for CSK, MI, RCB, KKR, and all 10 IPL teams."
+        title={`${tournament.shortName} Teams — Stats, Win Records & History`}
+        description={`Explore analytics for every ${tournament.name} team: win rates, performance statistics, ${tournament.competitionLabel.toLowerCase()} records, and historical data.`}
         url="/teams"
       />
       <div>
         <h1 className="text-3xl font-heading font-bold text-text-primary">Team Analytics</h1>
         <p className="text-text-secondary text-sm mt-1">
-          Performance overview across all IPL teams
+          Performance overview across all {tournament.name} teams
         </p>
       </div>
 

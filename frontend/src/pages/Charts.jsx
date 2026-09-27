@@ -24,6 +24,7 @@ import {
 } from 'recharts'
 import Loading from '../components/ui/Loading'
 import MultiSeasonSelect from '../components/ui/MultiSeasonSelect'
+import { useTournament } from '../contexts/TournamentContext'
 import { formatNumber, formatDecimal } from '../utils/format'
 
 /* ── Player Avatar Helpers ─────────────────────────────── */
@@ -170,6 +171,7 @@ function AnimDataOverlay({ data, dataKey, label, color, visible }) {
 const DISMISS_COLORS = ['#FF2D78', '#00E5FF', '#B8FF00', '#FFB800', '#8B5CF6', '#22D3EE', '#F472B6', '#34D399']
 
 export default function Charts() {
+  const tournament = useTournament()
   const [season, setSeason] = useState('')
 
   const { data: seasons } = useFetch(() => getSeasons(), [])
@@ -213,8 +215,8 @@ export default function Charts() {
   return (
     <div className="space-y-8">
       <SEO
-        title="IPL Charts & Insights — Phase-wise Run Rates, Trends & Visual Analytics"
-        description="Deep visual analytics for the IPL: phase-wise run rates (Powerplay, Middle, Death), dismissal breakdowns, toss impact, cap-winner trends, and batting/bowling performance charts."
+        title={`${tournament.shortName} Charts & Insights — Visual Analytics`}
+        description={`Deep visual analytics for ${tournament.name}: phase run rates, dismissals, toss impact, scoring trends, and batting and bowling performance.`}
         url="/charts"
       />
 
@@ -225,11 +227,11 @@ export default function Charts() {
             Insights
           </h1>
           <p className="text-text-secondary text-sm mt-1">
-            Deep visual analytics that reveal the hidden patterns of IPL
+            Deep visual analytics that reveal the hidden patterns of {tournament.shortName}
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <label className="text-text-secondary text-sm font-body">Season</label>
+          <label className="text-text-secondary text-sm font-body">{tournament.competitionLabel}</label>
           <MultiSeasonSelect seasons={seasons || []} value={season} onChange={setSeason} />
         </div>
       </div>
@@ -335,7 +337,7 @@ export default function Charts() {
                     const d = payload[0]?.payload
                     return (
                       <div className="rounded-lg px-3 py-2 text-xs shadow-xl border" style={{ background: '#16161F', borderColor: '#2A2A3A' }}>
-                        <p className="text-text-primary font-semibold mb-1">IPL {d?.season}</p>
+                        <p className="text-text-primary font-semibold mb-1">{tournament.shortName} {d?.season}</p>
                         <p style={{ color: '#FFB800' }}>Sixes/match: <span className="font-mono font-bold">{d?.sixes_per_match}</span></p>
                         <p style={{ color: '#B8FF00' }}>Fours/match: <span className="font-mono font-bold">{d?.fours_per_match}</span></p>
                         <p className="text-text-muted">Total sixes: <span className="font-mono">{formatNumber(d?.total_sixes)}</span></p>
@@ -771,10 +773,10 @@ export default function Charts() {
         <section>
           <div className="flex items-center gap-3 mb-4">
             <div className="w-1 h-6 rounded-full" style={{ background: '#FF8C00' }} />
-            <h2 className="text-xl font-heading font-bold" style={{ color: '#FF8C00' }}>Orange Cap Winners</h2>
+            <h2 className="text-xl font-heading font-bold" style={{ color: '#FF8C00' }}>{tournament.awards.batting} Winners</h2>
           </div>
           <div className="card">
-            {capLoading ? <Loading message="Loading Orange Cap..." /> :
+            {capLoading ? <Loading message={`Loading ${tournament.awards.batting}...`} /> :
              !capWinners?.orange_cap?.length ? <p className="text-text-muted text-sm py-4 text-center">No data</p> : (
               <div className="divide-y divide-border-subtle">
                 {[...capWinners.orange_cap].reverse().map((c) => (
@@ -800,10 +802,10 @@ export default function Charts() {
         <section>
           <div className="flex items-center gap-3 mb-4">
             <div className="w-1 h-6 rounded-full" style={{ background: '#8B5CF6' }} />
-            <h2 className="text-xl font-heading font-bold" style={{ color: '#8B5CF6' }}>Purple Cap Winners</h2>
+            <h2 className="text-xl font-heading font-bold" style={{ color: '#8B5CF6' }}>{tournament.awards.bowling} Winners</h2>
           </div>
           <div className="card">
-            {capLoading ? <Loading message="Loading Purple Cap..." /> :
+            {capLoading ? <Loading message={`Loading ${tournament.awards.bowling}...`} /> :
              !capWinners?.purple_cap?.length ? <p className="text-text-muted text-sm py-4 text-center">No data</p> : (
               <div className="divide-y divide-border-subtle">
                 {[...capWinners.purple_cap].reverse().map((c) => (

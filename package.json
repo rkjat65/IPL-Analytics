@@ -8,5 +8,8 @@
     "dev": "npm run dev -w frontend",
     "build": "npm run build -w frontend",
     "preview": "npm run preview -w frontend"
+  },
+  "devDependencies": {
+    "@rollup/rollup-win32-x64-msvc": "^4.63.5"
   }
 }

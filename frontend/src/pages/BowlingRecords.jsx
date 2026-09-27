@@ -7,6 +7,7 @@ import DataTable from '../components/ui/DataTable'
 import Select from '../components/ui/Select'
 import Loading from '../components/ui/Loading'
 import MultiSeasonSelect from '../components/ui/MultiSeasonSelect'
+import { useTournament } from '../contexts/TournamentContext'
 import { formatDecimal } from '../utils/format'
 import PlayerAvatar from '../components/ui/PlayerAvatar'
 import { exportAsImage, downloadImage } from '../utils/exportCard'
@@ -59,6 +60,7 @@ const rankAccent = (rank) => {
 }
 
 export default function BowlingRecords() {
+  const tournament = useTournament()
   const chartRef = useRef(null)
   const [season, setSeason] = useState('')
   const [team, setTeam] = useState('')
@@ -142,20 +144,20 @@ export default function BowlingRecords() {
   return (
     <div className="space-y-6">
       <SEO
-        title="IPL Bowling Records & Leaderboard — Top Wicket-Takers & Economy"
-        description="IPL bowling records and leaderboard: top wicket-takers, best economy rates, bowling averages, and best bowling figures across all IPL seasons from 2008 to 2026."
+        title={`${tournament.shortName} Bowling Records & Leaderboard`}
+        description={`${tournament.name} bowling records: top wicket-takers, economy rates, bowling averages, and best figures across every ${tournament.competitionLabel.toLowerCase()}.`}
         url="/bowling"
       />
       {/* Header */}
       <div>
         <h1 className="text-3xl font-heading font-bold text-text-primary">Bowling Records</h1>
-        <p className="text-text-secondary text-sm mt-1">Top wicket takers across IPL seasons</p>
+        <p className="text-text-secondary text-sm mt-1">Top wicket takers across {tournament.name} {tournament.competitionLabelPlural.toLowerCase()}</p>
       </div>
 
       {/* Filters */}
       <div className="flex flex-wrap items-center gap-3">
         <div className="flex items-center gap-2">
-          <label className="text-text-secondary text-sm">Season</label>
+          <label className="text-text-secondary text-sm">{tournament.competitionLabel}</label>
           <MultiSeasonSelect seasons={seasons || []} value={season} onChange={setSeason} />
         </div>
         <div className="flex items-center gap-2">

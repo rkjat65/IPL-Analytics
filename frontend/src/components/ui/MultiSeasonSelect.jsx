@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
+import { useTournament } from '../../contexts/TournamentContext'
 
 /**
  * Multi-season selector with individual picks, range selection, custom range, and "All" option.
@@ -7,6 +8,7 @@ import { useState, useRef, useEffect, useCallback } from 'react'
  * seasons: array of season strings (e.g. ["2024", "2023", ...])
  */
 export default function MultiSeasonSelect({ seasons = [], value = '', onChange }) {
+  const tournament = useTournament()
   const [open, setOpen] = useState(false)
   const [customMode, setCustomMode] = useState(false)
   const [customFrom, setCustomFrom] = useState('')
@@ -109,7 +111,7 @@ export default function MultiSeasonSelect({ seasons = [], value = '', onChange }
   }
 
   // Display label
-  let displayLabel = 'All Seasons'
+  let displayLabel = `All ${tournament.competitionLabelPlural}`
   if (selected.length === 1) {
     displayLabel = selected[0]
   } else if (selected.length > 1) {
@@ -119,7 +121,7 @@ export default function MultiSeasonSelect({ seasons = [], value = '', onChange }
     if (isContiguous && sorted.length > 2) {
       displayLabel = `${sorted[0]} – ${sorted[sorted.length - 1]}`
     } else {
-      displayLabel = `${selected.length} seasons`
+      displayLabel = `${selected.length} ${tournament.competitionLabelPlural.toLowerCase()}`
     }
   }
 

@@ -4,10 +4,13 @@ import os
 import threading
 import duckdb
 
+from .tournaments import TOURNAMENTS, get_tournament_slug
+
 _repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 _default_duckdb = os.path.join(_repo_root, "ipl.duckdb")
 # Oracle / Docker: compose sets DUCKDB_PATH=/data/ipl.duckdb so reads match persistent volume ingests.
 DB_PATH = os.path.abspath(os.environ.get("DUCKDB_PATH", _default_duckdb))
+DB_PATHS = {slug: item.db_path for slug, item in TOURNAMENTS.items()}
 
 # ── Team name normalisation ──────────────────────────────────────────
 TEAM_NAME_MAP = {
@@ -137,40 +140,49 @@ VENUE_NORM_SQL = _build_venue_norm_sql()
 
 
 _local = threading.local()
-_db_version = 0
+_db_versions = {slug: 0 for slug in TOURNAMENTS}
 _db_version_lock = threading.Lock()
 
 
 def get_db() -> duckdb.DuckDBPyConnection:
-    """Return a thread-local read-only DuckDB connection.
+    """Return a tournament-scoped thread-local read-only DuckDB connection.
 
     Automatically reopens if the global DB version has been bumped
     (e.g. after a new match is ingested).
     """
-    local_ver = getattr(_local, "ver", -1)
-    if local_ver != _db_version:
-        if hasattr(_local, "conn") and _local.conn is not None:
+    tournament = get_tournament_slug()
+    db_path = DB_PATHS[tournament]
+    connections = getattr(_local, "connections", {})
+    versions = getattr(_local, "versions", {})
+    local_ver = versions.get(tournament, -1)
+    conn = connections.get(tournament)
+    if local_ver != _db_versions[tournament]:
+        if conn is not None:
             try:
-                _local.conn.close()
+                conn.close()
             except Exception:
                 pass
-        _local.conn = duckdb.connect(DB_PATH, read_only=True)
-        _local.ver = _db_version
-    elif not hasattr(_local, "conn") or _local.conn is None:
-        _local.conn = duckdb.connect(DB_PATH, read_only=True)
-        _local.ver = _db_version
-    return _local.conn
+        conn = duckdb.connect(db_path, read_only=True)
+        connections[tournament] = conn
+        versions[tournament] = _db_versions[tournament]
+    elif conn is None:
+        conn = duckdb.connect(db_path, read_only=True)
+        connections[tournament] = conn
+        versions[tournament] = _db_versions[tournament]
+    _local.connections = connections
+    _local.versions = versions
+    return conn
 
 
-def refresh_db():
+def refresh_db(tournament: str | None = None):
     """Bump the global DB version so all threads reopen their connections.
 
     Call after ingesting new matches into ipl.duckdb so read-only snapshots
     pick up the latest data.
     """
-    global _db_version
+    slug = tournament or get_tournament_slug()
     with _db_version_lock:
-        _db_version += 1
+        _db_versions[slug] += 1
 
 
 # Reusable CTE that resolves super-over winners for tied matches.

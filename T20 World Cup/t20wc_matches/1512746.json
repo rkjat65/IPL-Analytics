@@ -1,0 +1,2855 @@
+{
+  "meta": {
+    "data_version": "1.0.0",
+    "created": "2026-09-27",
+    "revision": 1
+  },
+  "info": {
+    "balls_per_over": 6,
+    "dates": [
+      "2026-02-16"
+    ],
+    "event": {
+      "name": "ICC Men's T20 World Cup"
+    },
+    "gender": "male",
+    "match_type": "T20",
+    "outcome": {
+      "winner": "Afghanistan"
+    },
+    "overs": 20,
+    "season": 2026,
+    "team_type": "international",
+    "teams": [
+      "Afghanistan",
+      "United Arab Emirates"
+    ],
+    "venue": "Delhi",
+    "players": {
+      "Afghanistan": [
+        "Azmatullah Omarzai",
+        "Darwish Rasooli",
+        "Gulbadin Naib",
+        "Ibrahim Zadran",
+        "Mohammad Nabi",
+        "Mujeeb Ur Rahman",
+        "Noor Ahmad",
+        "Rahmanullah Gurbaz",
+        "Rashid Khan",
+        "Sediqullah Atal",
+        "Ziaur Rahman"
+      ],
+      "United Arab Emirates": [
+        "Alishan Sharafu",
+        "Aryansh Sharma",
+        "Haider Ali",
+        "Harshit Kaushik",
+        "Junaid Siddique",
+        "Muhammad Arfan",
+        "Muhammad Jawadullah",
+        "Muhammad Waseem",
+        "Simranjeet Singh",
+        "Sohaib Khan",
+        "Syed Haider"
+      ]
+    }
+  },
+  "innings": [
+    {
+      "team": "United Arab Emirates",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "batter": "Aryansh Sharma",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Muhammad Waseem",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Aryansh Sharma",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Muhammad Waseem",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Aryansh Sharma",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Muhammad Waseem",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Aryansh Sharma",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Muhammad Waseem",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Aryansh Sharma"
+                }
+              ]
+            },
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Muhammad Waseem",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Muhammad Waseem",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "batter": "Muhammad Waseem",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Muhammad Waseem",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Muhammad Waseem",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Muhammad Waseem",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Muhammad Waseem",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Muhammad Waseem",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Muhammad Waseem",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "leg before wicket",
+                  "player_out": "Muhammad Waseem"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 1,
+                "total": 2
+              },
+              "extras": {
+                "noballs": 1
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Rashid Khan",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Rashid Khan",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Rashid Khan",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Rashid Khan",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Rashid Khan",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Rashid Khan",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "legbyes": 1
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Rashid Khan",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Rashid Khan",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Rashid Khan",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Rashid Khan",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Rashid Khan",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Rashid Khan",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Alishan Sharafu",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "legbyes": 1
+              }
+            },
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "legbyes": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alishan Sharafu",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Alishan Sharafu"
+                }
+              ]
+            },
+            {
+              "batter": "Syed Haider",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Syed Haider",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Syed Haider",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Syed Haider",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "batter": "Syed Haider",
+              "bowler": "Rashid Khan",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Syed Haider",
+              "bowler": "Rashid Khan",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Rashid Khan",
+              "non_striker": "Syed Haider",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Syed Haider",
+              "bowler": "Rashid Khan",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Syed Haider",
+              "bowler": "Rashid Khan",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Syed Haider",
+              "bowler": "Rashid Khan",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Syed Haider",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Syed Haider",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Syed Haider",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Syed Haider",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Syed Haider",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Syed Haider",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Syed Haider",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Syed Haider",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "bowled",
+                  "player_out": "Syed Haider"
+                }
+              ]
+            },
+            {
+              "batter": "Harshit Kaushik",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Harshit Kaushik",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Harshit Kaushik",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Harshit Kaushik"
+                }
+              ]
+            },
+            {
+              "batter": "Muhammad Arfan",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 15,
+          "deliveries": [
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Rashid Khan",
+              "non_striker": "Muhammad Arfan",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Rashid Khan",
+              "non_striker": "Muhammad Arfan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Muhammad Arfan",
+              "bowler": "Rashid Khan",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "hit wicket",
+                  "player_out": "Muhammad Arfan"
+                }
+              ]
+            },
+            {
+              "batter": "Haider Ali",
+              "bowler": "Rashid Khan",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Haider Ali",
+              "bowler": "Rashid Khan",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Haider Ali",
+              "bowler": "Rashid Khan",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 16,
+          "deliveries": [
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Gulbadin Naib",
+              "non_striker": "Haider Ali",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "noballs": 1
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Gulbadin Naib",
+              "non_striker": "Haider Ali",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Gulbadin Naib",
+              "non_striker": "Haider Ali",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Haider Ali",
+              "bowler": "Gulbadin Naib",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "legbyes": 1
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Gulbadin Naib",
+              "non_striker": "Haider Ali",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Haider Ali",
+              "bowler": "Gulbadin Naib",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Haider Ali",
+              "bowler": "Gulbadin Naib",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Gulbadin Naib",
+              "non_striker": "Haider Ali",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 17,
+          "deliveries": [
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Haider Ali",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Haider Ali",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Haider Ali",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Haider Ali",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Haider Ali",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Haider Ali",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Haider Ali",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Sohaib Khan",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 18,
+          "deliveries": [
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Haider Ali",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Haider Ali",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Sohaib Khan",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Haider Ali",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Sohaib Khan"
+                }
+              ]
+            },
+            {
+              "batter": "Simranjeet Singh",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Haider Ali",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Simranjeet Singh",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Haider Ali",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Haider Ali",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Simranjeet Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 19,
+          "deliveries": [
+            {
+              "batter": "Simranjeet Singh",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Haider Ali",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Haider Ali",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Simranjeet Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Simranjeet Singh",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Haider Ali",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Haider Ali",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Simranjeet Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Haider Ali",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Simranjeet Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "run out",
+                  "player_out": "Haider Ali"
+                }
+              ]
+            },
+            {
+              "batter": "Junaid Siddique",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Simranjeet Singh",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Junaid Siddique",
+              "bowler": "Ziaur Rahman",
+              "non_striker": "Simranjeet Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              },
+              "wickets": [
+                {
+                  "kind": "run out",
+                  "player_out": "Junaid Siddique"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "Afghanistan",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Junaid Siddique",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Junaid Siddique",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Rahmanullah Gurbaz"
+                }
+              ]
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Junaid Siddique",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Junaid Siddique",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Junaid Siddique",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Junaid Siddique",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Junaid Siddique",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Haider Ali",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Haider Ali",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Haider Ali",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Haider Ali",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Haider Ali",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Haider Ali",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Junaid Siddique",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Junaid Siddique",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Junaid Siddique",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Junaid Siddique",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Junaid Siddique",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Junaid Siddique",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Haider Ali",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Haider Ali",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Haider Ali",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Haider Ali",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Haider Ali",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Haider Ali",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Muhammad Jawadullah",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Muhammad Jawadullah",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Muhammad Jawadullah",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Muhammad Jawadullah",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Muhammad Jawadullah",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Muhammad Jawadullah",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Muhammad Arfan",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Muhammad Arfan",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Muhammad Arfan",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Gulbadin Naib"
+                }
+              ]
+            },
+            {
+              "batter": "Sediqullah Atal",
+              "bowler": "Muhammad Arfan",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sediqullah Atal",
+              "bowler": "Muhammad Arfan",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sediqullah Atal",
+              "bowler": "Muhammad Arfan",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "batter": "Sediqullah Atal",
+              "bowler": "Simranjeet Singh",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sediqullah Atal",
+              "bowler": "Simranjeet Singh",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Simranjeet Singh",
+              "non_striker": "Sediqullah Atal",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sediqullah Atal",
+              "bowler": "Simranjeet Singh",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Simranjeet Singh",
+              "non_striker": "Sediqullah Atal",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sediqullah Atal",
+              "bowler": "Simranjeet Singh",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Muhammad Arfan",
+              "non_striker": "Sediqullah Atal",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Muhammad Arfan",
+              "non_striker": "Sediqullah Atal",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sediqullah Atal",
+              "bowler": "Muhammad Arfan",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Sediqullah Atal",
+              "bowler": "Muhammad Arfan",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Muhammad Arfan",
+              "non_striker": "Sediqullah Atal",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Muhammad Arfan",
+              "non_striker": "Sediqullah Atal",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Simranjeet Singh",
+              "non_striker": "Sediqullah Atal",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Simranjeet Singh",
+              "non_striker": "Sediqullah Atal",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Simranjeet Singh",
+              "non_striker": "Sediqullah Atal",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sediqullah Atal",
+              "bowler": "Simranjeet Singh",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Sediqullah Atal",
+              "bowler": "Simranjeet Singh",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Simranjeet Singh",
+              "non_striker": "Sediqullah Atal",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Muhammad Jawadullah",
+              "non_striker": "Sediqullah Atal",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sediqullah Atal",
+              "bowler": "Muhammad Jawadullah",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sediqullah Atal",
+              "bowler": "Muhammad Jawadullah",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Muhammad Jawadullah",
+              "non_striker": "Sediqullah Atal",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sediqullah Atal",
+              "bowler": "Muhammad Jawadullah",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "bowled",
+                  "player_out": "Sediqullah Atal"
+                }
+              ]
+            },
+            {
+              "batter": "Darwish Rasooli",
+              "bowler": "Muhammad Jawadullah",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Haider Ali",
+              "non_striker": "Darwish Rasooli",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Darwish Rasooli",
+              "bowler": "Haider Ali",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Haider Ali",
+              "non_striker": "Darwish Rasooli",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Darwish Rasooli",
+              "bowler": "Haider Ali",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Darwish Rasooli",
+              "bowler": "Haider Ali",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Haider Ali",
+              "non_striker": "Darwish Rasooli",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Simranjeet Singh",
+              "non_striker": "Darwish Rasooli",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Simranjeet Singh",
+              "non_striker": "Darwish Rasooli",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Darwish Rasooli",
+              "bowler": "Simranjeet Singh",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Darwish Rasooli",
+              "bowler": "Simranjeet Singh",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Darwish Rasooli",
+              "bowler": "Simranjeet Singh",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Simranjeet Singh",
+              "non_striker": "Darwish Rasooli",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "batter": "Darwish Rasooli",
+              "bowler": "Haider Ali",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Haider Ali",
+              "non_striker": "Darwish Rasooli",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Haider Ali",
+              "non_striker": "Darwish Rasooli",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Darwish Rasooli",
+              "bowler": "Haider Ali",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Haider Ali",
+              "non_striker": "Darwish Rasooli",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Haider Ali",
+              "non_striker": "Darwish Rasooli",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Darwish Rasooli",
+              "bowler": "Haider Ali",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Haider Ali",
+              "non_striker": "Darwish Rasooli",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Muhammad Arfan",
+              "non_striker": "Darwish Rasooli",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Ibrahim Zadran"
+                }
+              ]
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Muhammad Arfan",
+              "non_striker": "Darwish Rasooli",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Muhammad Arfan",
+              "non_striker": "Darwish Rasooli",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Darwish Rasooli",
+              "bowler": "Muhammad Arfan",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Muhammad Arfan",
+              "non_striker": "Darwish Rasooli",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Darwish Rasooli",
+              "bowler": "Muhammad Arfan",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Muhammad Jawadullah",
+              "non_striker": "Darwish Rasooli",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Muhammad Jawadullah",
+              "non_striker": "Darwish Rasooli",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Darwish Rasooli",
+              "bowler": "Muhammad Jawadullah",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Darwish Rasooli",
+              "bowler": "Muhammad Jawadullah",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Muhammad Jawadullah",
+              "non_striker": "Darwish Rasooli",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Muhammad Jawadullah",
+              "non_striker": "Darwish Rasooli",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 15,
+          "deliveries": [
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Simranjeet Singh",
+              "non_striker": "Darwish Rasooli",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Darwish Rasooli",
+              "bowler": "Simranjeet Singh",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Simranjeet Singh",
+              "non_striker": "Darwish Rasooli",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Simranjeet Singh",
+              "non_striker": "Darwish Rasooli",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Darwish Rasooli",
+              "bowler": "Simranjeet Singh",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Darwish Rasooli",
+              "bowler": "Simranjeet Singh",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 16,
+          "deliveries": [
+            {
+              "batter": "Darwish Rasooli",
+              "bowler": "Muhammad Arfan",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Darwish Rasooli",
+              "bowler": "Muhammad Arfan",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Darwish Rasooli",
+              "bowler": "Muhammad Arfan",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Darwish Rasooli",
+              "bowler": "Muhammad Arfan",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Darwish Rasooli",
+              "bowler": "Muhammad Arfan",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Muhammad Arfan",
+              "non_striker": "Darwish Rasooli",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 17,
+          "deliveries": [
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Junaid Siddique",
+              "non_striker": "Darwish Rasooli",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Junaid Siddique",
+              "non_striker": "Darwish Rasooli",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Darwish Rasooli",
+              "bowler": "Junaid Siddique",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "bowled",
+                  "player_out": "Darwish Rasooli"
+                }
+              ]
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Junaid Siddique",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Junaid Siddique",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Junaid Siddique",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 18,
+          "deliveries": [
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Muhammad Jawadullah",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Muhammad Jawadullah",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Muhammad Jawadullah",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Muhammad Jawadullah",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Muhammad Jawadullah",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Muhammad Jawadullah",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Muhammad Jawadullah",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 19,
+          "deliveries": [
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Junaid Siddique",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Junaid Siddique",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

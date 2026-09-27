@@ -1,5 +1,6 @@
 import { NEON_COLORS, BOX_COLORS, FONTS, cardContainerStyle, dotGridBackground, watermarkStyle, CARD_DIMENSIONS, scaledFont } from './cardStyles'
 import { getTeamColor } from '../../constants/teams'
+import { useTournament } from '../../contexts/TournamentContext'
 
 function AwardRow({ label, value, color, boxColor, sf }) {
   return (
@@ -19,6 +20,7 @@ function AwardRow({ label, value, color, boxColor, sf }) {
 }
 
 export default function SeasonRecapCard({ season, champion, orangeCap, purpleCap, mostSixes, bestEconomy, dimensions = CARD_DIMENSIONS.twitter }) {
+  const tournament = useTournament()
   const champColor = champion ? getTeamColor(champion) : NEON_COLORS.amber
   const isPortrait = dimensions.height > dimensions.width
   const sf = (px) => scaledFont(px, dimensions)
@@ -37,7 +39,7 @@ export default function SeasonRecapCard({ season, champion, orangeCap, purpleCap
               Season Recap
             </div>
             <div style={{ fontFamily: FONTS.heading, fontSize: sf(60), fontWeight: 700, color: '#F0F0F5', lineHeight: 1 }}>
-              IPL {season || '20XX'}
+              {tournament.shortName} {season || '20XX'}
             </div>
           </div>
 
@@ -58,8 +60,8 @@ export default function SeasonRecapCard({ season, champion, orangeCap, purpleCap
 
         {/* Awards grid */}
         <div style={{ display: 'grid', gridTemplateColumns: isPortrait ? '1fr' : '1fr 1fr', gap: isPortrait ? '14px' : '16px', flex: 1 }}>
-          <AwardRow label="Orange Cap" value={orangeCap} color={NEON_COLORS.amber} boxColor={BOX_COLORS[3]} sf={sf} />
-          <AwardRow label="Purple Cap" value={purpleCap} color={NEON_COLORS.magenta} boxColor={BOX_COLORS[1]} sf={sf} />
+          <AwardRow label={tournament.awards.batting} value={orangeCap} color={NEON_COLORS.amber} boxColor={BOX_COLORS[3]} sf={sf} />
+          <AwardRow label={tournament.awards.bowling} value={purpleCap} color={NEON_COLORS.magenta} boxColor={BOX_COLORS[1]} sf={sf} />
           <AwardRow label="Most Sixes" value={mostSixes} color={NEON_COLORS.cyan} boxColor={BOX_COLORS[0]} sf={sf} />
           <AwardRow label="Best Economy" value={bestEconomy} color={NEON_COLORS.lime} boxColor={BOX_COLORS[2]} sf={sf} />
         </div>

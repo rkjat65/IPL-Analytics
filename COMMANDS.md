@@ -1,4 +1,4 @@
-# IPL Analytics - Command Guide
+# Cricket Analytics - Command Guide
 
 This guide outlines all the essential commands for running, updating, and deploying the IPL Analytics application.
 
@@ -44,11 +44,18 @@ If you need to wipe the database and reload all files from scratch:
 python ingest.py --reset
 ```
 
+### 2.3 Rebuild the T20 World Cup Database
+World Cup data stays in its own database and must never be ingested into `ipl.duckdb`:
+```powershell
+python ingest.py --src "T20 World Cup\t20wc_matches" --db t20_world_cup.duckdb --reset --season-from-date-year
+```
+The date-year option normalizes Cricsheet seasons to the edition year, including tournaments played across calendar-year boundaries.
+
 ---
 
 ## 3. Deploying to Oracle Hosting (141.253.98.100)
 
-The application is hosted on Oracle Cloud. Since `ipl.duckdb` is bundled inside the Docker image, you must redeploy to see new data.
+The application is hosted on Oracle Cloud. Both `ipl.duckdb` and `t20_world_cup.duckdb` are bundled inside the Docker image, so you must redeploy to see new data.
 
 ### 3.1 Manual Sync (Local to Oracle)
 Use this if you want to push updates immediately without waiting for GitHub Actions:
@@ -86,12 +93,12 @@ Go to your GitHub Repository > **Settings** > **Secrets and variables** > **Acti
 2.  Run `python ingest.py` to update the local `ipl.duckdb`.
 3.  Commit and Push:
     ```bash
-    git add ipl.duckdb ipl_json/
+    git add ipl.duckdb t20_world_cup.duckdb ipl_json/ "T20 World Cup/t20wc_matches/"
     git commit -m "data: sync latest match results"
     git push origin main
     ```
 4.  GitHub will now:
-    *   Build a fresh Docker image containing your new `ipl.duckdb`.
+    *   Build a fresh Docker image containing both isolated tournament databases.
     *   Push it to GitHub Container Registry (GHCR).
     *   SSH into your Oracle server and restart the container with the new image.
 

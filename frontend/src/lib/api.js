@@ -1,14 +1,26 @@
 const API_BASE = '/api'
 
-async function fetchAPI(endpoint, params = {}) {
+export function getActiveTournament() {
+  const queryValue = new URLSearchParams(window.location.search).get('tournament')
+  if (queryValue === 't20wc' || queryValue === 'ipl') return queryValue
+  return window.localStorage.getItem('crickrida-tournament') === 't20wc' ? 't20wc' : 'ipl'
+}
+
+export function apiUrl(endpoint, params = {}) {
   const url = new URL(endpoint, window.location.origin)
   url.pathname = API_BASE + endpoint
+  url.searchParams.set('tournament', getActiveTournament())
   Object.entries(params).forEach(([key, val]) => {
     if (val !== undefined && val !== null && val !== '') {
       url.searchParams.set(key, val)
     }
   })
-  const res = await fetch(url.toString())
+  return url.toString()
+}
+
+export async function fetchAPI(endpoint, params = {}) {
+  const url = apiUrl(endpoint, params)
+  const res = await fetch(url)
   if (!res.ok) {
     throw new Error(`API error: ${res.status} ${res.statusText}`)
   }
@@ -57,7 +69,8 @@ export const getVenueTopPerformers = (name) => fetchAPI(`/venues/${encodeURIComp
 
 // Seasons
 export const getSeasonSummary = (season) => fetchAPI(`/seasons/${encodeURIComponent(season)}/summary`)
-export const getPointsTable = (season) => fetchAPI(`/seasons/${encodeURIComponent(season)}/points-table`)
+export const getSeasonGroups = (season) => fetchAPI(`/seasons/${encodeURIComponent(season)}/groups`)
+export const getPointsTable = (season, group, stage) => fetchAPI(`/seasons/${encodeURIComponent(season)}/points-table`, { group, stage })
 export const getCapRace = (season) => fetchAPI(`/seasons/${encodeURIComponent(season)}/cap-race`)
 
 // AI
@@ -65,7 +78,7 @@ export const getAiStatus = () => fetchAPI('/ai/status')
 export const askCricketQuery = (question, season, token) => {
   const headers = { 'Content-Type': 'application/json' }
   if (token) headers.Authorization = `Bearer ${token}`
-  return fetch(`${window.location.origin}/api/ai/query`, {
+  return fetch(apiUrl('/ai/query'), {
     method: 'POST',
     headers,
     body: JSON.stringify({ question, season }),
@@ -77,7 +90,7 @@ export const askCricketQuery = (question, season, token) => {
 export const generateCommentary = (data, token) => {
   const headers = { 'Content-Type': 'application/json' }
   if (token) headers.Authorization = `Bearer ${token}`
-  return fetch(`${window.location.origin}/api/ai/commentary`, {
+  return fetch(apiUrl('/ai/commentary'), {
     method: 'POST',
     headers,
     body: JSON.stringify(data),
@@ -89,7 +102,7 @@ export const generateCommentary = (data, token) => {
 export const generateThread = (topic, data, token) => {
   const headers = { 'Content-Type': 'application/json' }
   if (token) headers.Authorization = `Bearer ${token}`
-  return fetch(`${window.location.origin}/api/ai/thread`, {
+  return fetch(apiUrl('/ai/thread'), {
     method: 'POST',
     headers,
     body: JSON.stringify({ topic, data }),
@@ -102,7 +115,7 @@ export const getAiSuggestions = () => fetchAPI('/ai/suggestions')
 export const generateAIImage = (data, token) => {
   const headers = { 'Content-Type': 'application/json' }
   if (token) headers.Authorization = `Bearer ${token}`
-  return fetch(`${window.location.origin}/api/ai/generate-image`, {
+  return fetch(apiUrl('/ai/generate-image'), {
     method: 'POST',
     headers,
     body: JSON.stringify(data),
@@ -116,7 +129,7 @@ export const generateAIImage = (data, token) => {
 export const getImageStyles = () => fetchAPI('/images/styles')
 export const getImageFormats = () => fetchAPI('/images/formats')
 export const generateCardImage = (data) => {
-  return fetch(`${window.location.origin}/api/images/generate-base64`, {
+  return fetch(apiUrl('/images/generate-base64'), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
@@ -146,7 +159,7 @@ export const getPulseOnThisDay = (params) => fetchAPI('/pulse/on-this-day', para
 export const getPulseCalendarMonth = (month) => fetchAPI('/pulse/calendar-month', { month })
 export const getPulseTrending = (limit) => fetchAPI('/pulse/trending', { limit })
 export const generateInsightCard = (cardConfig, dimensions) => {
-  return fetch(`${window.location.origin}/api/pulse/insight-card`, {
+  return fetch(apiUrl('/pulse/insight-card'), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ card_config: cardConfig, dimensions }),
@@ -159,7 +172,7 @@ export const generateInsightCard = (cardConfig, dimensions) => {
 // Billing
 export const getBillingPlans = () => fetchAPI('/billing/plans')
 export const getBillingUsage = (token) => {
-  return fetch(`${window.location.origin}/api/billing/usage`, {
+  return fetch(apiUrl('/billing/usage'), {
     headers: { Authorization: `Bearer ${token}` },
   }).then(res => {
     if (!res.ok) return res.json().then(e => { throw new Error(e.detail || 'Failed to get usage') })
@@ -167,7 +180,7 @@ export const getBillingUsage = (token) => {
   })
 }
 export const checkFeatureQuota = (feature, token) => {
-  return fetch(`${window.location.origin}/api/billing/check/${feature}`, {
+  return fetch(apiUrl(`/billing/check/${feature}`), {
     headers: { Authorization: `Bearer ${token}` },
   }).then(res => {
     if (!res.ok) return res.json().then(e => { throw new Error(e.detail || 'Quota check failed') })
@@ -177,7 +190,7 @@ export const checkFeatureQuota = (feature, token) => {
 
 export const getPaymentStatus = () => fetchAPI('/billing/payment-status')
 export const createSubscription = (plan, token) => {
-  return fetch(`${window.location.origin}/api/billing/create-subscription`, {
+  return fetch(apiUrl('/billing/create-subscription'), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
     body: JSON.stringify({ plan }),
@@ -187,7 +200,7 @@ export const createSubscription = (plan, token) => {
   })
 }
 export const verifyPayment = (data, token) => {
-  return fetch(`${window.location.origin}/api/billing/verify-payment`, {
+  return fetch(apiUrl('/billing/verify-payment'), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
     body: JSON.stringify(data),
@@ -199,7 +212,7 @@ export const verifyPayment = (data, token) => {
 
 // Admin
 export const getAdminUsers = (token) => {
-  return fetch(`${window.location.origin}/api/auth/admin/users`, {
+  return fetch(apiUrl('/auth/admin/users'), {
     headers: { Authorization: `Bearer ${token}` },
   }).then(res => {
     if (!res.ok) return res.json().then(e => { throw new Error(e.detail || 'Access denied') })
@@ -208,7 +221,7 @@ export const getAdminUsers = (token) => {
 }
 
 export const getAdminStats = (token) => {
-  return fetch(`${window.location.origin}/api/auth/admin/stats`, {
+  return fetch(apiUrl('/auth/admin/stats'), {
     headers: { Authorization: `Bearer ${token}` },
   }).then(res => {
     if (!res.ok) return res.json().then(e => { throw new Error(e.detail || 'Access denied') })

@@ -22,7 +22,9 @@ Usage
 from __future__ import annotations
 
 import argparse
+from collections import defaultdict
 import logging
+import statistics
 import sys
 from pathlib import Path
 from typing import Any
@@ -68,7 +70,9 @@ CREATE TABLE IF NOT EXISTS matches (
     player_of_match VARCHAR,
     balls_per_over  INTEGER,
     umpire1         VARCHAR,
-    umpire2         VARCHAR
+    umpire2         VARCHAR,
+    event_group     VARCHAR,
+    event_stage     VARCHAR
 );
 """
 
@@ -158,12 +162,13 @@ def _outcome(info: dict[str, Any]) -> tuple[str | None, int | None, int | None, 
 class MatchExtractor:
     """Extracts all four tables from one Cricsheet JSON dict."""
 
-    def __init__(self) -> None:
+    def __init__(self, *, season_from_date_year: bool = False) -> None:
         self.matches:    list[dict] = []
         self.innings:    list[dict] = []
         self.deliveries: list[dict] = []
         self.players:    dict[str, str] = {}   # player_id → name
         self._delivery_id = 0
+        self.season_from_date_year = season_from_date_year
 
     def _next_delivery_id(self) -> int:
         self._delivery_id += 1
@@ -182,13 +187,16 @@ class MatchExtractor:
 
         pom_list = info.get("player_of_match", [])
         pom = ", ".join(pom_list) if pom_list else None
+        season = info.get("season")
+        if self.season_from_date_year and dates:
+            season = str(dates[0])[:4]
 
         self.matches.append(
             {
                 "match_id":       match_id,
                 "data_version":   meta.get("data_version"),
                 "created_date":   meta.get("created"),
-                "season":         info.get("season"),
+                "season":         season,
                 "match_type":     info.get("match_type"),
                 "gender":         info.get("gender"),
                 "team_type":      info.get("team_type"),
@@ -209,6 +217,8 @@ class MatchExtractor:
                 "balls_per_over": info.get("balls_per_over", 6),
                 "umpire1":        umpires[0] if len(umpires) > 0 else None,
                 "umpire2":        umpires[1] if len(umpires) > 1 else None,
+                "event_group":    info.get("event", {}).get("group"),
+                "event_stage":    info.get("event", {}).get("stage"),
             }
         )
 
@@ -315,6 +325,8 @@ def ensure_schema(con: duckdb.DuckDBPyConnection) -> None:
     """Create tables if they do not exist."""
     for ddl in (DDL_MATCHES, DDL_INNINGS, DDL_DELIVERIES, DDL_PLAYERS):
         con.execute(ddl)
+    con.execute("ALTER TABLE matches ADD COLUMN IF NOT EXISTS event_group VARCHAR")
+    con.execute("ALTER TABLE matches ADD COLUMN IF NOT EXISTS event_stage VARCHAR")
 
 
 def delete_match_rows(con: duckdb.DuckDBPyConnection, match_id: str) -> None:
@@ -434,6 +446,87 @@ def apply_retired_hurt_fallback(
     return fixed
 
 
+def infer_tournament_structure(con: duckdb.DuckDBPyConnection) -> int:
+    """Fill missing World Cup group/stage metadata conservatively.
+
+    Cricsheet records the tournament group on most, but not every, match. We
+    preserve every supplied value and infer only blank values from known group
+    membership and the date window of that stage. The final three fixtures in
+    each edition are kept out of group tables as semi-finals/final.
+    """
+    rows = con.execute("""
+        SELECT match_id, season, date, team1, team2, event_group, event_stage
+        FROM matches
+        WHERE event_name IN ('ICC Men''s T20 World Cup', 'ICC World Twenty20', 'World T20')
+        ORDER BY season, date, match_id
+    """).fetchall()
+    if not rows:
+        return 0
+
+    by_season: dict[str, list[tuple]] = defaultdict(list)
+    for row in rows:
+        by_season[str(row[1])].append(row)
+
+    changed = 0
+    for season_rows in by_season.values():
+        # The tournament has two semi-finals followed by the final. Preserve
+        # supplied stage labels and fill only the blanks.
+        knockout = season_rows[-3:]
+        for position, row in enumerate(knockout):
+            if row[6] is None:
+                stage = "Final" if position == 2 else "Semi Final"
+                con.execute(
+                    "UPDATE matches SET event_stage = ? WHERE match_id = ?",
+                    [stage, row[0]],
+                )
+                changed += 1
+
+        groups: dict[str, dict[str, Any]] = {}
+        for _, _, date, team1, team2, group, _ in season_rows:
+            if not group:
+                continue
+            entry = groups.setdefault(group, {"teams": set(), "dates": []})
+            entry["teams"].update((team1, team2))
+            entry["dates"].append(date.toordinal())
+
+        numeric_start = min(
+            (
+                min(item["dates"])
+                for label, item in groups.items()
+                if str(label).isdigit()
+            ),
+            default=None,
+        )
+        knockout_ids = {row[0] for row in knockout}
+
+        for match_id, _, date, team1, team2, group, stage in season_rows:
+            if group or stage or match_id in knockout_ids:
+                continue
+            candidates = []
+            for label, item in groups.items():
+                overlap = len({team1, team2} & item["teams"])
+                if not overlap:
+                    continue
+                is_numeric = str(label).isdigit()
+                if numeric_start is not None:
+                    in_numeric_stage = date.toordinal() >= numeric_start
+                    if in_numeric_stage != is_numeric:
+                        continue
+                center = statistics.median(item["dates"])
+                candidates.append((-overlap, abs(date.toordinal() - center), label))
+            if not candidates:
+                continue
+            inferred = min(candidates)[2]
+            con.execute(
+                "UPDATE matches SET event_group = ? WHERE match_id = ?",
+                [inferred, match_id],
+            )
+            groups[inferred]["teams"].update((team1, team2))
+            groups[inferred]["dates"].append(date.toordinal())
+            changed += 1
+    return changed
+
+
 def ingest_json_paths(
     db_path: Path | str,
     paths: list[Path],
@@ -450,14 +543,18 @@ def ingest_json_paths(
         from backend import database as _db
 
         if Path(db_path).resolve() == Path(_db.DB_PATH).resolve():
-            existing_conn = getattr(_db._local, "conn", None)
+            connections = getattr(_db._local, "connections", {})
+            existing_conn = connections.get("ipl")
             if existing_conn is not None:
                 try:
                     existing_conn.close()
                 except Exception:
                     pass
-                _db._local.conn = None
-                _db._local.ver = -1
+                connections.pop("ipl", None)
+                _db._local.connections = connections
+                versions = getattr(_db._local, "versions", {})
+                versions.pop("ipl", None)
+                _db._local.versions = versions
     except Exception:
         pass
 
@@ -585,6 +682,11 @@ def main() -> None:
         help="Re-ingest files even if they already exist in the database"
     )
     parser.add_argument(
+        "--season-from-date-year",
+        action="store_true",
+        help="Use the match date year as season (useful for World Cup editions)",
+    )
+    parser.add_argument(
         "--only",
         nargs="*",
         metavar="GLOB",
@@ -656,7 +758,7 @@ def main() -> None:
         last_id = con.execute(
             "SELECT COALESCE(MAX(delivery_id), 0) FROM deliveries"
         ).fetchone()[0]
-        extractor = MatchExtractor()
+        extractor = MatchExtractor(season_from_date_year=args.season_from_date_year)
         extractor._delivery_id = int(last_id)  # noqa: SLF001
         errors: list[str] = []
         for path in tqdm(json_files, desc="Ingesting (--only)", unit="file"):
@@ -672,7 +774,7 @@ def main() -> None:
         _load_to_duckdb_rowwise(con, extractor)
         apply_retired_hurt_fallback(con, [p.stem for p in json_files])
     else:
-        extractor = MatchExtractor()
+        extractor = MatchExtractor(season_from_date_year=args.season_from_date_year)
         errors: list[str] = []
 
         for i, path in enumerate(tqdm(json_files, desc="Ingesting", unit="file"), start=1):
@@ -688,7 +790,7 @@ def main() -> None:
             # Flush every `batch` files to keep memory bounded
             if i % args.batch == 0:
                 _load_to_duckdb(con, extractor)
-                extractor = MatchExtractor()
+                extractor = MatchExtractor(season_from_date_year=args.season_from_date_year)
                 # Reset delivery_id counter relative to what was loaded
                 last_id = con.execute(
                     "SELECT COALESCE(MAX(delivery_id), 0) FROM deliveries"
@@ -699,9 +801,13 @@ def main() -> None:
         _load_to_duckdb(con, extractor)
         apply_retired_hurt_fallback(con, [p.stem for p in json_files])
 
+    structural_updates = infer_tournament_structure(con)
+    if structural_updates:
+        log.info("Filled %d missing tournament group/stage values", structural_updates)
+
     # Summary
     print("\n" + "=" * 60)
-    print("  IPL Analytics — Phase 1 Ingestion Complete")
+    print("  Cricket Analytics — Ingestion Complete")
     print("=" * 60)
     for tbl in ("matches", "innings", "deliveries", "players"):
         count = con.execute(f"SELECT COUNT(*) FROM {tbl}").fetchone()[0]

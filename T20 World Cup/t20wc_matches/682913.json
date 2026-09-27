@@ -1,0 +1,2843 @@
+{
+  "meta": {
+    "data_version": "1.0.0",
+    "created": "2026-09-27",
+    "revision": 1
+  },
+  "info": {
+    "balls_per_over": 6,
+    "dates": [
+      "2014-03-20"
+    ],
+    "event": {
+      "name": "ICC Men's T20 World Cup"
+    },
+    "gender": "male",
+    "match_type": "T20",
+    "outcome": {
+      "winner": "Nepal"
+    },
+    "overs": 20,
+    "season": 2014,
+    "team_type": "international",
+    "teams": [
+      "Afghanistan",
+      "Nepal"
+    ],
+    "venue": "Chattogram",
+    "players": {
+      "Afghanistan": [
+        "Asghar Afghan",
+        "Dawlat Zadran",
+        "Karim Sadiq",
+        "Mirwais Ashraf",
+        "Mohammad Nabi",
+        "Mohammad Shahzad",
+        "Najibullah Zadran",
+        "Nawroz Mangal",
+        "Samiullah Shinwari",
+        "Shafiqullah",
+        "Shapoor Zadran"
+      ],
+      "Nepal": [
+        "Basant Regmi",
+        "Binod Bhandari",
+        "Gyanendra Malla",
+        "Jitendra Mukhiya",
+        "Naresh Budayair",
+        "Paras Khadka",
+        "Sagar Pun",
+        "Shakti Gauchan",
+        "Sharad Vesawkar",
+        "Sompal Kami",
+        "Subash Khakurel"
+      ]
+    }
+  },
+  "innings": [
+    {
+      "team": "Nepal",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Sagar Pun",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Sagar Pun",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sagar Pun",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sagar Pun",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Sagar Pun",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sagar Pun",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Sagar Pun",
+              "runs": {
+                "batter": 0,
+                "extras": 2,
+                "total": 2
+              },
+              "extras": {
+                "legbyes": 2
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Sagar Pun",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Sagar Pun",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Sagar Pun",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sagar Pun",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sagar Pun",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Sagar Pun",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Sagar Pun",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sagar Pun",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sagar Pun",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sagar Pun",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Sagar Pun",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Sagar Pun",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sagar Pun",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Sagar Pun",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sagar Pun",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Sagar Pun",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "noballs": 1
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Sagar Pun",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sagar Pun",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Sagar Pun"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Gyanendra Malla",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Gyanendra Malla",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Gyanendra Malla",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Gyanendra Malla",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Gyanendra Malla",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Gyanendra Malla",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "batter": "Gyanendra Malla",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Gyanendra Malla",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gyanendra Malla",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gyanendra Malla",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Gyanendra Malla",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Gyanendra Malla",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Mirwais Ashraf",
+              "non_striker": "Gyanendra Malla",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Mirwais Ashraf",
+              "non_striker": "Gyanendra Malla",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Gyanendra Malla",
+              "bowler": "Mirwais Ashraf",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gyanendra Malla",
+              "bowler": "Mirwais Ashraf",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gyanendra Malla",
+              "bowler": "Mirwais Ashraf",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gyanendra Malla",
+              "bowler": "Mirwais Ashraf",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 3,
+                "extras": 0,
+                "total": 3
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "batter": "Gyanendra Malla",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Gyanendra Malla",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Gyanendra Malla",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gyanendra Malla",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Gyanendra Malla"
+                }
+              ]
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Paras Khadka",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Paras Khadka",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "batter": "Paras Khadka",
+              "bowler": "Mirwais Ashraf",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Paras Khadka",
+              "bowler": "Mirwais Ashraf",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Paras Khadka",
+              "bowler": "Mirwais Ashraf",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Paras Khadka",
+              "bowler": "Mirwais Ashraf",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Mirwais Ashraf",
+              "non_striker": "Paras Khadka",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Paras Khadka",
+              "bowler": "Mirwais Ashraf",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "bowled",
+                  "player_out": "Paras Khadka"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Mirwais Ashraf",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Mirwais Ashraf",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Mirwais Ashraf",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "legbyes": 1
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Mirwais Ashraf",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Mirwais Ashraf",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Mirwais Ashraf",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 1,
+                "extras": 1,
+                "total": 2
+              },
+              "extras": {
+                "noballs": 1
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "noballs": 1
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 15,
+          "deliveries": [
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 16,
+          "deliveries": [
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 17,
+          "deliveries": [
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Mirwais Ashraf",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Mirwais Ashraf",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Mirwais Ashraf",
+              "non_striker": "Subash Khakurel",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Mirwais Ashraf",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Mirwais Ashraf",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Mirwais Ashraf",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 18,
+          "deliveries": [
+            {
+              "batter": "Subash Khakurel",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Sharad Vesawkar",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Subash Khakurel"
+                }
+              ]
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Binod Bhandari",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Sharad Vesawkar",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Binod Bhandari",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Sharad Vesawkar"
+                }
+              ]
+            },
+            {
+              "batter": "Binod Bhandari",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Naresh Budayair",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Binod Bhandari",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Naresh Budayair",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "legbyes": 1
+              }
+            },
+            {
+              "batter": "Naresh Budayair",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Binod Bhandari",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 19,
+          "deliveries": [
+            {
+              "batter": "Naresh Budayair",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Binod Bhandari",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Naresh Budayair",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Binod Bhandari",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Binod Bhandari",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Naresh Budayair",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Binod Bhandari",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Naresh Budayair",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Binod Bhandari",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Naresh Budayair",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Binod Bhandari",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Naresh Budayair",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "legbyes": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "Afghanistan",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Basant Regmi",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Basant Regmi",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Karim Sadiq",
+              "bowler": "Basant Regmi",
+              "non_striker": "Mohammad Shahzad",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Karim Sadiq",
+              "bowler": "Basant Regmi",
+              "non_striker": "Mohammad Shahzad",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Karim Sadiq",
+              "bowler": "Basant Regmi",
+              "non_striker": "Mohammad Shahzad",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Karim Sadiq",
+              "bowler": "Basant Regmi",
+              "non_striker": "Mohammad Shahzad",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Sompal Kami",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Sompal Kami",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Sompal Kami",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Sompal Kami",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "legbyes": 1
+              }
+            },
+            {
+              "batter": "Karim Sadiq",
+              "bowler": "Sompal Kami",
+              "non_striker": "Mohammad Shahzad",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Karim Sadiq",
+              "bowler": "Sompal Kami",
+              "non_striker": "Mohammad Shahzad",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Jitendra Mukhiya",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Jitendra Mukhiya",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Jitendra Mukhiya",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Jitendra Mukhiya",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Jitendra Mukhiya",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Jitendra Mukhiya",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "batter": "Karim Sadiq",
+              "bowler": "Sompal Kami",
+              "non_striker": "Mohammad Shahzad",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "bowled",
+                  "player_out": "Karim Sadiq"
+                }
+              ]
+            },
+            {
+              "batter": "Najibullah Zadran",
+              "bowler": "Sompal Kami",
+              "non_striker": "Mohammad Shahzad",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Sompal Kami",
+              "non_striker": "Najibullah Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Sompal Kami",
+              "non_striker": "Najibullah Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Najibullah Zadran",
+              "bowler": "Sompal Kami",
+              "non_striker": "Mohammad Shahzad",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Najibullah Zadran",
+              "bowler": "Sompal Kami",
+              "non_striker": "Mohammad Shahzad",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Jitendra Mukhiya",
+              "non_striker": "Najibullah Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Jitendra Mukhiya",
+              "non_striker": "Najibullah Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Jitendra Mukhiya",
+              "non_striker": "Najibullah Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Mohammad Shahzad"
+                }
+              ]
+            },
+            {
+              "batter": "Najibullah Zadran",
+              "bowler": "Jitendra Mukhiya",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Najibullah Zadran"
+                }
+              ]
+            },
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Jitendra Mukhiya",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Jitendra Mukhiya",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Paras Khadka",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Paras Khadka",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Paras Khadka",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Paras Khadka",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Paras Khadka",
+              "non_striker": "Shafiqullah",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Paras Khadka",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Basant Regmi",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Basant Regmi",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Basant Regmi",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Basant Regmi",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Basant Regmi",
+              "non_striker": "Shafiqullah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Basant Regmi",
+              "non_striker": "Shafiqullah",
+              "runs": {
+                "batter": 0,
+                "extras": 4,
+                "total": 4
+              },
+              "extras": {
+                "byes": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Paras Khadka",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Paras Khadka",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Paras Khadka",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Paras Khadka",
+              "non_striker": "Shafiqullah",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Paras Khadka",
+              "non_striker": "Shafiqullah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Paras Khadka",
+              "non_striker": "Shafiqullah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Shakti Gauchan",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Shakti Gauchan",
+              "non_striker": "Shafiqullah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Nawroz Mangal"
+                }
+              ]
+            },
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Shakti Gauchan",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Shakti Gauchan",
+              "non_striker": "Shafiqullah",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Shakti Gauchan",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Shakti Gauchan",
+              "non_striker": "Shafiqullah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "leg before wicket",
+                  "player_out": "Mohammad Nabi"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Paras Khadka",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Paras Khadka",
+              "non_striker": "Shafiqullah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Paras Khadka",
+              "non_striker": "Shafiqullah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Paras Khadka",
+              "non_striker": "Shafiqullah",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Paras Khadka",
+              "non_striker": "Shafiqullah",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Paras Khadka",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Shakti Gauchan",
+              "non_striker": "Shafiqullah",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Shakti Gauchan",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Shakti Gauchan",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Shakti Gauchan",
+              "non_striker": "Shafiqullah",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Shakti Gauchan",
+              "non_striker": "Shafiqullah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Shakti Gauchan",
+              "non_striker": "Shafiqullah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Sagar Pun",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Sagar Pun",
+              "non_striker": "Shafiqullah",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Sagar Pun",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Sagar Pun",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Sagar Pun",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Sagar Pun",
+              "non_striker": "Shafiqullah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Shakti Gauchan",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Shakti Gauchan",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Shakti Gauchan",
+              "non_striker": "Shafiqullah",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Shakti Gauchan",
+              "non_striker": "Shafiqullah",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Shakti Gauchan",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Shakti Gauchan",
+              "non_striker": "Shafiqullah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Sagar Pun",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Sagar Pun",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Sagar Pun",
+              "non_striker": "Shafiqullah",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Sagar Pun",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Sagar Pun",
+              "non_striker": "Shafiqullah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Sagar Pun",
+              "non_striker": "Shafiqullah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Basant Regmi",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Shafiqullah"
+                }
+              ]
+            },
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Basant Regmi",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Basant Regmi",
+              "non_striker": "Samiullah Shinwari",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Basant Regmi",
+              "non_striker": "Samiullah Shinwari",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Basant Regmi",
+              "non_striker": "Samiullah Shinwari",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Basant Regmi",
+              "non_striker": "Samiullah Shinwari",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 15,
+          "deliveries": [
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Sagar Pun",
+              "non_striker": "Samiullah Shinwari",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Sagar Pun",
+              "non_striker": "Samiullah Shinwari",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Sagar Pun",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Sagar Pun",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Sagar Pun",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Sagar Pun",
+              "non_striker": "Samiullah Shinwari",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 16,
+          "deliveries": [
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Jitendra Mukhiya",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Jitendra Mukhiya",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Jitendra Mukhiya",
+              "non_striker": "Samiullah Shinwari",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Jitendra Mukhiya",
+              "non_striker": "Samiullah Shinwari",
+              "runs": {
+                "batter": 3,
+                "extras": 0,
+                "total": 3
+              }
+            },
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Jitendra Mukhiya",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Jitendra Mukhiya",
+              "non_striker": "Samiullah Shinwari",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 17,
+          "deliveries": [
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Sompal Kami",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Sompal Kami",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Sompal Kami",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 3,
+                "extras": 0,
+                "total": 3
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Sompal Kami",
+              "non_striker": "Samiullah Shinwari",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Sompal Kami",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Sompal Kami",
+              "non_striker": "Samiullah Shinwari",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 18,
+          "deliveries": [
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Jitendra Mukhiya",
+              "non_striker": "Samiullah Shinwari",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Jitendra Mukhiya",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Jitendra Mukhiya",
+              "non_striker": "Samiullah Shinwari",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Jitendra Mukhiya",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Samiullah Shinwari"
+                }
+              ]
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Jitendra Mukhiya",
+              "non_striker": "Mirwais Ashraf",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Mirwais Ashraf",
+              "bowler": "Jitendra Mukhiya",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 19,
+          "deliveries": [
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Sompal Kami",
+              "non_striker": "Mirwais Ashraf",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Sompal Kami",
+              "non_striker": "Mirwais Ashraf",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Sompal Kami",
+              "non_striker": "Mirwais Ashraf",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Sompal Kami",
+              "non_striker": "Mirwais Ashraf",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Sompal Kami",
+              "non_striker": "Mirwais Ashraf",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Asghar Afghan"
+                }
+              ]
+            },
+            {
+              "batter": "Mirwais Ashraf",
+              "bowler": "Sompal Kami",
+              "non_striker": "Dawlat Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

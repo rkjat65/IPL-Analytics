@@ -6,6 +6,7 @@ import { getTeams, compareTeams } from '../lib/api'
 import Loading from '../components/ui/Loading'
 import { formatNumber, formatDecimal, formatDate } from '../utils/format'
 import { getTeamColor, getTeamAbbr } from '../constants/teams'
+import { useTournament } from '../contexts/TournamentContext'
 import TeamLogo from '../components/ui/TeamLogo'
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend,
@@ -88,6 +89,7 @@ function CumulativeEndLabel({ viewBox, value, fill }) {
 }
 
 export default function HeadToHead() {
+  const tournament = useTournament()
   const [searchParams, setSearchParams] = useSearchParams()
   const [team1, setTeam1] = useState(searchParams.get('team1') || '')
   const [team2, setTeam2] = useState(searchParams.get('team2') || '')
@@ -210,14 +212,14 @@ export default function HeadToHead() {
   return (
     <div className="space-y-8">
       <SEO
-        title="IPL Head-to-Head — Team Rivalry Stats & Matchup History"
-        description="Compare any two IPL teams head to head: all-time win-loss records, venue-wise breakdowns, recent form, and historical matchup data between every IPL franchise rivalry."
+        title={`${tournament.shortName} Head-to-Head — Team Rivalry Stats`}
+        description={`Compare any two ${tournament.name} teams: all-time win-loss records, venue breakdowns, recent form, and historical matchups.`}
         url="/h2h"
       />
       {/* Page Header */}
       <div>
         <h1 className="text-3xl font-heading font-bold text-text-primary">Head to Head</h1>
-        <p className="text-text-secondary text-sm mt-1">Deep-dive comparison between two IPL teams</p>
+        <p className="text-text-secondary text-sm mt-1">Deep-dive comparison between two {tournament.shortName} teams</p>
       </div>
 
       {/* ═══════════════════════════════════════════════════════
@@ -600,7 +602,7 @@ export default function HeadToHead() {
               ═══════════════════════════════════════════════════ */}
           {cumulativeData.length > 0 && (
             <section>
-              <SectionHeader title="Cumulative H2H Wins Over Seasons" accentColor="bg-accent-cyan" />
+              <SectionHeader title={`Cumulative H2H Wins Over ${tournament.competitionLabelPlural}`} accentColor="bg-accent-cyan" />
               <div className="bg-[#111118] border border-[#1E1E2A] rounded-2xl p-4">
                 <ResponsiveContainer width="100%" height={340}>
                   <AreaChart data={cumulativeData} margin={{ top: 25, right: 30, left: 0, bottom: 5 }}>
@@ -632,7 +634,7 @@ export default function HeadToHead() {
                         if (!active || !payload?.length) return null
                         return (
                           <NeonTooltip>
-                            <p className="text-text-primary font-semibold mb-1">Season {label}</p>
+                            <p className="text-text-primary font-semibold mb-1">{tournament.competitionLabel} {label}</p>
                             {payload.map((p, i) => (
                               <p key={i} style={{ color: p.stroke }}>
                                 {p.name}: <span className="font-mono font-bold">{p.value} wins</span>

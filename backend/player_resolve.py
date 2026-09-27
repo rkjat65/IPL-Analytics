@@ -4,6 +4,7 @@ import functools
 
 from .database import query
 from .player_aliases import PLAYER_ALIASES
+from .tournaments import get_tournament_slug
 
 
 def _compact_token(value: str) -> str:
@@ -32,14 +33,29 @@ def _token_matches_first_name(target_first: str, candidate_first: str) -> bool:
     return False
 
 
-@functools.lru_cache(maxsize=512)
 def resolve_player_name(name: str, role: str = "bat", *, allow_aliases: bool = False) -> str:
+    return _resolve_player_name(
+        get_tournament_slug(), name, role, allow_aliases=allow_aliases
+    )
+
+
+@functools.lru_cache(maxsize=1024)
+def _resolve_player_name(
+    tournament: str,
+    name: str,
+    role: str = "bat",
+    *,
+    allow_aliases: bool = False,
+) -> str:
     """Map a full player name to the canonical DB name.
 
     Manual alias overrides are intentionally opt-in so they are only used by the
     Sportmonks live/inject pipeline, not by the main historical DB search or
     analytics paths.
     """
+    # ``tournament`` is deliberately part of the cache key. SQL execution uses
+    # the request-local context selected by middleware.
+    del tournament
     col = "batter" if role == "bat" else "bowler"
     raw = name.strip()
     if not raw:

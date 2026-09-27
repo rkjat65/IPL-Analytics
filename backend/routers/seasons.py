@@ -1,9 +1,23 @@
 """Season endpoints: summary, points table, cap races."""
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Query
 from ..database import query, normalize_team
+from ..tournaments import get_tournament_slug
 
 router = APIRouter(prefix="/api/seasons", tags=["seasons"])
+
+
+@router.get("/{season}/groups")
+def season_groups(season: str):
+    """Return the group/stage scopes available for a tournament edition."""
+    if get_tournament_slug() != "t20wc":
+        return []
+    return query("""
+        SELECT DISTINCT event_stage AS stage, event_group AS "group"
+        FROM matches
+        WHERE season = ? AND event_group IS NOT NULL
+        ORDER BY event_stage NULLS FIRST, event_group
+    """, [season])
 
 
 @router.get("/{season}/summary")
@@ -108,9 +122,34 @@ def season_summary(season: str):
 
 
 @router.get("/{season}/points-table")
-def points_table(season: str):
+def points_table(
+    season: str,
+    group: str | None = Query(None),
+    stage: str | None = Query(None),
+):
     """Calculate points table with NRR."""
-    rows = query("""
+    plain_scope = ""
+    aliased_scope = ""
+    scope_values: list[str] = []
+    if group:
+        plain_scope += " AND event_group = ?"
+        aliased_scope += " AND m.event_group = ?"
+        scope_values.append(group)
+    if stage is not None:
+        plain_scope += " AND COALESCE(event_stage, '') = ?"
+        aliased_scope += " AND COALESCE(m.event_stage, '') = ?"
+        scope_values.append(stage)
+
+    params: list[str] = []
+    for _ in range(2):
+        params.append(season)
+        params.extend(scope_values)
+    params.append(season)
+    params.extend(scope_values)
+    params.append(season)
+    params.extend(scope_values)
+
+    rows = query(f"""
         WITH team_matches AS (
             SELECT m.match_id, m.winner, m.result,
                    CASE WHEN m.team1 = t.team THEN m.team1 ELSE m.team2 END AS team,
@@ -118,12 +157,12 @@ def points_table(season: str):
             FROM matches m
             CROSS JOIN (
                 SELECT DISTINCT team FROM (
-                    SELECT team1 AS team FROM matches WHERE season = ?
+                    SELECT team1 AS team FROM matches WHERE season = ? {plain_scope}
                     UNION
-                    SELECT team2 AS team FROM matches WHERE season = ?
+                    SELECT team2 AS team FROM matches WHERE season = ? {plain_scope}
                 ) sub
             ) t
-            WHERE m.season = ? AND (m.team1 = t.team OR m.team2 = t.team)
+            WHERE m.season = ? {aliased_scope} AND (m.team1 = t.team OR m.team2 = t.team)
         ),
         so_winners AS (
             SELECT i.match_id,
@@ -168,7 +207,7 @@ def points_table(season: str):
             LEFT JOIN deliveries d
                 ON i.match_id = d.match_id AND i.innings_number = d.innings_number
             JOIN matches m ON i.match_id = m.match_id
-            WHERE m.season = ? AND i.is_super_over = false AND m.result = 'win'
+            WHERE m.season = ? {aliased_scope} AND i.is_super_over = false AND m.result = 'win'
             GROUP BY i.match_id, i.innings_number, i.batting_team, i.bowling_team,
                      i.total_runs, i.total_wickets
         ),
@@ -212,7 +251,7 @@ def points_table(season: str):
         FROM standings s
         LEFT JOIN nrr_agg n ON s.team = n.team
         ORDER BY s.points DESC, nrr DESC
-    """, [season, season, season, season])
+    """, params)
 
     # Normalize team names
     for row in rows:

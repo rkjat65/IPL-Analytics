@@ -1,0 +1,2591 @@
+{
+  "meta": {
+    "data_version": "1.0.0",
+    "created": "2026-09-27",
+    "revision": 1
+  },
+  "info": {
+    "balls_per_over": 6,
+    "dates": [
+      "2024-06-03"
+    ],
+    "event": {
+      "name": "ICC Men's T20 World Cup"
+    },
+    "gender": "male",
+    "match_type": "T20",
+    "outcome": {
+      "winner": "Afghanistan"
+    },
+    "overs": 20,
+    "season": 2024,
+    "team_type": "international",
+    "teams": [
+      "Afghanistan",
+      "Uganda"
+    ],
+    "venue": "Providence",
+    "players": {
+      "Afghanistan": [
+        "Azmatullah Omarzai",
+        "Fazalhaq Farooqi",
+        "Gulbadin Naib",
+        "Ibrahim Zadran",
+        "Mohammad Nabi",
+        "Mujeeb Ur Rahman",
+        "Najibullah Zadran",
+        "Naveen-ul-Haq",
+        "Rahmanullah Gurbaz",
+        "Rashid Khan"
+      ],
+      "Uganda": [
+        "Alpesh Ramjani",
+        "Bilal Hassan",
+        "Brian Masaba",
+        "Cosmas Kyewuta",
+        "Dinesh Nakrani",
+        "Henry Ssenyondo",
+        "Riazat Ali Shah",
+        "Robinson Obuya",
+        "Roger Mukasa",
+        "Ronak Patel",
+        "Simon Ssesazi"
+      ]
+    }
+  },
+  "innings": [
+    {
+      "team": "Afghanistan",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Alpesh Ramjani",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Alpesh Ramjani",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Alpesh Ramjani",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Alpesh Ramjani",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Alpesh Ramjani",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 5,
+                "extras": 0,
+                "total": 5
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Alpesh Ramjani",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Cosmas Kyewuta",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Cosmas Kyewuta",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Cosmas Kyewuta",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Cosmas Kyewuta",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Cosmas Kyewuta",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Cosmas Kyewuta",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Dinesh Nakrani",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Dinesh Nakrani",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Dinesh Nakrani",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Dinesh Nakrani",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Dinesh Nakrani",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Dinesh Nakrani",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Bilal Hassan",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "legbyes": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Bilal Hassan",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Bilal Hassan",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Bilal Hassan",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Bilal Hassan",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Bilal Hassan",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Alpesh Ramjani",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Alpesh Ramjani",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Alpesh Ramjani",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Alpesh Ramjani",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Alpesh Ramjani",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Alpesh Ramjani",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Dinesh Nakrani",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Dinesh Nakrani",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Dinesh Nakrani",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Dinesh Nakrani",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Dinesh Nakrani",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Dinesh Nakrani",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Henry Ssenyondo",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Henry Ssenyondo",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Henry Ssenyondo",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Henry Ssenyondo",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Henry Ssenyondo",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Henry Ssenyondo",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Cosmas Kyewuta",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Cosmas Kyewuta",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Cosmas Kyewuta",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Cosmas Kyewuta",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Cosmas Kyewuta",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Cosmas Kyewuta",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Henry Ssenyondo",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Henry Ssenyondo",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Henry Ssenyondo",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Henry Ssenyondo",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Henry Ssenyondo",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Henry Ssenyondo",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Henry Ssenyondo",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Dinesh Nakrani",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Dinesh Nakrani",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Dinesh Nakrani",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Dinesh Nakrani",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Dinesh Nakrani",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Dinesh Nakrani",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Riazat Ali Shah",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Riazat Ali Shah",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Riazat Ali Shah",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Riazat Ali Shah",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Riazat Ali Shah",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Riazat Ali Shah",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Brian Masaba",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Brian Masaba",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Brian Masaba",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Brian Masaba",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 3,
+                "extras": 0,
+                "total": 3
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Brian Masaba",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Brian Masaba",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Alpesh Ramjani",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Alpesh Ramjani",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Alpesh Ramjani",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Alpesh Ramjani",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Alpesh Ramjani",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Alpesh Ramjani",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Bilal Hassan",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 5,
+                "total": 5
+              },
+              "extras": {
+                "wides": 5
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Bilal Hassan",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 4,
+                "extras": 1,
+                "total": 5
+              },
+              "extras": {
+                "noballs": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Bilal Hassan",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Bilal Hassan",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Bilal Hassan",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Bilal Hassan",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Bilal Hassan",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Bilal Hassan",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Brian Masaba",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Brian Masaba",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Brian Masaba",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "bowled",
+                  "player_out": "Ibrahim Zadran"
+                }
+              ]
+            },
+            {
+              "batter": "Najibullah Zadran",
+              "bowler": "Brian Masaba",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Brian Masaba",
+              "non_striker": "Najibullah Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Brian Masaba",
+              "non_striker": "Najibullah Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "legbyes": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 15,
+          "deliveries": [
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Alpesh Ramjani",
+              "non_striker": "Najibullah Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Rahmanullah Gurbaz"
+                }
+              ]
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Alpesh Ramjani",
+              "non_striker": "Najibullah Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Alpesh Ramjani",
+              "non_striker": "Najibullah Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Najibullah Zadran",
+              "bowler": "Alpesh Ramjani",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Alpesh Ramjani",
+              "non_striker": "Najibullah Zadran",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Alpesh Ramjani",
+              "non_striker": "Najibullah Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 16,
+          "deliveries": [
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Brian Masaba",
+              "non_striker": "Najibullah Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Najibullah Zadran",
+              "bowler": "Brian Masaba",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Najibullah Zadran"
+                }
+              ]
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Brian Masaba",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Brian Masaba",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Brian Masaba",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Brian Masaba",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 17,
+          "deliveries": [
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Cosmas Kyewuta",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Cosmas Kyewuta",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Cosmas Kyewuta",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Cosmas Kyewuta",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "byes": 1
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Cosmas Kyewuta",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Gulbadin Naib"
+                }
+              ]
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Cosmas Kyewuta",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 18,
+          "deliveries": [
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Brian Masaba",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Brian Masaba",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Brian Masaba",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Brian Masaba",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Brian Masaba",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Brian Masaba",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 19,
+          "deliveries": [
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Cosmas Kyewuta",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Cosmas Kyewuta",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Cosmas Kyewuta",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Cosmas Kyewuta",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Cosmas Kyewuta",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Azmatullah Omarzai"
+                }
+              ]
+            },
+            {
+              "batter": "Rashid Khan",
+              "bowler": "Cosmas Kyewuta",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "Uganda",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "batter": "Ronak Patel",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Simon Ssesazi",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Ronak Patel",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Simon Ssesazi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "bowled",
+                  "player_out": "Ronak Patel"
+                }
+              ]
+            },
+            {
+              "batter": "Roger Mukasa",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Simon Ssesazi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "leg before wicket",
+                  "player_out": "Roger Mukasa"
+                }
+              ]
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Simon Ssesazi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Simon Ssesazi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Simon Ssesazi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "batter": "Simon Ssesazi",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Simon Ssesazi",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Simon Ssesazi",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Simon Ssesazi",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Simon Ssesazi"
+                }
+              ]
+            },
+            {
+              "batter": "Dinesh Nakrani",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Dinesh Nakrani",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "batter": "Dinesh Nakrani",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Dinesh Nakrani",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Dinesh Nakrani",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Dinesh Nakrani",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Dinesh Nakrani",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Dinesh Nakrani",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Dinesh Nakrani",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Dinesh Nakrani",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Dinesh Nakrani",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Dinesh Nakrani",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Dinesh Nakrani",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Dinesh Nakrani",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Dinesh Nakrani",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Dinesh Nakrani",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Dinesh Nakrani",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "bowled",
+                  "player_out": "Dinesh Nakrani"
+                }
+              ]
+            },
+            {
+              "batter": "Alpesh Ramjani",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alpesh Ramjani",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Alpesh Ramjani"
+                }
+              ]
+            },
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Rashid Khan",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Rashid Khan",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Rashid Khan",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Rashid Khan",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Rashid Khan",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Rashid Khan",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Rashid Khan",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Rashid Khan",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Rashid Khan",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "legbyes": 1
+              }
+            },
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Rashid Khan",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Rashid Khan",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Rashid Khan",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 0,
+                "extras": 5,
+                "total": 5
+              },
+              "extras": {
+                "wides": 5
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Mujeeb Ur Rahman",
+              "non_striker": "Riazat Ali Shah",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "batter": "Riazat Ali Shah",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "bowled",
+                  "player_out": "Riazat Ali Shah"
+                }
+              ]
+            },
+            {
+              "batter": "Brian Masaba",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Brian Masaba"
+                }
+              ]
+            },
+            {
+              "batter": "Bilal Hassan",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Robinson Obuya",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Bilal Hassan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Bilal Hassan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Robinson Obuya",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Bilal Hassan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Robinson Obuya"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "batter": "Bilal Hassan",
+              "bowler": "Rashid Khan",
+              "non_striker": "Cosmas Kyewuta",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "legbyes": 1
+              }
+            },
+            {
+              "batter": "Cosmas Kyewuta",
+              "bowler": "Rashid Khan",
+              "non_striker": "Bilal Hassan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Bilal Hassan",
+              "bowler": "Rashid Khan",
+              "non_striker": "Cosmas Kyewuta",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Bilal Hassan",
+              "bowler": "Rashid Khan",
+              "non_striker": "Cosmas Kyewuta",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Bilal Hassan",
+              "bowler": "Rashid Khan",
+              "non_striker": "Cosmas Kyewuta",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Bilal Hassan",
+              "bowler": "Rashid Khan",
+              "non_striker": "Cosmas Kyewuta",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "batter": "Cosmas Kyewuta",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Bilal Hassan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Bilal Hassan",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Cosmas Kyewuta",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Bilal Hassan",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Cosmas Kyewuta",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Bilal Hassan",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Cosmas Kyewuta",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Bilal Hassan",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Cosmas Kyewuta",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Bilal Hassan",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Cosmas Kyewuta",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 15,
+          "deliveries": [
+            {
+              "batter": "Bilal Hassan",
+              "bowler": "Rashid Khan",
+              "non_striker": "Cosmas Kyewuta",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Bilal Hassan",
+              "bowler": "Rashid Khan",
+              "non_striker": "Cosmas Kyewuta",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Bilal Hassan",
+              "bowler": "Rashid Khan",
+              "non_striker": "Cosmas Kyewuta",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Bilal Hassan",
+              "bowler": "Rashid Khan",
+              "non_striker": "Cosmas Kyewuta",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Bilal Hassan",
+              "bowler": "Rashid Khan",
+              "non_striker": "Cosmas Kyewuta",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "leg before wicket",
+                  "player_out": "Bilal Hassan"
+                }
+              ]
+            },
+            {
+              "batter": "Henry Ssenyondo",
+              "bowler": "Rashid Khan",
+              "non_striker": "Cosmas Kyewuta",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "bowled",
+                  "player_out": "Henry Ssenyondo"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

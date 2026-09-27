@@ -10,6 +10,7 @@ from fastapi import APIRouter, Header, HTTPException
 from pydantic import BaseModel
 
 from ..database import query
+from ..tournaments import get_tournament
 from .auth import get_current_user
 
 
@@ -57,7 +58,7 @@ router = APIRouter(prefix="/api/ai", tags=["AI"])
 
 # ── DB Schema for NL Query ────────────────────────────────────────────────────
 DB_SCHEMA = """
-You are an IPL cricket analytics SQL expert. The database is DuckDB with these tables:
+You are a cricket analytics SQL expert. The database is DuckDB with these tables:
 
 TABLE matches:
   match_id VARCHAR, season VARCHAR, date DATE, city VARCHAR, venue VARCHAR,
@@ -96,8 +97,7 @@ IMPORTANT RULES:
 - For bowling legal balls (overs): COUNT(CASE WHEN extras_wides = 0 AND extras_noballs = 0 THEN 1 END)
 - Always exclude super overs: is_super_over = false (add this to WHERE clause)
 - Player names are full names like 'V Kohli', 'MS Dhoni', 'JJ Bumrah'
-- Team names: 'Chennai Super Kings', 'Mumbai Indians', 'Royal Challengers Bangalore', 'Kolkata Knight Riders', 'Delhi Capitals', 'Punjab Kings', 'Rajasthan Royals', 'Sunrisers Hyderabad', 'Gujarat Titans', 'Lucknow Super Giants'
-- Historical team names also exist: 'Delhi Daredevils', 'Kings XI Punjab', 'Royal Challengers Bengaluru'
+- Use only teams present in the selected tournament database.
 - Venue names have variants (e.g. 'Feroz Shah Kotla', 'Arun Jaitley Stadium', 'Arun Jaitley Stadium, Delhi' are the same ground). When querying by venue, use IN clause with all known variants or use LIKE. Key venues: 'Wankhede Stadium%' (Mumbai), 'Eden Gardens%' (Kolkata), '%Chinnaswamy%' (Bengaluru), '%Arun Jaitley%' OR 'Feroz Shah Kotla' (Delhi), '%Chidambaram%' (Chennai), '%Rajiv Gandhi%' (Hyderabad), '%Narendra Modi%' OR '%Sardar Patel%' (Ahmedabad), '%Bindra%' OR '%Punjab Cricket%Mohali%' (Mohali).
 - Limit results to 20 rows max unless user asks for more.
 - Always add meaningful column aliases.
@@ -117,6 +117,24 @@ CHART TYPE HINTS — you MUST append one of these comments at the very end of ev
   -- chart:stat       → use when result is a single row summary
   -- chart:table      → use when result has many columns or mixed types
 """
+
+
+def tournament_schema_context() -> str:
+    tournament = get_tournament()
+    team_rows = query("""
+        SELECT DISTINCT team FROM (
+            SELECT team1 AS team FROM matches
+            UNION
+            SELECT team2 AS team FROM matches
+        ) ORDER BY team
+    """)
+    teams = ", ".join(row["team"] for row in team_rows)
+    return (
+        f"\nSELECTED TOURNAMENT: {tournament.name} ({tournament.short_name}).\n"
+        f"The season column represents a {tournament.competition_label.lower()}.\n"
+        f"Available teams: {teams}.\n"
+        "Never combine data with another tournament."
+    )
 
 COMMENTARY_PROMPT = """You are @Rkjat65, a sharp cricket data analyst known for tweet-ready IPL insights.
 Generate engaging social media commentary for the following cricket statistics.
@@ -420,10 +438,11 @@ async def nl_query(req: NLQueryRequest, authorization: Optional[str] = Header(No
         raise HTTPException(400, "Question cannot be empty")
 
     # Add season context if provided
-    season_context = f"\nThe user is asking about season: {req.season}" if req.season else ""
+    season_context = f"\nThe user is asking about edition/season: {req.season}" if req.season else ""
+    schema_context = DB_SCHEMA + tournament_schema_context()
 
     # Step 1: Generate SQL
-    sql_prompt = f"""{DB_SCHEMA}{season_context}
+    sql_prompt = f"""{schema_context}{season_context}
 
 User question: {question}
 
@@ -455,7 +474,7 @@ Return ONLY the DuckDB SQL query:"""
             data = query(raw_sql)
         except Exception as db_err:
             # If query fails, try to get AI to fix it
-            fix_prompt = f"""{DB_SCHEMA}
+            fix_prompt = f"""{schema_context}
 
 The following SQL query failed with error: {str(db_err)}
 
@@ -577,6 +596,20 @@ async def generate_thread(req: ThreadRequest, authorization: Optional[str] = Hea
 @router.get("/suggestions")
 def get_suggestions():
     """Return example questions users can ask."""
+    tournament = get_tournament()
+    if tournament.slug == "t20wc":
+        return {
+            "suggestions": [
+                "Who has scored the most T20 World Cup runs?",
+                "Top 5 wicket takers in T20 World Cup history",
+                "Compare India and Australia head to head",
+                "Which team has the most T20 World Cup wins?",
+                "Highest individual scores in the 2024 edition",
+                "Which venue has the highest first-innings average?",
+                "Compare Kohli and Rohit by edition",
+                "Best bowling figures in a World Cup match",
+            ]
+        }
     return {
         "suggestions": [
             "Who has the highest strike rate in death overs?",

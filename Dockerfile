@@ -22,8 +22,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy backend
 COPY backend/ ./backend/
 
-# Copy database
+# Copy the isolated tournament databases
 COPY ipl.duckdb ./ipl.duckdb
+COPY t20_world_cup.duckdb ./t20_world_cup.duckdb
 
 # Copy frontend build from stage 1
 COPY --from=frontend-build /app/frontend/dist ./frontend/dist

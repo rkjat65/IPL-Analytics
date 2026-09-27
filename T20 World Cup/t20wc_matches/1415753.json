@@ -1,0 +1,1603 @@
+{
+  "meta": {
+    "data_version": "1.0.0",
+    "created": "2026-09-27",
+    "revision": 1
+  },
+  "info": {
+    "balls_per_over": 6,
+    "dates": [
+      "2024-06-26"
+    ],
+    "event": {
+      "name": "ICC Men's T20 World Cup"
+    },
+    "gender": "male",
+    "match_type": "T20",
+    "outcome": {
+      "winner": "South Africa"
+    },
+    "overs": 20,
+    "season": 2024,
+    "team_type": "international",
+    "teams": [
+      "Afghanistan",
+      "South Africa"
+    ],
+    "venue": "Tarouba",
+    "players": {
+      "Afghanistan": [
+        "Azmatullah Omarzai",
+        "Fazalhaq Farooqi",
+        "Gulbadin Naib",
+        "Ibrahim Zadran",
+        "Karim Janat",
+        "Mohammad Nabi",
+        "Nangeyalia Khan",
+        "Naveen-ul-Haq",
+        "Noor Ahmad",
+        "Rahmanullah Gurbaz",
+        "Rashid Khan"
+      ],
+      "South Africa": [
+        "Aiden Markram",
+        "Anrich Nortje",
+        "Kagiso Rabada",
+        "Keshav Maharaj",
+        "Marco Jansen",
+        "Quinton de Kock",
+        "Reeza Hendricks",
+        "Tabraiz Shamsi"
+      ]
+    }
+  },
+  "innings": [
+    {
+      "team": "Afghanistan",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Marco Jansen",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "legbyes": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Marco Jansen",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Marco Jansen",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Marco Jansen",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Marco Jansen",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Marco Jansen",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Marco Jansen",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Marco Jansen",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Rahmanullah Gurbaz"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Keshav Maharaj",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Keshav Maharaj",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Keshav Maharaj",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Keshav Maharaj",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Keshav Maharaj",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Keshav Maharaj",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Marco Jansen",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Marco Jansen",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Marco Jansen",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Marco Jansen",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Marco Jansen",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "bowled",
+                  "player_out": "Gulbadin Naib"
+                }
+              ]
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Marco Jansen",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Marco Jansen",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Marco Jansen",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Kagiso Rabada",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "bowled",
+                  "player_out": "Ibrahim Zadran"
+                }
+              ]
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Kagiso Rabada",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Kagiso Rabada",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Kagiso Rabada",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "bowled",
+                  "player_out": "Mohammad Nabi"
+                }
+              ]
+            },
+            {
+              "batter": "Nangeyalia Khan",
+              "bowler": "Kagiso Rabada",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Nangeyalia Khan",
+              "bowler": "Kagiso Rabada",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Marco Jansen",
+              "non_striker": "Nangeyalia Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Nangeyalia Khan",
+              "bowler": "Marco Jansen",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Nangeyalia Khan",
+              "bowler": "Marco Jansen",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Nangeyalia Khan",
+              "bowler": "Marco Jansen",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Nangeyalia Khan",
+              "bowler": "Marco Jansen",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Nangeyalia Khan",
+              "bowler": "Marco Jansen",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Nangeyalia Khan"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Kagiso Rabada",
+              "non_striker": "Karim Janat",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Kagiso Rabada",
+              "non_striker": "Karim Janat",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Kagiso Rabada",
+              "non_striker": "Karim Janat",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Kagiso Rabada",
+              "non_striker": "Karim Janat",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Kagiso Rabada",
+              "non_striker": "Karim Janat",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Karim Janat",
+              "bowler": "Kagiso Rabada",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Anrich Nortje",
+              "non_striker": "Karim Janat",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Anrich Nortje",
+              "non_striker": "Karim Janat",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Anrich Nortje",
+              "non_striker": "Karim Janat",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Azmatullah Omarzai"
+                }
+              ]
+            },
+            {
+              "batter": "Rashid Khan",
+              "bowler": "Anrich Nortje",
+              "non_striker": "Karim Janat",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Rashid Khan",
+              "bowler": "Anrich Nortje",
+              "non_striker": "Karim Janat",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Rashid Khan",
+              "bowler": "Anrich Nortje",
+              "non_striker": "Karim Janat",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Rashid Khan",
+              "bowler": "Anrich Nortje",
+              "non_striker": "Karim Janat",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "batter": "Karim Janat",
+              "bowler": "Kagiso Rabada",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Karim Janat",
+              "bowler": "Kagiso Rabada",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Karim Janat",
+              "bowler": "Kagiso Rabada",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Rashid Khan",
+              "bowler": "Kagiso Rabada",
+              "non_striker": "Karim Janat",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Rashid Khan",
+              "bowler": "Kagiso Rabada",
+              "non_striker": "Karim Janat",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Rashid Khan",
+              "bowler": "Kagiso Rabada",
+              "non_striker": "Karim Janat",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "batter": "Karim Janat",
+              "bowler": "Anrich Nortje",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Karim Janat",
+              "bowler": "Anrich Nortje",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Karim Janat",
+              "bowler": "Anrich Nortje",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 4,
+                "total": 4
+              },
+              "extras": {
+                "byes": 4
+              }
+            },
+            {
+              "batter": "Karim Janat",
+              "bowler": "Anrich Nortje",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Karim Janat",
+              "bowler": "Anrich Nortje",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Karim Janat",
+              "bowler": "Anrich Nortje",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "batter": "Karim Janat",
+              "bowler": "Tabraiz Shamsi",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Karim Janat",
+              "bowler": "Tabraiz Shamsi",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Karim Janat",
+              "bowler": "Tabraiz Shamsi",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Karim Janat",
+              "bowler": "Tabraiz Shamsi",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "leg before wicket",
+                  "player_out": "Karim Janat"
+                }
+              ]
+            },
+            {
+              "batter": "Noor Ahmad",
+              "bowler": "Tabraiz Shamsi",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Noor Ahmad",
+              "bowler": "Tabraiz Shamsi",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "leg before wicket",
+                  "player_out": "Noor Ahmad"
+                }
+              ]
+            },
+            {
+              "batter": "Naveen-ul-Haq",
+              "bowler": "Tabraiz Shamsi",
+              "non_striker": "Rashid Khan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "batter": "Rashid Khan",
+              "bowler": "Anrich Nortje",
+              "non_striker": "Naveen-ul-Haq",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Rashid Khan",
+              "bowler": "Anrich Nortje",
+              "non_striker": "Naveen-ul-Haq",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "bowled",
+                  "player_out": "Rashid Khan"
+                }
+              ]
+            },
+            {
+              "batter": "Fazalhaq Farooqi",
+              "bowler": "Anrich Nortje",
+              "non_striker": "Naveen-ul-Haq",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Naveen-ul-Haq",
+              "bowler": "Anrich Nortje",
+              "non_striker": "Fazalhaq Farooqi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Naveen-ul-Haq",
+              "bowler": "Anrich Nortje",
+              "non_striker": "Fazalhaq Farooqi",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Naveen-ul-Haq",
+              "bowler": "Anrich Nortje",
+              "non_striker": "Fazalhaq Farooqi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "batter": "Fazalhaq Farooqi",
+              "bowler": "Tabraiz Shamsi",
+              "non_striker": "Naveen-ul-Haq",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Naveen-ul-Haq",
+              "bowler": "Tabraiz Shamsi",
+              "non_striker": "Fazalhaq Farooqi",
+              "runs": {
+                "batter": 0,
+                "extras": 2,
+                "total": 2
+              },
+              "extras": {
+                "byes": 2
+              }
+            },
+            {
+              "batter": "Naveen-ul-Haq",
+              "bowler": "Tabraiz Shamsi",
+              "non_striker": "Fazalhaq Farooqi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Naveen-ul-Haq",
+              "bowler": "Tabraiz Shamsi",
+              "non_striker": "Fazalhaq Farooqi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Naveen-ul-Haq",
+              "bowler": "Tabraiz Shamsi",
+              "non_striker": "Fazalhaq Farooqi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "leg before wicket",
+                  "player_out": "Naveen-ul-Haq"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "South Africa",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "batter": "Quinton de Kock",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Quinton de Kock",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Quinton de Kock",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Quinton de Kock",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Quinton de Kock",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Quinton de Kock",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "batter": "Quinton de Kock",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Quinton de Kock",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Quinton de Kock",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Quinton de Kock",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Quinton de Kock",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "bowled",
+                  "player_out": "Quinton de Kock"
+                }
+              ]
+            },
+            {
+              "batter": "Aiden Markram",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Aiden Markram",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Aiden Markram",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Aiden Markram",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Aiden Markram",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Aiden Markram",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Aiden Markram",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Aiden Markram",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Aiden Markram",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Aiden Markram",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Aiden Markram",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Aiden Markram",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Aiden Markram",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Aiden Markram",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "batter": "Aiden Markram",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Aiden Markram",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Aiden Markram",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Aiden Markram",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Aiden Markram",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Aiden Markram",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 3,
+                "extras": 0,
+                "total": 3
+              }
+            },
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Aiden Markram",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Rashid Khan",
+              "non_striker": "Aiden Markram",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Rashid Khan",
+              "non_striker": "Aiden Markram",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Aiden Markram",
+              "bowler": "Rashid Khan",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Rashid Khan",
+              "non_striker": "Aiden Markram",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Rashid Khan",
+              "non_striker": "Aiden Markram",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Rashid Khan",
+              "non_striker": "Aiden Markram",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "batter": "Aiden Markram",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Aiden Markram",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Aiden Markram",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Aiden Markram",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Aiden Markram",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Aiden Markram",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "batter": "Aiden Markram",
+              "bowler": "Gulbadin Naib",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Gulbadin Naib",
+              "non_striker": "Aiden Markram",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Gulbadin Naib",
+              "non_striker": "Aiden Markram",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Gulbadin Naib",
+              "non_striker": "Aiden Markram",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Aiden Markram",
+              "bowler": "Gulbadin Naib",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Aiden Markram",
+              "bowler": "Gulbadin Naib",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Aiden Markram",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Aiden Markram",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Aiden Markram",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Aiden Markram",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Reeza Hendricks",
+              "runs": {
+                "batter": 1,
+                "extras": 1,
+                "total": 2
+              },
+              "extras": {
+                "noballs": 1
+              }
+            },
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Aiden Markram",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Reeza Hendricks",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Aiden Markram",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

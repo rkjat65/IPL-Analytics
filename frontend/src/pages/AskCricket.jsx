@@ -10,6 +10,7 @@ import { exportAsImage, downloadImage } from '../utils/exportCard'
 import { CARD_DIMENSIONS } from '../components/cards/cardStyles'
 import QueryResultCard from '../components/cards/QueryResultCard'
 import { useAuth } from '../contexts/AuthContext'
+import { useTournament } from '../contexts/TournamentContext'
 
 const CHAT_HISTORY_KEY = 'rkjat65_chat_history'
 
@@ -271,8 +272,10 @@ function InlineImageCreator({ question, data, insight, onClose }) {
 
 export default function AskCricket() {
   const { user, token } = useAuth()
+  const tournament = useTournament()
   const userEmail = user?.email || 'anonymous'
-  const [messages, setMessages] = useState(() => getChatHistory(userEmail))
+  const historyOwner = `${userEmail}:${tournament.tournament}`
+  const [messages, setMessages] = useState(() => getChatHistory(historyOwner))
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
   const [aiStatus, setAiStatus] = useState(null)
@@ -284,17 +287,17 @@ export default function AskCricket() {
   useEffect(() => {
     getAiStatus().then(setAiStatus).catch(() => setAiStatus({ available: false }))
     getAiSuggestions().then(d => setSuggestions(d.suggestions || [])).catch(() => {})
-  }, [])
+  }, [tournament.tournament])
 
   // Load history when user changes (login/logout)
   useEffect(() => {
-    setMessages(getChatHistory(userEmail))
-  }, [userEmail])
+    setMessages(getChatHistory(historyOwner))
+  }, [historyOwner])
 
   // Save history whenever messages change
   useEffect(() => {
-    if (messages.length > 0) saveChatHistory(userEmail, messages)
-  }, [messages, userEmail])
+    if (messages.length > 0) saveChatHistory(historyOwner, messages)
+  }, [messages, historyOwner])
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -331,7 +334,7 @@ export default function AskCricket() {
     try {
       const result = await generateCommentary({
         stats: data.length > 0 ? data[0] : {},
-        context: insight || 'IPL cricket statistics'
+        context: insight || `${tournament.name} cricket statistics`
       }, token)
       setMessages(prev => [...prev, {
         type: 'commentary',
@@ -372,8 +375,8 @@ export default function AskCricket() {
   return (
     <div className="flex flex-col h-full">
       <SEO
-        title="Ask Cricket — AI-Powered IPL Q&A Engine"
-        description="Ask natural-language questions about IPL cricket — players, teams, records, matches — and get instant AI-powered answers with stats, charts, and data visualizations."
+        title={`Ask Cricket — AI-Powered ${tournament.shortName} Q&A`}
+        description={`Ask natural-language questions about ${tournament.name} players, teams, records and matches, with answers scoped to the selected tournament database.`}
         url="/ask"
       />
       {/* Header */}
@@ -384,7 +387,7 @@ export default function AskCricket() {
           </div>
           <div>
             <h1 className="font-heading font-bold text-text-primary text-lg">Ask Cricket</h1>
-            <p className="text-xs text-text-muted font-mono">Ask any IPL question in plain English • Powered by Gemini AI</p>
+            <p className="text-xs text-text-muted font-mono">Ask any {tournament.shortName} question in plain English • Powered by Gemini AI</p>
           </div>
           <div className="ml-auto flex items-center gap-2">
             {messages.length > 0 && (
@@ -411,7 +414,7 @@ export default function AskCricket() {
             <div className="text-center py-12">
               <div className="text-5xl mb-4">🏏</div>
               <h2 className="text-2xl font-heading font-bold text-text-primary mb-2">
-                What do you want to know about IPL?
+                What do you want to know about {tournament.shortName}?
               </h2>
               <p className="text-text-secondary mb-8">
                 Ask any question in plain English. I&apos;ll query the database and visualize the answer.
@@ -620,7 +623,7 @@ export default function AskCricket() {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask anything about IPL... e.g. 'Top 5 six hitters in 2024'"
+              placeholder={`Ask anything about ${tournament.shortName}... e.g. 'Top 5 six hitters in 2024'`}
               className="flex-1 bg-bg-card border border-border-subtle rounded-xl px-4 py-3 text-sm text-text-primary
                 placeholder:text-text-muted font-mono focus:outline-none focus:border-accent-cyan focus:ring-1 focus:ring-accent-cyan/30
                 transition-all"

@@ -6,12 +6,14 @@ import { getMatches, getSeasons, getTeams } from '../lib/api'
 import Loading from '../components/ui/Loading'
 import Badge from '../components/ui/Badge'
 import MultiSeasonSelect from '../components/ui/MultiSeasonSelect'
+import { useTournament } from '../contexts/TournamentContext'
 import { formatDate, getMatchResult } from '../utils/format'
 import { getTeamColor, getTeamAbbr } from '../constants/teams'
 
 const PAGE_SIZE = 20
 
 export default function Matches() {
+  const tournament = useTournament()
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
   const season = searchParams.get('season') || ''
@@ -60,8 +62,8 @@ export default function Matches() {
   return (
     <div className="space-y-6">
       <SEO
-        title="IPL Matches — Full Archive, Scorecards & Results (2008–2026)"
-        description="Browse every IPL match since 2008 with detailed scorecards, results, and match summaries. Filter by season and team to find any Indian Premier League fixture."
+        title={`${tournament.shortName} Matches — Full Archive, Scorecards & Results`}
+        description={`Browse ${tournament.name} matches with detailed scorecards, results, and match summaries. Filter by ${tournament.competitionLabel.toLowerCase()} and team.`}
         url="/matches"
       />
       {/* Page Header */}
@@ -77,7 +79,7 @@ export default function Matches() {
       {/* Filters */}
       <div className="flex flex-wrap items-center gap-3">
         <div className="flex items-center gap-2">
-          <label className="text-text-secondary text-sm font-body">Season</label>
+          <label className="text-text-secondary text-sm font-body">{tournament.competitionLabel}</label>
           <MultiSeasonSelect
             seasons={seasons || []}
             value={season}

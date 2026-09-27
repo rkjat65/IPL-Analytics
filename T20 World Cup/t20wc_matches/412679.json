@@ -1,0 +1,2539 @@
+{
+  "meta": {
+    "data_version": "1.0.0",
+    "created": "2026-09-27",
+    "revision": 1
+  },
+  "info": {
+    "balls_per_over": 6,
+    "dates": [
+      "2010-05-01"
+    ],
+    "event": {
+      "name": "ICC Men's T20 World Cup"
+    },
+    "gender": "male",
+    "match_type": "T20",
+    "outcome": {
+      "winner": "India"
+    },
+    "overs": 20,
+    "season": 2010,
+    "team_type": "international",
+    "teams": [
+      "Afghanistan",
+      "India"
+    ],
+    "venue": "Gros Islet",
+    "players": {
+      "Afghanistan": [
+        "Asghar Afghan",
+        "Dawlat Ahmadzai",
+        "Hamid Hassan",
+        "Karim Sadiq",
+        "Mohammad Nabi",
+        "Mohammad Shahzad",
+        "Nawroz Mangal",
+        "Noor Ali Zadran",
+        "Rais Ahmadzai",
+        "Samiullah Shinwari",
+        "Shapoor Zadran"
+      ],
+      "India": [
+        "Ashish Nehra",
+        "Gautam Gambhir",
+        "Harbhajan Singh",
+        "MS Dhoni",
+        "Murali Vijay",
+        "Praveen Kumar",
+        "Ravindra Jadeja",
+        "Suresh Raina",
+        "Yusuf Pathan",
+        "Yuvraj Singh",
+        "Zaheer Khan"
+      ]
+    }
+  },
+  "innings": [
+    {
+      "team": "Afghanistan",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Praveen Kumar",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Praveen Kumar",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Praveen Kumar",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 2,
+                "total": 2
+              },
+              "extras": {
+                "legbyes": 2
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Praveen Kumar",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Karim Sadiq",
+              "bowler": "Praveen Kumar",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Karim Sadiq",
+              "bowler": "Praveen Kumar",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Ashish Nehra",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Ashish Nehra",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Karim Sadiq",
+              "bowler": "Ashish Nehra",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Karim Sadiq",
+              "bowler": "Ashish Nehra",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Karim Sadiq"
+                }
+              ]
+            },
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Ashish Nehra",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Ashish Nehra",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Praveen Kumar",
+              "non_striker": "Mohammad Shahzad",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Praveen Kumar",
+              "non_striker": "Mohammad Shahzad",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Praveen Kumar",
+              "non_striker": "Mohammad Shahzad",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Praveen Kumar",
+              "non_striker": "Mohammad Shahzad",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Praveen Kumar",
+              "non_striker": "Mohammad Shahzad",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Praveen Kumar",
+              "non_striker": "Mohammad Shahzad",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Ashish Nehra",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Ashish Nehra",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Ashish Nehra",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Mohammad Shahzad"
+                }
+              ]
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Ashish Nehra",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Ashish Nehra",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Ashish Nehra",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Zaheer Khan",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Zaheer Khan",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Zaheer Khan",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Zaheer Khan",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Zaheer Khan",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Zaheer Khan",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Zaheer Khan",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Ravindra Jadeja",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Ravindra Jadeja",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Ravindra Jadeja",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Ravindra Jadeja",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Nawroz Mangal"
+                }
+              ]
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Ravindra Jadeja",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Ravindra Jadeja",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Yuvraj Singh",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Yuvraj Singh",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Yuvraj Singh",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Yuvraj Singh",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Yuvraj Singh",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Yuvraj Singh",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Harbhajan Singh",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Harbhajan Singh",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Harbhajan Singh",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Harbhajan Singh",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Harbhajan Singh",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Harbhajan Singh",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Ravindra Jadeja",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Ravindra Jadeja",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Ravindra Jadeja",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Ravindra Jadeja",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Ravindra Jadeja",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Ravindra Jadeja",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Harbhajan Singh",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Harbhajan Singh",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Harbhajan Singh",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Harbhajan Singh",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Harbhajan Singh",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Harbhajan Singh",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Ravindra Jadeja",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Ravindra Jadeja",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Ravindra Jadeja",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "legbyes": 1
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Ravindra Jadeja",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Ravindra Jadeja",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Ravindra Jadeja",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Harbhajan Singh",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Harbhajan Singh",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Harbhajan Singh",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Harbhajan Singh",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Harbhajan Singh",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Harbhajan Singh",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Yusuf Pathan",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Yusuf Pathan",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Yusuf Pathan",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Yusuf Pathan",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Yusuf Pathan",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Yusuf Pathan",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Yusuf Pathan",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Zaheer Khan",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Zaheer Khan",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Zaheer Khan",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Zaheer Khan",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Zaheer Khan",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Zaheer Khan",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Ravindra Jadeja",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Ravindra Jadeja",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Ravindra Jadeja",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Ravindra Jadeja",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Ravindra Jadeja",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Ravindra Jadeja",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 15,
+          "deliveries": [
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Harbhajan Singh",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Harbhajan Singh",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Harbhajan Singh",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Harbhajan Singh",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Harbhajan Singh",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Harbhajan Singh",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Harbhajan Singh",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 16,
+          "deliveries": [
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Ashish Nehra",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Ashish Nehra",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Ashish Nehra",
+              "non_striker": "Noor Ali Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Noor Ali Zadran",
+              "bowler": "Ashish Nehra",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Noor Ali Zadran"
+                }
+              ]
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Ashish Nehra",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Ashish Nehra",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 17,
+          "deliveries": [
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Praveen Kumar",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Asghar Afghan"
+                }
+              ]
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Praveen Kumar",
+              "non_striker": "Rais Ahmadzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Mohammad Nabi"
+                }
+              ]
+            },
+            {
+              "batter": "Rais Ahmadzai",
+              "bowler": "Praveen Kumar",
+              "non_striker": "Samiullah Shinwari",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Praveen Kumar",
+              "non_striker": "Rais Ahmadzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Praveen Kumar",
+              "non_striker": "Rais Ahmadzai",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Rais Ahmadzai",
+              "bowler": "Praveen Kumar",
+              "non_striker": "Samiullah Shinwari",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 18,
+          "deliveries": [
+            {
+              "batter": "Rais Ahmadzai",
+              "bowler": "Ashish Nehra",
+              "non_striker": "Samiullah Shinwari",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Ashish Nehra",
+              "non_striker": "Rais Ahmadzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Ashish Nehra",
+              "non_striker": "Rais Ahmadzai",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Ashish Nehra",
+              "non_striker": "Rais Ahmadzai",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Ashish Nehra",
+              "non_striker": "Rais Ahmadzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "run out",
+                  "player_out": "Samiullah Shinwari"
+                }
+              ]
+            },
+            {
+              "batter": "Hamid Hassan",
+              "bowler": "Ashish Nehra",
+              "non_striker": "Rais Ahmadzai",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 19,
+          "deliveries": [
+            {
+              "batter": "Hamid Hassan",
+              "bowler": "Zaheer Khan",
+              "non_striker": "Rais Ahmadzai",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Rais Ahmadzai",
+              "bowler": "Zaheer Khan",
+              "non_striker": "Hamid Hassan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Hamid Hassan",
+              "bowler": "Zaheer Khan",
+              "non_striker": "Rais Ahmadzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Hamid Hassan",
+              "bowler": "Zaheer Khan",
+              "non_striker": "Rais Ahmadzai",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Hamid Hassan",
+              "bowler": "Zaheer Khan",
+              "non_striker": "Rais Ahmadzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Hamid Hassan"
+                }
+              ]
+            },
+            {
+              "batter": "Rais Ahmadzai",
+              "bowler": "Zaheer Khan",
+              "non_striker": "Shapoor Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "India",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "batter": "Gautam Gambhir",
+              "bowler": "Dawlat Ahmadzai",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 1,
+                "extras": 1,
+                "total": 2
+              },
+              "extras": {
+                "noballs": 1
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Dawlat Ahmadzai",
+              "non_striker": "Gautam Gambhir",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Dawlat Ahmadzai",
+              "non_striker": "Gautam Gambhir",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Dawlat Ahmadzai",
+              "non_striker": "Gautam Gambhir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Gautam Gambhir",
+              "bowler": "Dawlat Ahmadzai",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Dawlat Ahmadzai",
+              "non_striker": "Gautam Gambhir",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Dawlat Ahmadzai",
+              "non_striker": "Gautam Gambhir",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "batter": "Gautam Gambhir",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Gautam Gambhir",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Gautam Gambhir",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Gautam Gambhir",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Gautam Gambhir",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Gautam Gambhir",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "batter": "Gautam Gambhir",
+              "bowler": "Dawlat Ahmadzai",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gautam Gambhir",
+              "bowler": "Dawlat Ahmadzai",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Gautam Gambhir"
+                }
+              ]
+            },
+            {
+              "batter": "Suresh Raina",
+              "bowler": "Dawlat Ahmadzai",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Suresh Raina",
+              "bowler": "Dawlat Ahmadzai",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Suresh Raina",
+              "bowler": "Dawlat Ahmadzai",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Suresh Raina",
+              "bowler": "Dawlat Ahmadzai",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 3,
+                "extras": 0,
+                "total": 3
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "batter": "Suresh Raina",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Suresh Raina",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Suresh Raina",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Suresh Raina",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Suresh Raina",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Suresh Raina",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Suresh Raina",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Suresh Raina",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Suresh Raina",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Suresh Raina",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Suresh Raina",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 4,
+                "extras": 1,
+                "total": 5
+              },
+              "extras": {
+                "noballs": 1
+              }
+            },
+            {
+              "batter": "Suresh Raina",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Suresh Raina",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Suresh Raina",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Suresh Raina",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Suresh Raina",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Suresh Raina",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "leg before wicket",
+                  "player_out": "Suresh Raina"
+                }
+              ]
+            },
+            {
+              "batter": "Yuvraj Singh",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "batter": "Yuvraj Singh",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Yuvraj Singh",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Yuvraj Singh",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 3,
+                "extras": 0,
+                "total": 3
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Yuvraj Singh",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Yuvraj Singh",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Yuvraj Singh",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Yuvraj Singh",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "batter": "Yuvraj Singh",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Yuvraj Singh",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Hamid Hassan",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Yuvraj Singh",
+              "bowler": "Hamid Hassan",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Hamid Hassan",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Hamid Hassan",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "legbyes": 1
+              }
+            },
+            {
+              "batter": "Yuvraj Singh",
+              "bowler": "Hamid Hassan",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Yuvraj Singh",
+              "bowler": "Hamid Hassan",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 1,
+                "total": 2
+              },
+              "extras": {
+                "noballs": 1
+              }
+            },
+            {
+              "batter": "Yuvraj Singh",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 6,
+                "extras": 1,
+                "total": 7
+              },
+              "extras": {
+                "noballs": 1
+              }
+            },
+            {
+              "batter": "Yuvraj Singh",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Yuvraj Singh",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Yuvraj Singh",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Yuvraj Singh",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Yuvraj Singh",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Hamid Hassan",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Hamid Hassan",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Yuvraj Singh",
+              "bowler": "Hamid Hassan",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Yuvraj Singh",
+              "bowler": "Hamid Hassan",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Yuvraj Singh",
+              "bowler": "Hamid Hassan",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Yuvraj Singh",
+              "bowler": "Hamid Hassan",
+              "non_striker": "Murali Vijay",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Hamid Hassan",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Hamid Hassan",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Hamid Hassan",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Murali Vijay",
+              "bowler": "Hamid Hassan",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Murali Vijay"
+                }
+              ]
+            },
+            {
+              "batter": "MS Dhoni",
+              "bowler": "Hamid Hassan",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Yuvraj Singh",
+              "bowler": "Hamid Hassan",
+              "non_striker": "MS Dhoni",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "batter": "MS Dhoni",
+              "bowler": "Nawroz Mangal",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "MS Dhoni",
+              "bowler": "Nawroz Mangal",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "MS Dhoni",
+              "bowler": "Nawroz Mangal",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "MS Dhoni",
+              "bowler": "Nawroz Mangal",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "MS Dhoni",
+              "bowler": "Nawroz Mangal",
+              "non_striker": "Yuvraj Singh",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

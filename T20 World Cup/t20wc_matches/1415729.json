@@ -1,0 +1,2580 @@
+{
+  "meta": {
+    "data_version": "1.0.0",
+    "created": "2026-09-27",
+    "revision": 1
+  },
+  "info": {
+    "balls_per_over": 6,
+    "dates": [
+      "2024-06-13"
+    ],
+    "event": {
+      "name": "ICC Men's T20 World Cup"
+    },
+    "gender": "male",
+    "match_type": "T20",
+    "outcome": {
+      "winner": "Afghanistan"
+    },
+    "overs": 20,
+    "season": 2024,
+    "team_type": "international",
+    "teams": [
+      "Afghanistan",
+      "Papua New Guinea"
+    ],
+    "venue": "Tarouba",
+    "players": {
+      "Afghanistan": [
+        "Azmatullah Omarzai",
+        "Fazalhaq Farooqi",
+        "Gulbadin Naib",
+        "Ibrahim Zadran",
+        "Karim Janat",
+        "Mohammad Nabi",
+        "Naveen-ul-Haq",
+        "Noor Ahmad",
+        "Rahmanullah Gurbaz",
+        "Rashid Khan"
+      ],
+      "Papua New Guinea": [
+        "Alei Nao",
+        "Assad Vala",
+        "Chad Soper",
+        "Hiri Hiri",
+        "John Kariko",
+        "Kiplin Doriga",
+        "Lega Siaka",
+        "Norman Vanua",
+        "Semo Kamea",
+        "Sese Bau",
+        "Tony Ura"
+      ]
+    }
+  },
+  "innings": [
+    {
+      "team": "Papua New Guinea",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "batter": "Tony Ura",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Assad Vala",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Tony Ura",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Assad Vala",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Tony Ura",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Assad Vala",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Tony Ura",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Assad Vala",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Tony Ura",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Assad Vala",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Tony Ura",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Assad Vala",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "batter": "Tony Ura",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Assad Vala",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Tony Ura",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Assad Vala",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Assad Vala",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Tony Ura",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Tony Ura",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Assad Vala",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Assad Vala",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Tony Ura",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              },
+              "wickets": [
+                {
+                  "kind": "run out",
+                  "player_out": "Assad Vala"
+                }
+              ]
+            },
+            {
+              "batter": "Tony Ura",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Lega Siaka",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "batter": "Lega Siaka",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Tony Ura",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Lega Siaka"
+                }
+              ]
+            },
+            {
+              "batter": "Sese Bau",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Tony Ura",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Sese Bau"
+                }
+              ]
+            },
+            {
+              "batter": "Hiri Hiri",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Tony Ura",
+              "runs": {
+                "batter": 0,
+                "extras": 4,
+                "total": 4
+              },
+              "extras": {
+                "legbyes": 4
+              }
+            },
+            {
+              "batter": "Hiri Hiri",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Tony Ura",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Tony Ura",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Hiri Hiri",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Tony Ura",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Hiri Hiri",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "batter": "Hiri Hiri",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Tony Ura",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "bowled",
+                  "player_out": "Hiri Hiri"
+                }
+              ]
+            },
+            {
+              "batter": "Chad Soper",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Tony Ura",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Chad Soper",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Tony Ura",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Chad Soper",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Tony Ura",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Chad Soper",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Tony Ura",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Chad Soper",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Tony Ura",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Chad Soper",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Tony Ura",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "batter": "Tony Ura",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Chad Soper",
+              "runs": {
+                "batter": 0,
+                "extras": 5,
+                "total": 5
+              },
+              "extras": {
+                "wides": 5
+              }
+            },
+            {
+              "batter": "Tony Ura",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Chad Soper",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Tony Ura",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Chad Soper",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "legbyes": 1
+              }
+            },
+            {
+              "batter": "Chad Soper",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Tony Ura",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Chad Soper",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Tony Ura",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Tony Ura",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Chad Soper",
+              "runs": {
+                "batter": 0,
+                "extras": 2,
+                "total": 2
+              },
+              "extras": {
+                "legbyes": 2
+              }
+            },
+            {
+              "batter": "Tony Ura",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Chad Soper",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "batter": "Tony Ura",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Chad Soper",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Chad Soper",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Tony Ura",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Chad Soper",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Tony Ura",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Tony Ura",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Chad Soper",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "bowled",
+                  "player_out": "Tony Ura"
+                }
+              ]
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Chad Soper",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Chad Soper",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "batter": "Chad Soper",
+              "bowler": "Rashid Khan",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Chad Soper",
+              "bowler": "Rashid Khan",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Chad Soper",
+              "bowler": "Rashid Khan",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 5,
+                "total": 5
+              },
+              "extras": {
+                "wides": 5
+              }
+            },
+            {
+              "batter": "Chad Soper",
+              "bowler": "Rashid Khan",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Chad Soper",
+              "bowler": "Rashid Khan",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Chad Soper",
+              "bowler": "Rashid Khan",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Chad Soper",
+              "bowler": "Rashid Khan",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "batter": "Chad Soper",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Chad Soper",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Chad Soper",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "legbyes": 1
+              }
+            },
+            {
+              "batter": "Chad Soper",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Chad Soper",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Chad Soper",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "batter": "Chad Soper",
+              "bowler": "Rashid Khan",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Rashid Khan",
+              "non_striker": "Chad Soper",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Rashid Khan",
+              "non_striker": "Chad Soper",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Chad Soper",
+              "bowler": "Rashid Khan",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Chad Soper",
+              "bowler": "Rashid Khan",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Chad Soper",
+              "bowler": "Rashid Khan",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "batter": "Chad Soper",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Chad Soper",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Chad Soper",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Chad Soper",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "run out",
+                  "player_out": "Chad Soper"
+                }
+              ]
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Norman Vanua",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Norman Vanua",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "batter": "Norman Vanua",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Norman Vanua",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Norman Vanua",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Norman Vanua",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Norman Vanua",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Norman Vanua",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Karim Janat",
+              "non_striker": "Norman Vanua",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Karim Janat",
+              "non_striker": "Norman Vanua",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Karim Janat",
+              "non_striker": "Norman Vanua",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Karim Janat",
+              "non_striker": "Norman Vanua",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Karim Janat",
+              "non_striker": "Norman Vanua",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Karim Janat",
+              "non_striker": "Norman Vanua",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "batter": "Norman Vanua",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "run out",
+                  "player_out": "Norman Vanua"
+                }
+              ]
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Alei Nao",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Alei Nao",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alei Nao",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Alei Nao",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alei Nao",
+              "bowler": "Azmatullah Omarzai",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Karim Janat",
+              "non_striker": "Alei Nao",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Karim Janat",
+              "non_striker": "Alei Nao",
+              "runs": {
+                "batter": 0,
+                "extras": 4,
+                "total": 4
+              },
+              "extras": {
+                "legbyes": 4
+              }
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Karim Janat",
+              "non_striker": "Alei Nao",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Alei Nao",
+              "bowler": "Karim Janat",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alei Nao",
+              "bowler": "Karim Janat",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Karim Janat",
+              "non_striker": "Alei Nao",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Alei Nao",
+              "bowler": "Karim Janat",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Rashid Khan",
+              "non_striker": "Alei Nao",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Rashid Khan",
+              "non_striker": "Alei Nao",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Alei Nao",
+              "bowler": "Rashid Khan",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alei Nao",
+              "bowler": "Rashid Khan",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Rashid Khan",
+              "non_striker": "Alei Nao",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Rashid Khan",
+              "non_striker": "Alei Nao",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 15,
+          "deliveries": [
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Alei Nao",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Alei Nao",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alei Nao",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alei Nao",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alei Nao",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Alei Nao",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 16,
+          "deliveries": [
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Rashid Khan",
+              "non_striker": "Alei Nao",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Alei Nao",
+              "bowler": "Rashid Khan",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Rashid Khan",
+              "non_striker": "Alei Nao",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Rashid Khan",
+              "non_striker": "Alei Nao",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Alei Nao",
+              "bowler": "Rashid Khan",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alei Nao",
+              "bowler": "Rashid Khan",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 17,
+          "deliveries": [
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Alei Nao",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Alei Nao",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Kiplin Doriga",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Alei Nao",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Alei Nao",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Kiplin Doriga",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Alei Nao",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "leg before wicket",
+                  "player_out": "Kiplin Doriga"
+                }
+              ]
+            },
+            {
+              "batter": "John Kariko",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Alei Nao",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "John Kariko",
+              "bowler": "Noor Ahmad",
+              "non_striker": "Alei Nao",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 18,
+          "deliveries": [
+            {
+              "batter": "Alei Nao",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "John Kariko",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alei Nao",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "John Kariko",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Alei Nao"
+                }
+              ]
+            },
+            {
+              "batter": "Semo Kamea",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "John Kariko",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "John Kariko",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Semo Kamea",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "John Kariko",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Semo Kamea",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "John Kariko",
+              "bowler": "Fazalhaq Farooqi",
+              "non_striker": "Semo Kamea",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 19,
+          "deliveries": [
+            {
+              "batter": "Semo Kamea",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "John Kariko",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Semo Kamea",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "John Kariko",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "John Kariko",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Semo Kamea",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "John Kariko",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Semo Kamea",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "John Kariko",
+              "bowler": "Naveen-ul-Haq",
+              "non_striker": "Semo Kamea",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "run out",
+                  "player_out": "Semo Kamea"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "Afghanistan",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Alei Nao",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Alei Nao",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Alei Nao",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Alei Nao",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Alei Nao",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Alei Nao",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Alei Nao",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 5,
+                "total": 5
+              },
+              "extras": {
+                "legbyes": 5
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Alei Nao",
+              "non_striker": "Ibrahim Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Semo Kamea",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Semo Kamea",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Semo Kamea",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Ibrahim Zadran",
+              "bowler": "Semo Kamea",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "bowled",
+                  "player_out": "Ibrahim Zadran"
+                }
+              ]
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Semo Kamea",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Semo Kamea",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Alei Nao",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Alei Nao",
+              "non_striker": "Rahmanullah Gurbaz",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Alei Nao",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Alei Nao",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Rahmanullah Gurbaz",
+              "bowler": "Alei Nao",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "bowled",
+                  "player_out": "Rahmanullah Gurbaz"
+                }
+              ]
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Alei Nao",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Alei Nao",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Semo Kamea",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Semo Kamea",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Semo Kamea",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Semo Kamea",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Semo Kamea",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Semo Kamea",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Semo Kamea",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Semo Kamea",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Alei Nao",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Alei Nao",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Alei Nao",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Alei Nao",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Alei Nao",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Alei Nao",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Chad Soper",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Chad Soper",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Chad Soper",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Chad Soper",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Chad Soper",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Chad Soper",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Norman Vanua",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Norman Vanua",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Norman Vanua",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Norman Vanua",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Norman Vanua",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Norman Vanua",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "John Kariko",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "John Kariko",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "John Kariko",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "John Kariko",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "John Kariko",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "John Kariko",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Norman Vanua",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Norman Vanua",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Norman Vanua",
+              "non_striker": "Azmatullah Omarzai",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Azmatullah Omarzai",
+              "bowler": "Norman Vanua",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "bowled",
+                  "player_out": "Azmatullah Omarzai"
+                }
+              ]
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Norman Vanua",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Norman Vanua",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Semo Kamea",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Semo Kamea",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Semo Kamea",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Semo Kamea",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Semo Kamea",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Semo Kamea",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Chad Soper",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Chad Soper",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Chad Soper",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Chad Soper",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Chad Soper",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Chad Soper",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "John Kariko",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "John Kariko",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "legbyes": 1
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "John Kariko",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "John Kariko",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "John Kariko",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "John Kariko",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Norman Vanua",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Norman Vanua",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Norman Vanua",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Norman Vanua",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Norman Vanua",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Norman Vanua",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "John Kariko",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "John Kariko",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "John Kariko",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "John Kariko",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "John Kariko",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "John Kariko",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Alei Nao",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Alei Nao",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Alei Nao",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Alei Nao",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Alei Nao",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Alei Nao",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "byes": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 15,
+          "deliveries": [
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Chad Soper",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

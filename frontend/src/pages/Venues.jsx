@@ -7,9 +7,11 @@ import DataTable from '../components/ui/DataTable'
 import Loading from '../components/ui/Loading'
 import IndiaVenueMap from '../components/ui/IndiaVenueMap'
 import { extractCityFromVenue } from '../components/ui/IndiaVenueMap'
+import { useTournament } from '../contexts/TournamentContext'
 
 export default function Venues() {
   const navigate = useNavigate()
+  const tournament = useTournament()
   const { data: venues, loading, error } = useFetch(() => getVenues(), [])
 
   if (error) {
@@ -49,14 +51,14 @@ export default function Venues() {
   return (
     <div className="space-y-8">
       <SEO
-        title="IPL Venues — Stadium Stats, Pitch Reports & Records"
-        description="IPL venue analytics with match counts, average first-innings scores, toss decisions, chase success rates, and performance trends for every cricket ground that has hosted IPL matches."
+        title={`${tournament.shortName} Venues — Stadium Stats & Records`}
+        description={`${tournament.name} venue analytics with match counts, scoring records, toss decisions, chase success rates, and performance trends.`}
         url="/venues"
       />
       <div>
         <h1 className="text-3xl font-heading font-bold text-text-primary">Venue Analytics</h1>
         <p className="text-text-secondary text-sm mt-1">
-          {loading ? 'Loading...' : `${sortedVenues.length} venues across all IPL seasons`}
+          {loading ? 'Loading...' : `${sortedVenues.length} venues across all ${tournament.shortName} ${tournament.competitionLabelPlural.toLowerCase()}`}
         </p>
       </div>
 
@@ -64,7 +66,7 @@ export default function Venues() {
         <Loading message="Loading venues..." />
       ) : (
         <>
-          <IndiaVenueMap venues={sortedVenues} />
+          {tournament.isIPL && <IndiaVenueMap venues={sortedVenues} />}
           <DataTable
             columns={columns}
             data={sortedVenues}

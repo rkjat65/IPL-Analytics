@@ -1,0 +1,2731 @@
+{
+  "meta": {
+    "data_version": "1.0.0",
+    "created": "2026-09-27",
+    "revision": 1
+  },
+  "info": {
+    "balls_per_over": 6,
+    "dates": [
+      "2012-09-21"
+    ],
+    "event": {
+      "name": "ICC Men's T20 World Cup"
+    },
+    "gender": "male",
+    "match_type": "T20",
+    "outcome": {
+      "winner": "England"
+    },
+    "overs": 20,
+    "season": 2012,
+    "team_type": "international",
+    "teams": [
+      "Afghanistan",
+      "England"
+    ],
+    "venue": "Colombo (RPS)",
+    "players": {
+      "Afghanistan": [
+        "Asghar Afghan",
+        "Dawlat Zadran",
+        "Gulbadin Naib",
+        "Izatullah Dawlatzai",
+        "Karim Sadiq",
+        "Mohammad Nabi",
+        "Mohammad Shahzad",
+        "Nawroz Mangal",
+        "Samiullah Shinwari",
+        "Shafiqullah",
+        "Shapoor Zadran"
+      ],
+      "England": [
+        "Alex Hales",
+        "Craig Kieswetter",
+        "Eoin Morgan",
+        "Graeme Swann",
+        "Jade Dernbach",
+        "Jonny Bairstow",
+        "Jos Buttler",
+        "Luke Wright",
+        "Samit Patel",
+        "Steven Finn",
+        "Stuart Broad"
+      ]
+    }
+  },
+  "innings": [
+    {
+      "team": "England",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "batter": "Craig Kieswetter",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Craig Kieswetter",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Craig Kieswetter",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Craig Kieswetter",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Craig Kieswetter",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Craig Kieswetter",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "bowled",
+                  "player_out": "Craig Kieswetter"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "batter": "Alex Hales",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Alex Hales",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alex Hales",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alex Hales",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "batter": "Alex Hales",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alex Hales",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alex Hales",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alex Hales",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "batter": "Alex Hales",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alex Hales",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "batter": "Alex Hales",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 0,
+                "extras": 4,
+                "total": 4
+              },
+              "extras": {
+                "byes": 4
+              }
+            },
+            {
+              "batter": "Alex Hales",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Alex Hales",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Alex Hales",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Shapoor Zadran",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "batter": "Alex Hales",
+              "bowler": "Izatullah Dawlatzai",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Izatullah Dawlatzai",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Izatullah Dawlatzai",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Izatullah Dawlatzai",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Alex Hales",
+              "bowler": "Izatullah Dawlatzai",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Alex Hales",
+              "bowler": "Izatullah Dawlatzai",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "batter": "Luke Wright",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Alex Hales",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alex Hales",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alex Hales",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "batter": "Alex Hales",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alex Hales",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alex Hales",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Alex Hales",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Alex Hales",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "batter": "Luke Wright",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Alex Hales",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Alex Hales",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "batter": "Luke Wright",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Alex Hales",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "run out",
+                  "player_out": "Alex Hales"
+                }
+              ]
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Eoin Morgan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Eoin Morgan",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Eoin Morgan",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Eoin Morgan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Karim Sadiq",
+              "non_striker": "Eoin Morgan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "batter": "Luke Wright",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Eoin Morgan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Eoin Morgan",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Eoin Morgan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Eoin Morgan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Eoin Morgan",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Eoin Morgan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "batter": "Luke Wright",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Eoin Morgan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Eoin Morgan",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Eoin Morgan",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "legbyes": 1
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Eoin Morgan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Eoin Morgan",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Eoin Morgan",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Eoin Morgan",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "batter": "Eoin Morgan",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Eoin Morgan",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Eoin Morgan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Eoin Morgan",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Eoin Morgan",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Samiullah Shinwari",
+              "non_striker": "Eoin Morgan",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "batter": "Eoin Morgan",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Eoin Morgan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Eoin Morgan",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Eoin Morgan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Eoin Morgan",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Eoin Morgan",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "batter": "Luke Wright",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Eoin Morgan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Eoin Morgan",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Eoin Morgan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Eoin Morgan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Eoin Morgan",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "legbyes": 1
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Eoin Morgan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 15,
+          "deliveries": [
+            {
+              "batter": "Eoin Morgan",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Eoin Morgan",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Eoin Morgan",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Eoin Morgan",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Eoin Morgan",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Eoin Morgan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 16,
+          "deliveries": [
+            {
+              "batter": "Luke Wright",
+              "bowler": "Izatullah Dawlatzai",
+              "non_striker": "Eoin Morgan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Eoin Morgan",
+              "bowler": "Izatullah Dawlatzai",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Eoin Morgan",
+              "bowler": "Izatullah Dawlatzai",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 4,
+                "extras": 1,
+                "total": 5
+              },
+              "extras": {
+                "noballs": 1
+              }
+            },
+            {
+              "batter": "Eoin Morgan",
+              "bowler": "Izatullah Dawlatzai",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Izatullah Dawlatzai",
+              "non_striker": "Eoin Morgan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Eoin Morgan",
+              "bowler": "Izatullah Dawlatzai",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Eoin Morgan",
+              "bowler": "Izatullah Dawlatzai",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Eoin Morgan"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "over": 17,
+          "deliveries": [
+            {
+              "batter": "Jos Buttler",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Jos Buttler",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 0,
+                "extras": 2,
+                "total": 2
+              },
+              "extras": {
+                "wides": 2
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Jos Buttler",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Jos Buttler",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Jos Buttler",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Jos Buttler",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Jos Buttler",
+              "bowler": "Mohammad Nabi",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 18,
+          "deliveries": [
+            {
+              "batter": "Jos Buttler",
+              "bowler": "Izatullah Dawlatzai",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Jos Buttler",
+              "bowler": "Izatullah Dawlatzai",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "leg before wicket",
+                  "player_out": "Jos Buttler"
+                }
+              ]
+            },
+            {
+              "batter": "Jonny Bairstow",
+              "bowler": "Izatullah Dawlatzai",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 6,
+                "extras": 1,
+                "total": 7
+              },
+              "extras": {
+                "noballs": 1
+              }
+            },
+            {
+              "batter": "Jonny Bairstow",
+              "bowler": "Izatullah Dawlatzai",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 1,
+                "extras": 1,
+                "total": 2
+              },
+              "extras": {
+                "noballs": 1
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Izatullah Dawlatzai",
+              "non_striker": "Jonny Bairstow",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Izatullah Dawlatzai",
+              "non_striker": "Jonny Bairstow",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Izatullah Dawlatzai",
+              "non_striker": "Jonny Bairstow",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Izatullah Dawlatzai",
+              "non_striker": "Jonny Bairstow",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 19,
+          "deliveries": [
+            {
+              "batter": "Luke Wright",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Jonny Bairstow",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Jonny Bairstow",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Jonny Bairstow",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Jonny Bairstow",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Jonny Bairstow",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Luke Wright",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Jonny Bairstow"
+                }
+              ]
+            },
+            {
+              "batter": "Luke Wright",
+              "bowler": "Dawlat Zadran",
+              "non_striker": "Samit Patel",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "Afghanistan",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Steven Finn",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Steven Finn",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Steven Finn",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Steven Finn",
+              "non_striker": "Mohammad Shahzad",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Steven Finn",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Shahzad",
+              "bowler": "Steven Finn",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Mohammad Shahzad"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "over": 1,
+          "deliveries": [
+            {
+              "batter": "Shafiqullah",
+              "bowler": "Jade Dernbach",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Shafiqullah"
+                }
+              ]
+            },
+            {
+              "batter": "Karim Sadiq",
+              "bowler": "Jade Dernbach",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Karim Sadiq",
+              "bowler": "Jade Dernbach",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Karim Sadiq",
+              "bowler": "Jade Dernbach",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Karim Sadiq",
+              "bowler": "Jade Dernbach",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Karim Sadiq",
+              "bowler": "Jade Dernbach",
+              "non_striker": "Nawroz Mangal",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 2,
+          "deliveries": [
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Steven Finn",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Steven Finn",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Steven Finn",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Steven Finn",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Steven Finn",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Steven Finn",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Steven Finn",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Steven Finn",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Steven Finn",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 3,
+          "deliveries": [
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Stuart Broad",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Nawroz Mangal",
+              "bowler": "Stuart Broad",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Nawroz Mangal"
+                }
+              ]
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Stuart Broad",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Stuart Broad",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Stuart Broad",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Stuart Broad",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 4,
+          "deliveries": [
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Steven Finn",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Karim Sadiq",
+              "bowler": "Steven Finn",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Karim Sadiq",
+              "bowler": "Steven Finn",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Karim Sadiq",
+              "bowler": "Steven Finn",
+              "non_striker": "Asghar Afghan",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Steven Finn",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Steven Finn",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "legbyes": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 5,
+          "deliveries": [
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Stuart Broad",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Stuart Broad",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Stuart Broad",
+              "non_striker": "Karim Sadiq",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "run out",
+                  "player_out": "Karim Sadiq"
+                }
+              ]
+            },
+            {
+              "batter": "Asghar Afghan",
+              "bowler": "Stuart Broad",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Asghar Afghan"
+                }
+              ]
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Stuart Broad",
+              "non_striker": "Samiullah Shinwari",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Stuart Broad",
+              "non_striker": "Samiullah Shinwari",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 6,
+          "deliveries": [
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Samit Patel",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Samit Patel",
+              "non_striker": "Samiullah Shinwari",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Samit Patel",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Samit Patel",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Samit Patel",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Samit Patel",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 7,
+          "deliveries": [
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Graeme Swann",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Graeme Swann",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Graeme Swann",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Samiullah Shinwari",
+              "bowler": "Graeme Swann",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Samiullah Shinwari"
+                }
+              ]
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Graeme Swann",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Graeme Swann",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 8,
+          "deliveries": [
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Samit Patel",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Samit Patel",
+              "non_striker": "Mohammad Nabi",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Mohammad Nabi",
+              "bowler": "Samit Patel",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "bowled",
+                  "player_out": "Mohammad Nabi"
+                }
+              ]
+            },
+            {
+              "batter": "Dawlat Zadran",
+              "bowler": "Samit Patel",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Dawlat Zadran",
+              "bowler": "Samit Patel",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Dawlat Zadran",
+              "bowler": "Samit Patel",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "stumped",
+                  "player_out": "Dawlat Zadran"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "over": 9,
+          "deliveries": [
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Graeme Swann",
+              "non_striker": "Shapoor Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Graeme Swann",
+              "non_striker": "Shapoor Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Graeme Swann",
+              "non_striker": "Shapoor Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Graeme Swann",
+              "non_striker": "Shapoor Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Graeme Swann",
+              "non_striker": "Shapoor Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Graeme Swann",
+              "non_striker": "Shapoor Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 10,
+          "deliveries": [
+            {
+              "batter": "Shapoor Zadran",
+              "bowler": "Samit Patel",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Shapoor Zadran",
+              "bowler": "Samit Patel",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Shapoor Zadran",
+              "bowler": "Samit Patel",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Shapoor Zadran",
+              "bowler": "Samit Patel",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Shapoor Zadran",
+              "bowler": "Samit Patel",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Shapoor Zadran",
+              "bowler": "Samit Patel",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 11,
+          "deliveries": [
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Graeme Swann",
+              "non_striker": "Shapoor Zadran",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Graeme Swann",
+              "non_striker": "Shapoor Zadran",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Graeme Swann",
+              "non_striker": "Shapoor Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Graeme Swann",
+              "non_striker": "Shapoor Zadran",
+              "runs": {
+                "batter": 2,
+                "extras": 0,
+                "total": 2
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Graeme Swann",
+              "non_striker": "Shapoor Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Graeme Swann",
+              "non_striker": "Shapoor Zadran",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            }
+          ]
+        },
+        {
+          "over": 12,
+          "deliveries": [
+            {
+              "batter": "Shapoor Zadran",
+              "bowler": "Luke Wright",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Shapoor Zadran",
+              "bowler": "Luke Wright",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Shapoor Zadran",
+              "bowler": "Luke Wright",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Shapoor Zadran",
+              "bowler": "Luke Wright",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Shapoor Zadran",
+              "bowler": "Luke Wright",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Shapoor Zadran",
+              "bowler": "Luke Wright",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Shapoor Zadran",
+              "bowler": "Luke Wright",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 13,
+          "deliveries": [
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Stuart Broad",
+              "non_striker": "Shapoor Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Stuart Broad",
+              "non_striker": "Shapoor Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Stuart Broad",
+              "non_striker": "Shapoor Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Stuart Broad",
+              "non_striker": "Shapoor Zadran",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Stuart Broad",
+              "non_striker": "Shapoor Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Shapoor Zadran",
+              "bowler": "Stuart Broad",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 14,
+          "deliveries": [
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Jade Dernbach",
+              "non_striker": "Shapoor Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Jade Dernbach",
+              "non_striker": "Shapoor Zadran",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Shapoor Zadran",
+              "bowler": "Jade Dernbach",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Jade Dernbach",
+              "non_striker": "Shapoor Zadran",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Jade Dernbach",
+              "non_striker": "Shapoor Zadran",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Jade Dernbach",
+              "non_striker": "Shapoor Zadran",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            }
+          ]
+        },
+        {
+          "over": 15,
+          "deliveries": [
+            {
+              "batter": "Shapoor Zadran",
+              "bowler": "Graeme Swann",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Shapoor Zadran",
+              "bowler": "Graeme Swann",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 6,
+                "extras": 0,
+                "total": 6
+              }
+            },
+            {
+              "batter": "Shapoor Zadran",
+              "bowler": "Graeme Swann",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "leg before wicket",
+                  "player_out": "Shapoor Zadran"
+                }
+              ]
+            },
+            {
+              "batter": "Izatullah Dawlatzai",
+              "bowler": "Graeme Swann",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Izatullah Dawlatzai",
+              "bowler": "Graeme Swann",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Izatullah Dawlatzai",
+              "bowler": "Graeme Swann",
+              "non_striker": "Gulbadin Naib",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "over": 16,
+          "deliveries": [
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Steven Finn",
+              "non_striker": "Izatullah Dawlatzai",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Steven Finn",
+              "non_striker": "Izatullah Dawlatzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Steven Finn",
+              "non_striker": "Izatullah Dawlatzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Steven Finn",
+              "non_striker": "Izatullah Dawlatzai",
+              "runs": {
+                "batter": 0,
+                "extras": 1,
+                "total": 1
+              },
+              "extras": {
+                "wides": 1
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Steven Finn",
+              "non_striker": "Izatullah Dawlatzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Steven Finn",
+              "non_striker": "Izatullah Dawlatzai",
+              "runs": {
+                "batter": 4,
+                "extras": 0,
+                "total": 4
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Steven Finn",
+              "non_striker": "Izatullah Dawlatzai",
+              "runs": {
+                "batter": 1,
+                "extras": 0,
+                "total": 1
+              }
+            }
+          ]
+        },
+        {
+          "over": 17,
+          "deliveries": [
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Jade Dernbach",
+              "non_striker": "Izatullah Dawlatzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              }
+            },
+            {
+              "batter": "Gulbadin Naib",
+              "bowler": "Jade Dernbach",
+              "non_striker": "Izatullah Dawlatzai",
+              "runs": {
+                "batter": 0,
+                "extras": 0,
+                "total": 0
+              },
+              "wickets": [
+                {
+                  "kind": "caught",
+                  "player_out": "Gulbadin Naib"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

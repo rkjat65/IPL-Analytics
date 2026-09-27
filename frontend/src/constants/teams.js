@@ -18,6 +18,31 @@ export const TEAM_COLORS = {
   'Gujarat Lions': { primary: '#E04F17', secondary: '#1C1C2B', abbr: 'GL' },
   'Pune Warriors': { primary: '#2F9BE3', secondary: '#E55B25', abbr: 'PWI' },
   'Kochi Tuskers Kerala': { primary: '#6F2C91', secondary: '#F7B731', abbr: 'KTK' },
+  'Afghanistan': { primary: '#1D4ED8', secondary: '#EF4444', abbr: 'AFG', flag: '🇦🇫' },
+  'Australia': { primary: '#FACC15', secondary: '#166534', abbr: 'AUS', flag: '🇦🇺' },
+  'Bangladesh': { primary: '#15803D', secondary: '#DC2626', abbr: 'BAN', flag: '🇧🇩' },
+  'Canada': { primary: '#DC2626', secondary: '#FFFFFF', abbr: 'CAN', flag: '🇨🇦' },
+  'England': { primary: '#38BDF8', secondary: '#1E3A8A', abbr: 'ENG', flag: '🏴' },
+  'Hong Kong': { primary: '#DC2626', secondary: '#FFFFFF', abbr: 'HKG', flag: '🇭🇰' },
+  'India': { primary: '#2563EB', secondary: '#F97316', abbr: 'IND', flag: '🇮🇳' },
+  'Ireland': { primary: '#16A34A', secondary: '#2563EB', abbr: 'IRE', flag: '🇮🇪' },
+  'Italy': { primary: '#2563EB', secondary: '#FFFFFF', abbr: 'ITA', flag: '🇮🇹' },
+  'Kenya': { primary: '#DC2626', secondary: '#15803D', abbr: 'KEN', flag: '🇰🇪' },
+  'Namibia': { primary: '#2563EB', secondary: '#DC2626', abbr: 'NAM', flag: '🇳🇦' },
+  'Nepal': { primary: '#DC2626', secondary: '#1D4ED8', abbr: 'NEP', flag: '🇳🇵' },
+  'Netherlands': { primary: '#F97316', secondary: '#1D4ED8', abbr: 'NED', flag: '🇳🇱' },
+  'New Zealand': { primary: '#CBD5E1', secondary: '#111827', abbr: 'NZ', flag: '🇳🇿' },
+  'Oman': { primary: '#DC2626', secondary: '#15803D', abbr: 'OMA', flag: '🇴🇲' },
+  'Pakistan': { primary: '#16A34A', secondary: '#064E3B', abbr: 'PAK', flag: '🇵🇰' },
+  'Papua New Guinea': { primary: '#DC2626', secondary: '#111827', abbr: 'PNG', flag: '🇵🇬' },
+  'Scotland': { primary: '#7C3AED', secondary: '#1D4ED8', abbr: 'SCO', flag: '🏴󠁧󠁢󠁳󠁣󠁴󠁿' },
+  'South Africa': { primary: '#16A34A', secondary: '#FACC15', abbr: 'SA', flag: '🇿🇦' },
+  'Sri Lanka': { primary: '#1D4ED8', secondary: '#FACC15', abbr: 'SL', flag: '🇱🇰' },
+  'Uganda': { primary: '#FACC15', secondary: '#DC2626', abbr: 'UGA', flag: '🇺🇬' },
+  'United Arab Emirates': { primary: '#DC2626', secondary: '#15803D', abbr: 'UAE', flag: '🇦🇪' },
+  'United States of America': { primary: '#2563EB', secondary: '#DC2626', abbr: 'USA', flag: '🇺🇸' },
+  'West Indies': { primary: '#9F1239', secondary: '#FACC15', abbr: 'WI', flag: '🌴' },
+  'Zimbabwe': { primary: '#DC2626', secondary: '#FACC15', abbr: 'ZIM', flag: '🇿🇼' },
 }
 
 export function getTeamColor(teamName) {
@@ -26,6 +51,10 @@ export function getTeamColor(teamName) {
 
 export function getTeamAbbr(teamName) {
   return TEAM_COLORS[teamName]?.abbr || teamName?.substring(0, 3).toUpperCase() || '???'
+}
+
+export function getTeamFlag(teamName) {
+  return TEAM_COLORS[teamName]?.flag || null
 }
 
 // Team logo image filenames (stored in backend/team_images/)

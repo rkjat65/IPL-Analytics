@@ -1,12 +1,15 @@
+import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useFetch } from '../hooks/useFetch'
 import SEO from '../components/SEO'
 import {
   getSeasons,
   getSeasonSummary,
+  getSeasonGroups,
   getPointsTable,
   getCapRace,
 } from '../lib/api'
+import { useTournament } from '../contexts/TournamentContext'
 import StatCard from '../components/ui/StatCard'
 import DataTable from '../components/ui/DataTable'
 import Loading from '../components/ui/Loading'
@@ -37,6 +40,19 @@ const CHART_COLORS = [
   '#FFD740', // yellow
 ]
 
+function formatDateRange(startDate, endDate) {
+  if (!startDate || !endDate) return '—'
+  const format = (value) => {
+    const [year, month, day] = value.split('-').map(Number)
+    return new Intl.DateTimeFormat('en-IN', {
+      day: 'numeric',
+      month: 'short',
+      ...(startDate.slice(0, 4) !== endDate.slice(0, 4) ? { year: 'numeric' } : {}),
+    }).format(new Date(Date.UTC(year, month - 1, day)))
+  }
+  return `${format(startDate)} – ${format(endDate)}`
+}
+
 function CustomTooltip({ active, payload, label, unit = '' }) {
   if (!active || !payload?.length) return null
   return (
@@ -54,6 +70,8 @@ function CustomTooltip({ active, payload, label, unit = '' }) {
 export default function Seasons() {
   const { year } = useParams()
   const navigate = useNavigate()
+  const tournament = useTournament()
+  const [scopeKey, setScopeKey] = useState('')
 
   const { data: seasons, loading: seasonsLoading } = useFetch(() => getSeasons(), [])
 
@@ -65,9 +83,31 @@ export default function Seasons() {
     [selectedYear]
   )
 
+  const { data: groupScopes, loading: groupsLoading } = useFetch(
+    () => (selectedYear && tournament.isT20WorldCup ? getSeasonGroups(selectedYear) : Promise.resolve([])),
+    [selectedYear, tournament.tournament]
+  )
+
+  useEffect(() => {
+    if (!tournament.isT20WorldCup || !groupScopes?.length) {
+      setScopeKey('')
+      return
+    }
+    const first = groupScopes[0]
+    setScopeKey(`${first.stage || ''}::${first.group}`)
+  }, [selectedYear, groupScopes, tournament.isT20WorldCup])
+
+  const selectedScope = (groupScopes || []).find(
+    (item) => `${item.stage || ''}::${item.group}` === scopeKey
+  )
+
   const { data: pointsTable, loading: ptLoading } = useFetch(
-    () => (selectedYear ? getPointsTable(selectedYear) : Promise.resolve(null)),
-    [selectedYear]
+    () => {
+      if (!selectedYear) return Promise.resolve(null)
+      if (tournament.isT20WorldCup && groupScopes?.length && !selectedScope) return Promise.resolve(null)
+      return getPointsTable(selectedYear, selectedScope?.group, selectedScope?.stage || undefined)
+    },
+    [selectedYear, scopeKey, tournament.tournament, groupScopes]
   )
 
   const { data: capRace, loading: capLoading } = useFetch(
@@ -199,7 +239,7 @@ export default function Seasons() {
   if (summaryError) {
     return (
       <div className="flex flex-col items-center justify-center py-20 gap-4">
-        <p className="text-danger font-heading text-lg">Failed to load season data</p>
+        <p className="text-danger font-heading text-lg">Failed to load {tournament.competitionLabel.toLowerCase()} data</p>
         <p className="text-text-secondary text-sm">{summaryError}</p>
       </div>
     )
@@ -208,22 +248,22 @@ export default function Seasons() {
   return (
     <div className="space-y-8">
       <SEO
-        title="IPL Seasons — Year-by-Year Records, Points Tables & Cap Winners"
-        description="Explore IPL season-by-season analytics from 2008 to 2026: final points tables, playoff results, Orange Cap and Purple Cap winners, and top performers for every season."
+        title={`${tournament.shortName} ${tournament.competitionLabelPlural} — Records, Standings & Leaders`}
+        description={`Explore ${tournament.name} ${tournament.competitionLabel.toLowerCase()} analytics: standings, results, leading run-scorers, leading wicket-takers, and top performers.`}
         url="/seasons"
       />
       {/* Header + Season Selector */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="text-3xl font-heading font-bold text-text-primary">
-            IPL {selectedYear || ''}
+            {tournament.shortName} {selectedYear || ''}
           </h1>
           <p className="text-text-secondary text-sm mt-1">
-            Season overview, standings, and cap races
+            {tournament.competitionLabel} overview, standings, and leader races
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <label className="text-text-secondary text-sm font-body">Season</label>
+          <label className="text-text-secondary text-sm font-body">{tournament.competitionLabel}</label>
           <select
             value={selectedYear}
             onChange={(e) => navigate(`/seasons/${e.target.value}`)}
@@ -249,7 +289,7 @@ export default function Seasons() {
             <StatCard label="Cities" value={formatNumber(summary.cities)} color="lime" />
             <StatCard label="Venues" value={formatNumber(summary.venues)} color="magenta" />
             <StatCard label="Winner" value={summary.winner ?? '-'} color="amber" />
-            <StatCard label="Season" value={`${summary.start_date ?? ''} - ${summary.end_date ?? ''}`} color="lime" />
+            <StatCard label="Dates" value={formatDateRange(summary.start_date, summary.end_date)} color="lime" />
           </div>
 
           {/* Highlight cards */}
@@ -263,7 +303,7 @@ export default function Seasons() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-wider text-text-muted font-medium mb-1">Orange Cap</p>
+                    <p className="text-xs uppercase tracking-wider text-text-muted font-medium mb-1">{tournament.awards.batting}</p>
                     <span className="text-xl font-heading font-bold text-accent-amber stat-glow-amber">
                       {summary.orange_cap.player}
                     </span>
@@ -279,7 +319,7 @@ export default function Seasons() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-wider text-text-muted font-medium mb-1">Purple Cap</p>
+                    <p className="text-xs uppercase tracking-wider text-text-muted font-medium mb-1">{tournament.awards.bowling}</p>
                     <span className="text-xl font-heading font-bold text-accent-magenta stat-glow-magenta">
                       {summary.purple_cap.player}
                     </span>
@@ -294,9 +334,24 @@ export default function Seasons() {
 
       {/* Points Table */}
       <section>
-        <div className="flex items-center gap-3 mb-4">
+        <div className="flex flex-wrap items-center gap-3 mb-4">
           <div className="w-1 h-6 bg-accent-cyan rounded-full" />
           <h2 className="text-xl font-heading font-bold text-text-primary">Points Table</h2>
+          {tournament.isT20WorldCup && groupScopes?.length > 0 && (
+            <select
+              value={scopeKey}
+              onChange={(event) => setScopeKey(event.target.value)}
+              className={`${selectClass} ml-auto`}
+              style={selectStyle}
+              aria-label="World Cup group"
+            >
+              {groupScopes.map((item) => {
+                const value = `${item.stage || ''}::${item.group}`
+                const label = item.stage ? `${item.stage} · Group ${item.group}` : `Group ${item.group}`
+                return <option key={value} value={value}>{label}</option>
+              })}
+            </select>
+          )}
         </div>
 
         {/* Points Bar Chart */}
@@ -343,7 +398,7 @@ export default function Seasons() {
           </div>
         )}
 
-        {ptLoading ? (
+        {ptLoading || groupsLoading ? (
           <Loading message="Loading points table..." />
         ) : ptData.length > 0 ? (
           <DataTable columns={ptColumns} data={ptData} />
@@ -357,7 +412,7 @@ export default function Seasons() {
         <section>
           <div className="flex items-center gap-3 mb-4">
             <div className="w-1 h-6 bg-accent-amber rounded-full" />
-            <h2 className="text-xl font-heading font-bold text-text-primary">Orange Cap Race</h2>
+            <h2 className="text-xl font-heading font-bold text-text-primary">{tournament.awards.batting} Race</h2>
           </div>
           <div className="bg-bg-card border border-border-subtle rounded-lg p-4">
             <ResponsiveContainer width="100%" height={350}>
@@ -403,7 +458,7 @@ export default function Seasons() {
         <section>
           <div className="flex items-center gap-3 mb-4">
             <div className="w-1 h-6 bg-accent-magenta rounded-full" />
-            <h2 className="text-xl font-heading font-bold text-text-primary">Purple Cap Race</h2>
+            <h2 className="text-xl font-heading font-bold text-text-primary">{tournament.awards.bowling} Race</h2>
           </div>
           <div className="bg-bg-card border border-border-subtle rounded-lg p-4">
             <ResponsiveContainer width="100%" height={350}>

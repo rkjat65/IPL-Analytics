@@ -1,6 +1,8 @@
 import { useMemo, useState } from 'react'
 import SEO from '../components/SEO'
 import { FAQ_CATEGORIES, FAQ_FLAT } from '../data/iplFaqs'
+import { T20WC_FAQ_CATEGORIES, T20WC_FAQ_FLAT } from '../data/t20WorldCupFaqs'
+import { useTournament } from '../contexts/TournamentContext'
 
 function FAQItem({ q, a, isOpen, onToggle }) {
   return (
@@ -31,13 +33,16 @@ function FAQItem({ q, a, isOpen, onToggle }) {
 }
 
 export default function FAQ() {
+  const tournament = useTournament()
+  const categories = tournament.isIPL ? FAQ_CATEGORIES : T20WC_FAQ_CATEGORIES
+  const flatFaqs = tournament.isIPL ? FAQ_FLAT : T20WC_FAQ_FLAT
   const [query, setQuery] = useState('')
   const [openKey, setOpenKey] = useState(null)
 
   const filteredCategories = useMemo(() => {
     const q = query.trim().toLowerCase()
-    if (!q) return FAQ_CATEGORIES
-    return FAQ_CATEGORIES
+    if (!q) return categories
+    return categories
       .map((cat) => ({
         ...cat,
         items: cat.items.filter(
@@ -45,7 +50,7 @@ export default function FAQ() {
         ),
       }))
       .filter((cat) => cat.items.length > 0)
-  }, [query])
+  }, [query, categories])
 
   const totalShown = filteredCategories.reduce((sum, c) => sum + c.items.length, 0)
 
@@ -53,7 +58,7 @@ export default function FAQ() {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: FAQ_FLAT.map(({ q, a }) => ({
+    mainEntity: flatFaqs.map(({ q, a }) => ({
       '@type': 'Question',
       name: q,
       acceptedAnswer: {
@@ -66,8 +71,8 @@ export default function FAQ() {
   return (
     <div className="space-y-8">
       <SEO
-        title="IPL FAQ — Frequently Asked Questions About the Indian Premier League"
-        description="Answers to the most commonly asked questions about the IPL — format & rules, auctions, records, players, venues, history, and more. Everything you need to know about the Indian Premier League in one place."
+        title={`${tournament.shortName} FAQ — Frequently Asked Questions`}
+        description={`Answers to common questions about ${tournament.name}, its format, data, records, teams, players, and Crickrida analytics.`}
         url="/faq"
         type="website"
         schema={faqSchema}
@@ -76,7 +81,7 @@ export default function FAQ() {
       <div>
         <h1 className="text-3xl font-heading font-bold text-text-primary">Frequently Asked Questions</h1>
         <p className="text-text-secondary text-sm mt-1">
-          {FAQ_FLAT.length} answers to the most common questions about the IPL — format, rules, auctions, records, players, and more.
+          {flatFaqs.length} answers to common questions about {tournament.name}, its data, format, records, teams, and players.
         </p>
       </div>
 

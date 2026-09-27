@@ -12,6 +12,8 @@ from fastapi import APIRouter, HTTPException
 from fastapi.responses import Response
 from pydantic import BaseModel
 
+from ..tournaments import get_tournament
+
 try:
     from PIL import Image, ImageDraw, ImageFont
     PILLOW_AVAILABLE = True
@@ -361,7 +363,7 @@ def generate_og_image(title: str, subtitle: str = None, stat: str = None) -> byt
     font_brand = get_font(22, bold=True)
     draw.text((48, 40), "RKJAT65", fill=(*PALETTE["cyan"], 255), font=font_brand)
     font_sub = get_font(14)
-    draw.text((48, 68), "IPL ANALYTICS", fill=(*PALETTE["muted"], 200), font=font_sub)
+    draw.text((48, 68), f"{get_tournament().short_name.upper()} ANALYTICS", fill=(*PALETTE["muted"], 200), font=font_sub)
 
     font_title = get_font(52, bold=True)
     words = title.split()
@@ -408,7 +410,7 @@ def generate_og_image(title: str, subtitle: str = None, stat: str = None) -> byt
 # ── Caching ───────────────────────────────────────────────────────────────────
 
 def get_cache_key(data: dict) -> str:
-    raw = str(sorted(data.items())).encode()
+    raw = f"{get_tournament().slug}:{sorted(data.items())}".encode()
     return hashlib.md5(raw).hexdigest()
 
 

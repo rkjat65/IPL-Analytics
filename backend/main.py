@@ -20,6 +20,7 @@ from fastapi.responses import FileResponse
 
 from .auth_db import init_auth_db
 from .routers import meta, matches, players, teams, analytics, venues, seasons, ai, images, social, advanced, pulse, auth
+from .tournaments import reset_tournament, set_tournament
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s %(levelname)s %(message)s")
@@ -47,6 +48,24 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.middleware("http")
+async def select_tournament(request, call_next):
+    """Select an isolated analytics database for this request.
+
+    IPL remains the default for every legacy URL. The frontend sends the
+    explicit ``tournament`` query parameter for all tournament-aware requests.
+    """
+    token = set_tournament(
+        request.query_params.get("tournament")
+        or request.headers.get("X-Tournament")
+    )
+    try:
+        response = await call_next(request)
+        return response
+    finally:
+        reset_tournament(token)
 
 # API Routers
 app.include_router(meta.router)

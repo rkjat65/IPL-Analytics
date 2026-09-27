@@ -5,12 +5,30 @@ from pydantic import BaseModel, Field
 
 from ..database import query, normalize_team
 from ..player_resolve import canonical_player_slug
+from ..tournaments import get_tournament, public_tournaments
 
 router = APIRouter(prefix="/api/meta", tags=["meta"])
 
 
 class BatchPlayerLookupBody(BaseModel):
     names: list[str] = Field(default_factory=list, max_length=200)
+
+
+@router.get("/tournaments")
+def list_tournaments():
+    return public_tournaments()
+
+
+@router.get("/tournament")
+def active_tournament():
+    item = get_tournament()
+    return {
+        "slug": item.slug,
+        "name": item.name,
+        "short_name": item.short_name,
+        "competition_label": item.competition_label,
+        "team_label": item.team_label,
+    }
 
 
 @router.get("/seasons")

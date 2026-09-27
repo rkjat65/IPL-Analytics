@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { useAuth } from '../contexts/AuthContext'
+import { Link } from 'react-router-dom'
+import { useTournament } from '../contexts/TournamentContext'
 import SEO from '../components/SEO'
 import { useFetch } from '../hooks/useFetch'
 import {
@@ -44,8 +44,7 @@ function NeonTooltip({ active, payload, label, valueLabel }) {
 }
 
 export default function Dashboard() {
-  const { isAuthenticated } = useAuth()
-  const navigate = useNavigate()
+  const tournament = useTournament()
   const [season, setSeason] = useState('')
   const [showTopTotals, setShowTopTotals] = useState(false)
   const [showTopSixes, setShowTopSixes] = useState(false)
@@ -255,42 +254,22 @@ export default function Dashboard() {
   return (
     <div className="space-y-8">
       <SEO
-        title="IPL Dashboard — Live Stats, Leaderboards & Season Trends"
-        description="Crickrida — Cricket analytics dashboard with real-time IPL stats, batting and bowling leaderboards, match results, points tables, and season trends."
+        title={`${tournament.shortName} Dashboard — Stats, Leaderboards & ${tournament.competitionLabel} Trends`}
+        description={`Crickrida ${tournament.shortName} analytics with batting and bowling leaderboards, match results, records, and ${tournament.competitionLabel.toLowerCase()} trends.`}
         url="/dashboard"
       />
-      {/* Sign-in banner for unauthenticated users */}
-      {!isAuthenticated && (
-        <div className="animate-in flex items-center justify-between gap-4 px-4 py-3 rounded-xl bg-accent-cyan/5 border border-accent-cyan/15">
-          <div className="flex items-center gap-3">
-            <svg className="w-5 h-5 text-accent-cyan shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <p className="text-text-secondary text-sm">
-              <span className="text-text-primary font-medium">Sign in</span> to access full analytics, player profiles, and match details.
-            </p>
-          </div>
-          <button
-            onClick={() => navigate('/login')}
-            className="shrink-0 px-4 py-1.5 rounded-lg bg-accent-cyan text-black text-xs font-bold hover:brightness-110 transition-all"
-          >
-            Login
-          </button>
-        </div>
-      )}
-
       {/* Page Header + Season Selector */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="text-3xl font-heading font-bold text-text-primary">
-            IPL Dashboard
+            {tournament.shortName} Dashboard
           </h1>
           <p className="text-text-secondary text-sm mt-1">
-            Comprehensive analytics across all IPL seasons
+            Comprehensive analytics across all {tournament.name} {tournament.competitionLabelPlural.toLowerCase()}
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <label className="text-text-secondary text-sm font-body">Season</label>
+          <label className="text-text-secondary text-sm font-body">{tournament.competitionLabel}</label>
           <MultiSeasonSelect seasons={seasons || []} value={season} onChange={setSeason} />
         </div>
       </div>
@@ -615,7 +594,7 @@ export default function Dashboard() {
         <section>
           <div className="flex items-center gap-3 mb-4">
             <div className="w-1 h-6 bg-accent-amber rounded-full" />
-            <h2 className="text-xl font-heading font-bold text-text-primary">IPL Title Winners</h2>
+            <h2 className="text-xl font-heading font-bold text-text-primary">{tournament.shortName} Title Winners</h2>
           </div>
           <div className="card">
             {titleWinnersLoading ? (

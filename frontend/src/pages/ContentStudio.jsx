@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { getSeasons, getTeams, searchPlayers, getPlayerBatting, getPlayerBowling, getPlayerBattingMatchups, getPlayerBowlingMatchups, getMatches, getMatch, getSeasonSummary, generateCommentary } from '../lib/api'
+import { apiUrl, getSeasons, getTeams, searchPlayers, getPlayerBatting, getPlayerBowling, getPlayerBattingMatchups, getPlayerBowlingMatchups, getMatches, getMatch, getSeasonSummary, generateCommentary } from '../lib/api'
 import SEO from '../components/SEO'
 import { exportAsImage, downloadImage, copyToClipboard } from '../utils/exportCard'
 import { CARD_DIMENSIONS } from '../components/cards/cardStyles'
@@ -338,7 +338,7 @@ export default function ContentStudio() {
   useEffect(() => {
     if (!tfTeam || template !== 'team_form') return
     setTfLoading(true)
-    fetch(`/api/advanced/form-index?team=${encodeURIComponent(tfTeam)}&last_n=${tfLastN}`)
+    fetch(apiUrl('/advanced/form-index', { team: tfTeam, last_n: tfLastN }))
       .then(r => r.ok ? r.json() : Promise.reject('Failed'))
       .then(d => { setTfData(d); setTfLoading(false) })
       .catch(() => { setTfData(null); setTfLoading(false) })

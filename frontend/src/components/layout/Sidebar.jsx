@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
+import { useTournament } from '../../contexts/TournamentContext'
 
 const ADMIN_EMAIL = 'rkdevanda65@gmail.com'
 
@@ -172,6 +173,7 @@ export default function Sidebar({ open, onToggle }) {
   const { user, isAuthenticated, logout } = useAuth()
   const [settingsOpen, setSettingsOpen] = useState(false)
   const [confirmLogout, setConfirmLogout] = useState(false)
+  const tournament = useTournament()
 
   const handleLogout = async () => {
     if (!confirmLogout) {
@@ -256,12 +258,12 @@ export default function Sidebar({ open, onToggle }) {
                         : 'text-text-secondary hover:text-text-primary border border-transparent hover:bg-white/[0.03]'
                   } ${!open ? 'justify-center px-0' : ''}`
                 }
-                title={item.label}
+                title={item.to === '/seasons' ? tournament.competitionLabelPlural : item.label}
               >
                 {item.icon}
                 {open && (
                   <span className="flex items-center gap-1.5">
-                    {item.label}
+                    {item.to === '/seasons' ? tournament.competitionLabelPlural : item.label}
                     {highlightColor && (
                       <span className={`w-1.5 h-1.5 rounded-full ${highlightColor.bg} animate-pulse`} />
                     )}

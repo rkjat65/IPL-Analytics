@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { getActiveTournament } from '../lib/api'
 
 const STAT_CONFIGS = {
   'top-scorer': {
@@ -33,7 +34,8 @@ export default function EmbedWidget({ statType = 'top-scorer' }) {
 
   useEffect(() => {
     setLoading(true)
-    fetch(config.endpoint)
+    const separator = config.endpoint.includes('?') ? '&' : '?'
+    fetch(`${config.endpoint}${separator}tournament=${getActiveTournament()}`)
       .then((r) => r.json())
       .then((d) => {
         const rows = Array.isArray(d) ? d : d.data || d.results || d.leaderboard || []
@@ -47,7 +49,7 @@ export default function EmbedWidget({ statType = 'top-scorer' }) {
     ? `${window.location.origin}/embed?stat=${statType}`
     : ''
 
-  const embedCode = `<iframe src="${embedUrl}" width="350" height="320" style="border:none;border-radius:12px;" title="IPL ${config.title}"></iframe>`
+  const embedCode = `<iframe src="${embedUrl}&tournament=${getActiveTournament()}" width="350" height="320" style="border:none;border-radius:12px;" title="Crickrida ${config.title}"></iframe>`
 
   return (
     <div

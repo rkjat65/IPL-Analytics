@@ -1,6 +1,6 @@
-# IPL Analytics Platform — 17 Seasons of Cricket Intelligence
+# Cricket Analytics Platform — IPL and T20 World Cup Intelligence
 
-> End-to-end analysis of IPL ball-by-ball data from 2008 to 2025, producing team performance, player records, and match pattern dashboards.
+> End-to-end analysis of IPL and Men's T20 World Cup ball-by-ball data, with an explicit tournament switch and fully isolated statistics.
 
 [![Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-Visit-blue?style=flat-square)](https://rkjat.in/portfolio/ipl-analytics.html)
 [![Case Study](https://img.shields.io/badge/Case%20Study-rkjat.in-informational?style=flat-square)](https://rkjat.in/portfolio/ipl-analytics.html)
@@ -10,9 +10,9 @@
 
 ## What This Is
 
-The most comprehensive open-source IPL analytics platform built on ball-by-ball data — not match summaries. It covers every delivery of every match across 17 IPL seasons (2008–2026), enabling phase-level analysis, pressure metrics, and player matchup data that match-summary tools cannot produce.
+An open-source cricket analytics platform built on ball-by-ball data — not match summaries. It supports two independent modes: IPL (2008–2026) and Men's T20 World Cup (2007–2026). The same analytical tools are available in both modes, while separate DuckDB files prevent matches, players, teams, and records from mixing.
 
-**Scale:** 1,243 matches · 700+ players tracked · 18 seasons of ball-by-ball data
+**Scale:** 1,243 IPL matches · 378 T20 World Cup matches · 10 World Cup editions
 
 ---
 
@@ -33,7 +33,8 @@ The platform is built around specific questions an analyst would actually ask:
 ```
 Cricsheet JSON (ball-by-ball)
         ↓
-    DuckDB (in-process query engine)
+    ├── ipl.duckdb
+    └── t20_world_cup.duckdb
         ↓
     FastAPI (analytical backend)
         ↓
@@ -41,7 +42,7 @@ Cricsheet JSON (ball-by-ball)
     └── Flutter (iOS & Android app — /mobile)
 ```
 
-**Key architectural decision:** The analysis layer is kept strictly separate from the content/social media layer. The DuckDB analytical database can power future applications without data contamination or reprocessing.
+**Key architectural decision:** Each tournament has its own DuckDB database. A request-scoped tournament context selects exactly one database, so an IPL request cannot include World Cup data and vice versa.
 
 **Why DuckDB over Pandas:** DuckDB enables fast in-process querying of large JSON datasets at query time rather than pre-aggregating — faster iteration, no stale pre-computed tables.
 
