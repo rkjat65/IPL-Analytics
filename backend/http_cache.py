@@ -15,8 +15,9 @@ from starlette.types import ASGIApp, Message, Receive, Scope, Send
 
 from . import database
 
-# Paths whose responses depend on who is asking, or that manage their own cache.
-_NEVER_CACHE = ("/api/auth", "/api/social", "/api/og", "/api/health")
+# Paths whose responses depend on who is asking, are random (quiz), or that
+# manage their own cache.
+_NEVER_CACHE = ("/api/auth", "/api/social", "/api/og", "/api/health", "/api/quiz")
 
 API_CACHE_CONTROL = "public, max-age=300, stale-while-revalidate=86400"
 ASSET_CACHE_CONTROL = "public, max-age=31536000, immutable"

@@ -158,7 +158,10 @@ export default function BattingRecords() {
           <h1 className="text-3xl font-heading font-bold text-text-primary">Batting Records</h1>
           <p className="text-text-secondary text-sm mt-1">Top run scorers across {tournament.name} {tournament.competitionLabelPlural.toLowerCase()}</p>
         </div>
-        <MakeCardButton label="Share the top 5" params={{ t: 'leaderboard', stat: 'runs' }} />
+        <div className="flex flex-wrap items-center gap-2">
+          <Link to="/batting/compare" className="inline-flex items-center rounded-lg border border-border-subtle px-3.5 py-2 text-xs font-semibold text-text-secondary hover:border-accent-cyan/40 hover:text-accent-cyan transition-colors">Compare batters</Link>
+          <MakeCardButton label="Share the top 5" params={{ t: 'leaderboard', stat: 'runs' }} />
+        </div>
       </div>
 
       {/* Filters */}

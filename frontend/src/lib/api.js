@@ -135,3 +135,7 @@ export const getAdminStats = (token) => {
     return res.json()
   })
 }
+
+// Fantasy picks and quiz
+export const getFantasyPicks = (team1, team2, venue) => fetchAPI('/fantasy/picks', { team1, team2, venue })
+export const getQuizPlayer = (level, seed) => fetchAPI('/quiz/player', { level, seed })

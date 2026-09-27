@@ -100,6 +100,7 @@ class HttpCacheTest(unittest.TestCase):
         self.assertNotIn("x-cache", response.headers)
         self.assertEqual(calls["n"], 2)
         self.assertFalse(cacheable_api_path("/api/social/drafts"))
+        self.assertFalse(cacheable_api_path("/api/quiz/player"))
 
     def test_hashed_assets_are_immutable(self):
         response = self.client.get("/assets/app.js")

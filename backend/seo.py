@@ -308,6 +308,21 @@ def _static_pages() -> dict[str, tuple[str, str]]:
             f"Turn any {t.short_name} stat into a branded card for X, Instagram, LinkedIn or "
             "stories in seconds. Free, no sign-up.",
         ),
+        "/fantasy": (
+            f"{t.short_name} Fantasy Picks — Projected Points, Captain & Vice-Captain",
+            f"Pick two {t.short_name} teams and a venue to get projected fantasy points from recent "
+            "form and venue record, with a suggested XI, captain and vice-captain. Free.",
+        ),
+        "/quiz": (
+            f"Guess the {t.short_name} Player — Cricket Stats Quiz",
+            f"Can you name the {t.short_name} player from their career stats? Play the free quiz, "
+            "keep your streak and share your score.",
+        ),
+        "/bowling/compare": (
+            f"{t.short_name} Bowling Comparison — Compare Bowlers Side by Side",
+            f"Compare {t.short_name} bowlers side by side: wickets, economy, average, strike rate "
+            "and dot-ball percentage.",
+        ),
         "/faq": (
             f"{t.short_name} FAQ — Frequently Asked Questions",
             f"Answers to common questions about the {t.name}: format, records, teams and players.",
