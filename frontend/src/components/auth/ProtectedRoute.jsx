@@ -2,7 +2,7 @@ import { useAuth } from '../../contexts/AuthContext'
 import LoginPage from '../../pages/Login'
 
 export default function ProtectedRoute({ children }) {
-  const { isAuthenticated, loading } = useAuth()
+  const { user, isAuthenticated, loading } = useAuth()
 
   if (loading) {
     return (
@@ -17,6 +17,17 @@ export default function ProtectedRoute({ children }) {
 
   if (!isAuthenticated) {
     return <LoginPage inline />
+  }
+
+  if (!user?.is_admin) {
+    return (
+      <div className="flex items-center justify-center min-h-[60vh] px-4">
+        <div className="text-center max-w-sm animate-in">
+          <h2 className="text-xl font-heading font-bold text-text-primary mb-2">Admins only</h2>
+          <p className="text-text-secondary text-sm">This area is for site administrators. Everything else on Crickrida is free and open to everyone.</p>
+        </div>
+      </div>
+    )
   }
 
   return children

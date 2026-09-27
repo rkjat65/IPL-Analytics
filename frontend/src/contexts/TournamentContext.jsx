@@ -47,10 +47,14 @@ export function TournamentProvider({ children }) {
 
   useEffect(() => {
     window.localStorage.setItem('crickrida-tournament', slug)
-    const params = new URLSearchParams(location.search)
+    // Read the *current* URL, not this render's location: a child <Navigate>
+    // (e.g. / -> /dashboard) may already have moved on in the same commit, and
+    // re-using the stale pathname would undo that redirect.
+    const { pathname, search } = window.location
+    const params = new URLSearchParams(search)
     if (params.get('tournament') !== slug) {
       params.set('tournament', slug)
-      navigate({ pathname: location.pathname, search: params.toString() }, { replace: true })
+      navigate({ pathname, search: params.toString() }, { replace: true })
     }
   }, [slug, location.pathname, location.search, navigate])
 

@@ -1,7 +1,7 @@
 # Crickrida — Cricket via Stats
-> AI-powered IPL analytics platform covering 17+ years of Indian Premier League data (2008–2026).
+> Free IPL and T20 World Cup analytics built on ball-by-ball data (IPL 2008–2026, T20 World Cup 2007–2026). No account needed.
 
-Crickrida (https://crickrida.rkjat.in) is an open analytics platform for the Indian Premier League (IPL). It provides historical match data, player statistics, team performance, venue analysis, and AI-generated insights.
+Crickrida (https://crickrida.rkjat.in) is an open analytics platform for the Indian Premier League (IPL). It provides historical match data, player statistics, team performance, venue analysis, trending insights and a free studio for creating shareable stat cards.
 
 ## What Crickrida covers
 
@@ -13,7 +13,8 @@ Crickrida (https://crickrida.rkjat.in) is an open analytics platform for the Ind
 - **Venue analytics**: Ground-specific stats including average first-innings score, chase success rate, and venue win-loss history.
 - **Head-to-head comparisons**: Historical rivalry records between any two IPL teams, and player-vs-player comparisons.
 - **Charts & insights**: Phase-wise run rates (Powerplay, Middle, Death), dismissal type breakdowns, toss impact analysis, cap winners, and batting/bowling performance matrices.
-- **Cricket Pulse**: AI-generated match summaries and season narratives.
+- **Cricket Pulse**: Trending insights discovered from the data — milestones, streaks, records about to fall — plus "On This Day" in IPL history.
+- **Studio**: Free tool to turn any stat into a branded card for X/Twitter, Instagram, LinkedIn or stories.
 - **FAQ**: Answers to the most commonly asked questions about IPL history, rules, format, auctions, records, and players — structured as Q&A for quick answer-engine retrieval.
 
 ## Key facts (as of June 2026)
@@ -33,7 +34,8 @@ Crickrida (https://crickrida.rkjat.in) is an open analytics platform for the Ind
 - /seasons — Year-by-year IPL season records
 - /h2h — Head-to-head team and player comparisons
 - /charts — Statistical breakdowns and trend visualizations
-- /pulse — AI cricket insights and match narratives
+- /pulse — Trending insights, streaks and On This Day
+- /content-studio — Free stat-card studio
 - /faq — Frequently asked questions about the IPL (history, rules, format, auctions, records, players)
 
 ## Contact & attribution

@@ -3,6 +3,9 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'api_client.dart';
 import 'formatters.dart';
 
+/// The app has no sign-in: Crickrida is free and account-free. This keeps
+/// sessions from older app versions working so those users can sign out or
+/// delete their legacy account.
 class AuthProvider extends ChangeNotifier {
   AuthProvider(this._api) {
     _bootstrap();
@@ -20,7 +23,6 @@ class AuthProvider extends ChangeNotifier {
   bool get isAuthenticated => _user != null;
   String? get error => _error;
   String? get token => _api.token;
-  String get plan => _user?['plan']?.toString() ?? 'free';
   String get displayName => _user?['name']?.toString() ?? 'Guest';
 
   Future<void> _bootstrap() async {
@@ -36,44 +38,6 @@ class AuthProvider extends ChangeNotifier {
     } finally {
       _loading = false;
       notifyListeners();
-    }
-  }
-
-  Future<void> login(String email, String password) async {
-    _error = null;
-    notifyListeners();
-    try {
-      final data = asStringKeyedMap(
-        await _api.post(
-          '/auth/login',
-          body: {'email': email, 'password': password},
-          auth: false,
-        ),
-      );
-      await _applyAuth(data);
-    } catch (e) {
-      _error = e.toString();
-      notifyListeners();
-      rethrow;
-    }
-  }
-
-  Future<void> register(String name, String email, String password) async {
-    _error = null;
-    notifyListeners();
-    try {
-      final data = asStringKeyedMap(
-        await _api.post(
-          '/auth/register',
-          body: {'name': name, 'email': email, 'password': password},
-          auth: false,
-        ),
-      );
-      await _applyAuth(data);
-    } catch (e) {
-      _error = e.toString();
-      notifyListeners();
-      rethrow;
     }
   }
 
@@ -100,16 +64,6 @@ class AuthProvider extends ChangeNotifier {
       _user = asStringKeyedMap(await _api.get('/auth/me'));
       notifyListeners();
     } catch (_) {}
-  }
-
-  Future<void> _applyAuth(Map<String, dynamic> data) async {
-    final token = data['token']?.toString();
-    if (token == null || token.isEmpty) throw Exception('No token returned');
-    _api.setToken(token);
-    await _storage.write(key: 'auth_token', value: token);
-    _user = asStringKeyedMap(data['user']);
-    _error = null;
-    notifyListeners();
   }
 
   Future<void> _clearSession() async {

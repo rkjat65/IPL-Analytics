@@ -6,11 +6,10 @@ from unittest.mock import patch
 from backend import auth_db
 from backend.routers.auth import (
     ForgotPasswordRequest,
-    RegisterRequest,
     delete_account,
     forgot_password,
-    register,
 )
+from backend.tests.test_security import make_user
 
 
 class TestAccountDeletion(unittest.TestCase):
@@ -31,17 +30,11 @@ class TestAccountDeletion(unittest.TestCase):
         self.tmpdir.cleanup()
 
     def test_delete_account_removes_profile_sessions_and_usage(self):
-        auth = register(
-            RegisterRequest(
-                name="Store Review",
-                email="review@example.com",
-                password="test-password",
-            )
-        )
+        auth = make_user("review@example.com")
         db = auth_db.get_auth_db()
         db.execute(
             "INSERT INTO usage (user_id, feature) VALUES (?, ?)",
-            (auth["user"]["id"], "ai_query"),
+            (auth["id"], "ai_query"),
         )
         db.commit()
 
@@ -53,13 +46,7 @@ class TestAccountDeletion(unittest.TestCase):
         self.assertEqual(db.execute("SELECT COUNT(*) FROM usage").fetchone()[0], 0)
 
     def test_reset_token_is_not_exposed_without_development_flag(self):
-        register(
-            RegisterRequest(
-                name="Reset Test",
-                email="reset@example.com",
-                password="test-password",
-            )
-        )
+        make_user("reset@example.com")
 
         with (
             patch("backend.routers.auth._send_reset_email", return_value=False),

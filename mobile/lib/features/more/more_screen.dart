@@ -5,17 +5,14 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../core/auth_provider.dart';
 import '../../core/theme.dart';
 import '../../widgets/widgets.dart';
-import '../auth/login_screen.dart';
 import '../charts/charts_screen.dart';
 import '../h2h/h2h_screen.dart';
 import '../impact/impact_screen.dart';
 import '../pulse/pulse_screen.dart';
 import '../seasons/seasons_screen.dart';
-import '../social/social_screen.dart';
 import '../studio/content_studio_screen.dart';
 import '../teams/teams_screen.dart';
 import '../venues/venues_screen.dart';
-import '../ask/ask_screen.dart';
 
 class MoreScreen extends StatelessWidget {
   const MoreScreen({super.key});
@@ -52,7 +49,9 @@ class MoreScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        auth.isAuthenticated ? auth.displayName : 'Guest',
+                        auth.isAuthenticated
+                            ? auth.displayName
+                            : 'Free for everyone',
                         style: GoogleFonts.spaceGrotesk(
                           fontSize: 18,
                           fontWeight: FontWeight.w700,
@@ -60,8 +59,8 @@ class MoreScreen extends StatelessWidget {
                       ),
                       Text(
                         auth.isAuthenticated
-                            ? '${auth.user?['email'] ?? ''} · ${auth.plan}'
-                            : 'Browse freely · sign in for AI',
+                            ? '${auth.user?['email'] ?? ''}'
+                            : 'Every stat and tool · no account needed',
                         style: const TextStyle(
                           color: CrickTheme.textSecondary,
                           fontSize: 12,
@@ -74,25 +73,11 @@ class MoreScreen extends StatelessWidget {
                   TextButton(
                     onPressed: () => auth.logout(),
                     child: const Text('Logout'),
-                  )
-                else
-                  FilledButton(
-                    onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (_) => const LoginScreen()),
-                    ),
-                    child: const Text('Sign in'),
                   ),
               ],
             ),
           ),
           const SectionHeader('Explore'),
-          _tile(
-            context,
-            Icons.auto_awesome,
-            'Ask Cricket',
-            const AskScreen(),
-            CrickTheme.cyan,
-          ),
           _tile(
             context,
             Icons.dashboard_customize_rounded,
@@ -148,13 +133,6 @@ class MoreScreen extends StatelessWidget {
             'Player Impact',
             const ImpactScreen(),
             CrickTheme.magenta,
-          ),
-          _tile(
-            context,
-            Icons.share_rounded,
-            'Social Compose',
-            const SocialScreen(),
-            CrickTheme.cyan,
           ),
           const SectionHeader('Links'),
           CrickCard(

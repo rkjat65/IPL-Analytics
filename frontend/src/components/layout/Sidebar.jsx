@@ -3,8 +3,6 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 import { useTournament } from '../../contexts/TournamentContext'
 
-const ADMIN_EMAIL = 'rkdevanda65@gmail.com'
-
 const navItems = [
   {
     to: '/dashboard',
@@ -27,19 +25,6 @@ const navItems = [
         <line x1="18" y1="20" x2="18" y2="10" />
         <line x1="12" y1="20" x2="12" y2="4" />
         <line x1="6" y1="20" x2="6" y2="14" />
-      </svg>
-    ),
-  },
-  {
-    to: '/ask',
-    label: 'Ask AI',
-    highlight: 'lime',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 shrink-0">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-        <circle cx="12" cy="10" r="1" fill="currentColor" />
-        <circle cx="8" cy="10" r="1" fill="currentColor" />
-        <circle cx="16" cy="10" r="1" fill="currentColor" />
       </svg>
     ),
   },
@@ -182,7 +167,7 @@ export default function Sidebar({ open, onToggle }) {
       return
     }
     await logout()
-    navigate('/login')
+    navigate('/dashboard')
   }
 
   const getInitials = (name) => {
@@ -274,9 +259,10 @@ export default function Sidebar({ open, onToggle }) {
           })}
         </nav>
 
-        {/* User account section */}
+        {/* Admin account section — the public site has no sign-in */}
+        {isAuthenticated && (
         <div className="border-t border-border-subtle p-2 flex flex-col gap-1">
-          {isAuthenticated ? (
+          {(
             <>
               {/* User avatar + name */}
               <div className={`flex items-center gap-2.5 px-2 py-2 rounded-lg ${open ? '' : 'justify-center'}`}>
@@ -305,8 +291,9 @@ export default function Sidebar({ open, onToggle }) {
                 )}
               </div>
 
-              {/* Admin button */}
-              {user?.email?.toLowerCase() === ADMIN_EMAIL && (
+              {/* Admin links */}
+              {user?.is_admin && (
+                <>
                 <NavLink
                   to="/admin"
                   className={({ isActive }) =>
@@ -323,6 +310,24 @@ export default function Sidebar({ open, onToggle }) {
                   </svg>
                   {open && <span>Admin</span>}
                 </NavLink>
+                <NavLink
+                  to="/admin/social"
+                  className={({ isActive }) =>
+                    `flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-mono font-semibold transition-all ${
+                      isActive
+                        ? 'bg-accent-amber/15 text-accent-amber border border-accent-amber/30'
+                        : 'text-text-muted hover:text-accent-amber hover:bg-accent-amber/10 border border-transparent'
+                    } ${!open ? 'justify-center px-0' : ''}`
+                  }
+                  title="Social Compose"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 shrink-0">
+                    <path d="M22 2 11 13" />
+                    <path d="M22 2 15 22l-4-9-9-4 20-7z" />
+                  </svg>
+                  {open && <span>Social</span>}
+                </NavLink>
+                </>
               )}
 
               {/* Settings with logout inside */}
@@ -363,20 +368,9 @@ export default function Sidebar({ open, onToggle }) {
                 )}
               </div>
             </>
-          ) : (
-            <button
-              onClick={() => navigate('/login')}
-              className={`flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-accent-cyan/10 border border-accent-cyan/20
-                text-accent-cyan text-xs font-semibold hover:bg-accent-cyan/20 transition-all ${!open ? 'justify-center px-0' : ''}`}
-              title="Login"
-            >
-              <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-              </svg>
-              {open && <span>Login</span>}
-            </button>
           )}
         </div>
+        )}
 
         {/* Collapse toggle — desktop only */}
         <button

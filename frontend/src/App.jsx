@@ -16,7 +16,6 @@ import Seasons from './pages/Seasons'
 import HeadToHead from './pages/HeadToHead'
 import BattingCompare from './pages/BattingCompare'
 import ContentStudio from './pages/ContentStudio'
-import AskCricket from './pages/AskCricket'
 import SocialCompose from './pages/SocialCompose'
 // AdvancedAnalytics removed — Team Form Index moved to Content Studio
 import CricketPulse from './pages/CricketPulse'
@@ -31,6 +30,8 @@ export default function App() {
     <Routes>
       {/* Default: land straight on the dashboard */}
       <Route path="/" element={<Navigate to="/dashboard" replace />} />
+      {/* Admin-only sign-in. There are no public accounts; /login stays for password-reset links. */}
+      <Route path="/admin/login" element={<Login />} />
       <Route path="/login" element={<Login />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/terms" element={<TermsOfUse />} />
@@ -55,13 +56,14 @@ export default function App() {
         <Route path="/players/:playerName" element={<PlayerProfile />} />
         <Route path="/h2h" element={<HeadToHead />} />
         <Route path="/content-studio" element={<ContentStudio />} />
-        <Route path="/ask" element={<AskCricket />} />
-        <Route path="/social" element={<SocialCompose />} />
+        <Route path="/ask" element={<Navigate to="/dashboard" replace />} />
+        <Route path="/social" element={<Navigate to="/admin/social" replace />} />
         <Route path="/charts" element={<Charts />} />
         <Route path="/pulse" element={<CricketPulse />} />
         <Route path="/player-impact" element={<PlayerImpact />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
+        <Route path="/admin/social" element={<ProtectedRoute><SocialCompose /></ProtectedRoute>} />
       </Route>
     </Routes>
   )

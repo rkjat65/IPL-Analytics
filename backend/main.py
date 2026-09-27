@@ -18,7 +18,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 
 from .auth_db import init_auth_db
-from .routers import meta, matches, players, teams, analytics, venues, seasons, ai, images, social, advanced, pulse, auth
+from .routers import meta, matches, players, teams, analytics, venues, seasons, images, social, advanced, pulse, auth
 from .tournaments import reset_tournament, set_tournament
 
 logger = logging.getLogger(__name__)
@@ -74,7 +74,6 @@ app.include_router(teams.router)
 app.include_router(analytics.router)
 app.include_router(venues.router)
 app.include_router(seasons.router)
-app.include_router(ai.router)
 app.include_router(images.router)
 app.include_router(social.router)
 app.include_router(advanced.router)

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { apiUrl, getSeasons, getTeams, searchPlayers, getPlayerBatting, getPlayerBowling, getPlayerBattingMatchups, getPlayerBowlingMatchups, getMatches, getMatch, getSeasonSummary, generateCommentary } from '../lib/api'
+import { apiUrl, getSeasons, getTeams, searchPlayers, getPlayerBatting, getPlayerBowling, getPlayerBattingMatchups, getPlayerBowlingMatchups, getMatches, getMatch, getSeasonSummary } from '../lib/api'
 import SEO from '../components/SEO'
 import { exportAsImage, downloadImage, copyToClipboard } from '../utils/exportCard'
 import { CARD_DIMENSIONS } from '../components/cards/cardStyles'
@@ -10,7 +10,8 @@ import RecordCard from '../components/cards/RecordCard'
 import SeasonRecapCard from '../components/cards/SeasonRecapCard'
 import MatchupCard from '../components/cards/MatchupCard'
 import PlayerAvatar from '../components/ui/PlayerAvatar'
-import { useAuth } from '../contexts/AuthContext'
+import { useTournament } from '../contexts/TournamentContext'
+import { buildCaption, statLines } from '../utils/caption'
 
 const TEMPLATES = [
   { id: 'player', label: 'Player Stats', color: '#00E5FF' },
@@ -68,7 +69,7 @@ function PlayerSearchInput({ query, setQuery, results, setResults, onSelect, sel
 }
 
 export default function ContentStudio() {
-  const { token } = useAuth()
+  const tournament = useTournament()
   const cardRef = useRef(null)
   const [template, setTemplate] = useState('player')
   const [format, setFormat] = useState('twitter')
@@ -138,9 +139,8 @@ export default function ContentStudio() {
   const [tfData, setTfData] = useState(null)
   const [tfLoading, setTfLoading] = useState(false)
 
-  // AI Caption state
-  const [aiCaption, setAiCaption] = useState('')
-  const [aiCaptionLoading, setAiCaptionLoading] = useState(false)
+  // Caption for the current card
+  const [caption, setCaption] = useState('')
   // Load initial data
   useEffect(() => {
     getSeasons().then(setSeasons).catch(() => {})
@@ -373,57 +373,72 @@ export default function ContentStudio() {
     }
   }, [])
 
-  // AI Caption generation — builds context from current card data
-  const handleGenerateCaption = useCallback(async () => {
-    setAiCaptionLoading(true)
-    setAiCaption('')
-    try {
-      let stats = {}
-      let context = 'IPL cricket statistics'
-      switch (template) {
-        case 'player':
-          stats = { player: playerName, type: playerType, ...playerStats }
-          context = `${playerName} IPL ${playerType} career stats`
-          break
-        case 'match':
-          stats = matchData
-          context = `Match summary: ${matchData.team1 || ''} vs ${matchData.team2 || ''}`
-          break
-        case 'comparison':
-          stats = { player1: { name: p1Name, type: p1Type, ...p1Stats }, player2: { name: p2Name, type: p2Type, ...p2Stats } }
-          context = `IPL comparison: ${p1Name} vs ${p2Name}`
-          break
-        case 'record':
-          stats = { title: recordTitle, value: recordValue, description: recordDesc }
-          context = `IPL record: ${recordTitle}`
-          break
-        case 'bat_v_ball':
-          stats = { batsman: bvbPlayerName, bowler: bvbOpponent, ...bvbStats }
-          context = `IPL head-to-head: ${bvbPlayerName} batting vs ${bvbOpponent}`
-          break
-        case 'ball_v_bat':
-          stats = { bowler: blvbPlayerName, batsman: blvbOpponent, ...blvbStats }
-          context = `IPL head-to-head: ${blvbPlayerName} bowling vs ${blvbOpponent}`
-          break
-        case 'season':
-          stats = seasonData
-          context = `IPL ${selectedSeason} season recap`
-          break
-        case 'team_form':
-          stats = { team: tfTeam, form_index: tfData?.form_index, streak: tfData?.current_streak }
-          context = `${tfTeam} current form analysis`
-          break
+  // Caption writer — builds a post from the card's own data (no AI service)
+  const handleGenerateCaption = useCallback(() => {
+    const t = tournament.shortName
+    let headline = `${t} stats`
+    let lines = []
+    let tags = []
+    switch (template) {
+      case 'player':
+        headline = `${playerName || 'Player'} — ${t} ${playerType} numbers 📊`
+        lines = statLines(playerStats)
+        tags = [playerName]
+        break
+      case 'match': {
+        const margin = matchData.result_margin ? `${matchData.result_margin} ${matchData.result_type || ''}`.trim() : matchData.margin
+        headline = `${matchData.team1 || 'Team 1'} vs ${matchData.team2 || 'Team 2'} 🏏`
+        lines = [
+          (matchData.team1_score || matchData.score1) && `${matchData.team1}: ${matchData.team1_score || matchData.score1}`,
+          (matchData.team2_score || matchData.score2) && `${matchData.team2}: ${matchData.team2_score || matchData.score2}`,
+          matchData.winner && `${matchData.winner} won${margin ? ` by ${margin}` : ''}`,
+          (matchData.player_of_match || matchData.potm) && `Player of the match: ${matchData.player_of_match || matchData.potm}`,
+        ].filter(Boolean)
+        tags = [matchData.team1, matchData.team2]
+        break
       }
-      const res = await generateCommentary({ stats, context }, token)
-      setAiCaption(res.commentaries?.join('\n\n---\n\n') || 'No caption generated.')
-    } catch (err) {
-      const msg = err.message || ''
-      setAiCaption('Caption generation failed. ' + (msg || 'Make sure AI is configured.'))
-      console.error(err)
-    } finally {
-      setAiCaptionLoading(false)
+      case 'comparison':
+        headline = `${p1Name || 'Player 1'} vs ${p2Name || 'Player 2'} — who wins? ⚔️`
+        lines = [
+          ...statLines(p1Stats, 3).map(l => `${p1Name}: ${l}`),
+          ...statLines(p2Stats, 3).map(l => `${p2Name}: ${l}`),
+        ]
+        tags = [p1Name, p2Name]
+        break
+      case 'record':
+        headline = `${recordTitle || 'Record'} 🏆`
+        lines = [recordValue && `${recordValue}${recordSubtitle ? ` — ${recordSubtitle}` : ''}`, recordDesc].filter(Boolean)
+        break
+      case 'bat_v_ball':
+        headline = `${bvbPlayerName || 'Batter'} vs ${bvbOpponent || 'Bowler'} — the head-to-head 🎯`
+        lines = statLines(bvbStats)
+        tags = [bvbPlayerName, bvbOpponent]
+        break
+      case 'ball_v_bat':
+        headline = `${blvbPlayerName || 'Bowler'} vs ${blvbOpponent || 'Batter'} — the head-to-head 🎯`
+        lines = statLines(blvbStats)
+        tags = [blvbPlayerName, blvbOpponent]
+        break
+      case 'season':
+        headline = `${t} ${selectedSeason || ''} in review 🏆`.replace('  ', ' ')
+        lines = [
+          (seasonData.champion || seasonData.winner) && `Champions: ${seasonData.champion || seasonData.winner}`,
+          seasonData.orange_cap && `${tournament.awards.batting}: ${seasonData.orange_cap}`,
+          seasonData.purple_cap && `${tournament.awards.bowling}: ${seasonData.purple_cap}`,
+          seasonData.most_sixes && `Most sixes: ${seasonData.most_sixes}`,
+        ].filter(Boolean)
+        break
+      case 'team_form':
+        headline = `${tfTeam || 'Team'} form check 📈`
+        lines = [
+          tfData?.form_index != null && `Form index: ${tfData.form_index}/100`,
+          tfData?.current_streak && `Current streak: ${tfData.current_streak}`,
+        ].filter(Boolean)
+        tags = [tfTeam]
+        break
     }
-  }, [template, playerName, playerType, playerStats, matchData, p1Name, p1Type, p1Stats, p2Name, p2Type, p2Stats, recordTitle, recordValue, recordDesc, seasonData, selectedSeason, bvbPlayerName, bvbOpponent, bvbStats, blvbPlayerName, blvbOpponent, blvbStats])
+    setCaption(buildCaption({ headline, lines, tags, tournament: t, url: 'crickrida.rkjat.in' }))
+  }, [template, tournament, playerName, playerType, playerStats, matchData, p1Name, p1Stats, p2Name, p2Stats, recordTitle, recordValue, recordSubtitle, recordDesc, seasonData, selectedSeason, bvbPlayerName, bvbOpponent, bvbStats, blvbPlayerName, blvbOpponent, blvbStats, tfTeam, tfData])
 
   function renderDataInputs() {
     switch (template) {
@@ -881,39 +896,31 @@ export default function ContentStudio() {
               Copy to Clipboard
             </button>
 
-            {/* AI Caption Generator */}
+            {/* Caption writer */}
             <button
               onClick={handleGenerateCaption}
-              disabled={aiCaptionLoading}
-              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-purple-500/15 text-purple-400 border border-purple-500/30 rounded-lg text-sm font-medium hover:bg-purple-500/25 transition-colors disabled:opacity-40"
+              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-purple-500/15 text-purple-400 border border-purple-500/30 rounded-lg text-sm font-medium hover:bg-purple-500/25 transition-colors"
             >
-              {aiCaptionLoading ? (
-                <>
-                  <div className="w-4 h-4 border-2 border-purple-400 border-t-transparent rounded-full animate-spin" />
-                  Generating Caption...
-                </>
-              ) : (
-                <>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                    <path d="M2 17l10 5 10-5" />
-                    <path d="M2 12l10 5 10-5" />
-                  </svg>
-                  AI Caption
-                </>
-              )}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                <path d="M12 20h9" />
+                <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" />
+              </svg>
+              Write Caption
             </button>
           </div>
 
-          {/* AI Caption output */}
-          {aiCaption && (
+          {caption && (
             <div className="space-y-2">
-              <label className="block text-xs font-mono text-purple-400">AI Generated Captions</label>
-              <div className="bg-bg-elevated border border-purple-500/20 rounded-lg p-3 text-sm text-text-secondary whitespace-pre-wrap max-h-60 overflow-y-auto leading-relaxed">
-                {aiCaption}
-              </div>
+              <label htmlFor="studio-caption" className="block text-xs font-mono text-purple-400">Caption (edit before posting)</label>
+              <textarea
+                id="studio-caption"
+                value={caption}
+                onChange={e => setCaption(e.target.value)}
+                rows={8}
+                className="w-full bg-bg-elevated border border-purple-500/20 rounded-lg p-3 text-sm text-text-secondary leading-relaxed focus:outline-none focus:border-purple-500/50"
+              />
               <button
-                onClick={() => { navigator.clipboard.writeText(aiCaption); setStatus('Caption copied!'); setTimeout(() => setStatus(null), 2000) }}
+                onClick={() => { navigator.clipboard.writeText(caption); setStatus('Caption copied!'); setTimeout(() => setStatus(null), 2000) }}
                 className="w-full px-3 py-1.5 text-xs text-purple-400 border border-purple-500/20 rounded-lg hover:bg-purple-500/10 transition-colors"
               >
                 Copy Caption
