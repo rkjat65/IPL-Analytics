@@ -1,3 +1,5 @@
+import asyncio
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -6,7 +8,6 @@ from PIL import Image
 from starlette.applications import Starlette
 from starlette.responses import JSONResponse, Response
 from starlette.routing import Route
-from starlette.testclient import TestClient
 
 from backend.http_cache import HttpCacheMiddleware, cacheable_api_path
 from backend.routers.players import player_thumbnail
@@ -28,14 +29,49 @@ def asset(request):
     return Response(b"js", media_type="application/javascript")
 
 
+class _Result:
+    def __init__(self, status, headers, body):
+        self.status_code = status
+        self.headers = {k.decode(): v.decode() for k, v in headers}
+        self.body = body
+
+    def json(self):
+        return json.loads(self.body)
+
+
+class AsgiClient:
+    """Minimal in-process ASGI caller (no httpx dependency)."""
+
+    def __init__(self, app):
+        self.app = app
+
+    def get(self, url):
+        path, _, qs = url.partition("?")
+        scope = {"type": "http", "method": "GET", "path": path, "raw_path": path.encode(),
+                 "query_string": qs.encode(), "headers": [], "scheme": "http",
+                 "server": ("test", 80), "client": ("test", 1), "root_path": "",
+                 "http_version": "1.1", "asgi": {"version": "3.0"}}
+        sent = []
+
+        async def receive():
+            return {"type": "http.request", "body": b"", "more_body": False}
+
+        async def send(message):
+            sent.append(message)
+
+        asyncio.run(self.app(scope, receive, send))
+        start = next(m for m in sent if m["type"] == "http.response.start")
+        body = b"".join(m.get("body", b"") for m in sent if m["type"] == "http.response.body")
+        return _Result(start["status"], start.get("headers", []), body)
+
+
 def build_client():
     app = Starlette(routes=[
         Route("/api/analytics/kpis", data),
         Route("/api/auth/me", me),
         Route("/assets/app.js", asset),
     ])
-    app.add_middleware(HttpCacheMiddleware)
-    return TestClient(app)
+    return AsgiClient(HttpCacheMiddleware(app))
 
 
 class HttpCacheTest(unittest.TestCase):
