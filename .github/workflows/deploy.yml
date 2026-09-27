@@ -5,7 +5,11 @@ on:
     branches: [ main ]
 
 jobs:
+  test:
+    uses: ./.github/workflows/ci.yml
+
   build-and-deploy:
+    needs: test
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -74,6 +78,7 @@ jobs:
             -p 8000:8000 \
             -e DUCKDB_PATH=/app/ipl.duckdb \
             -e AUTH_DB_PATH=/data/users.db \
+            -e GOOGLE_CLIENT_ID=${{ secrets.VITE_GOOGLE_CLIENT_ID }} \
             -e SMTP_HOST \
             -e SMTP_PORT \
             -e SMTP_USERNAME \

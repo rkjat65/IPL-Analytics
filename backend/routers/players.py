@@ -1,6 +1,5 @@
 """Player endpoints: batting/bowling leaderboards, profiles, matchups."""
 
-import os
 from pathlib import Path
 from fastapi import APIRouter, Query, HTTPException
 from fastapi.responses import FileResponse

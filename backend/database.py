@@ -144,6 +144,24 @@ _db_versions = {slug: 0 for slug in TOURNAMENTS}
 _db_version_lock = threading.Lock()
 
 
+def _connect(db_path: str) -> duckdb.DuckDBPyConnection:
+    """Open a read-only connection that cannot touch files or the network.
+
+    Queries (including AI-generated SQL) must only see the tables in the
+    database file, never read_text()/read_csv()/httpfs on the host.
+    """
+    return duckdb.connect(
+        db_path,
+        read_only=True,
+        config={
+            "enable_external_access": False,
+            "autoload_known_extensions": False,
+            "autoinstall_known_extensions": False,
+            "lock_configuration": True,
+        },
+    )
+
+
 def get_db() -> duckdb.DuckDBPyConnection:
     """Return a tournament-scoped thread-local read-only DuckDB connection.
 
@@ -162,11 +180,11 @@ def get_db() -> duckdb.DuckDBPyConnection:
                 conn.close()
             except Exception:
                 pass
-        conn = duckdb.connect(db_path, read_only=True)
+        conn = _connect(db_path)
         connections[tournament] = conn
         versions[tournament] = _db_versions[tournament]
     elif conn is None:
-        conn = duckdb.connect(db_path, read_only=True)
+        conn = _connect(db_path)
         connections[tournament] = conn
         versions[tournament] = _db_versions[tournament]
     _local.connections = connections

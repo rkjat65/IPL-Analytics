@@ -13,3 +13,7 @@ users.db
 *.log
 ipl_json
 T20 World Cup
+*.key
+*.pem
+id_rsa*
+backend/tests

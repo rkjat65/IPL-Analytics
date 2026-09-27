@@ -69,3 +69,14 @@ frontend/.claude/
 
 # Local AI prompt template
 ai-sql-prompts.md
+
+# Private keys / credentials — never commit
+*.key
+*.pem
+id_rsa*
+
+# Scratch / notebook / editor leftovers
+.ipynb_checkpoints/
+scratch/
+brain/
+.cursor/

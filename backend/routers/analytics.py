@@ -1,6 +1,6 @@
 """Analytics endpoints: KPIs, phase stats, venues, toss impact."""
 
-from fastapi import APIRouter, Query
+from fastapi import APIRouter
 from ..database import query, normalize_team, team_variants, VENUE_NORM_SQL
 
 router = APIRouter(prefix="/api/analytics", tags=["analytics"])

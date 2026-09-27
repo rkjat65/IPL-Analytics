@@ -5,13 +5,10 @@ from the DuckDB database and packages them as ready-to-share content.
 """
 
 import hashlib
-import json
-import random
 from datetime import date, datetime
 from typing import Optional
 
 from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel
 
 from ..database import query, normalize_team
 
@@ -220,11 +217,11 @@ def discover_streaks() -> list[dict]:
                 "category": "streak",
                 "icon": "🔥",
                 "headline": f"{team} are on a {streak}-match winning streak!",
-                "detail": f"On fire! Can they keep the momentum going?",
+                "detail": "On fire! Can they keep the momentum going?",
                 "stats": {"team": team, "streak": streak, "type": "wins"},
                 "tweet_text": _tweet(
                     f"🔥 {team} — {streak} wins in a row!",
-                    f"That's elite form. Who's stopping this train?"
+                    "That's elite form. Who's stopping this train?"
                 ),
                 "card_config": {
                     "style": "electric", "title": team,
@@ -468,7 +465,7 @@ def discover_did_you_know() -> list[dict]:
             "stats": {"team": team, "venue": vn["venue"], "matches": vn["matches"], "losses": vn["losses"]},
             "tweet_text": _tweet(
                 f"😱 {team} — 0 wins in {vn['losses']} matches at {vn['venue']}!",
-                f"A genuine bogey ground. Will they ever break the curse?"
+                "A genuine bogey ground. Will they ever break the curse?"
             ),
             "card_config": {
                 "style": "vintage", "title": team,

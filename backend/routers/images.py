@@ -298,7 +298,6 @@ def generate_stat_card_image(req: ImageGenRequest) -> bytes:
             card_x2 = x + col_w - gap
             card_y2 = y + row_h - gap
             card_h = card_y2 - card_y1
-            card_w_inner = card_x2 - card_x1
 
             # Card background with subtle border
             draw.rounded_rectangle(
