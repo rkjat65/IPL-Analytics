@@ -232,12 +232,35 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--overwrite", action="store_true", help="Replace an existing local player image")
     parser.add_argument("--dry-run", action="store_true", help="Resolve and report without downloading images")
     parser.add_argument("--size", type=int, default=512, help="Square WebP output size")
+    parser.add_argument(
+        "--prune-rejected",
+        action="store_true",
+        help="Remove local images and attribution records covered by manual rejection decisions",
+    )
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
     catalogue = load_json(CATALOGUE_PATH, {"identities": {}})
+    attribution = load_json(
+        ATTRIBUTION_PATH,
+        {"generated_at": None, "source": "Wikimedia Commons", "images": {}},
+    )
+    decisions = load_json(DECISIONS_PATH, {"rejected": {}})
+
+    pruned_rejected: list[str] = []
+    if args.prune_rejected and not args.dry_run:
+        for player_id, decision in decisions.get("rejected", {}).items():
+            record = attribution.get("images", {}).get(player_id)
+            if not record or record.get("commons_title") != decision.get("commons_title"):
+                continue
+            filename = Path(str(record.get("filename", ""))).name
+            if filename:
+                (IMAGE_DIR / filename).unlink(missing_ok=True)
+            attribution["images"].pop(player_id, None)
+            pruned_rejected.append(record.get("player_name") or player_id)
+
     identities = list(catalogue.get("identities", {}).values())
     selected_names = {name.casefold() for name in args.player}
     if selected_names:
@@ -264,11 +287,6 @@ def main() -> int:
     }
     commons = commons_metadata(sorted(set(title_by_id.values()))) if title_by_id else {}
 
-    attribution = load_json(
-        ATTRIBUTION_PATH,
-        {"generated_at": None, "source": "Wikimedia Commons", "images": {}},
-    )
-    decisions = load_json(DECISIONS_PATH, {"rejected": {}})
     imported: list[str] = []
     unmatched: list[str] = []
     rejected_license: list[dict[str, str]] = []
@@ -323,6 +341,7 @@ def main() -> int:
         "selected": len(identities),
         "pending": len(pending),
         "imported": imported,
+        "pruned_rejected": pruned_rejected,
         "skipped_existing": skipped_existing,
         "unmatched": unmatched,
         "rejected_license": rejected_license,
