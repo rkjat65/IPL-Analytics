@@ -94,6 +94,22 @@ are recorded in `data/wikimedia_player_image_decisions.json` by
 `--reject-player`, pruned from the generated images and prevented from returning
 on later runs. Published credits are available at `/image-credits`.
 
+For players without an acceptable Wikidata P18 portrait, the category discovery
+tool checks the exact Commons category linked to the verified Wikidata entity.
+It only creates a review queue; it never publishes search results automatically.
+
+```powershell
+python tools/discover_wikimedia_player_images.py --results 8
+python tools/prepare_wikimedia_candidate_review.py "$env:TEMP\crickrida-wikimedia-review"
+python tools/import_wikimedia_search_selections.py
+```
+
+Approved category candidates live in
+`data/wikimedia_commons_search_selections.json`, keeping the manual identity and
+image-quality decision auditable and repeatable. Name-based Commons searching is
+available only through the explicit `--include-name-search` option because names
+can collide with unrelated people.
+
 ---
 
 ## Live Demo
