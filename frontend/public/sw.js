@@ -7,7 +7,9 @@
  *   and refresh it in the background (stale-while-revalidate).
  * Admin, auth and social requests are never cached.
  */
-const VERSION = 'v2'
+// Bump whenever bundled analytics data or the API response shape changes so
+// installed clients cannot keep showing names/stats from an older database.
+const VERSION = 'v3-player-identities'
 const STATIC = `crickrida-static-${VERSION}`
 const PAGES = `crickrida-pages-${VERSION}`
 const DATA = `crickrida-data-${VERSION}`

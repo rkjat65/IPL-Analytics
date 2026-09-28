@@ -3,6 +3,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from PIL import Image
 from starlette.applications import Starlette
@@ -10,7 +11,7 @@ from starlette.responses import JSONResponse, Response
 from starlette.routing import Route
 
 from backend.http_cache import HttpCacheMiddleware, cacheable_api_path
-from backend.routers.players import player_thumbnail
+from backend.routers.players import available_images, player_thumbnail
 
 calls = {"n": 0}
 
@@ -129,6 +130,13 @@ class ThumbnailTest(unittest.TestCase):
         bad = self.dir / "Broken.png"
         bad.write_text("<html>not an image</html>")
         self.assertIsNone(player_thumbnail(bad, 96))
+
+    def test_available_images_include_canonical_player_name(self):
+        (self.dir / "V Kohli.png").write_bytes(b"image placeholder")
+        with patch("backend.routers.players.PLAYER_IMAGES_DIR", self.dir):
+            names = available_images()
+        self.assertIn("V Kohli", names)
+        self.assertIn("Virat Kohli", names)
 
 
 if __name__ == "__main__":

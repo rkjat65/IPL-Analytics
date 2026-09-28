@@ -3,6 +3,7 @@
 import functools
 
 from .database import query
+from .player_identity import identity_for
 from .player_aliases import PLAYER_ALIASES
 from .tournaments import get_tournament_slug
 
@@ -62,6 +63,16 @@ def _resolve_player_name(
         return raw
 
     term = raw.lower()
+    identity = identity_for(raw)
+    if identity:
+        candidate = identity["name"]
+        hit = query(
+            f"SELECT DISTINCT {col} FROM deliveries WHERE {col} = ? LIMIT 1",
+            [candidate],
+        )
+        if hit:
+            return hit[0][col]
+
     if allow_aliases and term in PLAYER_ALIASES:
         cand = PLAYER_ALIASES[term]
         hit = query(

@@ -84,6 +84,9 @@ export default function PlayerProfile() {
   const isLoading = batLoad || bowlLoad
   const hasBatting = batting?.career && batting.career.matches > 0
   const hasBowling = bowling?.career && bowling.career.matches > 0
+  const identity = batting?.identity || bowling?.identity
+  const displayName = identity?.name || decodedName
+  const famousNames = identity?.famous_names || []
 
   // If the active tab has no data, switch to the other
   if (!isLoading && activeTab === 'batting' && !hasBatting && hasBowling) {
@@ -93,29 +96,30 @@ export default function PlayerProfile() {
     setActiveTab('batting')
   }
 
-  const canonicalPath = `/${fromBowling ? 'bowling' : 'batting'}/${encodeURIComponent(decodedName)}`
+  const canonicalPath = `/${fromBowling ? 'bowling' : 'batting'}/${encodeURIComponent(displayName)}`
 
   const seoDescriptionParts = []
   if (hasBatting) {
     const c = batting.career
     seoDescriptionParts.push(
-      `${decodedName} has scored ${formatNumber(c.runs)} runs in ${c.matches} ${tournament.shortName} matches at an average of ${formatDecimal(c.avg)} and strike rate of ${formatDecimal(c.sr)}.`
+      `${displayName} has scored ${formatNumber(c.runs)} runs in ${c.matches} ${tournament.shortName} matches at an average of ${formatDecimal(c.avg)} and strike rate of ${formatDecimal(c.sr)}.`
     )
   }
   if (hasBowling) {
     const c = bowling.career
     seoDescriptionParts.push(
-      `As a bowler, ${decodedName} has taken ${formatNumber(c.wickets)} wickets in ${c.matches} ${tournament.shortName} matches at an economy of ${formatDecimal(c.economy)}.`
+      `As a bowler, ${displayName} has taken ${formatNumber(c.wickets)} wickets in ${c.matches} ${tournament.shortName} matches at an economy of ${formatDecimal(c.economy)}.`
     )
   }
   const seoDescription = seoDescriptionParts.length
-    ? `${seoDescriptionParts.join(' ')} View full ${tournament.shortName} career stats, season-by-season records, and head-to-head matchups for ${decodedName} on Crickrida.`
-    : `${tournament.shortName} career statistics, batting and bowling records, and performance analysis for ${decodedName}.`
+    ? `${seoDescriptionParts.join(' ')} View full ${tournament.shortName} career stats, season-by-season records, and head-to-head matchups for ${displayName} on Crickrida.`
+    : `${tournament.shortName} career statistics, batting and bowling records, and performance analysis for ${displayName}.`
 
   const personSchema = {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: decodedName,
+    name: displayName,
+    ...(famousNames.length ? { alternateName: famousNames } : {}),
     url: `${SITE_URL}${canonicalPath}`,
     description: seoDescription,
     ...(hasBatting || hasBowling
@@ -132,12 +136,12 @@ export default function PlayerProfile() {
   const breadcrumbs = breadcrumbSchema([
     { name: 'Dashboard', path: '/dashboard' },
     { name: fromBowling ? 'Bowling Records' : 'Batting Records', path: fromBowling ? '/bowling' : '/batting' },
-    { name: decodedName, path: canonicalPath },
+    { name: displayName, path: canonicalPath },
   ])
 
   const seoEl = (
     <SEO
-      title={`${decodedName} — ${tournament.shortName} Stats, Records & Career Profile`}
+      title={`${displayName} — ${tournament.shortName} Stats, Records & Career Profile`}
       description={seoDescription}
       url={canonicalPath}
       type="profile"
@@ -167,12 +171,22 @@ export default function PlayerProfile() {
       {seoEl}
       {/* Player Header */}
       <div className="flex flex-wrap items-center gap-5">
-        <PlayerAvatar name={decodedName} size={72} shape="circle" />
+        <PlayerAvatar name={displayName} size={72} shape="circle" />
         <div className="flex-1 min-w-0">
-          <h1 className="text-3xl font-heading font-bold text-text-primary">{decodedName}</h1>
+          <h1 className="text-3xl font-heading font-bold text-text-primary">{displayName}</h1>
           <p className="text-text-secondary text-sm mt-1">Career statistics and performance analysis</p>
+          {famousNames.length > 0 && (
+            <div className="flex flex-wrap items-center gap-2 mt-3" aria-label="Famous names">
+              <span className="text-xs font-mono uppercase tracking-wider text-text-muted">Also known as</span>
+              {famousNames.map((name) => (
+                <span key={name} className="rounded-full border border-accent-cyan/25 bg-accent-cyan/10 px-2.5 py-1 text-xs font-medium text-accent-cyan">
+                  {name}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
-        <MakeCardButton params={{ t: 'player', player: decodedName, type: fromBowling || !hasBatting ? 'bowling' : 'batting' }} />
+        <MakeCardButton params={{ t: 'player', player: displayName, type: fromBowling || !hasBatting ? 'bowling' : 'batting' }} />
       </div>
 
       {/* Tab Switcher */}

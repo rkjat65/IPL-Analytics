@@ -30,6 +30,13 @@ npm run dev
 
 When you add new match JSON files to the `ipl_json/` folder, you must update the DuckDB database.
 
+### 2.0 Refresh the Player Identity Catalogue
+Run this before rebuilding either database. It combines player appearances in both tournaments with the official Cricsheet Register, while preserving team-aware distinctions for people who share a name:
+```powershell
+python tools/build_player_identities.py
+```
+This produces `data/player_identities.json`. Both database builds use that same identity catalogue, but retain separate tournament databases and statistics.
+
 ### 2.1 Standard Ingestion
 Run this from the repository root:
 ```bash

@@ -1,5 +1,6 @@
 """Meta endpoints: seasons, teams, players search."""
 
+import json
 from functools import lru_cache
 
 from fastapi import APIRouter, Query
@@ -68,29 +69,31 @@ def _player_prominence(slug: str) -> dict[str, int]:
 
 @router.get("/players")
 def search_players(q: str = Query("", min_length=0)):
-    if not q:
-        rows = query("SELECT DISTINCT name FROM players ORDER BY name LIMIT 50")
-        return [r["name"] for r in rows]
-
-    rows = query(
-        "SELECT DISTINCT name FROM players WHERE LOWER(name) LIKE '%' || LOWER(?) || '%' LIMIT 500",
-        [q],
-    )
+    rows = query("SELECT DISTINCT name, aliases FROM players")
     # Best matches first: surname/word starts with the query, then the players
     # people are most likely looking for (most matches).
-    term = q.strip().lower()
+    term = q.strip().casefold()
     played = _player_prominence(get_tournament_slug())
 
-    def rank(name: str):
-        words = name.lower().split()
+    candidates = []
+    for row in rows:
+        aliases = json.loads(row.get("aliases") or "[]")
+        searchable = [row["name"], *aliases]
+        if term and not any(term in value.casefold() for value in searchable):
+            continue
+        candidates.append((row["name"], searchable))
+
+    def rank(item):
+        name, searchable = item
+        words = [word for value in searchable for word in value.casefold().split()]
         return (
-            0 if name.lower() == term else 1,
+            0 if any(value.casefold() == term for value in searchable) else 1,
             0 if any(w.startswith(term) for w in words) else 1,
             -played.get(name, 0),
             name,
         )
 
-    return sorted((r["name"] for r in rows), key=rank)[:50]
+    return [name for name, _ in sorted(candidates, key=rank)[:50]]
 
 
 @router.post("/players/batch-lookup")

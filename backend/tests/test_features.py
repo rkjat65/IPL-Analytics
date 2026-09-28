@@ -45,9 +45,9 @@ class QuizTest(unittest.TestCase):
 
     def test_roles(self):
         roles = {c["player"]: c["role"] for c in _careers("ipl")}
-        self.assertEqual(roles["V Kohli"], "Batter")
-        self.assertEqual(roles["JJ Bumrah"], "Bowler")
-        self.assertEqual(roles["RA Jadeja"], "All-rounder")
+        self.assertEqual(roles["Virat Kohli"], "Batter")
+        self.assertEqual(roles["Jasprit Bumrah"], "Bowler")
+        self.assertEqual(roles["Ravindra Jadeja"], "All-rounder")
 
 
 if __name__ == "__main__":

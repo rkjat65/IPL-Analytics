@@ -6,6 +6,7 @@ from fastapi import APIRouter, Query, HTTPException
 from fastapi.responses import FileResponse
 from ..database import query, normalize_team, team_variants
 from ..player_resolve import resolve_player_name
+from ..player_identity import player_record
 
 PLAYER_IMAGES_DIR = Path(__file__).parent.parent / "player_images"
 PLAYER_IMAGE_EXTS = (".png", ".jpg", ".jpeg", ".webp")
@@ -18,7 +19,9 @@ def find_player_image_file(raw_name: str) -> Path | None:
     if not decoded or not PLAYER_IMAGES_DIR.is_dir():
         return None
 
-    candidates = [decoded]
+    identity = player_record(decoded)
+    candidates = [decoded, identity.get("source_name"), *identity.get("aliases", [])]
+    candidates = [name for name in dict.fromkeys(candidates) if name]
     # Only resolve display names ("Virat Kohli" -> "V Kohli"). A name that is
     # already a real player must not fall back to someone sharing the surname
     # (the resolver maps an unknown "T Kohli" bowler to "V Kohli").
@@ -85,6 +88,23 @@ def player_thumbnail(path: Path, width: int) -> Path | None:
     return out
 
 router = APIRouter(prefix="/api/players", tags=["players"])
+
+
+@router.get("/identity/{name}")
+def player_identity(name: str):
+    """Return the canonical name, source aliases and well-known nicknames."""
+    db_name = resolve_player_name(name, "bat")
+    if db_name == name:
+        db_name = resolve_player_name(name, "bowl")
+    identity = player_record(db_name)
+    return {
+        "id": identity.get("id"),
+        "name": identity.get("name", db_name),
+        "source_name": identity.get("source_name", db_name),
+        "aliases": identity.get("aliases", []),
+        "famous_names": identity.get("famous_names", []),
+        "cricinfo_id": identity.get("cricinfo_id"),
+    }
 
 
 @router.get("/batting/leaderboard")
@@ -302,13 +322,16 @@ def bowling_leaderboard(
 
 @router.get("/available-images")
 def available_images():
-    """Return list of player names that have images uploaded."""
+    """Return file stems plus canonical names for uploaded player images."""
     if not PLAYER_IMAGES_DIR.is_dir():
         return []
     names = set()
     for f in PLAYER_IMAGES_DIR.iterdir():
         if f.suffix.lower() in PLAYER_IMAGE_EXTS and f.is_file():
             names.add(f.stem)
+            identity = player_record(f.stem)
+            if identity.get("id"):
+                names.add(identity["name"])
     return sorted(names)
 
 
@@ -523,6 +546,7 @@ def batting_profile(name: str):
 
     return {
         "player": db_name,
+        "identity": player_record(db_name),
         "career": career[0],
         "seasons": season_stats,
         "phase_stats": phase_stats,
@@ -717,6 +741,7 @@ def bowling_profile(name: str):
 
     return {
         "player": db_name,
+        "identity": player_record(db_name),
         "career": career[0],
         "seasons": season_stats,
         "phase_stats": phase_stats,
@@ -728,6 +753,7 @@ def bowling_profile(name: str):
 
 @router.get("/{name}/matchups/batting")
 def batting_matchups(name: str):
+    name = resolve_player_name(name, "bat")
     rows = query("""
         SELECT bowler,
                COUNT(CASE WHEN extras_wides = 0 AND extras_noballs = 0 THEN 1 END) AS balls,
@@ -748,6 +774,7 @@ def batting_matchups(name: str):
 
 @router.get("/{name}/matchups/bowling")
 def bowling_matchups(name: str):
+    name = resolve_player_name(name, "bowl")
     rows = query("""
         SELECT batter,
                COUNT(CASE WHEN extras_wides = 0 AND extras_noballs = 0 THEN 1 END) AS balls,

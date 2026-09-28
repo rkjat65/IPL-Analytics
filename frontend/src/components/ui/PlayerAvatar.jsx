@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from 'react'
+import { apiUrl } from '../../lib/api'
 
 // Singleton: fetched once, shared across all avatar instances
 let _availableImages = null // Set of player names with images
@@ -7,7 +8,7 @@ let _fetchPromise = null
 function fetchAvailableImages() {
   if (_availableImages) return Promise.resolve(_availableImages)
   if (_fetchPromise) return _fetchPromise
-  _fetchPromise = fetch('/api/players/available-images')
+  _fetchPromise = fetch(apiUrl('/players/available-images'))
     .then(r => r.ok ? r.json() : [])
     .then(names => { _availableImages = new Set(names); return _availableImages })
     .catch(() => { _availableImages = new Set(); return _availableImages })

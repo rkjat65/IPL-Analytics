@@ -24,14 +24,14 @@ class PageMetaTest(unittest.TestCase):
     def test_player_page_uses_real_stats(self):
         meta = seo.page_meta("/batting/V Kohli")
         self.assertEqual(meta.status, 200)
-        self.assertEqual(meta.path, "/batting/V%20Kohli")
-        self.assertIn("V Kohli", meta.title)
+        self.assertEqual(meta.path, "/batting/Virat%20Kohli")
+        self.assertIn("Virat Kohli", meta.title)
         self.assertIn("runs", meta.description)
         self.assertEqual(meta.stats[0][0], "Runs")
 
     def test_bowling_route_canonicalises_to_bowling(self):
         meta = seo.page_meta("/bowling/JJ Bumrah")
-        self.assertEqual(meta.path, "/bowling/JJ%20Bumrah")
+        self.assertEqual(meta.path, "/bowling/Jasprit%20Bumrah")
         self.assertEqual(meta.stats[0][0], "Wickets")
 
     def test_team_names_are_normalised(self):
@@ -85,7 +85,7 @@ class SitemapTest(unittest.TestCase):
         locs = [el.text for el in root.iter("{http://www.sitemaps.org/schemas/sitemap/0.9}loc")]
         self.assertGreater(len(locs), 1000)
         self.assertEqual(len(locs), len(set(locs)))
-        self.assertIn(f"{seo.SITE_URL}/batting/V%20Kohli", locs)
+        self.assertIn(f"{seo.SITE_URL}/batting/Virat%20Kohli", locs)
         self.assertIn(f"{seo.SITE_URL}/dashboard?tournament=t20wc", locs)
         self.assertIn(f"{seo.SITE_URL}/seasons/2007%2F08", locs)
         self.assertFalse(any("/ask" in loc or "/login" in loc or "/admin" in loc for loc in locs))

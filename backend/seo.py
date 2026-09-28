@@ -369,8 +369,13 @@ def _static_links(path: str) -> tuple[str, list[tuple[str, str]]]:
 
 
 def _player_page(name: str, as_bowler: bool) -> PageMeta | None:
+    from .player_identity import identity_for
+
     t = get_tournament()
     slug = t.slug
+    identity = identity_for(name)
+    if identity:
+        name = identity["name"]
     bat, bowl = _player(slug, name)
     if not bat and not bowl:
         return None
@@ -412,6 +417,7 @@ def _player_page(name: str, as_bowler: bool) -> PageMeta | None:
                 "@context": "https://schema.org",
                 "@type": "Person",
                 "name": name,
+                **({"alternateName": identity["famous_names"]} if identity and identity.get("famous_names") else {}),
                 "url": canonical_url(path),
                 "description": description,
                 "knowsAbout": ["Cricket", t.name],

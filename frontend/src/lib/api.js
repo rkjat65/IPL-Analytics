@@ -1,4 +1,7 @@
 const API_BASE = '/api'
+// Public GET responses are cached by the installable app. Change this token
+// when bundled databases or canonical API labels change.
+const DATA_RELEASE = 'player-identities-v3'
 
 export function getActiveTournament() {
   const queryValue = new URLSearchParams(window.location.search).get('tournament')
@@ -10,6 +13,7 @@ export function apiUrl(endpoint, params = {}) {
   const url = new URL(endpoint, window.location.origin)
   url.pathname = API_BASE + endpoint
   url.searchParams.set('tournament', getActiveTournament())
+  url.searchParams.set('data_release', DATA_RELEASE)
   Object.entries(params).forEach(([key, val]) => {
     if (val !== undefined && val !== null && val !== '') {
       url.searchParams.set(key, val)

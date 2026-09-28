@@ -23,6 +23,8 @@ from __future__ import annotations
 
 import argparse
 from collections import defaultdict
+import hashlib
+import json
 import logging
 import statistics
 import sys
@@ -33,6 +35,8 @@ import duckdb
 import orjson
 import pandas as pd
 from tqdm import tqdm
+
+from backend.player_identity import player_record
 
 logging.basicConfig(
     format="%(asctime)s  %(levelname)-8s  %(message)s",
@@ -119,8 +123,12 @@ CREATE TABLE IF NOT EXISTS deliveries (
 
 DDL_PLAYERS = """
 CREATE TABLE IF NOT EXISTS players (
-    player_id   VARCHAR PRIMARY KEY,
-    name        VARCHAR
+    player_id       VARCHAR PRIMARY KEY,
+    name            VARCHAR,
+    source_name     VARCHAR,
+    aliases         VARCHAR,
+    famous_names    VARCHAR,
+    cricinfo_id     VARCHAR
 );
 """
 
@@ -166,13 +174,25 @@ class MatchExtractor:
         self.matches:    list[dict] = []
         self.innings:    list[dict] = []
         self.deliveries: list[dict] = []
-        self.players:    dict[str, str] = {}   # player_id → name
+        self.players:    dict[str, dict[str, Any]] = {}
         self._delivery_id = 0
         self.season_from_date_year = season_from_date_year
 
     def _next_delivery_id(self) -> int:
         self._delivery_id += 1
         return self._delivery_id
+
+    def _register_player(self, raw_name: str | None, team: str | None) -> str | None:
+        if not raw_name:
+            return raw_name
+        record = player_record(raw_name, team)
+        player_id = record.get("id")
+        if not player_id:
+            digest = hashlib.sha1(raw_name.casefold().encode("utf-8")).hexdigest()[:12]
+            player_id = f"local-{digest}"
+            record = {**record, "id": player_id}
+        self.players[player_id] = record
+        return record["name"]
 
     def process(self, match_id: str, data: dict[str, Any]) -> None:
         meta = data.get("meta", {})
@@ -185,8 +205,17 @@ class MatchExtractor:
         umpires = info.get("officials", {}).get("umpires", [])
         winner, win_runs, win_wkts, result = _outcome(info)
 
-        pom_list = info.get("player_of_match", [])
-        pom = ", ".join(pom_list) if pom_list else None
+        lineups = info.get("players", {})
+        player_teams = {
+            player: team
+            for team, players in lineups.items()
+            for player in players
+        }
+        pom_list = [
+            self._register_player(player, player_teams.get(player))
+            for player in info.get("player_of_match", [])
+        ]
+        pom = ", ".join(player for player in pom_list if player) if pom_list else None
         season = info.get("season")
         if self.season_from_date_year and dates:
             season = str(dates[0])[:4]
@@ -222,15 +251,16 @@ class MatchExtractor:
             }
         )
 
-        # --- Players registry ---
-        registry = info.get("registry", {}).get("people", {})
-        for name, pid in registry.items():
-            # last-write wins if pid already seen (names can alias)
-            self.players[pid] = name
+        # Register line-up players only. The Cricsheet ``registry.people``
+        # block also contains umpires and other officials, so it must not be
+        # treated as the player table.
+        for team, player_names in lineups.items():
+            for player_name in player_names:
+                self._register_player(player_name, team)
 
         # --- Innings ---
         raw_innings: list[dict] = data.get("innings", [])
-        all_teams = list(info.get("players", {}).keys())
+        all_teams = list(info.get("teams", []))
 
         for idx, inning in enumerate(raw_innings, start=1):
             batting_team = inning.get("team")
@@ -269,12 +299,12 @@ class MatchExtractor:
 
                     if wickets:
                         w = wickets[0]          # take first wicket in the delivery
-                        player_out = w.get("player_out")
+                        player_out = self._register_player(w.get("player_out"), batting_team)
                         dis_kind   = w.get("kind")
                         total_wickets += 1
                         fielders = w.get("fielders", [])
-                        fielder1 = fielders[0].get("name") if len(fielders) > 0 else None
-                        fielder2 = fielders[1].get("name") if len(fielders) > 1 else None
+                        fielder1 = self._register_player(fielders[0].get("name"), bowling_team) if len(fielders) > 0 else None
+                        fielder2 = self._register_player(fielders[1].get("name"), bowling_team) if len(fielders) > 1 else None
 
                     self.deliveries.append(
                         {
@@ -284,9 +314,9 @@ class MatchExtractor:
                             "is_super_over":    is_super_over,
                             "over_number":      over_num,
                             "ball_number":      ball_idx,
-                            "batter":           delivery.get("batter"),
-                            "bowler":           delivery.get("bowler"),
-                            "non_striker":      delivery.get("non_striker"),
+                            "batter":           self._register_player(delivery.get("batter"), batting_team),
+                            "bowler":           self._register_player(delivery.get("bowler"), bowling_team),
+                            "non_striker":      self._register_player(delivery.get("non_striker"), batting_team),
                             "runs_batter":      runs_batter,
                             "runs_extras":      runs_extras,
                             "runs_total":       runs_total,
@@ -327,6 +357,10 @@ def ensure_schema(con: duckdb.DuckDBPyConnection) -> None:
         con.execute(ddl)
     con.execute("ALTER TABLE matches ADD COLUMN IF NOT EXISTS event_group VARCHAR")
     con.execute("ALTER TABLE matches ADD COLUMN IF NOT EXISTS event_stage VARCHAR")
+    con.execute("ALTER TABLE players ADD COLUMN IF NOT EXISTS source_name VARCHAR")
+    con.execute("ALTER TABLE players ADD COLUMN IF NOT EXISTS aliases VARCHAR")
+    con.execute("ALTER TABLE players ADD COLUMN IF NOT EXISTS famous_names VARCHAR")
+    con.execute("ALTER TABLE players ADD COLUMN IF NOT EXISTS cricinfo_id VARCHAR")
 
 
 def delete_match_rows(con: duckdb.DuckDBPyConnection, match_id: str) -> None:
@@ -608,13 +642,26 @@ def _load_to_duckdb_rowwise(
     insert_table("innings", extractor.innings)
     insert_table("deliveries", extractor.deliveries)
 
-    for pid, name in extractor.players.items():
+    for pid, record in extractor.players.items():
         con.execute(
             """
-            INSERT INTO players (player_id, name) VALUES (?, ?)
-            ON CONFLICT (player_id) DO UPDATE SET name = EXCLUDED.name
+            INSERT INTO players (player_id, name, source_name, aliases, famous_names, cricinfo_id)
+            VALUES (?, ?, ?, ?, ?, ?)
+            ON CONFLICT (player_id) DO UPDATE SET
+                name = EXCLUDED.name,
+                source_name = EXCLUDED.source_name,
+                aliases = EXCLUDED.aliases,
+                famous_names = EXCLUDED.famous_names,
+                cricinfo_id = EXCLUDED.cricinfo_id
             """,
-            [pid, name],
+            [
+                pid,
+                record["name"],
+                record.get("source_name"),
+                json.dumps(record.get("aliases", []), ensure_ascii=False),
+                json.dumps(record.get("famous_names", []), ensure_ascii=False),
+                record.get("cricinfo_id"),
+            ],
         )
 
 
@@ -631,8 +678,14 @@ def _load_to_duckdb(
     innings_df    = df(extractor.innings)
     deliveries_df = df(extractor.deliveries)
     players_df    = pd.DataFrame(
-        [{"player_id": pid, "name": name}
-         for pid, name in extractor.players.items()]
+        [{
+            "player_id": pid,
+            "name": record["name"],
+            "source_name": record.get("source_name"),
+            "aliases": json.dumps(record.get("aliases", []), ensure_ascii=False),
+            "famous_names": json.dumps(record.get("famous_names", []), ensure_ascii=False),
+            "cricinfo_id": record.get("cricinfo_id"),
+        } for pid, record in extractor.players.items()]
     )
 
     # Use DELETE + INSERT so reruns are idempotent even if delivery IDs change
@@ -655,9 +708,14 @@ def _load_to_duckdb(
     if not players_df.empty:
         # Use explicit conflict target on primary key; update name on conflict
         con.execute("""
-            INSERT INTO players (player_id, name)
-            SELECT player_id, name FROM players_df
-            ON CONFLICT (player_id) DO UPDATE SET name = EXCLUDED.name
+            INSERT INTO players (player_id, name, source_name, aliases, famous_names, cricinfo_id)
+            SELECT player_id, name, source_name, aliases, famous_names, cricinfo_id FROM players_df
+            ON CONFLICT (player_id) DO UPDATE SET
+                name = EXCLUDED.name,
+                source_name = EXCLUDED.source_name,
+                aliases = EXCLUDED.aliases,
+                famous_names = EXCLUDED.famous_names,
+                cricinfo_id = EXCLUDED.cricinfo_id
         """)
 
 

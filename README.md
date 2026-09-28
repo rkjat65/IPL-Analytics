@@ -54,7 +54,7 @@ Cricsheet JSON (ball-by-ball)
 
 | Layer | Technology |
 |---|---|
-| Data source | [Cricsheet](https://cricsheet.org/) — open ball-by-ball JSON |
+| Data source | [Cricsheet](https://cricsheet.org/) — open ball-by-ball JSON and player register |
 | Query engine | DuckDB |
 | Backend API | FastAPI (Python) |
 | Frontend | React + Tailwind CSS |
@@ -65,7 +65,9 @@ Cricsheet JSON (ball-by-ball)
 
 ## Data Source
 
-All data sourced from [Cricsheet](https://cricsheet.org/) — the most granular publicly available cricket dataset, released under Creative Commons license. No proprietary data.
+Ball-by-ball data comes from [Cricsheet](https://cricsheet.org/). Player identities use the official [Cricsheet Register](https://cricsheet.org/register/) and its stable person identifiers, including verified name variants. Register data is provided under the Open Data Commons Attribution License.
+
+The identity build keeps tournament statistics isolated while merging name variants that belong to the same person (for example, `V Kohli` and `Virat Kohli`). Editorial famous names such as “King Kohli” remain searchable and are displayed separately from the verified player name.
 
 ---
 
