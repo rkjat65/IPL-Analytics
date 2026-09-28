@@ -51,7 +51,9 @@ jobs:
         # Deploy to the host currently serving the public site. The previous
         # ORACLE_IP secret can drift when an instance/IP is replaced.
         host: crickrida.rkjat.in
-        username: ${{ secrets.REMOTE_USER }}
+        # The current public host is an Ubuntu instance (confirmed by its SSH
+        # banner); the retired Oracle Linux host used the `opc` account.
+        username: ubuntu
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         envs: SMTP_HOST,SMTP_PORT,SMTP_USERNAME,SMTP_PASSWORD,SMTP_FROM
         script: |
