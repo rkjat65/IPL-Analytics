@@ -1,7 +1,7 @@
 const API_BASE = '/api'
 // Public GET responses are cached by the installable app. Change this token
 // when bundled databases or canonical API labels change.
-const DATA_RELEASE = 'wikimedia-player-images-v1'
+const DATA_RELEASE = 'wikimedia-player-images-v2'
 
 export function getActiveTournament() {
   const queryValue = new URLSearchParams(window.location.search).get('tournament')

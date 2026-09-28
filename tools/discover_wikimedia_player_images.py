@@ -125,6 +125,38 @@ def commons_category_titles(category: str, limit: int) -> list[str]:
     ]
 
 
+def verified_commons_categories(people: dict[str, dict[str, str]]) -> dict[str, str]:
+    """Find unlinked Commons categories whose Wikibase item is the same player."""
+    expected: dict[str, str] = {}
+    for person in people.values():
+        if person.get("commons_category") or not person.get("wikidata_label"):
+            continue
+        qid = person["wikidata_item"]
+        label = person["wikidata_label"]
+        expected[f"Category:{label}"] = qid
+        expected[f"Category:{label} (cricketer)"] = qid
+
+    verified: dict[str, str] = {}
+    for batch in chunks(sorted(expected), 40):
+        payload = request_json(
+            COMMONS_API,
+            {
+                "action": "query",
+                "format": "json",
+                "formatversion": "2",
+                "prop": "pageprops",
+                "titles": "|".join(batch),
+            },
+        )
+        for page in payload.get("query", {}).get("pages", []):
+            title = page.get("title", "")
+            qid = page.get("pageprops", {}).get("wikibase_item")
+            if qid and expected.get(title) == qid:
+                verified[qid] = title.removeprefix("Category:")
+        time.sleep(0.1)
+    return verified
+
+
 def main() -> int:
     args = parse_args()
     catalogue = load_json(CATALOGUE_PATH, {"identities": {}})
@@ -145,12 +177,13 @@ def main() -> int:
         identities = identities[: args.limit]
 
     people = wikidata_people(sorted({str(identity["cricinfo_id"]) for identity in identities}))
+    verified_categories = verified_commons_categories(people)
     title_map: dict[str, list[str]] = {}
     identity_rows: list[dict[str, Any]] = []
     for identity in identities:
         person = people.get(str(identity["cricinfo_id"]), {})
         label = person.get("wikidata_label") or identity["name"]
-        category = person.get("commons_category")
+        category = person.get("commons_category") or verified_categories.get(person.get("wikidata_item", ""))
         if category:
             titles = commons_category_titles(category, args.results)
         elif args.include_name_search:
@@ -165,6 +198,8 @@ def main() -> int:
                 "search_label": label,
                 "discovery_method": (
                     "wikidata_commons_category"
+                    if person.get("commons_category")
+                    else "verified_commons_category"
                     if category
                     else "commons_search" if args.include_name_search else "none"
                 ),

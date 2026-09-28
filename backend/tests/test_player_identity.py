@@ -68,7 +68,7 @@ class TestPlayerIdentity(unittest.TestCase):
 
     def test_wikimedia_image_credits_reference_publishable_square_assets(self):
         credits = player_image_credits()
-        self.assertGreaterEqual(len(credits["images"]), 90)
+        self.assertGreaterEqual(len(credits["images"]), 98)
         image_dir = Path(__file__).resolve().parents[1] / "player_images"
         for item in credits["images"]:
             self.assertTrue(item["commons_page"].startswith("https://commons.wikimedia.org/"))

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T15:14:34.279219+00:00",
+  "generated_at": "2026-09-28T15:33:53.462393+00:00",
   "source": "Wikimedia Commons",
   "images": {
     "8a75e999": {
@@ -2232,6 +2232,56 @@
       "modified": true,
       "modification": "Square 512x512 WebP portrait crop",
       "discovery_method": "wikidata_commons_category",
+      "review_status": "manually_approved"
+    },
+    "ab21795b": {
+      "player_id": "ab21795b",
+      "player_name": "Ben Manenti",
+      "filename": "Ben Manenti.webp",
+      "wikidata_item": "Q60215898",
+      "commons_title": "File:260328 D3 Ben Manenti 01.jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:260328_D3_Ben_Manenti_01.jpg",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/260328_D3_Ben_Manenti_01.jpg/960px-260328_D3_Ben_Manenti_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/22/260328_D3_Ben_Manenti_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 1269,
+      "height": 1911,
+      "mime": "image/jpeg",
+      "artist": "DustyNail",
+      "credit": "Own work",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "attribution": "",
+      "attribution_required": true,
+      "restrictions": "",
+      "retrieved_at": "2026-09-28T15:30:17.351698+00:00",
+      "modified": true,
+      "modification": "Square 512x512 WebP portrait crop",
+      "discovery_method": "verified_commons_category",
+      "review_status": "manually_approved"
+    },
+    "aad0c365": {
+      "player_id": "aad0c365",
+      "player_name": "Nithish Kumar Reddy",
+      "filename": "Nithish Kumar Reddy.webp",
+      "wikidata_item": "Q83784638",
+      "commons_title": "File:Nitish Kumar Reddy BGT 2024 (cropped).jpg",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Nitish_Kumar_Reddy_BGT_2024_(cropped).jpg",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Nitish_Kumar_Reddy_BGT_2024_%28cropped%29.jpg/960px-Nitish_Kumar_Reddy_BGT_2024_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Nitish_Kumar_Reddy_BGT_2024_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 4608,
+      "height": 3456,
+      "mime": "image/jpeg",
+      "artist": "WikiWanderer261",
+      "credit": "Own work",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "attribution": "",
+      "attribution_required": false,
+      "restrictions": "",
+      "retrieved_at": "2026-09-28T15:30:17.985017+00:00",
+      "modified": true,
+      "modification": "Square 512x512 WebP portrait crop",
+      "discovery_method": "verified_commons_category",
       "review_status": "manually_approved"
     }
   }

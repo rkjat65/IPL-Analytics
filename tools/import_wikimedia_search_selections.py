@@ -31,10 +31,15 @@ def main() -> int:
     )
     queued = {player["player_id"]: player for player in queue.get("players", [])}
     imported = []
+    skipped_existing = []
     errors = []
     for player_id, selection in selections.items():
         player = queued.get(player_id)
         if not player:
+            existing = attribution.get("images", {}).get(player_id, {})
+            if existing.get("commons_title") == selection.get("commons_title"):
+                skipped_existing.append(selection.get("player_name"))
+                continue
             errors.append({"player": selection.get("player_name"), "error": "player is not in candidate queue"})
             continue
         candidate = next(
@@ -70,7 +75,17 @@ def main() -> int:
 
     attribution["generated_at"] = datetime.now(timezone.utc).isoformat()
     write_json(ATTRIBUTION_PATH, attribution)
-    print(json.dumps({"selected": len(selections), "imported": imported, "errors": errors}, indent=2))
+    print(
+        json.dumps(
+            {
+                "selected": len(selections),
+                "imported": imported,
+                "skipped_existing": skipped_existing,
+                "errors": errors,
+            },
+            indent=2,
+        )
+    )
     return 1 if errors else 0
 
 
