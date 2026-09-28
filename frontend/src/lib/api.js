@@ -1,7 +1,7 @@
 const API_BASE = '/api'
 // Public GET responses are cached by the installable app. Change this token
 // when bundled databases or canonical API labels change.
-const DATA_RELEASE = 'player-identities-v3'
+const DATA_RELEASE = 'wikimedia-player-images-v1'
 
 export function getActiveTournament() {
   const queryValue = new URLSearchParams(window.location.search).get('tournament')
@@ -35,6 +35,7 @@ export async function fetchAPI(endpoint, params = {}) {
 export const getSeasons = () => fetchAPI('/meta/seasons')
 export const getTeams = () => fetchAPI('/meta/teams')
 export const searchPlayers = (q) => fetchAPI('/meta/players', { q })
+export const getPlayerImageCredits = () => fetchAPI('/meta/player-image-credits')
 
 // Dashboard
 export const getKPIs = (season) => fetchAPI('/analytics/kpis', { season })

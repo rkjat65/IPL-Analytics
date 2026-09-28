@@ -1,9 +1,12 @@
 import json
 import unittest
+from pathlib import Path
+
+from PIL import Image
 
 from backend.database import query
 from backend.player_identity import identity_for
-from backend.routers.meta import search_players
+from backend.routers.meta import player_image_credits, search_players
 from backend.tournaments import reset_tournament, set_tournament
 
 
@@ -62,6 +65,20 @@ class TestPlayerIdentity(unittest.TestCase):
         self.assertEqual(len(rows), 1)
         self.assertIn("V Kohli", json.loads(rows[0]["aliases"]))
         self.assertIn("King Kohli", json.loads(rows[0]["famous_names"]))
+
+    def test_wikimedia_image_credits_reference_publishable_square_assets(self):
+        credits = player_image_credits()
+        self.assertGreaterEqual(len(credits["images"]), 10)
+        image_dir = Path(__file__).resolve().parents[1] / "player_images"
+        for item in credits["images"]:
+            self.assertTrue(item["commons_page"].startswith("https://commons.wikimedia.org/"))
+            self.assertTrue(item["license"])
+            self.assertTrue(item["artist"])
+            path = image_dir / item["filename"]
+            self.assertTrue(path.is_file(), path)
+            with Image.open(path) as image:
+                self.assertEqual(image.format, "WEBP")
+                self.assertEqual(image.size, (512, 512))
 
 
 if __name__ == "__main__":

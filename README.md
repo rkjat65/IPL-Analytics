@@ -69,6 +69,27 @@ Ball-by-ball data comes from [Cricsheet](https://cricsheet.org/). Player identit
 
 The identity build keeps tournament statistics isolated while merging name variants that belong to the same person (for example, `V Kohli` and `Virat Kohli`). Editorial famous names such as “King Kohli” remain searchable and are displayed separately from the verified player name.
 
+### Reusable player images
+
+`tools/import_wikimedia_player_images.py` fills missing player portraits from
+Wikidata and Wikimedia Commons. It matches the verified ESPNcricinfo ID in the
+identity catalogue to Wikidata property `P2697`, checks the Commons licence,
+creates a 512×512 WebP crop, and writes the source and attribution metadata to
+`data/player_image_attributions.json`.
+
+```powershell
+# Audit catalogue coverage without downloading files
+python tools/import_wikimedia_player_images.py --dry-run
+
+# Import and review selected players
+python tools/import_wikimedia_player_images.py --player "Babar Azam" --player "Shahid Afridi"
+```
+
+Existing images are preserved unless `--overwrite` is explicitly supplied.
+Candidate photographs still require a visual review: unsuitable Commons files
+are recorded in `data/wikimedia_player_image_decisions.json` so later runs do
+not import them again. Published credits are available at `/image-credits`.
+
 ---
 
 ## Live Demo

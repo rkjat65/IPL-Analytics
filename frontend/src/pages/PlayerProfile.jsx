@@ -171,7 +171,15 @@ export default function PlayerProfile() {
       {seoEl}
       {/* Player Header */}
       <div className="flex flex-wrap items-center gap-5">
-        <PlayerAvatar name={displayName} size={72} shape="circle" />
+        <div className="flex shrink-0 flex-col items-center gap-1.5">
+          <PlayerAvatar name={displayName} size={72} shape="circle" />
+          <Link
+            to="/image-credits"
+            className="text-[10px] font-mono text-text-muted hover:text-accent-cyan hover:underline"
+          >
+            Image credits
+          </Link>
+        </div>
         <div className="flex-1 min-w-0">
           <h1 className="text-3xl font-heading font-bold text-text-primary">{displayName}</h1>
           <p className="text-text-secondary text-sm mt-1">Career statistics and performance analysis</p>

@@ -27,6 +27,7 @@ const CricketPulse = lazy(() => import('./pages/CricketPulse'))
 const PlayerImpact = lazy(() => import('./pages/PlayerImpact'))
 const Charts = lazy(() => import('./pages/Charts'))
 const FAQ = lazy(() => import('./pages/FAQ'))
+const ImageCredits = lazy(() => import('./pages/ImageCredits'))
 const Admin = lazy(() => import('./pages/Admin'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 const legal = (name) => lazy(() => import('./pages/Legal').then(m => ({ default: m[name] })))
@@ -83,6 +84,7 @@ export default function App() {
         <Route path="/pulse" element={<CricketPulse />} />
         <Route path="/player-impact" element={<PlayerImpact />} />
         <Route path="/faq" element={<FAQ />} />
+        <Route path="/image-credits" element={<ImageCredits />} />
         <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
         <Route path="/admin/social" element={<ProtectedRoute><SocialCompose /></ProtectedRoute>} />
         <Route path="*" element={<NotFound />} />

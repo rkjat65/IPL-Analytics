@@ -2,6 +2,7 @@
 
 import json
 from functools import lru_cache
+from pathlib import Path
 
 from fastapi import APIRouter, Query
 from pydantic import BaseModel, Field
@@ -11,6 +12,7 @@ from ..player_resolve import canonical_player_slug
 from ..tournaments import get_tournament, get_tournament_slug, public_tournaments
 
 router = APIRouter(prefix="/api/meta", tags=["meta"])
+IMAGE_ATTRIBUTIONS_PATH = Path(__file__).resolve().parents[2] / "data" / "player_image_attributions.json"
 
 
 class BatchPlayerLookupBody(BaseModel):
@@ -31,6 +33,23 @@ def active_tournament():
         "short_name": item.short_name,
         "competition_label": item.competition_label,
         "team_label": item.team_label,
+    }
+
+
+@router.get("/player-image-credits")
+def player_image_credits():
+    """Publish source and licence details for imported player photographs."""
+    if not IMAGE_ATTRIBUTIONS_PATH.exists():
+        return {"source": "Wikimedia Commons", "generated_at": None, "images": []}
+    payload = json.loads(IMAGE_ATTRIBUTIONS_PATH.read_text(encoding="utf-8"))
+    images = sorted(
+        payload.get("images", {}).values(),
+        key=lambda item: item.get("player_name", "").casefold(),
+    )
+    return {
+        "source": payload.get("source", "Wikimedia Commons"),
+        "generated_at": payload.get("generated_at"),
+        "images": images,
     }
 
 
