@@ -95,7 +95,7 @@ app.include_router(quiz.router)
 
 @app.get("/api/health")
 def health_check():
-    return {"status": "ok"}
+    return {"status": "ok", "release": os.getenv("APP_RELEASE", "local")}
 
 
 # ── SEO: sitemap and social preview images ──────────────────────────────────

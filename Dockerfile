@@ -15,12 +15,18 @@ RUN npm run build
 FROM python:3.11-slim
 WORKDIR /app
 
+ARG APP_RELEASE=local
+ENV APP_RELEASE=$APP_RELEASE
+
 # Install Python dependencies
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy backend
 COPY backend/ ./backend/
+
+# Canonical player identities used by ingestion, search, profiles and images
+COPY data/ ./data/
 
 # Copy the isolated tournament databases
 COPY ipl.duckdb ./ipl.duckdb

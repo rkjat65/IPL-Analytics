@@ -37,6 +37,7 @@ jobs:
         tags: ghcr.io/${{ github.repository_owner }}/ipl-analytics:latest
         build-args: |
           VITE_GOOGLE_CLIENT_ID=${{ secrets.VITE_GOOGLE_CLIENT_ID }}
+          APP_RELEASE=${{ github.sha }}
 
     - name: Deploy to Oracle via SSH
       uses: appleboy/ssh-action@v1.0.3
