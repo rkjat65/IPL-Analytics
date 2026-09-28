@@ -36,6 +36,7 @@ from import_wikimedia_player_images import (
 ROOT = Path(__file__).resolve().parents[1]
 CANDIDATES_PATH = ROOT / "data" / "wikimedia_commons_search_candidates.json"
 SEARCH_DECISIONS_PATH = ROOT / "data" / "wikimedia_commons_search_decisions.json"
+SUPPORTED_RASTER_MIME_TYPES = {"image/jpeg", "image/png", "image/webp"}
 
 
 def parse_args() -> argparse.Namespace:
@@ -230,6 +231,7 @@ def main() -> int:
             if (
                 not item
                 or not reusable_license(item)
+                or item.get("mime") not in SUPPORTED_RASTER_MIME_TYPES
                 or rejected_titles.get(identity["id"]) == title
                 or title in search_rejected_titles.get(identity["id"], set())
                 or title in attributed_titles
