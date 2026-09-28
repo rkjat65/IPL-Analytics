@@ -61,6 +61,11 @@ jobs:
 
           # Login to registry on the server
           echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+          # The host has accumulated superseded release layers. Remove only
+          # images unused by running containers before downloading the next
+          # release; named volumes (including user accounts) are untouched.
+          docker image prune -af
           
           # Pull the latest image
           docker pull ghcr.io/${{ github.repository_owner }}/ipl-analytics:latest
