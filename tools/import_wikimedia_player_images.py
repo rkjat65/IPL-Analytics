@@ -237,6 +237,12 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Remove local images and attribution records covered by manual rejection decisions",
     )
+    parser.add_argument(
+        "--reject-player",
+        action="append",
+        default=[],
+        help="Record the currently attributed Commons image as unsuitable; repeatable",
+    )
     return parser.parse_args()
 
 
@@ -248,9 +254,27 @@ def main() -> int:
         {"generated_at": None, "source": "Wikimedia Commons", "images": {}},
     )
     decisions = load_json(DECISIONS_PATH, {"rejected": {}})
+    catalogue_identities = list(catalogue.get("identities", {}).values())
+
+    reject_names = {name.casefold() for name in args.reject_player}
+    rejections_recorded: list[str] = []
+    if reject_names and not args.dry_run:
+        for identity in catalogue_identities:
+            name = identity.get("name", "")
+            if name.casefold() not in reject_names:
+                continue
+            record = attribution.get("images", {}).get(identity["id"])
+            if not record:
+                continue
+            decisions.setdefault("rejected", {})[identity["id"]] = {
+                "player_name": name,
+                "commons_title": record["commons_title"],
+                "reason": "Manual visual review: unsuitable as a clear player avatar",
+            }
+            rejections_recorded.append(name)
 
     pruned_rejected: list[str] = []
-    if args.prune_rejected and not args.dry_run:
+    if (args.prune_rejected or reject_names) and not args.dry_run:
         for player_id, decision in decisions.get("rejected", {}).items():
             record = attribution.get("images", {}).get(player_id)
             if not record or record.get("commons_title") != decision.get("commons_title"):
@@ -261,8 +285,10 @@ def main() -> int:
             attribution["images"].pop(player_id, None)
             pruned_rejected.append(record.get("player_name") or player_id)
 
-    identities = list(catalogue.get("identities", {}).values())
+    identities = catalogue_identities
     selected_names = {name.casefold() for name in args.player}
+    if reject_names and not selected_names:
+        selected_names = reject_names
     if selected_names:
         identities = [item for item in identities if item.get("name", "").casefold() in selected_names]
     identities = [item for item in identities if item.get("cricinfo_id")]
@@ -341,6 +367,7 @@ def main() -> int:
         "selected": len(identities),
         "pending": len(pending),
         "imported": imported,
+        "rejections_recorded": rejections_recorded,
         "pruned_rejected": pruned_rejected,
         "skipped_existing": skipped_existing,
         "unmatched": unmatched,
@@ -351,6 +378,8 @@ def main() -> int:
     if not args.dry_run:
         attribution["generated_at"] = now
         write_json(ATTRIBUTION_PATH, attribution)
+        if reject_names:
+            write_json(DECISIONS_PATH, decisions)
     write_json(REPORT_PATH, report)
     print(json.dumps({key: len(value) if isinstance(value, list) else value for key, value in report.items()}, indent=2))
     return 1 if errors else 0

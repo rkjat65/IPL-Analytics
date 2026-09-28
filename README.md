@@ -83,12 +83,16 @@ python tools/import_wikimedia_player_images.py --dry-run
 
 # Import and review selected players
 python tools/import_wikimedia_player_images.py --player "Babar Azam" --player "Shahid Afridi"
+
+# Permanently reject reviewed candidates and remove their generated files
+python tools/import_wikimedia_player_images.py --reject-player "Example Player" --reject-player "Another Player"
 ```
 
 Existing images are preserved unless `--overwrite` is explicitly supplied.
 Candidate photographs still require a visual review: unsuitable Commons files
-are recorded in `data/wikimedia_player_image_decisions.json` so later runs do
-not import them again. Published credits are available at `/image-credits`.
+are recorded in `data/wikimedia_player_image_decisions.json` by
+`--reject-player`, pruned from the generated images and prevented from returning
+on later runs. Published credits are available at `/image-credits`.
 
 ---
 

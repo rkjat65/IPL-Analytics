@@ -1,132 +1,10 @@
 {
-  "generated_at": "2026-09-28T13:44:40.019420+00:00",
+  "generated_at": "2026-09-28T13:54:38.209431+00:00",
   "dry_run": true,
   "selected": 1436,
-  "pending": 658,
-  "imported": [
-    "Aaron Redmond",
-    "Abdur Razzaq",
-    "Abdur Rehman",
-    "Abul Hasan",
-    "Airee",
-    "Ali Khan",
-    "Anamul Haque",
-    "Andy McBrine",
-    "Arafat Sunny",
-    "Asghar Stanikzai",
-    "Assad Vala",
-    "B Aparajith",
-    "BFW de Leede",
-    "Binod Bhandari",
-    "BJ Diamanti",
-    "BJ Rohrer",
-    "Brad Wheal",
-    "C Madande",
-    "Chamika Karunaratne",
-    "Christopher Schofield",
-    "Christopher Tremlett",
-    "CN Ackermann",
-    "Craig Kieswetter",
-    "Craig McMillan",
-    "DR Brown",
-    "DT Johnston",
-    "Ed Joyce",
-    "F Hand",
-    "Farhad Reza",
-    "Gareth Hopkins",
-    "Gary Wilson",
-    "Grant Elliott",
-    "Gyanendra Malla",
-    "Haider Ali",
-    "Hamid Hassan",
-    "Hasan Mahmud",
-    "HT Tector",
-    "Iain O'Brien",
-    "Imrul Kayes",
-    "J Liyanage",
-    "Jade Dernbach",
-    "Jaker Ali",
-    "James Foster",
-    "James Tredwell",
-    "Jeetan Patel",
-    "Jitendra Mukhiya",
-    "Josh Davey",
-    "Junaid Siddique",
-    "K Bhurtel",
-    "Karan",
-    "Karim Sadiq",
-    "Kasun Rajitha",
-    "KNA Bandara",
-    "Kushal Malla",
-    "Kyle Jarvis",
-    "Kyle Mills",
-    "Lonwabo Tsotsobe",
-    "MA Jones",
-    "Mark Gillespie",
-    "Mark Watt",
-    "Matthew Prior",
-    "MB Kruger",
-    "MB Parmar",
-    "MH Yardy",
-    "Mohammad Mithun",
-    "Mosaddeck Hossain",
-    "Muhammad Irfan",
-    "N Dutta",
-    "Naresh Budayair",
-    "Narsingh Deonarine",
-    "Nasir Hossain",
-    "Nasum Ahmed",
-    "Nathan Bracken",
-    "Nathan Hauritz",
-    "Nawroz Mangal",
-    "Neil Broom",
-    "Niall O'Brien",
-    "Noor Ali Zadran",
-    "Parry",
-    "Peter Fulton",
-    "Peter Nevill",
-    "Rishad Hossain",
-    "RK Paudel",
-    "Robert Key",
-    "Robert Kirtley",
-    "Rory Kleinveldt",
-    "RR Watson",
-    "Rubel Hossain",
-    "Ryan Sidebottom",
-    "Saad Bin Zafar",
-    "Sabbir Rahman",
-    "Sagar Pun",
-    "Seekkuge Prasanna",
-    "Shafiul Islam",
-    "Shahzaib Hasan",
-    "Shakti Gauchan",
-    "Shamarh Brooks",
-    "Shamim Hossain",
-    "Sharjeel Khan",
-    "Shikongo",
-    "Shoriful Islam",
-    "Shubham Ranjane",
-    "Sompal Kami",
-    "Soumya Sarkar",
-    "SP Patil",
-    "Stewart",
-    "Subash Khakurel",
-    "Suranga Lakmal",
-    "T van der Gugten",
-    "Tanzim Hasan Sakib",
-    "Tim Bresnan",
-    "Tim Murtagh",
-    "TJG Pringle",
-    "TM Odoyo",
-    "Towhid Hridoy",
-    "VS Solanki",
-    "WL Madsen",
-    "Xavier Doherty",
-    "Yasir Ali Chowdhury",
-    "Yasir Arafat",
-    "ZB Lion-Cachet",
-    "Ziaur Rahman"
-  ],
+  "pending": 610,
+  "imported": [],
+  "rejections_recorded": [],
   "pruned_rejected": [],
   "skipped_existing": [
     "A Chandila",
@@ -147,6 +25,8 @@
     "Abdul Basith",
     "Abdul Samad",
     "Abdur Razzak",
+    "Abdur Razzaq",
+    "Abdur Rehman",
     "Abhijeet Tomar",
     "Abhimanyu Mithun",
     "Abhinandan Singh",
@@ -171,6 +51,7 @@
     "AG Murtaza",
     "Ahmed",
     "Aiden Markram",
+    "Airee",
     "Ajantha Mendis",
     "Ajinkya Rahane",
     "Ajit Agarkar",
@@ -184,12 +65,14 @@
     "Albie Morkel",
     "Alex Carey",
     "Alex Hales",
+    "Ali Khan",
     "AM Ghazanfar",
     "AM Salvi",
     "Aman Hakim Khan",
     "Ambati Rayudu",
     "Amit Mishra",
     "Amit Paunikar",
+    "Anamul Haque",
     "Anand Rajan",
     "Anderson Cummins",
     "Andre Nel",
@@ -212,12 +95,14 @@
     "Anustup Majumdar",
     "AP Dole",
     "AR Bawne",
+    "Arafat Sunny",
     "Arindam Ghosh",
     "Arjun Tendulkar",
     "Arshad Khan",
     "Arshdeep Singh",
     "Arvind Sreenath",
     "AS Yadav",
+    "Asghar Stanikzai",
     "Ashish Nehra",
     "Ashish Reddy",
     "Ashok Menaria",
@@ -225,6 +110,7 @@
     "Ashton Turner",
     "Ashutosh Sharma",
     "Ashwani Kumar",
+    "Assad Vala",
     "Atharva Taide",
     "Axar Patel",
     "Ayush Badoni",
@@ -249,6 +135,7 @@
     "Bhargav Bhatt",
     "Bhuvneshwar Kumar",
     "Billy Stanlake",
+    "Binod Bhandari",
     "Biplab Samantaray",
     "Bipul Sharma",
     "Blessing Muzarabani",
@@ -269,6 +156,7 @@
     "Carlos Brathwaite",
     "Chakravarthy",
     "Chamara Kapugedera",
+    "Chamika Karunaratne",
     "Chaminda Vaas",
     "Charl Langeveldt",
     "Chetan Sakariya",
@@ -343,12 +231,14 @@
     "F Behardien",
     "Fabian Allen",
     "Faf Du Plessis",
+    "Farhad Reza",
     "Farveez Maharoof",
     "Fawad Alam",
     "Fazalhaq Farooqi",
     "Fidel Edwards",
     "FY Fazal",
     "Gagandeep Singh",
+    "Gareth Hopkins",
     "Gautam Gambhir",
     "George Bailey",
     "George Dockrell",
@@ -367,6 +257,8 @@
     "Gurnoor Brar",
     "H Das",
     "H Sharma",
+    "Haider Ali",
+    "Haider Ali (2)",
     "Hanuma Vihari",
     "Harbhajan Singh",
     "Hardik Pandya",
@@ -381,6 +273,7 @@
     "Harshal Patel",
     "Harshit Rana",
     "Hasan Ali",
+    "Hasan Mahmud",
     "Hashim Amla",
     "Heinrich Klaasen",
     "Herschelle Gibbs",
@@ -392,6 +285,7 @@
     "Ibrahim Zadran",
     "Imad Wasim",
     "Imran Tahir",
+    "Imrul Kayes",
     "IQBAL ABDULLA",
     "IR Jaggi",
     "Irfan Pathan",
@@ -406,9 +300,11 @@
     "Jacob Oram",
     "Jacques Kallis",
     "Jake Fraser-McGurk",
+    "Jaker Ali",
     "Jalaj Saxena",
     "James Anderson",
     "James Faulkner",
+    "James Foster",
     "James Franklin",
     "James Neesham",
     "James Pattinson",
@@ -425,6 +321,7 @@
     "Jesse Ryder",
     "JG Bethell",
     "Jhye Richardson",
+    "Jitendra Mukhiya",
     "JJ van der Wath",
     "Joe Denly",
     "Joe Root",
@@ -441,6 +338,7 @@
     "JR Hopes",
     "Junior Dala",
     "Justin Kemp",
+    "K Bhurtel",
     "K Santokie",
     "Kagiso Rabada",
     "KAMLESH NAGARKOTI",
@@ -449,6 +347,7 @@
     "Kane Richardson",
     "Kane Williamson",
     "Kannur Lokesh Rahul",
+    "Karan",
     "Karan Sharma",
     "Karan Sharma (2)",
     "Karanveer Singh",
@@ -466,6 +365,7 @@
     "KK Cooper",
     "KM Asif",
     "KM Jadhav",
+    "KNA Bandara",
     "KP Appanna",
     "Krishna Kant Upadhyay",
     "Krunal Pandya",
@@ -498,6 +398,7 @@
     "Liam Plunkett",
     "Litton Das",
     "Lockie Ferguson",
+    "Lonwabo Tsotsobe",
     "Luke Ronchi",
     "Luke Wright",
     "Lungi Ngidi",
@@ -561,6 +462,7 @@
     "Mohammad Asif",
     "Mohammad Hafeez",
     "Mohammad Kaif",
+    "Mohammad Mithun",
     "Mohammad Nabi",
     "Mohammad Rizwan",
     "Mohammed Shami",
@@ -572,8 +474,10 @@
     "Mominul Haque",
     "Monu Kumar",
     "Morne Morkel",
+    "Mosaddeck Hossain",
     "MP Yadav",
     "MS Bisla",
+    "Muhammad Irfan",
     "Mujeeb Ur Rahman",
     "Mukesh Choudhary",
     "Mukesh Kumar",
@@ -592,8 +496,11 @@
     "Naman Dhir",
     "Naman Ojha",
     "Naseem Shah",
+    "Nasir Hossain",
+    "Nasum Ahmed",
     "Nathan Coulter-Nile",
     "Nathan Ellis",
+    "Nathan Hauritz",
     "Nathu Singh",
     "Navdeep Saini",
     "Naveen-ul-Haq",
@@ -605,6 +512,7 @@
     "Nitish Rana",
     "NL McCullum",
     "Noor Ahmad",
+    "Noor Ali Zadran",
     "NS Naik",
     "Nuwan Kulasekara",
     "Nuwan Zoysa",
@@ -687,7 +595,9 @@
     "Rinku Singh",
     "Ripal Patel",
     "Rishabh Pant",
+    "Rishad Hossain",
     "Riyan Parag",
+    "RK Paudel",
     "RN ten Doeschate",
     "Rob Quiney",
     "Robin Peterson",
@@ -702,6 +612,7 @@
     "RR Bose",
     "RS Gavaskar",
     "RS Sodhi",
+    "Rubel Hossain",
     "Ruturaj Gaikwad",
     "Ryan Harris",
     "Ryan McLaren",
@@ -716,10 +627,13 @@
     "S Sriram",
     "S Tyagi",
     "S Vidyut",
+    "Saad Bin Zafar",
+    "Sabbir Rahman",
     "Sachin Baby",
     "Sachin Tendulkar",
     "Sachithra Senanayake",
     "Saeed Ajmal",
+    "Sagar Pun",
     "Salil Arora",
     "Salman Butt",
     "Sam Billings",
@@ -743,6 +657,7 @@
     "SD Lad",
     "Sean Abbott",
     "Sediqullah Atal",
+    "Seekkuge Prasanna",
     "Shadab Jakati",
     "Shadab Khan",
     "Shahbaz Ahmed",
@@ -752,6 +667,8 @@
     "Shahrukh Khan",
     "Shai Hope",
     "Shakib Al Hasan",
+    "Shakti Gauchan",
+    "Shamim Hossain",
     "Shams Mulani",
     "Shan Masood",
     "Shane Bond",
@@ -776,6 +693,7 @@
     "Shoaib Ahmed",
     "Shoaib Akhtar",
     "Shoaib Malik",
+    "Shoriful Islam",
     "Shreevats Goswami",
     "Shreyas Gopal",
     "Shreyas Iyer",
@@ -792,6 +710,7 @@
     "SK Trivedi",
     "SM Harwood",
     "Sohail Tanvir",
+    "Soumya Sarkar",
     "Sourav Ganguly",
     "Sreesanth",
     "SS Mundhe",
@@ -803,6 +722,7 @@
     "Stuart Binny",
     "Stuart Broad",
     "Stuart Clark",
+    "Subash Khakurel",
     "Subramaniam Badrinath",
     "Suchith J",
     "Sumit Kumar",
@@ -824,6 +744,7 @@
     "Tamim Iqbal",
     "Tanmay Srivastava",
     "Tanush Kotian",
+    "Tanzim Hasan Sakib",
     "Taskin Ahmed",
     "Tatenda Taibu",
     "Tejas Baroka",
@@ -834,6 +755,7 @@
     "Thomas",
     "Tilak Varma",
     "Tillakaratne Dilshan",
+    "Tim Bresnan",
     "Tim David",
     "Tim Paine",
     "Tim Seifert",
@@ -842,6 +764,7 @@
     "Tom Banton",
     "Tom Curran",
     "Topley",
+    "Towhid Hridoy",
     "TP Sudhindra",
     "TR Birt",
     "Travis Head",
@@ -897,6 +820,8 @@
     "Yash Thakur",
     "Yashasvi Bhupendra Jaiswal",
     "Yashpal Singh",
+    "Yasir Ali Chowdhury",
+    "Yasir Arafat",
     "Yogesh Nagar",
     "Younis Khan",
     "Yudhvir Singh",
@@ -906,7 +831,8 @@
     "YV Dhull",
     "YV Takawale",
     "Zaheer Khan",
-    "Zeeshan Ansari"
+    "Zeeshan Ansari",
+    "Ziaur Rahman"
   ],
   "unmatched": [
     "A Busing-Volschenk",
@@ -1080,7 +1006,6 @@
     "Gudakesh Motie",
     "Gulsan Jha",
     "Gurjapneet Singh",
-    "Haider Ali (2)",
     "Hamilton Masakadza",
     "Hammad Mirza",
     "Hamza Tahir",
@@ -1424,8 +1349,16 @@
   "rejected_license": [],
   "rejected_quality": [
     {
+      "player": "Aaron Redmond",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
       "player": "Abrar Ahmed",
       "reason": "Bowling action photograph; face is too small for an avatar"
+    },
+    {
+      "player": "Abul Hasan",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
     },
     {
       "player": "Ahmed Shehzad",
@@ -1436,36 +1369,224 @@
       "reason": "Full-body field photograph; face is too small for an avatar"
     },
     {
+      "player": "Andy McBrine",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
       "player": "Ashton Agar",
       "reason": "Full-body bowling photograph; face is too small for an avatar"
+    },
+    {
+      "player": "B Aparajith",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "BFW de Leede",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "BJ Diamanti",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "BJ Rohrer",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Brad Wheal",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "C Madande",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Christopher Schofield",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Christopher Tremlett",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "CN Ackermann",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
     },
     {
       "player": "Craig Ervine",
       "reason": "Wide celebration photograph; face is too small for an avatar"
     },
     {
+      "player": "Craig Kieswetter",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Craig McMillan",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
       "player": "Dinesh Chandimal",
       "reason": "Helmeted action photograph; unsuitable as a clear headshot"
+    },
+    {
+      "player": "DR Brown",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "DT Johnston",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Ed Joyce",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
     },
     {
       "player": "Elton Chigumbura",
       "reason": "Rear-facing full-body action photograph"
     },
     {
+      "player": "F Hand",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
       "player": "Fakhar Zaman",
       "reason": "Soft helmeted action photograph; unsuitable as a clear headshot"
+    },
+    {
+      "player": "Gary Wilson",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Grant Elliott",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Gyanendra Malla",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Hamid Hassan",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "HT Tector",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Iain O'Brien",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "J Liyanage",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Jade Dernbach",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "James Tredwell",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
     },
     {
       "player": "James Vince",
       "reason": "Helmeted batting photograph; unsuitable as a clear headshot"
     },
     {
+      "player": "Jeetan Patel",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Josh Davey",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Junaid Siddique",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Karim Sadiq",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Kasun Rajitha",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Kushal Malla",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Kyle Jarvis",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Kyle Mills",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "MA Jones",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Mark Gillespie",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Mark Watt",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Matthew Prior",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
       "player": "Matthew Renshaw",
       "reason": "Full-body field photograph; face is not visible"
     },
     {
+      "player": "MB Kruger",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "MB Parmar",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "MH Yardy",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
       "player": "Mohammad Sami",
       "reason": "Distant field photograph; face is too small for an avatar"
+    },
+    {
+      "player": "N Dutta",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Naresh Budayair",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Narsingh Deonarine",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Nathan Bracken",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Nawroz Mangal",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Neil Broom",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Niall O'Brien",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
     },
     {
       "player": "Nithish Kumar Reddy",
@@ -1476,16 +1597,48 @@
       "reason": "Downward-facing field photograph; unsuitable as a clear headshot"
     },
     {
+      "player": "Parry",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
       "player": "Paul Stirling",
       "reason": "Full-body action photograph; face is too small for an avatar"
+    },
+    {
+      "player": "Peter Fulton",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Peter Nevill",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
     },
     {
       "player": "Rehan Ahmed",
       "reason": "Full-body field photograph; face is too small for an avatar"
     },
     {
+      "player": "Robert Key",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Robert Kirtley",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Rory Kleinveldt",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
       "player": "Roston Chase",
       "reason": "Full-body batting photograph; face is too small for an avatar"
+    },
+    {
+      "player": "RR Watson",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Ryan Sidebottom",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
     },
     {
       "player": "Samit Patel",
@@ -1496,8 +1649,64 @@
       "reason": "Identity mismatch; photograph does not depict the Zimbabwe cricketer"
     },
     {
+      "player": "Shafiul Islam",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Shahzaib Hasan",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Shamarh Brooks",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Sharjeel Khan",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Shikongo",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Shubham Ranjane",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Sompal Kami",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "SP Patil",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
       "player": "Steven Finn",
       "reason": "Downward-facing field photograph; unsuitable as a clear headshot"
+    },
+    {
+      "player": "Stewart",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Suranga Lakmal",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "T van der Gugten",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Tim Murtagh",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "TJG Pringle",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "TM Odoyo",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
     },
     {
       "player": "Tom Cooper",
@@ -1516,12 +1725,28 @@
       "reason": "Distant soft-focus field photograph; unsuitable as a clear headshot"
     },
     {
+      "player": "VS Solanki",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
       "player": "Wanindu Hasaranga",
       "reason": "Downward-facing action photograph; unsuitable as a clear headshot"
     },
     {
       "player": "William Porterfield",
       "reason": "Soft side-facing field photograph; unsuitable as a clear headshot"
+    },
+    {
+      "player": "WL Madsen",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "Xavier Doherty",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
+    },
+    {
+      "player": "ZB Lion-Cachet",
+      "reason": "Manual visual review: unsuitable as a clear player avatar"
     }
   ],
   "errors": []
