@@ -154,3 +154,9 @@ export const getDuelRecords = (params) => fetchAPI('/records/duels', params)
 export const getRecordsSummary = (params) => fetchAPI('/records/summary', params)
 export const getPlayerIndex = (params) => fetchAPI('/players/index', params)
 export const getPlayerMatchup = (batter, bowler) => fetchAPI(`/players/matchup/${encodeURIComponent(batter)}/${encodeURIComponent(bowler)}`)
+export const getPlayerSplits = (name) => fetchAPI(`/players/${encodeURIComponent(name)}/splits`)
+
+// Phase analytics
+export const getPhaseSummary = (params) => fetchAPI('/analytics/phases', params)
+export const getOverProfile = (params) => fetchAPI('/analytics/overs', params)
+export const getPhaseLeaders = (params) => fetchAPI('/analytics/phase-leaders', params)

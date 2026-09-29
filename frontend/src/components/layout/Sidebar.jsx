@@ -29,6 +29,17 @@ const navItems = [
     ),
   },
   {
+    to: '/phases',
+    label: 'Phases',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 shrink-0">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5l3 2" />
+        <path d="M3.5 9h3M17.5 9h3" />
+      </svg>
+    ),
+  },
+  {
     to: '/content-studio',
     label: 'Studio',
     icon: (

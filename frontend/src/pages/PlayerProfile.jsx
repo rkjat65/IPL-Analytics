@@ -8,7 +8,9 @@ import {
   getPlayerBowling,
   getPlayerBattingMatchups,
   getPlayerBowlingMatchups,
+  getPlayerSplits,
 } from '../lib/api'
+import { BattingSplits, BowlingSplits } from '../components/profile/PlayerSplits'
 import SEO, { SITE_URL } from '../components/SEO'
 import { breadcrumbSchema } from '../lib/breadcrumbs'
 import StatCard from '../components/ui/StatCard'
@@ -78,6 +80,10 @@ export default function PlayerProfile() {
   )
   const { data: bowlMatchups, loading: bowlMatchupsLoad } = useFetch(
     () => getPlayerBowlingMatchups(decodedName).catch(() => null),
+    [decodedName]
+  )
+  const { data: splits } = useFetch(
+    () => getPlayerSplits(decodedName).catch(() => null),
     [decodedName]
   )
 
@@ -218,19 +224,19 @@ export default function PlayerProfile() {
 
       {/* Batting Tab */}
       {activeTab === 'batting' && hasBatting && (
-        <BattingTab batting={batting} matchups={batMatchups} matchupsLoading={batMatchupsLoad} />
+        <BattingTab batting={batting} matchups={batMatchups} matchupsLoading={batMatchupsLoad} splits={splits?.batting} />
       )}
 
       {/* Bowling Tab */}
       {activeTab === 'bowling' && hasBowling && (
-        <BowlingTab bowling={bowling} matchups={bowlMatchups} matchupsLoading={bowlMatchupsLoad} />
+        <BowlingTab bowling={bowling} matchups={bowlMatchups} matchupsLoading={bowlMatchupsLoad} splits={splits?.bowling} />
       )}
     </div>
   )
 }
 
 /* ===================== BATTING TAB ===================== */
-function BattingTab({ batting, matchups, matchupsLoading }) {
+function BattingTab({ batting, matchups, matchupsLoading, splits }) {
   const c = batting.career
 
   // Season columns
@@ -363,6 +369,9 @@ function BattingTab({ batting, matchups, matchupsLoading }) {
         </Section>
       )}
 
+      {/* Position, venue, over and dismissal splits */}
+      <BattingSplits splits={splits} />
+
       {/* Matchups */}
       <Section title="Top Matchups vs Bowlers" color="magenta">
         {matchupsLoading ? (
@@ -378,7 +387,7 @@ function BattingTab({ batting, matchups, matchupsLoading }) {
 }
 
 /* ===================== BOWLING TAB ===================== */
-function BowlingTab({ bowling, matchups, matchupsLoading }) {
+function BowlingTab({ bowling, matchups, matchupsLoading, splits }) {
   const c = bowling.career
 
   const seasonCols = [
@@ -523,6 +532,9 @@ function BowlingTab({ bowling, matchups, matchupsLoading }) {
           <DataTable columns={vsTeamCols} data={bowling.vs_teams} />
         </Section>
       )}
+
+      {/* Over and venue splits */}
+      <BowlingSplits splits={splits} />
 
       {/* Matchups */}
       <Section title="Top Matchups vs Batters" color="lime">

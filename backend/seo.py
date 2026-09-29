@@ -323,6 +323,12 @@ def _static_pages() -> dict[str, tuple[str, str]]:
             f"Compare {t.short_name} bowlers side by side: wickets, economy, average, strike rate "
             "and dot-ball percentage.",
         ),
+        "/phases": (
+            f"{t.short_name} Phase Analytics: Powerplay, Middle and Death Overs",
+            f"How {t.short_name} innings are built: run rate, wickets, boundary and dot-ball rates in the powerplay, "
+            "middle and death overs, over by over, batting first against chasing, toss outcomes and the best "
+            "batters and bowlers in each phase.",
+        ),
         "/records": (
             f"{t.short_name} Records: Highest Scores, Best Bowling, Partnerships and Fastest Fifties",
             f"Every {t.name} record from ball-by-ball data: highest scores, fastest fifties and hundreds, "
@@ -369,6 +375,14 @@ def _static_links(path: str) -> tuple[str, list[tuple[str, str]]]:
         ] + [
             (f"{r['player']} — {r['wickets']:,} wickets", f"/bowling/{enc(r['player'])}{tq}")
             for r in _top_bowlers(slug, 25)
+        ]
+    if path == "/phases":
+        return "Phase leaders", [
+            (label, f"/phases?phase={phase}{tq.replace('?', '&')}")
+            for phase, label in (("powerplay", "Powerplay leaders"), ("middle", "Middle-overs leaders"), ("death", "Death-overs leaders"))
+        ] + [
+            (f"{v['venue']} — {v['matches']} matches", f"/venues/{enc(v['venue'])}{tq}")
+            for v in _venues(slug)[:15]
         ]
     if path == "/records":
         return "Record lists", [

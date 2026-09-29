@@ -788,6 +788,137 @@ def bowling_profile(name: str):
     }
 
 
+SPLIT_LEGAL = "d.extras_wides = 0 AND d.extras_noballs = 0"
+SPLIT_BOWLER_WICKET = "d.is_wicket AND d.dismissal_kind NOT IN ('run out','retired hurt','retired out','obstructing the field')"
+
+
+def _batting_splits(db_name: str) -> dict | None:
+    from ..database import VENUE_NORM_SQL
+
+    base = f"""
+        WITH d AS (
+            SELECT d.*, m.season, ({VENUE_NORM_SQL}) AS venue
+            FROM deliveries d
+            JOIN matches m ON m.match_id = d.match_id
+            WHERE NOT d.is_super_over
+              AND d.match_id IN (SELECT DISTINCT match_id FROM deliveries WHERE batter = ? OR non_striker = ?)
+        ),
+        appear AS (
+            SELECT match_id, innings_number, player, MIN(seq) AS first_seq, arg_min(role, seq) AS role_at_first
+            FROM (
+                SELECT match_id, innings_number, batter AS player, over_number * 1000 + ball_number AS seq, 0 AS role FROM d
+                UNION ALL
+                SELECT match_id, innings_number, non_striker, over_number * 1000 + ball_number, 1 FROM d
+            )
+            GROUP BY match_id, innings_number, player
+        ),
+        pos AS (
+            SELECT match_id, innings_number, player,
+                   ROW_NUMBER() OVER (PARTITION BY match_id, innings_number ORDER BY first_seq, role_at_first) AS position
+            FROM appear
+        ),
+        outs AS (
+            SELECT match_id, innings_number, 1 AS out FROM d WHERE player_dismissed = ? GROUP BY match_id, innings_number
+        ),
+        inn AS (
+            SELECT d.match_id, d.innings_number, d.venue, d.season,
+                   SUM(d.runs_batter) AS runs,
+                   COUNT(CASE WHEN {SPLIT_LEGAL} THEN 1 END) AS balls,
+                   SUM(CASE WHEN {SPLIT_LEGAL} AND d.runs_batter = 4 THEN 1 ELSE 0 END) AS fours,
+                   SUM(CASE WHEN {SPLIT_LEGAL} AND d.runs_batter = 6 THEN 1 ELSE 0 END) AS sixes,
+                   COALESCE(MAX(o.out), 0) AS out
+            FROM d
+            LEFT JOIN outs o ON o.match_id = d.match_id AND o.innings_number = d.innings_number
+            WHERE d.batter = ?
+            GROUP BY d.match_id, d.innings_number, d.venue, d.season
+        )
+    """
+    params = [db_name, db_name, db_name, db_name]
+    agg = """
+        COUNT(*) AS innings, SUM(runs) AS runs, SUM(balls) AS balls, SUM(out) AS outs, MAX(runs) AS highest,
+        SUM(CASE WHEN runs >= 50 AND runs < 100 THEN 1 ELSE 0 END) AS fifties,
+        SUM(CASE WHEN runs >= 100 THEN 1 ELSE 0 END) AS hundreds,
+        SUM(fours) AS fours, SUM(sixes) AS sixes,
+        ROUND(SUM(runs) * 1.0 / NULLIF(SUM(out), 0), 2) AS avg,
+        ROUND(SUM(runs) * 100.0 / NULLIF(SUM(balls), 0), 2) AS sr
+    """
+    positions = query(base + f"""
+        SELECT p.position, {agg}
+        FROM inn JOIN pos p ON p.match_id = inn.match_id AND p.innings_number = inn.innings_number AND p.player = ?
+        GROUP BY p.position ORDER BY p.position
+    """, params + [db_name])
+    if not positions:
+        return None
+    venues = query(base + f"SELECT venue, {agg} FROM inn GROUP BY venue ORDER BY runs DESC, innings DESC", params)
+    scores = query(base + """
+        SELECT CASE WHEN runs = 0 THEN '0' WHEN runs < 10 THEN '1 to 9' WHEN runs < 25 THEN '10 to 24'
+                    WHEN runs < 50 THEN '25 to 49' WHEN runs < 100 THEN '50 to 99' ELSE '100 and over' END AS bucket,
+               MIN(runs) AS floor, COUNT(*) AS innings, SUM(out) AS outs
+        FROM inn GROUP BY bucket ORDER BY floor
+    """, params)
+    by_over = query(base + f"""
+        SELECT d.over_number + 1 AS over,
+               COUNT(CASE WHEN {SPLIT_LEGAL} THEN 1 END) AS balls, SUM(d.runs_batter) AS runs,
+               SUM(CASE WHEN d.is_wicket AND d.player_dismissed = d.batter THEN 1 ELSE 0 END) AS outs,
+               SUM(CASE WHEN {SPLIT_LEGAL} AND d.runs_batter = 4 THEN 1 ELSE 0 END) AS fours,
+               SUM(CASE WHEN {SPLIT_LEGAL} AND d.runs_batter = 6 THEN 1 ELSE 0 END) AS sixes,
+               SUM(CASE WHEN {SPLIT_LEGAL} AND d.runs_batter = 0 AND d.runs_extras = 0 THEN 1 ELSE 0 END) AS dots,
+               ROUND(SUM(d.runs_batter) * 100.0 / NULLIF(COUNT(CASE WHEN {SPLIT_LEGAL} THEN 1 END), 0), 2) AS sr
+        FROM d WHERE d.batter = ?
+        GROUP BY d.over_number ORDER BY d.over_number
+    """, params + [db_name])
+    dismissals = query(base + """
+        SELECT d.dismissal_kind AS kind, COUNT(*) AS count FROM d WHERE d.player_dismissed = ? GROUP BY d.dismissal_kind ORDER BY count DESC
+    """, params + [db_name])
+    total_inn = sum(r["innings"] for r in positions)
+    total_out = sum(r["outs"] for r in positions)
+    if total_inn > total_out:
+        dismissals.append({"kind": "not out", "count": total_inn - total_out})
+    return {"positions": positions, "venues": venues, "scores": scores, "by_over": by_over, "dismissals": dismissals}
+
+
+def _bowling_splits(db_name: str) -> dict | None:
+    from ..database import VENUE_NORM_SQL
+
+    base = f"""
+        WITH d AS (
+            SELECT d.*, m.season, ({VENUE_NORM_SQL}) AS venue
+            FROM deliveries d
+            JOIN matches m ON m.match_id = d.match_id
+            WHERE NOT d.is_super_over AND d.bowler = ?
+        )
+    """
+    agg = f"""
+        COUNT(DISTINCT d.match_id || '-' || d.innings_number) AS innings,
+        COUNT(CASE WHEN {SPLIT_LEGAL} THEN 1 END) AS balls,
+        SUM(d.runs_batter + d.extras_wides + d.extras_noballs) AS conceded,
+        SUM(CASE WHEN {SPLIT_BOWLER_WICKET} THEN 1 ELSE 0 END) AS wickets,
+        SUM(CASE WHEN {SPLIT_LEGAL} AND d.runs_batter = 0 AND d.runs_extras = 0 THEN 1 ELSE 0 END) AS dots,
+        SUM(CASE WHEN {SPLIT_LEGAL} AND d.runs_batter >= 4 THEN 1 ELSE 0 END) AS boundaries,
+        ROUND(SUM(d.runs_batter + d.extras_wides + d.extras_noballs) * 6.0 / NULLIF(COUNT(CASE WHEN {SPLIT_LEGAL} THEN 1 END), 0), 2) AS economy,
+        ROUND(SUM(d.runs_batter + d.extras_wides + d.extras_noballs) * 1.0 / NULLIF(SUM(CASE WHEN {SPLIT_BOWLER_WICKET} THEN 1 ELSE 0 END), 0), 2) AS avg,
+        ROUND(COUNT(CASE WHEN {SPLIT_LEGAL} THEN 1 END) * 1.0 / NULLIF(SUM(CASE WHEN {SPLIT_BOWLER_WICKET} THEN 1 ELSE 0 END), 0), 2) AS sr,
+        ROUND(SUM(CASE WHEN {SPLIT_LEGAL} AND d.runs_batter = 0 AND d.runs_extras = 0 THEN 1 ELSE 0 END) * 100.0 / NULLIF(COUNT(CASE WHEN {SPLIT_LEGAL} THEN 1 END), 0), 1) AS dot_pct
+    """
+    venues = query(base + f"SELECT d.venue, {agg} FROM d GROUP BY d.venue ORDER BY wickets DESC, economy ASC", [db_name])
+    if not venues:
+        return None
+    by_over = query(base + f"SELECT d.over_number + 1 AS over, {agg} FROM d GROUP BY d.over_number ORDER BY d.over_number", [db_name])
+    return {"venues": venues, "by_over": by_over}
+
+
+@router.get("/{name}/splits")
+def player_splits(name: str):
+    """Batting by position, venue, over and score band; bowling by venue and over."""
+    bat_name = resolve_player_name(name, "bat")
+    bowl_name = resolve_player_name(name, "bowl")
+    batting = _batting_splits(bat_name)
+    bowling = _bowling_splits(bowl_name)
+    if batting is None and bowling is None:
+        raise HTTPException(status_code=404, detail="Player not found")
+    return {"player": bat_name if batting else bowl_name, "batting": batting, "bowling": bowling}
+
+
 @router.get("/{name}/matchups/batting")
 def batting_matchups(name: str):
     name = resolve_player_name(name, "bat")

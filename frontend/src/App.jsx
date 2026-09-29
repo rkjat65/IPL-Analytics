@@ -31,6 +31,7 @@ const FAQ = lazy(() => import('./pages/FAQ'))
 const Records = lazy(() => import('./pages/Records'))
 const Players = lazy(() => import('./pages/Players'))
 const Matchups = lazy(() => import('./pages/Matchups'))
+const Phases = lazy(() => import('./pages/Phases'))
 const ImageCredits = lazy(() => import('./pages/ImageCredits'))
 const Admin = lazy(() => import('./pages/Admin'))
 const NotFound = lazy(() => import('./pages/NotFound'))
@@ -84,6 +85,7 @@ export default function App() {
         <Route path="/players/:playerName" element={<PlayerProfile />} />
         <Route path="/records" element={<Records />} />
         <Route path="/matchups" element={<Matchups />} />
+        <Route path="/phases" element={<Phases />} />
         <Route path="/h2h" element={<HeadToHead />} />
         <Route path="/content-studio" element={<ContentStudio />} />
         <Route path="/ask" element={<Navigate to="/dashboard" replace />} />
