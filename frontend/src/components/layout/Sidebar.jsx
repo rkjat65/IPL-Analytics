@@ -51,6 +51,18 @@ const navItems = [
     ),
   },
   {
+    to: '/players',
+    label: 'Players',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 shrink-0">
+        <circle cx="9" cy="8" r="3.5" />
+        <path d="M2.5 20a6.5 6.5 0 0 1 13 0" />
+        <circle cx="17" cy="9" r="2.5" />
+        <path d="M15.5 14.5a5 5 0 0 1 6 4.5" />
+      </svg>
+    ),
+  },
+  {
     to: '/batting',
     label: 'Batting',
     icon: (
@@ -72,6 +84,17 @@ const navItems = [
     ),
   },
   {
+    to: '/records',
+    label: 'Records',
+    highlight: 'amber',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 shrink-0">
+        <path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z" />
+        <path d="M7 6H4a2 2 0 0 0 2 4h1M17 6h3a2 2 0 0 1-2 4h-1" />
+      </svg>
+    ),
+  },
+  {
     to: '/teams',
     label: 'Teams',
     icon: (
@@ -89,6 +112,17 @@ const navItems = [
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 shrink-0">
         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+      </svg>
+    ),
+  },
+  {
+    to: '/matchups',
+    label: 'Matchups',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 shrink-0">
+        <path d="M4 20 14 10M20 4l-4 4M9 5l10 10M15 19l4-4" />
+        <circle cx="6" cy="18" r="2" />
+        <circle cx="18" cy="18" r="2" />
       </svg>
     ),
   },

@@ -11,6 +11,12 @@ from typing import Optional
 from fastapi import APIRouter, HTTPException
 
 from ..database import query, normalize_team
+from ..tournaments import get_tournament
+
+
+def _tn() -> str:
+    """Short tournament name for copy, so World Cup mode never says IPL."""
+    return get_tournament().short_name
 
 router = APIRouter(prefix="/api/pulse", tags=["Pulse"])
 
@@ -29,7 +35,8 @@ def _score(base: int, **boosts) -> int:
     return max(0, min(100, s))
 
 
-def _tweet(headline: str, detail: str = "", hashtags: str = "#IPL #CricketStats #Crickrida") -> str:
+def _tweet(headline: str, detail: str = "", hashtags: str | None = None) -> str:
+    hashtags = hashtags or f"#{_tn().replace(' ', '')} #CricketStats #Crickrida"
     parts = [headline]
     if detail:
         parts.append("")
@@ -69,11 +76,11 @@ def discover_milestones() -> list[dict]:
                     "id": _id("milestone_runs", b["player"], milestone),
                     "category": "milestone",
                     "icon": "🎯",
-                    "headline": f"{b['player']} is {remaining} runs away from {milestone:,} IPL runs",
+                    "headline": f"{b['player']} is {remaining} runs away from {milestone:,} {_tn()} runs",
                     "detail": f"Currently at {runs:,} runs in {b['matches']} matches. A big innings could seal it!",
                     "stats": {"player": b["player"], "current": runs, "target": milestone, "remaining": remaining, "matches": b["matches"]},
                     "tweet_text": _tweet(
-                        f"🎯 {b['player']} is just {remaining} runs away from {milestone:,} IPL runs!",
+                        f"🎯 {b['player']} is just {remaining} runs away from {milestone:,} {_tn()} runs!",
                         f"Currently: {runs:,} runs in {b['matches']} matches.\nOne big knock and history is made.",
                     ),
                     "card_config": {
@@ -110,11 +117,11 @@ def discover_milestones() -> list[dict]:
                     "id": _id("milestone_sixes", s["player"], milestone),
                     "category": "milestone",
                     "icon": "💥",
-                    "headline": f"{s['player']} needs {remaining} more sixes to reach {milestone} IPL sixes!",
+                    "headline": f"{s['player']} needs {remaining} more sixes to reach {milestone} {_tn()} sixes!",
                     "detail": f"Currently at {sixes} sixes in {s['matches']} matches.",
                     "stats": {"player": s["player"], "current": sixes, "target": milestone, "remaining": remaining},
                     "tweet_text": _tweet(
-                        f"💥 {s['player']} is {remaining} sixes from reaching {milestone} IPL sixes!",
+                        f"💥 {s['player']} is {remaining} sixes from reaching {milestone} {_tn()} sixes!",
                         f"Current tally: {sixes} maximums in {s['matches']} matches."
                     ),
                     "card_config": {
@@ -151,12 +158,12 @@ def discover_milestones() -> list[dict]:
                     "id": _id("milestone_wickets", bw["player"], milestone),
                     "category": "milestone",
                     "icon": "🔥",
-                    "headline": f"{bw['player']} is {remaining} wickets from {milestone} IPL wickets!",
+                    "headline": f"{bw['player']} is {remaining} wickets from {milestone} {_tn()} wickets!",
                     "detail": f"Currently at {wkts} wickets in {bw['matches']} matches.",
                     "stats": {"player": bw["player"], "current": wkts, "target": milestone, "remaining": remaining},
                     "tweet_text": _tweet(
                         f"🔥 {bw['player']} — just {remaining} wickets from the {milestone}-wicket club!",
-                        f"Standing at {wkts} wickets in {bw['matches']} IPL matches."
+                        f"Standing at {wkts} wickets in {bw['matches']} {_tn()} matches."
                     ),
                     "card_config": {
                         "style": "neon", "title": bw["player"],
@@ -339,11 +346,11 @@ def discover_did_you_know() -> list[dict]:
             "id": _id("ducks", dk["player"]),
             "category": "did_you_know",
             "icon": "🦆",
-            "headline": f"{dk['player']} has {dk['ducks']} ducks in IPL!",
+            "headline": f"{dk['player']} has {dk['ducks']} ducks in {_tn()}!",
             "detail": f"Out for zero {dk['ducks']} times in {dk['total_innings']} innings. Even legends walk back sometimes.",
             "stats": {"player": dk["player"], "ducks": dk["ducks"], "innings": dk["total_innings"]},
             "tweet_text": _tweet(
-                f"🦆 {dk['player']} — {dk['ducks']} ducks in {dk['total_innings']} IPL innings!",
+                f"🦆 {dk['player']} — {dk['ducks']} ducks in {dk['total_innings']} {_tn()} innings!",
                 f"Even the greats have bad days.\nBut {dk['player']} keeps coming back stronger."
             ),
             "card_config": {
@@ -384,7 +391,7 @@ def discover_did_you_know() -> list[dict]:
             "stats": {"player": bs["player"], "score": bs["score"], "balls": bs["balls"], "sr": bs["sr"], "fours": bs["fours"], "sixes": bs["sixes"]},
             "tweet_text": _tweet(
                 f"🏏 {bs['player']} — {bs['score']}* ({bs['balls']}b)",
-                f"{bs['fours']} fours, {bs['sixes']} sixes, {bs['sr']} SR.\n{context}\nOne of IPL's greatest knocks ever. 🔥"
+                f"{bs['fours']} fours, {bs['sixes']} sixes, {bs['sr']} SR.\n{context}\nOne of {_tn()}'s greatest knocks ever. 🔥"
             ),
             "card_config": {
                 "style": "electric", "title": bs["player"],
@@ -522,12 +529,12 @@ def discover_on_this_day(target_date: date | None = None) -> list[dict]:
                 "potm": m.get("player_of_match"), "years_ago": years_ago,
             },
             "tweet_text": _tweet(
-                f"📅 #OnThisDay in IPL {m['season']} ({years_ago} years ago)",
+                f"📅 #OnThisDay in {_tn()} {m['season']} ({years_ago} years ago)",
                 f"{normalize_team(m['team1'])} vs {normalize_team(m['team2'])}\n{winner} won by {margin}\n🏏 POTM: {m.get('player_of_match', 'N/A')}"
             ),
             "card_config": {
                 "style": "vintage", "title": f"{normalize_team(m['team1'])} vs {normalize_team(m['team2'])}",
-                "subtitle": f"ON THIS DAY — IPL {m['season']}", "hero_stat": str(years_ago),
+                "subtitle": f"ON THIS DAY — {_tn()} {m['season']}", "hero_stat": str(years_ago),
                 "hero_label": "YEARS AGO",
                 "stats": {"Winner": winner, "Margin": margin, "Venue": m["venue"], "POTM": m.get("player_of_match", "N/A")},
             },
@@ -558,10 +565,10 @@ def discover_records() -> list[dict]:
             "category": "record_watch",
             "icon": "🏅",
             "headline": f"{p['player']} — {p['awards']} Player of the Match awards!",
-            "detail": f"{'The undisputed match-winner!' if i == 0 else 'One of the greatest match-winners in IPL history.'}",
+            "detail": f"{'The undisputed match-winner!' if i == 0 else 'One of the greatest match-winners in ' + _tn() + ' history.'}",
             "stats": {"player": p["player"], "awards": p["awards"], "rank": i + 1},
             "tweet_text": _tweet(
-                f"🏅 {p['player']} — {p['awards']} POTM awards in IPL!",
+                f"🏅 {p['player']} — {p['awards']} POTM awards in {_tn()}!",
                 f"{'#1 all-time match-winner.' if i == 0 else f'Ranked #{i+1} all-time.'}\nAbsolute game-changer."
             ),
             "card_config": {
@@ -592,11 +599,11 @@ def discover_records() -> list[dict]:
             "category": "record_watch",
             "icon": "📊",
             "headline": f"{normalize_team(bt['team'])} scored {bt['score']}/{bt['wickets']}!",
-            "detail": f"vs {opponent} in IPL {bt['season']} at {bt['venue']}. One of the highest totals ever!",
+            "detail": f"vs {opponent} in {_tn()} {bt['season']} at {bt['venue']}. One of the highest totals ever!",
             "stats": {"team": normalize_team(bt["team"]), "score": bt["score"], "wickets": bt["wickets"], "season": bt["season"], "opponent": opponent},
             "tweet_text": _tweet(
                 f"📊 {normalize_team(bt['team'])} — {bt['score']}/{bt['wickets']}",
-                f"vs {opponent}, IPL {bt['season']} at {bt['venue']}.\nAmong the highest totals in IPL history!"
+                f"vs {opponent}, {_tn()} {bt['season']} at {bt['venue']}.\nAmong the highest totals in {_tn()} history!"
             ),
             "card_config": {
                 "style": "electric", "title": normalize_team(bt["team"]),

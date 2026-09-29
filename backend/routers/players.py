@@ -90,6 +90,43 @@ def player_thumbnail(path: Path, width: int) -> Path | None:
 router = APIRouter(prefix="/api/players", tags=["players"])
 
 
+@router.get("/index")
+def player_index(q: str | None = None, team: str | None = None, role: str | None = None):
+    """Every player in the archive with career shape: teams, span, role, runs and wickets."""
+    from .quiz import _careers
+    from ..tournaments import get_tournament_slug
+
+    wanted_team = normalize_team(team) if team else None
+    needle = (q or "").strip().lower()
+    rows = []
+    for c in _careers(get_tournament_slug()):
+        if needle and needle not in c["player"].lower():
+            continue
+        if wanted_team and wanted_team not in c["teams"]:
+            continue
+        if role and c["role"].lower() != role.lower():
+            continue
+        rows.append({
+            "player": c["player"],
+            "teams": c["teams"],
+            "role": c["role"],
+            "matches": c["matches"],
+            "first_season": c["first_season"],
+            "last_season": c["last_season"],
+            "runs": c["runs"],
+            "balls": c["balls"],
+            "avg": round(c["runs"] / c["outs"], 2) if c["outs"] else None,
+            "sr": round(100 * c["runs"] / c["balls"], 2) if c["balls"] else None,
+            "highest": c["hs"],
+            "hundreds": c["hundreds"],
+            "fifties": c["fifties"],
+            "wickets": c["wickets"],
+            "economy": round(6 * c["conceded"] / c["balls_bowled"], 2) if c["balls_bowled"] else None,
+        })
+    rows.sort(key=lambda r: (-r["matches"], r["player"]))
+    return rows
+
+
 @router.get("/identity/{name}")
 def player_identity(name: str):
     """Return the canonical name, source aliases and well-known nicknames."""

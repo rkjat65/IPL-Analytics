@@ -323,6 +323,22 @@ def _static_pages() -> dict[str, tuple[str, str]]:
             f"Compare {t.short_name} bowlers side by side: wickets, economy, average, strike rate "
             "and dot-ball percentage.",
         ),
+        "/records": (
+            f"{t.short_name} Records: Highest Scores, Best Bowling, Partnerships and Fastest Fifties",
+            f"Every {t.name} record from ball-by-ball data: highest scores, fastest fifties and hundreds, "
+            f"best bowling figures, highest totals and chases, biggest wins, partnerships, hat-tricks and "
+            f"batter-versus-bowler duels, filterable by {comp}, team and venue.",
+        ),
+        "/players": (
+            f"{t.short_name} Players: Every Cricketer in the Archive",
+            f"Browse every {t.name} player with role, teams, {comps.lower()} played, runs, average, "
+            "strike rate, wickets and economy.",
+        ),
+        "/matchups": (
+            f"{t.short_name} Batter vs Bowler Matchups: Head-to-Head Duels",
+            f"Pick any {t.short_name} batter and bowler to see their ball-by-ball duel: balls, runs, strike rate, "
+            "dismissals, dot-ball and boundary rates by phase, plus the most contested matchups in the archive.",
+        ),
         "/faq": (
             f"{t.short_name} FAQ — Frequently Asked Questions",
             f"Answers to common questions about the {t.name}: format, records, teams and players.",
@@ -345,6 +361,35 @@ def _static_links(path: str) -> tuple[str, list[tuple[str, str]]]:
         return "Top wicket-takers", [
             (f"{r['player']} — {r['wickets']:,} wickets", f"/bowling/{enc(r['player'])}{tq}")
             for r in _top_bowlers(slug)
+        ]
+    if path in ("/players", "/matchups"):
+        return "Most-capped players", [
+            (f"{r['player']} — {r['runs']:,} runs", f"/batting/{enc(r['player'])}{tq}")
+            for r in _top_batters(slug, 25)
+        ] + [
+            (f"{r['player']} — {r['wickets']:,} wickets", f"/bowling/{enc(r['player'])}{tq}")
+            for r in _top_bowlers(slug, 25)
+        ]
+    if path == "/records":
+        return "Record lists", [
+            (label, f"/records?tab={tab}&kind={kind}{tq.replace('?', '&')}")
+            for tab, kind, label in (
+                ("batting", "highest_scores", "Highest individual scores"),
+                ("batting", "fastest_fifties", "Fastest fifties"),
+                ("batting", "fastest_hundreds", "Fastest hundreds"),
+                ("batting", "most_sixes", "Most sixes in an innings"),
+                ("bowling", "best_bowling", "Best bowling figures"),
+                ("bowling", "best_economy", "Best economy in a full spell"),
+                ("bowling", "most_expensive", "Most expensive overs"),
+                ("team", "highest_totals", "Highest team totals"),
+                ("team", "lowest_totals", "Lowest team totals"),
+                ("team", "highest_chases", "Highest successful chases"),
+                ("team", "biggest_wins_runs", "Biggest wins by runs"),
+                ("partnerships", "any", "Highest partnerships"),
+                ("special", "hat_tricks", "Hat-tricks"),
+                ("special", "most_awards", "Most player of the match awards"),
+                ("duels", "balls", "Most contested batter versus bowler duels"),
+            )
         ]
     if path in ("/teams", "/h2h"):
         return "Teams", [

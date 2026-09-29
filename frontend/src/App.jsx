@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Layout from './components/layout/Layout'
 import ProtectedRoute from './components/auth/ProtectedRoute'
+import ErrorBoundary from './components/ErrorBoundary'
 
 // Every page is its own chunk, downloaded when first visited.
 const Dashboard = lazy(() => import('./pages/Dashboard'))
@@ -27,6 +28,9 @@ const CricketPulse = lazy(() => import('./pages/CricketPulse'))
 const PlayerImpact = lazy(() => import('./pages/PlayerImpact'))
 const Charts = lazy(() => import('./pages/Charts'))
 const FAQ = lazy(() => import('./pages/FAQ'))
+const Records = lazy(() => import('./pages/Records'))
+const Players = lazy(() => import('./pages/Players'))
+const Matchups = lazy(() => import('./pages/Matchups'))
 const ImageCredits = lazy(() => import('./pages/ImageCredits'))
 const Admin = lazy(() => import('./pages/Admin'))
 const NotFound = lazy(() => import('./pages/NotFound'))
@@ -45,6 +49,7 @@ if (typeof window !== 'undefined') {
 
 export default function App() {
   return (
+    <ErrorBoundary resetKey={typeof window !== 'undefined' ? window.location.pathname : ''}>
     <Suspense fallback={<div className="min-h-screen bg-bg-primary" />}>
     <Routes>
       {/* Default: land straight on the dashboard */}
@@ -75,7 +80,10 @@ export default function App() {
         <Route path="/venues/:venueName" element={<VenueProfile />} />
         <Route path="/seasons" element={<Seasons />} />
         <Route path="/seasons/:year" element={<Seasons />} />
+        <Route path="/players" element={<Players />} />
         <Route path="/players/:playerName" element={<PlayerProfile />} />
+        <Route path="/records" element={<Records />} />
+        <Route path="/matchups" element={<Matchups />} />
         <Route path="/h2h" element={<HeadToHead />} />
         <Route path="/content-studio" element={<ContentStudio />} />
         <Route path="/ask" element={<Navigate to="/dashboard" replace />} />
@@ -91,5 +99,6 @@ export default function App() {
       </Route>
     </Routes>
     </Suspense>
+    </ErrorBoundary>
   )
 }

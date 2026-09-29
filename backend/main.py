@@ -23,7 +23,7 @@ from fastapi.responses import FileResponse, HTMLResponse, Response
 from . import seo
 from .auth_db import init_auth_db
 from .http_cache import HttpCacheMiddleware
-from .routers import meta, matches, players, teams, analytics, venues, seasons, images, social, advanced, pulse, auth, fantasy, quiz
+from .routers import meta, matches, players, teams, analytics, venues, seasons, images, social, advanced, pulse, auth, fantasy, quiz, records
 from .tournaments import get_tournament_slug, reset_tournament, set_tournament
 
 logger = logging.getLogger(__name__)
@@ -91,6 +91,7 @@ app.include_router(pulse.router)
 app.include_router(auth.router)
 app.include_router(fantasy.router)
 app.include_router(quiz.router)
+app.include_router(records.router)
 
 
 @app.get("/api/health")

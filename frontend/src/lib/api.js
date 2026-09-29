@@ -1,7 +1,7 @@
 const API_BASE = '/api'
 // Public GET responses are cached by the installable app. Change this token
 // when bundled databases or canonical API labels change.
-const DATA_RELEASE = 'wikimedia-player-images-v2'
+const DATA_RELEASE = 'records-hub-v1'
 
 export function getActiveTournament() {
   const queryValue = new URLSearchParams(window.location.search).get('tournament')
@@ -144,3 +144,13 @@ export const getAdminStats = (token) => {
 // Fantasy picks and quiz
 export const getFantasyPicks = (team1, team2, venue) => fetchAPI('/fantasy/picks', { team1, team2, venue })
 export const getQuizPlayer = (level, seed) => fetchAPI('/quiz/player', { level, seed })
+
+// Records hub, player index and duels
+export const getInningsRecords = (params) => fetchAPI('/records/innings', params)
+export const getTeamRecords = (params) => fetchAPI('/records/team', params)
+export const getPartnershipRecords = (params) => fetchAPI('/records/partnerships', params)
+export const getSpecialRecords = (params) => fetchAPI('/records/special', params)
+export const getDuelRecords = (params) => fetchAPI('/records/duels', params)
+export const getRecordsSummary = (params) => fetchAPI('/records/summary', params)
+export const getPlayerIndex = (params) => fetchAPI('/players/index', params)
+export const getPlayerMatchup = (batter, bowler) => fetchAPI(`/players/matchup/${encodeURIComponent(batter)}/${encodeURIComponent(bowler)}`)

@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import SEO from '../components/SEO'
+import { useTournament } from '../contexts/TournamentContext'
 import { getPulseFeed, getPulseOnThisDay, getPulseCalendarMonth, generateInsightCard } from '../lib/api'
 
 const CATEGORIES = [
@@ -233,6 +234,7 @@ function ImageCreatorModal({ insight, onClose }) {
 
 /* ── Main Page ──────────────────────────────────────────────── */
 export default function CricketPulse() {
+  const tournament = useTournament()
   const [activeTab, setActiveTab] = useState('feed')
   const [category, setCategory] = useState('all')
   const [insights, setInsights] = useState([])
@@ -278,7 +280,7 @@ export default function CricketPulse() {
 
   const TABS = [
     { key: 'feed', label: 'Pulse Feed', icon: '🔥', desc: 'Auto-discovered insights' },
-    { key: 'on_this_day', label: 'On This Day', icon: '📅', desc: 'IPL history moments' },
+    { key: 'on_this_day', label: 'On This Day', icon: '📅', desc: `${tournament.shortName} history moments` },
   ]
 
   const MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -287,8 +289,8 @@ export default function CricketPulse() {
   return (
     <div className="min-h-screen bg-bg-primary">
       <SEO
-        title="Cricket Pulse — Trending IPL Insights, Streaks & On This Day"
-        description="Fresh IPL insights discovered from ball-by-ball data: milestones, streaks, records about to fall and what happened on this day in IPL history. Turn any insight into a shareable stat card."
+        title={`Cricket Pulse: Trending ${tournament.shortName} Insights, Streaks and On This Day`}
+        description={`Fresh ${tournament.shortName} insights discovered from ball-by-ball data: milestones, streaks, records about to fall and what happened on this day in ${tournament.shortName} history. Turn any insight into a shareable stat card.`}
         url="/pulse"
       />
 
@@ -306,7 +308,7 @@ export default function CricketPulse() {
             </div>
             <div>
               <h1 className="text-3xl md:text-4xl font-heading font-bold text-text-primary">Cricket Pulse</h1>
-              <p className="text-text-secondary text-sm font-body">Your social growth engine — auto-discovers tweet-worthy insights from IPL data</p>
+              <p className="text-text-secondary text-sm font-body">Your social growth engine — auto-discovers tweet-worthy insights from {tournament.shortName} data</p>
             </div>
           </div>
           <div className="flex items-center gap-4 mt-4 text-xs text-text-muted font-mono">
@@ -403,13 +405,13 @@ export default function CricketPulse() {
                 <div>
                   <h2 className="text-lg font-heading font-bold text-text-primary">
                     {calSelectedDay
-                      ? `${calSelectedDay} ${MONTH_NAMES[calMonth]} — IPL History`
-                      : 'On This Day in IPL'
+                      ? `${calSelectedDay} ${MONTH_NAMES[calMonth]} — ${tournament.shortName} History`
+                      : `On This Day in ${tournament.shortName}`
                     }
                   </h2>
                   <p className="text-xs text-text-muted font-mono">
                     {calSelectedDay
-                      ? `Showing all IPL matches played on ${MONTH_NAMES[calMonth]} ${calSelectedDay}`
+                      ? `Showing all ${tournament.shortName} matches played on ${MONTH_NAMES[calMonth]} ${calSelectedDay}`
                       : otdDate ? new Date(otdDate + 'T00:00:00').toLocaleDateString('en-IN', { day: 'numeric', month: 'long' }) : 'Today'
                     }
                   </p>
@@ -421,14 +423,14 @@ export default function CricketPulse() {
             {otdLoading && (
               <div className="flex items-center justify-center py-16 gap-3">
                 <div className="w-6 h-6 border-2 border-accent-cyan border-t-transparent rounded-full animate-spin" />
-                <span className="text-sm text-text-muted font-mono">Looking through IPL history...</span>
+                <span className="text-sm text-text-muted font-mono">Looking through {tournament.shortName} history...</span>
               </div>
             )}
             {!otdLoading && otdInsights.length === 0 && (
               <div className="text-center py-16 bg-bg-card border border-border-subtle rounded-2xl">
                 <span className="text-5xl block mb-4">📅</span>
                 <h3 className="text-lg font-heading font-bold text-text-primary mb-2">
-                  {calSelectedDay ? `No IPL matches on ${MONTH_NAMES[calMonth]} ${calSelectedDay}` : 'No IPL matches on this date'}
+                  {calSelectedDay ? `No ${tournament.shortName} matches on ${MONTH_NAMES[calMonth]} ${calSelectedDay}` : `No ${tournament.shortName} matches on this date`}
                 </h3>
                 <p className="text-text-secondary text-sm">Pick a highlighted date from the calendar above</p>
               </div>
@@ -450,7 +452,7 @@ export default function CricketPulse() {
                 </button>
                 <div className="text-center">
                   <h2 className="text-lg font-heading font-bold text-text-primary">{MONTH_NAMES[calMonth]}</h2>
-                  <p className="text-xs text-text-muted font-mono">IPL matches across all seasons</p>
+                  <p className="text-xs text-text-muted font-mono">{tournament.shortName} matches across all {tournament.competitionLabelPlural.toLowerCase()}</p>
                 </div>
                 <button onClick={() => { if (calMonth === 11) { setCalMonth(0); setCalYear(y => y + 1) } else { setCalMonth(m => m + 1) }; setCalSelectedDay(null) }}
                   className="p-2 rounded-lg bg-bg-elevated border border-border-subtle text-text-secondary hover:text-text-primary transition-colors">
