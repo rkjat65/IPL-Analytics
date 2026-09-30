@@ -1,9 +1,14 @@
-name: Serve crickrida.com
+name: Caddy site config
 
-# Adds crickrida.com to the existing Caddy site on the server and redirects
-# www.crickrida.com to it. Idempotent: it does nothing until the domain's DNS
-# points at this server, and nothing once Caddy already serves the domain.
-# The current Caddyfile is backed up first and restored if validation fails.
+# Owns crickrida.com's routing on the server. crickrida.com is one site:
+#   /api, /app, /ipl and /t20-world-cup  -> the ipl-analytics container
+#   the app's pre-merge addresses        -> the container, which 301s them
+#   everything else                      -> the international archive (GitHub Pages)
+# The retired crickrida.rkjat.in goes to the container, which 301s every page.
+#
+# The config is written to crickrida.caddy next to the main Caddyfile and
+# imported from it; any older crickrida site blocks there are removed. The
+# Caddyfile is backed up first and restored if validation or the smoke test fails.
 
 on:
   push:
@@ -15,7 +20,7 @@ jobs:
   caddy:
     runs-on: ubuntu-latest
     steps:
-    - name: Add crickrida.com to Caddy
+    - name: Write and reload the crickrida Caddy config
       uses: appleboy/ssh-action@v1.0.3
       with:
         host: crickrida.rkjat.in
@@ -23,70 +28,99 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           set -eu
-          NEW=crickrida.com
-          OLD=crickrida.rkjat.in
-
-          new_ip=$(getent ahostsv4 "$NEW" | awk 'NR==1{print $1}' || true)
-          old_ip=$(getent ahostsv4 "$OLD" | awk 'NR==1{print $1}' || true)
-          if [ -z "$new_ip" ] || [ "$new_ip" != "$old_ip" ]; then
-            echo "$NEW resolves to ${new_ip:-nothing}, not this server ($old_ip). Leaving Caddy unchanged."
-            exit 0
-          fi
-
-          if systemctl is-active --quiet caddy; then
-            CF=$(systemctl show caddy -p ExecStart --value | grep -o -- '--config [^ ;]*' | awk '{print $2}' | head -1)
-            CF=${CF:-/etc/caddy/Caddyfile}
-            validate() { sudo -n caddy validate --config "$CF" --adapter caddyfile; }
-            reload() { sudo -n systemctl reload caddy; }
-            echo "Caddy runs as a systemd service with $CF"
-          elif docker ps --format '{{.Names}}' | grep -qx caddy; then
-            CF=$(docker inspect caddy --format '{{range .Mounts}}{{if eq .Destination "/etc/caddy/Caddyfile"}}{{.Source}}{{end}}{{end}}')
-            validate() { docker exec caddy caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile; }
-            reload() { docker exec caddy caddy reload --config /etc/caddy/Caddyfile --adapter caddyfile; }
-            echo "Caddy runs as a container with $CF mounted"
-          else
-            echo "No running Caddy service or container found." >&2
-            exit 1
-          fi
-          if [ -z "$CF" ] || ! sudo -n test -f "$CF"; then
-            echo "Could not locate the Caddyfile." >&2
-            exit 1
-          fi
-
-          if sudo -n grep -q 'crickrida\.com' "$CF"; then
-            echo "Caddy already serves $NEW."
-            exit 0
-          fi
-
-          site_lines=$(sudo -n grep -cE '^[[:space:]]*(https://)?crickrida\.rkjat\.in([,[:space:]]|\{|$)' "$CF" || true)
-          if [ "$site_lines" != "1" ]; then
-            echo "Expected one site address line for $OLD, found $site_lines. Not editing." >&2
-            exit 1
-          fi
-
+          CF=$(systemctl show caddy -p ExecStart --value | grep -o -- '--config [^ ;]*' | awk '{print $2}' | head -1)
+          CF=${CF:-/etc/caddy/Caddyfile}
+          SITE="$(dirname "$CF")/crickrida.caddy"
           stamp=$(date +%Y%m%d%H%M%S)
           sudo -n cp "$CF" "$CF.bak-$stamp"
-          sudo -n sed -i -E 's/^([[:space:]]*)(https:\/\/)?crickrida\.rkjat\.in([,[:space:]]|\{|$)/\1crickrida.com, \2crickrida.rkjat.in\3/' "$CF"
-          printf '\nwww.crickrida.com {\n\tredir https://crickrida.com{uri} permanent\n}\n' | sudo -n tee -a "$CF" >/dev/null
+          if sudo -n test -f "$SITE"; then sudo -n cp "$SITE" "$SITE.bak-$stamp"; fi
 
-          if ! validate; then
+          sudo -n tee "$SITE" >/dev/null <<'CADDY'
+          crickrida.com {
+          	encode zstd gzip
+
+          	# The app, its files and its API run in the ipl-analytics container.
+          	@app path /api/* /app/* /ipl /ipl/* /t20-world-cup /t20-world-cup/* /sw.js /sitemap-ipl.xml /llms.txt
+          	handle @app {
+          		reverse_proxy 127.0.0.1:8000
+          	}
+
+          	# Addresses the app used before it moved under /ipl and /t20-world-cup.
+          	# They never end in a slash or a file extension; the archive's pages do.
+          	@legacy {
+          		path_regexp ^/(dashboard|batting|bowling|venues|seasons|h2h|charts|pulse|matchups|phases|content-studio|fantasy|quiz|faq|image-credits|privacy|terms|account-deletion|admin|login|social|ask|player-impact)(/[^/]+)*$|^/(matches|teams|players)(/[^/]+)+$
+          		not path *.json *.xml *.txt *.csv *.png *.svg *.webp *.jpg *.ico *.js *.css *.html *.parquet *.woff2
+          	}
+          	handle @legacy {
+          		reverse_proxy 127.0.0.1:8000
+          	}
+
+          	# Everything else is the international archive, published on GitHub Pages.
+          	handle {
+          		reverse_proxy https://cricket.rkjat.in {
+          			header_up Host cricket.rkjat.in
+          			header_down Location ^https?://cricket\.rkjat\.in https://crickrida.com
+          		}
+          	}
+          }
+
+          crickrida.rkjat.in {
+          	encode zstd gzip
+          	reverse_proxy 127.0.0.1:8000
+          }
+
+          www.crickrida.com {
+          	redir https://crickrida.com{uri} permanent
+          }
+          CADDY
+          sudo -n sed -i 's/^          //' "$SITE"
+
+          # Drop older crickrida site blocks and imports from the main Caddyfile, then import the managed file.
+          sudo -n awk -v site="$SITE" '
+            BEGIN { depth = 0; skip = 0 }
+            {
+              line = $0
+              if (depth == 0 && !skip && line ~ /crickrida\.(com|rkjat\.in)/ && line ~ /\{[[:space:]]*$/) skip = 1
+              if (!skip && line ~ "^[[:space:]]*import[[:space:]]+" site "[[:space:]]*$") next
+              if (!skip && line ~ /^[[:space:]]*import[[:space:]]+crickrida\.caddy[[:space:]]*$/) next
+              copy = line
+              opens = gsub(/\{/, "{", copy)
+              closes = gsub(/\}/, "}", copy)
+              if (!skip) print
+              depth += opens - closes
+              if (skip && depth == 0) skip = 0
+            }
+            END { print ""; print "import " site }
+          ' "$CF.bak-$stamp" | sudo -n tee "$CF" >/dev/null
+
+          restore() {
             sudo -n cp "$CF.bak-$stamp" "$CF"
-            echo "The new Caddyfile failed validation. Restored $CF.bak-$stamp." >&2
+            if sudo -n test -f "$SITE.bak-$stamp"; then sudo -n cp "$SITE.bak-$stamp" "$SITE"; else sudo -n rm -f "$SITE"; fi
+            sudo -n systemctl reload caddy || true
+          }
+
+          if ! sudo -n caddy validate --config "$CF" --adapter caddyfile; then
+            echo "The new config failed validation. Restoring the backup." >&2
+            restore
             exit 1
           fi
-          reload
-          echo "Caddy now serves $NEW and redirects www.$NEW. Backup: $CF.bak-$stamp"
+          sudo -n systemctl reload caddy
+          sleep 3
 
-    - name: Check the new domain
-      shell: bash
-      run: |
-        for attempt in $(seq 1 20); do
-          code=$(curl -s -o /dev/null -w '%{http_code}' https://crickrida.com/api/health || true)
-          if [ "$code" = "200" ]; then
-            echo "https://crickrida.com is serving the app"
-            curl -s -o /dev/null -w 'www: %{http_code} -> %{redirect_url}\n' https://www.crickrida.com/records || true
-            exit 0
+          check() {
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 --resolve "$1:443:127.0.0.1" "https://$1$2" || true)
+            echo "$1$2 -> $code (want $3)"
+            [ "$code" = "$3" ]
+          }
+          ok=1
+          check crickrida.com /api/health 200 || ok=0
+          check crickrida.com /ipl/dashboard 200 || ok=0
+          check crickrida.com / 200 || ok=0
+          check crickrida.com /dashboard 301 || ok=0
+          check crickrida.rkjat.in /batting/Virat%20Kohli 301 || ok=0
+          if [ "$ok" != 1 ]; then
+            echo "Smoke test failed. Restoring the previous config." >&2
+            restore
+            exit 1
           fi
-          sleep 6
-        done
-        echo "https://crickrida.com did not answer yet (DNS or certificate still pending)."
+          echo "crickrida.com now serves the archive at the root and the app under /ipl and /t20-world-cup. Backup: $CF.bak-$stamp"
