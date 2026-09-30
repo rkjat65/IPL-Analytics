@@ -1,0 +1,92 @@
+name: Serve crickrida.com
+
+# Adds crickrida.com to the existing Caddy site on the server and redirects
+# www.crickrida.com to it. Idempotent: it does nothing until the domain's DNS
+# points at this server, and nothing once Caddy already serves the domain.
+# The current Caddyfile is backed up first and restored if validation fails.
+
+on:
+  push:
+    branches: [ main ]
+    paths: [ .github/workflows/domain.yml ]
+  workflow_dispatch:
+
+jobs:
+  caddy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Add crickrida.com to Caddy
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: crickrida.rkjat.in
+        username: ubuntu
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          set -eu
+          NEW=crickrida.com
+          OLD=crickrida.rkjat.in
+
+          new_ip=$(getent ahostsv4 "$NEW" | awk 'NR==1{print $1}' || true)
+          old_ip=$(getent ahostsv4 "$OLD" | awk 'NR==1{print $1}' || true)
+          if [ -z "$new_ip" ] || [ "$new_ip" != "$old_ip" ]; then
+            echo "$NEW resolves to ${new_ip:-nothing}, not this server ($old_ip). Leaving Caddy unchanged."
+            exit 0
+          fi
+
+          if systemctl is-active --quiet caddy; then
+            CF=$(systemctl show caddy -p ExecStart --value | grep -o -- '--config [^ ;]*' | awk '{print $2}' | head -1)
+            CF=${CF:-/etc/caddy/Caddyfile}
+            validate() { sudo -n caddy validate --config "$CF" --adapter caddyfile; }
+            reload() { sudo -n systemctl reload caddy; }
+            echo "Caddy runs as a systemd service with $CF"
+          elif docker ps --format '{{.Names}}' | grep -qx caddy; then
+            CF=$(docker inspect caddy --format '{{range .Mounts}}{{if eq .Destination "/etc/caddy/Caddyfile"}}{{.Source}}{{end}}{{end}}')
+            validate() { docker exec caddy caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile; }
+            reload() { docker exec caddy caddy reload --config /etc/caddy/Caddyfile --adapter caddyfile; }
+            echo "Caddy runs as a container with $CF mounted"
+          else
+            echo "No running Caddy service or container found." >&2
+            exit 1
+          fi
+          if [ -z "$CF" ] || ! sudo -n test -f "$CF"; then
+            echo "Could not locate the Caddyfile." >&2
+            exit 1
+          fi
+
+          if sudo -n grep -q 'crickrida\.com' "$CF"; then
+            echo "Caddy already serves $NEW."
+            exit 0
+          fi
+
+          site_lines=$(sudo -n grep -cE '^[[:space:]]*(https://)?crickrida\.rkjat\.in([,[:space:]]|\{|$)' "$CF" || true)
+          if [ "$site_lines" != "1" ]; then
+            echo "Expected one site address line for $OLD, found $site_lines. Not editing." >&2
+            exit 1
+          fi
+
+          stamp=$(date +%Y%m%d%H%M%S)
+          sudo -n cp "$CF" "$CF.bak-$stamp"
+          sudo -n sed -i -E 's/^([[:space:]]*)(https:\/\/)?crickrida\.rkjat\.in([,[:space:]]|\{|$)/\1crickrida.com, \2crickrida.rkjat.in\3/' "$CF"
+          printf '\nwww.crickrida.com {\n\tredir https://crickrida.com{uri} permanent\n}\n' | sudo -n tee -a "$CF" >/dev/null
+
+          if ! validate; then
+            sudo -n cp "$CF.bak-$stamp" "$CF"
+            echo "The new Caddyfile failed validation. Restored $CF.bak-$stamp." >&2
+            exit 1
+          fi
+          reload
+          echo "Caddy now serves $NEW and redirects www.$NEW. Backup: $CF.bak-$stamp"
+
+    - name: Check the new domain
+      shell: bash
+      run: |
+        for attempt in $(seq 1 20); do
+          code=$(curl -s -o /dev/null -w '%{http_code}' https://crickrida.com/api/health || true)
+          if [ "$code" = "200" ]; then
+            echo "https://crickrida.com is serving the app"
+            curl -s -o /dev/null -w 'www: %{http_code} -> %{redirect_url}\n' https://www.crickrida.com/records || true
+            exit 0
+          fi
+          sleep 6
+        done
+        echo "https://crickrida.com did not answer yet (DNS or certificate still pending)."
