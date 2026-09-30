@@ -19,12 +19,12 @@ export default function MobileTabBar({ onSearch }) {
   return (
     <nav
       aria-label="Primary"
-      className="fixed inset-x-0 bottom-0 z-40 flex border-t border-white/[0.08] bg-[#0A0A0F]/90 backdrop-blur-xl lg:hidden"
+      className="fixed inset-x-0 bottom-0 z-40 flex border-t border-white/[0.08] bg-[#0C1210]/90 backdrop-blur-xl lg:hidden"
       style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
     >
       {TABS.map(t => (
         <NavLink key={t.to} to={t.to}
-          className={({ isActive }) => `${item} ${isActive ? 'text-accent-cyan' : 'text-text-muted hover:text-text-primary'}`}>
+          className={({ isActive }) => `${item} ${isActive ? 'text-accent-brand' : 'text-text-muted hover:text-text-primary'}`}>
           <Icon d={t.icon} />
           {t.label}
         </NavLink>

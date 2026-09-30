@@ -10,9 +10,9 @@ import { getTeamColor, getTeamAbbr } from '../constants/teams'
 import { useTournament } from '../contexts/TournamentContext'
 
 const ROLE_STYLE = {
-  Batter: 'text-accent-cyan bg-accent-cyan/10',
+  Batter: 'text-accent-brand bg-accent-brand/10',
   Bowler: 'text-accent-magenta bg-accent-magenta/10',
-  'All-rounder': 'text-accent-lime bg-accent-lime/10',
+  'All-rounder': 'text-accent-teal bg-accent-teal/10',
 }
 
 function PickRow({ p, badge, max }) {
@@ -24,7 +24,7 @@ function PickRow({ p, badge, max }) {
         <div className="flex items-center gap-2">
           <span className="truncate text-sm font-semibold text-text-primary">{p.player}</span>
           {badge && (
-            <span className={`rounded px-1.5 py-0.5 font-mono text-[10px] font-bold ${badge === 'C' ? 'bg-accent-amber/20 text-accent-amber' : 'bg-accent-cyan/20 text-accent-cyan'}`}>{badge}</span>
+            <span className={`rounded px-1.5 py-0.5 font-mono text-[10px] font-bold ${badge === 'C' ? 'bg-accent-amber/20 text-accent-amber' : 'bg-accent-brand/20 text-accent-brand'}`}>{badge}</span>
           )}
         </div>
         <div className="mt-0.5 flex items-center gap-2 text-[11px] text-text-muted">
@@ -32,7 +32,7 @@ function PickRow({ p, badge, max }) {
           <span className={`rounded px-1.5 font-mono ${ROLE_STYLE[p.role]}`}>{p.role}</span>
         </div>
         <div className="mt-1.5 h-1 rounded-full bg-white/5">
-          <div className="h-1 rounded-full bg-gradient-to-r from-accent-cyan to-accent-lime" style={{ width: `${Math.max(6, (p.projected / max) * 100)}%` }} />
+          <div className="h-1 rounded-full bg-gradient-to-r from-accent-brand to-accent-teal" style={{ width: `${Math.max(6, (p.projected / max) * 100)}%` }} />
         </div>
       </div>
       <div className="text-right">

@@ -11,11 +11,11 @@ import { useTournament } from '../contexts/TournamentContext'
 import useUrlState from '../hooks/useUrlState'
 import { formatNumber, formatDecimal } from '../utils/format'
 
-const COLORS = ['#00E5FF', '#FF2D78', '#B8FF00', '#FFB800']
+const COLORS = ['#C3F23B', '#FF2D78', '#2DD4BF', '#FFB800']
 const MAX_PLAYERS = 4
 const tooltipStyle = {
-  contentStyle: { backgroundColor: '#111118', border: '1px solid #1E1E2A', borderRadius: 8, color: '#E8E8ED' },
-  itemStyle: { color: '#E8E8ED' },
+  contentStyle: { backgroundColor: '#121a17', border: '1px solid #22302B', borderRadius: 8, color: '#F3F4EE' },
+  itemStyle: { color: '#F3F4EE' },
 }
 
 // Higher is better for every axis; "lower is better" stats are inverted.
@@ -93,7 +93,7 @@ export default function BowlingCompare() {
           <h1 className="text-3xl font-heading font-bold text-text-primary">Compare Bowlers</h1>
           <p className="mt-1 text-sm text-text-secondary">Pick up to {MAX_PLAYERS} bowlers. Every axis is scaled so the best of the group scores 100.</p>
         </div>
-        <Link to="/batting/compare" className="text-sm text-accent-cyan hover:underline">Compare batters →</Link>
+        <Link to="/batting/compare" className="text-sm text-accent-brand hover:underline">Compare batters →</Link>
       </div>
 
       <div className="card space-y-3">
@@ -101,12 +101,12 @@ export default function BowlingCompare() {
           <input value={query} onChange={e => setQuery(e.target.value)} disabled={names.length >= MAX_PLAYERS}
             placeholder={names.length >= MAX_PLAYERS ? 'Remove a bowler to add another' : 'Search bowler…'}
             aria-label="Search bowler"
-            className="w-full rounded-lg border border-border-subtle bg-bg-elevated px-3 py-2 text-sm text-text-primary placeholder:text-text-muted focus:border-accent-cyan/50 focus:outline-none" />
+            className="w-full rounded-lg border border-border-subtle bg-bg-elevated px-3 py-2 text-sm text-text-primary placeholder:text-text-muted focus:border-accent-brand/50 focus:outline-none" />
           {results.length > 0 && (
             <ul className="absolute z-20 mt-1 w-full overflow-hidden rounded-lg border border-border-subtle bg-bg-elevated shadow-xl">
               {results.map(r => (
                 <li key={r}>
-                  <button onClick={() => add(r)} className="flex w-full items-center gap-2 px-3 py-2 text-left text-sm text-text-secondary hover:bg-accent-cyan/10 hover:text-text-primary">
+                  <button onClick={() => add(r)} className="flex w-full items-center gap-2 px-3 py-2 text-left text-sm text-text-secondary hover:bg-accent-brand/10 hover:text-text-primary">
                     <PlayerAvatar name={r} size={22} showBorder={false} />{r}
                   </button>
                 </li>
@@ -127,7 +127,7 @@ export default function BowlingCompare() {
 
       {withData.length === 0 && (
         <div className="card py-12 text-center text-sm text-text-secondary">
-          Try <button className="text-accent-cyan hover:underline" onClick={() => setPicked('JJ Bumrah,YS Chahal,SP Narine')}>Bumrah vs Chahal vs Narine</button>
+          Try <button className="text-accent-brand hover:underline" onClick={() => setPicked('JJ Bumrah,YS Chahal,SP Narine')}>Bumrah vs Chahal vs Narine</button>
         </div>
       )}
 
@@ -136,8 +136,8 @@ export default function BowlingCompare() {
           <div className="card">
             <ResponsiveContainer width="100%" height={340}>
               <RadarChart data={radar} outerRadius="72%">
-                <PolarGrid stroke="#2A2A3A" />
-                <PolarAngleAxis dataKey="axis" tick={{ fill: '#A0A0B8', fontSize: 11 }} />
+                <PolarGrid stroke="#2E3F39" />
+                <PolarAngleAxis dataKey="axis" tick={{ fill: '#AEB8B2', fontSize: 11 }} />
                 <PolarRadiusAxis domain={[0, 100]} tick={false} axisLine={false} />
                 {withData.map(n => (
                   <Radar key={n} name={n} dataKey={n} stroke={COLORS[names.indexOf(n)]} fill={COLORS[names.indexOf(n)]} fillOpacity={0.15} strokeWidth={2} />

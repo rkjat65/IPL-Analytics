@@ -1,8 +1,8 @@
 export default function Badge({ text, color = 'cyan' }) {
   const colorMap = {
-    cyan: 'bg-accent-cyan/10 text-accent-cyan border-accent-cyan/20',
+    cyan: 'bg-accent-brand/10 text-accent-brand border-accent-brand/20',
     magenta: 'bg-accent-magenta/10 text-accent-magenta border-accent-magenta/20',
-    lime: 'bg-accent-lime/10 text-accent-lime border-accent-lime/20',
+    lime: 'bg-accent-teal/10 text-accent-teal border-accent-teal/20',
     amber: 'bg-accent-amber/10 text-accent-amber border-accent-amber/20',
     purple: 'bg-accent-purple/10 text-accent-purple border-accent-purple/20',
     success: 'bg-success/10 text-success border-success/20',

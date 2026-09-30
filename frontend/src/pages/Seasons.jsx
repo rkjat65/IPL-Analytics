@@ -31,7 +31,7 @@ import {
 } from 'recharts'
 
 const CHART_COLORS = [
-  '#00E5FF', // cyan
+  '#C3F23B', // cyan
   '#76FF03', // lime
   '#FF4081', // magenta
   '#FFAB00', // amber
@@ -57,7 +57,7 @@ function formatDateRange(startDate, endDate) {
 function CustomTooltip({ active, payload, label, unit = '' }) {
   if (!active || !payload?.length) return null
   return (
-    <div className="bg-[#16161F] border border-[#2A2A3A] rounded-lg px-3 py-2 shadow-lg">
+    <div className="bg-[#17211F] border border-[#2E3F39] rounded-lg px-3 py-2 shadow-lg">
       <p className="text-text-muted text-xs mb-1 font-mono">Match {label}</p>
       {payload.map((entry) => (
         <p key={entry.name} className="text-xs" style={{ color: entry.color }}>
@@ -119,7 +119,7 @@ export default function Seasons() {
   const seasonOptions = (seasons || []).map((s) => ({ value: String(s), label: String(s) }))
 
   const selectClass =
-    'bg-bg-card border border-border-subtle rounded-md px-3 py-2 text-sm text-text-primary font-body focus:outline-none focus:border-accent-cyan transition-colors appearance-none cursor-pointer pr-8'
+    'bg-bg-card border border-border-subtle rounded-md px-3 py-2 text-sm text-text-primary font-body focus:outline-none focus:border-accent-brand transition-colors appearance-none cursor-pointer pr-8'
   const selectStyle = {
     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238888A0' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")`,
     backgroundRepeat: 'no-repeat',
@@ -136,7 +136,7 @@ export default function Seasons() {
         const pos = val ?? 0
         const isPlayoff = pos <= 4
         return (
-          <span className={`font-mono font-semibold ${isPlayoff ? 'text-accent-lime' : 'text-text-primary'}`}>
+          <span className={`font-mono font-semibold ${isPlayoff ? 'text-accent-teal' : 'text-text-primary'}`}>
             {pos}
           </span>
         )
@@ -161,14 +161,14 @@ export default function Seasons() {
       },
     },
     { key: 'played', label: 'Mat', align: 'right', render: (val) => <span className="font-mono">{val}</span> },
-    { key: 'won', label: 'W', align: 'right', render: (val) => <span className="font-mono text-accent-lime">{val}</span> },
+    { key: 'won', label: 'W', align: 'right', render: (val) => <span className="font-mono text-accent-teal">{val}</span> },
     { key: 'lost', label: 'L', align: 'right', render: (val) => <span className="font-mono text-danger">{val}</span> },
     { key: 'no_result', label: 'NR', align: 'right', render: (val) => <span className="font-mono text-text-muted">{val ?? 0}</span> },
     {
       key: 'points',
       label: 'Pts',
       align: 'right',
-      render: (val) => <span className="font-mono font-bold text-accent-cyan">{val}</span>,
+      render: (val) => <span className="font-mono font-bold text-accent-brand">{val}</span>,
     },
     {
       key: 'nrr',
@@ -176,7 +176,7 @@ export default function Seasons() {
       align: 'right',
       render: (val) => {
         const n = parseFloat(val)
-        const color = n > 0 ? 'text-accent-lime' : n < 0 ? 'text-danger' : 'text-text-muted'
+        const color = n > 0 ? 'text-accent-teal' : n < 0 ? 'text-danger' : 'text-text-muted'
         return <span className={`font-mono ${color}`}>{n > 0 ? '+' : ''}{formatDecimal(val, 3)}</span>
       },
     },
@@ -339,7 +339,7 @@ export default function Seasons() {
       {/* Points Table */}
       <section>
         <div className="flex flex-wrap items-center gap-3 mb-4">
-          <div className="w-1 h-6 bg-accent-cyan rounded-full" />
+          <div className="w-1 h-6 bg-accent-brand rounded-full" />
           <h2 className="text-xl font-heading font-bold text-text-primary">Points Table</h2>
           {tournament.isT20WorldCup && groupScopes?.length > 0 && (
             <select
@@ -372,25 +372,25 @@ export default function Seasons() {
                 layout="vertical"
                 margin={{ top: 5, right: 30, left: 10, bottom: 5 }}
               >
-                <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" horizontal={false} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#22302B" horizontal={false} />
                 <XAxis
                   type="number"
-                  tick={{ fill: '#8888A0', fontSize: 12, fontFamily: 'JetBrains Mono' }}
-                  axisLine={{ stroke: '#1E1E2A' }}
-                  tickLine={{ stroke: '#1E1E2A' }}
+                  tick={{ fill: '#9AA69F', fontSize: 12, fontFamily: 'JetBrains Mono' }}
+                  axisLine={{ stroke: '#22302B' }}
+                  tickLine={{ stroke: '#22302B' }}
                   allowDecimals={false}
                 />
                 <YAxis
                   type="category"
                   dataKey="name"
                   width={55}
-                  tick={{ fill: '#8888A0', fontSize: 11, fontFamily: 'JetBrains Mono' }}
-                  axisLine={{ stroke: '#1E1E2A' }}
-                  tickLine={{ stroke: '#1E1E2A' }}
+                  tick={{ fill: '#9AA69F', fontSize: 11, fontFamily: 'JetBrains Mono' }}
+                  axisLine={{ stroke: '#22302B' }}
+                  tickLine={{ stroke: '#22302B' }}
                 />
                 <Tooltip
                   content={<CustomTooltip />}
-                  cursor={{ fill: '#1E1E2A' }}
+                  cursor={{ fill: '#22302B' }}
                 />
                 <Bar dataKey="points" name="Points" radius={[0, 4, 4, 0]} barSize={20}>
                   {ptData.map((row) => (
@@ -421,19 +421,19 @@ export default function Seasons() {
           <div className="bg-bg-card border border-border-subtle rounded-lg p-4">
             <ResponsiveContainer width="100%" height={350}>
               <LineChart data={orangeCapData.chartData}>
-                <CartesianGrid stroke="#1E1E2A" strokeDasharray="3 3" />
+                <CartesianGrid stroke="#22302B" strokeDasharray="3 3" />
                 <XAxis
                   dataKey="match_number"
-                  tick={{ fill: '#8888A0', fontSize: 12, fontFamily: 'JetBrains Mono' }}
-                  axisLine={{ stroke: '#1E1E2A' }}
-                  tickLine={{ stroke: '#1E1E2A' }}
-                  label={{ value: 'Match #', position: 'insideBottomRight', offset: -5, fill: '#8888A0', fontSize: 12 }}
+                  tick={{ fill: '#9AA69F', fontSize: 12, fontFamily: 'JetBrains Mono' }}
+                  axisLine={{ stroke: '#22302B' }}
+                  tickLine={{ stroke: '#22302B' }}
+                  label={{ value: 'Match #', position: 'insideBottomRight', offset: -5, fill: '#9AA69F', fontSize: 12 }}
                 />
                 <YAxis
-                  tick={{ fill: '#8888A0', fontSize: 12, fontFamily: 'JetBrains Mono' }}
-                  axisLine={{ stroke: '#1E1E2A' }}
-                  tickLine={{ stroke: '#1E1E2A' }}
-                  label={{ value: 'Runs', angle: -90, position: 'insideLeft', fill: '#8888A0', fontSize: 12 }}
+                  tick={{ fill: '#9AA69F', fontSize: 12, fontFamily: 'JetBrains Mono' }}
+                  axisLine={{ stroke: '#22302B' }}
+                  tickLine={{ stroke: '#22302B' }}
+                  label={{ value: 'Runs', angle: -90, position: 'insideLeft', fill: '#9AA69F', fontSize: 12 }}
                 />
                 <Tooltip content={<CustomTooltip />} />
                 <Legend
@@ -467,19 +467,19 @@ export default function Seasons() {
           <div className="bg-bg-card border border-border-subtle rounded-lg p-4">
             <ResponsiveContainer width="100%" height={350}>
               <LineChart data={purpleCapData.chartData}>
-                <CartesianGrid stroke="#1E1E2A" strokeDasharray="3 3" />
+                <CartesianGrid stroke="#22302B" strokeDasharray="3 3" />
                 <XAxis
                   dataKey="match_number"
-                  tick={{ fill: '#8888A0', fontSize: 12, fontFamily: 'JetBrains Mono' }}
-                  axisLine={{ stroke: '#1E1E2A' }}
-                  tickLine={{ stroke: '#1E1E2A' }}
-                  label={{ value: 'Match #', position: 'insideBottomRight', offset: -5, fill: '#8888A0', fontSize: 12 }}
+                  tick={{ fill: '#9AA69F', fontSize: 12, fontFamily: 'JetBrains Mono' }}
+                  axisLine={{ stroke: '#22302B' }}
+                  tickLine={{ stroke: '#22302B' }}
+                  label={{ value: 'Match #', position: 'insideBottomRight', offset: -5, fill: '#9AA69F', fontSize: 12 }}
                 />
                 <YAxis
-                  tick={{ fill: '#8888A0', fontSize: 12, fontFamily: 'JetBrains Mono' }}
-                  axisLine={{ stroke: '#1E1E2A' }}
-                  tickLine={{ stroke: '#1E1E2A' }}
-                  label={{ value: 'Wickets', angle: -90, position: 'insideLeft', fill: '#8888A0', fontSize: 12 }}
+                  tick={{ fill: '#9AA69F', fontSize: 12, fontFamily: 'JetBrains Mono' }}
+                  axisLine={{ stroke: '#22302B' }}
+                  tickLine={{ stroke: '#22302B' }}
+                  label={{ value: 'Wickets', angle: -90, position: 'insideLeft', fill: '#9AA69F', fontSize: 12 }}
                 />
                 <Tooltip content={<CustomTooltip />} />
                 <Legend

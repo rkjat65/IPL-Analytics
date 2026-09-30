@@ -15,7 +15,7 @@ import { formatNumber, formatDecimal } from '../utils/format'
 
 const ROLES = ['Batter', 'All-rounder', 'Bowler']
 const ROLE_STYLE = {
-  Batter: 'text-accent-lime border-accent-lime/40 bg-accent-lime/10',
+  Batter: 'text-accent-teal border-accent-teal/40 bg-accent-teal/10',
   Bowler: 'text-accent-magenta border-accent-magenta/40 bg-accent-magenta/10',
   'All-rounder': 'text-accent-amber border-accent-amber/40 bg-accent-amber/10',
 }
@@ -61,7 +61,7 @@ export default function Players() {
 
   const columns = [
     { key: 'player', label: 'Player', render: (val) => (
-      <Link to={`/players/${encodeURIComponent(val)}`} className="flex items-center gap-2 text-accent-cyan hover:underline font-medium whitespace-nowrap">
+      <Link to={`/players/${encodeURIComponent(val)}`} className="flex items-center gap-2 text-accent-brand hover:underline font-medium whitespace-nowrap">
         <PlayerAvatar name={val} size={30} showBorder={false} />
         {val}
       </Link>
@@ -75,7 +75,7 @@ export default function Players() {
     ) },
     { key: 'first_season', label: 'Span', render: (val, r) => mono(val === r.last_season ? val : `${val} to ${r.last_season}`) },
     { key: 'matches', label: 'Mat', align: 'right', render: (v) => <span className="font-mono font-semibold text-text-primary">{v}</span> },
-    { key: 'runs', label: 'Runs', align: 'right', render: (v) => <span className="font-mono text-accent-lime">{formatNumber(v)}</span> },
+    { key: 'runs', label: 'Runs', align: 'right', render: (v) => <span className="font-mono text-accent-teal">{formatNumber(v)}</span> },
     { key: 'avg', label: 'Avg', align: 'right', render: (v) => mono(v == null ? '-' : formatDecimal(v)) },
     { key: 'sr', label: 'SR', align: 'right', render: (v) => mono(v == null ? '-' : formatDecimal(v)) },
     { key: 'highest', label: 'HS', align: 'right', render: mono },
@@ -110,7 +110,7 @@ export default function Players() {
           onChange={(e) => setQ(e.target.value)}
           placeholder="Search players"
           aria-label="Search players"
-          className="bg-bg-card border border-border-subtle rounded-md px-3 py-2 text-sm text-text-primary font-body focus:outline-none focus:border-accent-cyan w-56"
+          className="bg-bg-card border border-border-subtle rounded-md px-3 py-2 text-sm text-text-primary font-body focus:outline-none focus:border-accent-brand w-56"
         />
         <Select options={teamOptions} value={team} onChange={setTeam} placeholder="" />
         <Select options={SORTS} value={sort} onChange={setSort} placeholder="" />
@@ -118,7 +118,7 @@ export default function Players() {
           {['', ...ROLES].map((r) => (
             <button key={r || 'all'} type="button" onClick={() => setRole(r)}
               className={`px-3 py-1.5 rounded-full text-xs font-mono border transition-colors ${
-                role === r ? 'border-accent-cyan text-accent-cyan bg-accent-cyan/10' : 'border-border-subtle text-text-muted hover:text-text-primary'}`}>
+                role === r ? 'border-accent-brand text-accent-brand bg-accent-brand/10' : 'border-border-subtle text-text-muted hover:text-text-primary'}`}>
               {r || 'All roles'}
             </button>
           ))}
@@ -126,10 +126,10 @@ export default function Players() {
       </div>
 
       <div className="flex flex-wrap gap-1" aria-label="Surname initial">
-        <button type="button" onClick={() => setLetter('')} className={`w-7 h-7 rounded text-xs font-mono ${!letter ? 'bg-bg-elevated text-accent-cyan' : 'text-text-muted hover:text-text-primary'}`}>All</button>
+        <button type="button" onClick={() => setLetter('')} className={`w-7 h-7 rounded text-xs font-mono ${!letter ? 'bg-bg-elevated text-accent-brand' : 'text-text-muted hover:text-text-primary'}`}>All</button>
         {letters.map((l) => (
           <button key={l} type="button" onClick={() => setLetter(l === letter ? '' : l)}
-            className={`w-7 h-7 rounded text-xs font-mono ${letter === l ? 'bg-bg-elevated text-accent-cyan' : 'text-text-muted hover:text-text-primary'}`}>
+            className={`w-7 h-7 rounded text-xs font-mono ${letter === l ? 'bg-bg-elevated text-accent-brand' : 'text-text-muted hover:text-text-primary'}`}>
             {l}
           </button>
         ))}

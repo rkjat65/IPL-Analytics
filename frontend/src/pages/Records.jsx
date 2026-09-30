@@ -59,12 +59,12 @@ const GROUPS = [
 ]
 
 const mono = (val) => <span className="font-mono">{val ?? '-'}</span>
-const strong = (val, cls = 'text-accent-lime') => <span className={`font-mono font-semibold ${cls}`}>{val ?? '-'}</span>
+const strong = (val, cls = 'text-accent-teal') => <span className={`font-mono font-semibold ${cls}`}>{val ?? '-'}</span>
 
 function PlayerLink({ name, bowler = false }) {
   if (!name) return '-'
   return (
-    <Link to={`/${bowler ? 'bowling' : 'batting'}/${encodeURIComponent(name)}`} className="flex items-center gap-2 text-accent-cyan hover:underline font-medium whitespace-nowrap">
+    <Link to={`/${bowler ? 'bowling' : 'batting'}/${encodeURIComponent(name)}`} className="flex items-center gap-2 text-accent-brand hover:underline font-medium whitespace-nowrap">
       <PlayerAvatar name={name} size={26} showBorder={false} />
       {name}
     </Link>
@@ -74,7 +74,7 @@ function PlayerLink({ name, bowler = false }) {
 function Team({ name }) {
   if (!name) return '-'
   return (
-    <Link to={`/teams/${encodeURIComponent(name)}`} className="flex items-center gap-2 text-text-primary hover:text-accent-cyan whitespace-nowrap">
+    <Link to={`/teams/${encodeURIComponent(name)}`} className="flex items-center gap-2 text-text-primary hover:text-accent-brand whitespace-nowrap">
       <TeamLogo team={name} size={20} />
       <span className="text-sm">{name}</span>
     </Link>
@@ -83,7 +83,7 @@ function Team({ name }) {
 
 function MatchLink({ row, label }) {
   return (
-    <Link to={`/matches/${row.match_id}`} className="text-text-secondary hover:text-accent-cyan text-xs whitespace-nowrap">
+    <Link to={`/matches/${row.match_id}`} className="text-text-secondary hover:text-accent-brand text-xs whitespace-nowrap">
       {label || `${row.season} · ${formatDate(row.date)}`}
     </Link>
   )
@@ -92,7 +92,7 @@ function MatchLink({ row, label }) {
 const RANK = { key: 'rank', label: '#', align: 'center', render: (val) => <span className={`font-mono font-bold ${{ 1: 'text-amber-400', 2: 'text-gray-400', 3: 'text-amber-700' }[val] || 'text-text-muted'}`}>{val}</span> }
 const CONTEXT = [
   { key: 'opponent', label: 'Opponent', render: (val) => <Team name={val} /> },
-  { key: 'venue', label: 'Venue', render: (val) => <Link to={`/venues/${encodeURIComponent(val)}`} className="text-text-secondary hover:text-accent-cyan text-xs">{val}</Link> },
+  { key: 'venue', label: 'Venue', render: (val) => <Link to={`/venues/${encodeURIComponent(val)}`} className="text-text-secondary hover:text-accent-brand text-xs">{val}</Link> },
   { key: 'match_id', label: 'Match', render: (_, row) => <MatchLink row={row} /> },
 ]
 
@@ -154,7 +154,7 @@ function columnsFor(group, kind) {
     return [RANK, { key: 'team1', label: 'Match', render: (v, r) => <span className="flex items-center gap-2 whitespace-nowrap"><Team name={v} /><span className="text-text-muted text-xs">v</span><Team name={r.team2} /></span> },
       { key: 'first_total', label: 'Scores', align: 'right', render: (v, r) => mono(`${v ?? '-'} v ${r.second_total ?? '-'}`) },
       { key: 'team', label: kind === 'ties' ? 'Result' : 'Winner', render: (v, r) => v ? <Team name={v} /> : <span className="text-text-muted text-xs">{r.result || 'tie'}</span> },
-      { key: 'venue', label: 'Venue', render: (val) => <Link to={`/venues/${encodeURIComponent(val)}`} className="text-text-secondary hover:text-accent-cyan text-xs">{val}</Link> },
+      { key: 'venue', label: 'Venue', render: (val) => <Link to={`/venues/${encodeURIComponent(val)}`} className="text-text-secondary hover:text-accent-brand text-xs">{val}</Link> },
       { key: 'match_id', label: 'Match', render: (_, row) => <MatchLink row={row} /> }]
   }
   return [RANK,
@@ -171,7 +171,7 @@ function columnsFor(group, kind) {
 }
 
 function Headline({ label, value, who, context, color = 'cyan' }) {
-  const colors = { cyan: 'text-accent-cyan', lime: 'text-accent-lime', magenta: 'text-accent-magenta', amber: 'text-accent-amber' }
+  const colors = { cyan: 'text-accent-brand', lime: 'text-accent-teal', magenta: 'text-accent-magenta', amber: 'text-accent-amber' }
   return (
     <div className="card animate-in">
       <p className="text-[11px] uppercase tracking-wider text-text-muted font-mono mb-1">{label}</p>
@@ -257,7 +257,7 @@ export default function Records() {
           <label className="flex items-center gap-2 text-xs text-text-secondary font-mono">
             Min balls
             <input type="number" min={6} max={500} value={minBalls} onChange={(e) => setMinBalls(Number(e.target.value) || 30)}
-              className="w-20 bg-bg-card border border-border-subtle rounded-md px-2 py-1.5 text-sm text-text-primary focus:outline-none focus:border-accent-cyan" />
+              className="w-20 bg-bg-card border border-border-subtle rounded-md px-2 py-1.5 text-sm text-text-primary focus:outline-none focus:border-accent-brand" />
           </label>
         )}
         {(season || team || venue) && (
@@ -269,7 +269,7 @@ export default function Records() {
         {GROUPS.map((g) => (
           <button key={g.key} type="button" onClick={() => { setGroup(g.key); setKind('') }}
             className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap border transition-colors ${
-              g.key === current.key ? 'bg-bg-elevated border-accent-cyan text-accent-cyan' : 'bg-bg-card border-border-subtle text-text-secondary hover:text-text-primary hover:border-border-active'}`}>
+              g.key === current.key ? 'bg-bg-elevated border-accent-brand text-accent-brand' : 'bg-bg-card border-border-subtle text-text-secondary hover:text-text-primary hover:border-border-active'}`}>
             {g.label}
           </button>
         ))}
@@ -279,7 +279,7 @@ export default function Records() {
         {current.kinds.map((k) => (
           <button key={k.key} type="button" onClick={() => setKind(k.key)}
             className={`px-3 py-1.5 rounded-full text-xs font-mono border transition-colors ${
-              k.key === activeKind ? 'border-accent-lime text-accent-lime bg-accent-lime/10' : 'border-border-subtle text-text-muted hover:text-text-primary'}`}>
+              k.key === activeKind ? 'border-accent-teal text-accent-teal bg-accent-teal/10' : 'border-border-subtle text-text-muted hover:text-text-primary'}`}>
             {k.label}
           </button>
         ))}

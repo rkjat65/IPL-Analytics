@@ -5,7 +5,7 @@
 @layer base {
   * {
     scrollbar-width: thin;
-    scrollbar-color: #2A2A3A #0A0A0F;
+    scrollbar-color: #2E3F39 #0C1210;
   }
 
   ::-webkit-scrollbar {
@@ -13,26 +13,26 @@
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #0A0A0F;
+    background: #0C1210;
   }
   ::-webkit-scrollbar-thumb {
-    background: #2A2A3A;
+    background: #2E3F39;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #3A3A4A;
+    background: #3B4F48;
   }
 }
 
 @layer components {
-  .stat-glow-cyan {
-    text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+  .stat-glow-brand {
+    text-shadow: 0 0 10px rgba(195, 242, 59, 0.3);
   }
   .stat-glow-magenta {
     text-shadow: 0 0 10px rgba(255, 45, 120, 0.3);
   }
-  .stat-glow-lime {
-    text-shadow: 0 0 10px rgba(184, 255, 0, 0.3);
+  .stat-glow-teal {
+    text-shadow: 0 0 10px rgba(45, 212, 191, 0.3);
   }
   .stat-glow-amber {
     text-shadow: 0 0 10px rgba(255, 184, 0, 0.3);
@@ -46,7 +46,7 @@
   .card:hover {
     @apply bg-bg-card-hover border-border-active;
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px -12px rgba(0, 229, 255, 0.18), 0 0 0 1px rgba(0, 229, 255, 0.06);
+    box-shadow: 0 10px 30px -12px rgba(195, 242, 59, 0.18), 0 0 0 1px rgba(195, 242, 59, 0.06);
   }
 
   /* Route change: new page content eases in */

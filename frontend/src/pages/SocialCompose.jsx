@@ -156,13 +156,13 @@ export default function SocialCompose() {
           <h2 className="text-lg font-heading font-bold text-text-primary">Social Compose</h2>
           <p className="text-xs text-text-muted font-mono">
             Compose, preview, and post to Twitter/X
-            {socialStatus?.twitter?.available && <span className="text-accent-lime ml-2">● Twitter Connected</span>}
+            {socialStatus?.twitter?.available && <span className="text-accent-teal ml-2">● Twitter Connected</span>}
           </p>
         </div>
         <div className="flex gap-2">
           <button
             onClick={() => setThreadMode(false)}
-            className={`px-4 py-2 text-xs rounded-lg border transition-colors ${!threadMode ? 'bg-accent-cyan/20 border-accent-cyan/40 text-accent-cyan' : 'border-border-subtle text-text-secondary'}`}
+            className={`px-4 py-2 text-xs rounded-lg border transition-colors ${!threadMode ? 'bg-accent-brand/20 border-accent-brand/40 text-accent-brand' : 'border-border-subtle text-text-secondary'}`}
           >
             Single Tweet
           </button>
@@ -225,7 +225,7 @@ export default function SocialCompose() {
                     {totalWithTags}/280 characters
                   </span>
                   <div className="flex gap-2">
-                    <label className="text-xs font-mono text-accent-cyan cursor-pointer hover:text-accent-cyan/80">
+                    <label className="text-xs font-mono text-accent-brand cursor-pointer hover:text-accent-brand/80">
                       📎 Image
                       <input type="file" accept="image/*" className="hidden" onChange={handleImageUpload} />
                     </label>
@@ -256,7 +256,7 @@ export default function SocialCompose() {
                 {['general', 'batting', 'bowling', 'match', 'team'].map(cat => (
                   <button key={cat} onClick={() => loadHashtags(cat)}
                     className={`text-[10px] px-2 py-0.5 rounded-full font-mono transition-colors ${
-                      hashtagCategory === cat ? 'bg-accent-cyan/20 text-accent-cyan' : 'text-text-muted hover:text-text-secondary'
+                      hashtagCategory === cat ? 'bg-accent-brand/20 text-accent-brand' : 'text-text-muted hover:text-text-secondary'
                     }`}
                   >
                     {cat}
@@ -269,7 +269,7 @@ export default function SocialCompose() {
                 <button key={tag} onClick={() => toggleHashtag(tag)}
                   className={`text-xs px-2.5 py-1 rounded-full font-mono transition-all ${
                     hashtags.includes(tag)
-                      ? 'bg-accent-cyan/20 text-accent-cyan border border-accent-cyan/40'
+                      ? 'bg-accent-brand/20 text-accent-brand border border-accent-brand/40'
                       : 'bg-bg-elevated text-text-muted border border-border-subtle hover:text-text-secondary'
                   }`}
                 >
@@ -295,14 +295,14 @@ export default function SocialCompose() {
               💾 Save Draft
             </button>
             <button onClick={handlePost}
-              className="flex-1 px-4 py-2.5 bg-accent-cyan/20 border border-accent-cyan/30 rounded-lg text-sm font-mono text-accent-cyan hover:bg-accent-cyan/30 transition-colors">
+              className="flex-1 px-4 py-2.5 bg-accent-brand/20 border border-accent-brand/30 rounded-lg text-sm font-mono text-accent-brand hover:bg-accent-brand/30 transition-colors">
               🚀 Post Now
             </button>
           </div>
 
           {status && (
             <div className={`text-center text-xs font-mono py-2 px-4 rounded-lg ${
-              status.includes('failed') || status.includes('Failed') ? 'bg-red-500/10 text-red-400' : 'bg-accent-cyan/10 text-accent-cyan'
+              status.includes('failed') || status.includes('Failed') ? 'bg-red-500/10 text-red-400' : 'bg-accent-brand/10 text-accent-brand'
             }`}>
               {status}
             </div>
@@ -317,7 +317,7 @@ export default function SocialCompose() {
               <h3 className="text-xs font-mono text-text-muted mb-3 uppercase tracking-wider">Tweet Preview</h3>
               <div className="bg-bg-elevated rounded-xl p-4 border border-border-subtle">
                 <div className="flex items-center gap-2 mb-2">
-                  <div className="w-8 h-8 rounded-full bg-accent-cyan/20 flex items-center justify-center text-xs font-bold text-accent-cyan">C</div>
+                  <div className="w-8 h-8 rounded-full bg-accent-brand/20 flex items-center justify-center text-xs font-bold text-accent-brand">C</div>
                   <div>
                     <div className="text-sm font-bold text-text-primary">Crickrida</div>
                     <div className="text-[10px] text-text-muted font-mono">@Crickrida</div>
@@ -333,7 +333,7 @@ export default function SocialCompose() {
                   <span className="text-[10px] text-text-muted">
                     {preview.remaining >= 0 ? `${preview.remaining} chars left` : `${Math.abs(preview.remaining)} over limit!`}
                   </span>
-                  <span className={`text-[10px] ${preview.estimated_engagement === 'high' ? 'text-accent-lime' : 'text-text-muted'}`}>
+                  <span className={`text-[10px] ${preview.estimated_engagement === 'high' ? 'text-accent-teal' : 'text-text-muted'}`}>
                     Est. engagement: {preview.estimated_engagement}
                   </span>
                 </div>
@@ -352,8 +352,8 @@ export default function SocialCompose() {
                     <span className="text-[10px] text-text-muted ml-2">{t.label}</span>
                   </div>
                   <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full ${
-                    t.engagement === 'very high' ? 'bg-accent-lime/10 text-accent-lime' :
-                    t.engagement === 'high' ? 'bg-accent-cyan/10 text-accent-cyan' :
+                    t.engagement === 'very high' ? 'bg-accent-teal/10 text-accent-teal' :
+                    t.engagement === 'high' ? 'bg-accent-brand/10 text-accent-brand' :
                     'bg-bg-elevated text-text-muted'
                   }`}>
                     {t.engagement}
@@ -376,7 +376,7 @@ export default function SocialCompose() {
                   <div key={d.id} className="bg-bg-elevated rounded-lg p-2.5 group">
                     <p className="text-xs text-text-secondary line-clamp-2">{d.text}</p>
                     <div className="flex justify-between items-center mt-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <button onClick={() => loadDraft(d)} className="text-[10px] font-mono text-accent-cyan hover:underline">Load</button>
+                      <button onClick={() => loadDraft(d)} className="text-[10px] font-mono text-accent-brand hover:underline">Load</button>
                       <button onClick={() => handleDeleteDraft(d.id)} className="text-[10px] font-mono text-red-400 hover:underline">Delete</button>
                     </div>
                   </div>

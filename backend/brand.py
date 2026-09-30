@@ -6,8 +6,8 @@ share images match the site's logo.
 
 from PIL import Image, ImageDraw
 
-LIME = (184, 255, 0)
-INK = (232, 232, 237)
+LIME = (195, 242, 59)
+INK = (243, 244, 238)
 
 W, H = 244, 240
 STEM = [(0, 0), (66, 0), (66, 98), (0, 194)]

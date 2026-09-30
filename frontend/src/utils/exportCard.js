@@ -13,7 +13,7 @@ export async function exportAsImage(element, filename = 'crickrida-card', format
     quality: 1,
     pixelRatio: 2,
     cacheBust: true,
-    backgroundColor: '#0A0A0F',
+    backgroundColor: '#0C1210',
     width: element.scrollWidth,
     height: element.scrollHeight,
   }

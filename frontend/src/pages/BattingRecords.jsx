@@ -27,10 +27,10 @@ import {
 function ChartTooltip({ active, payload, label }) {
   if (!active || !payload?.length) return null
   return (
-    <div className="bg-[#16161F] border border-[#2A2A3A] rounded-lg px-3 py-2 shadow-lg">
-      <p className="text-[#8888A0] text-xs mb-1 font-mono">{label}</p>
+    <div className="bg-[#17211F] border border-[#2E3F39] rounded-lg px-3 py-2 shadow-lg">
+      <p className="text-[#9AA69F] text-xs mb-1 font-mono">{label}</p>
       {payload.map((entry, i) => (
-        <p key={i} className="text-xs" style={{ color: entry.color || '#E8E8ED' }}>
+        <p key={i} className="text-xs" style={{ color: entry.color || '#F3F4EE' }}>
           {entry.name}: <span className="font-mono font-semibold">{typeof entry.value === 'number' ? entry.value.toLocaleString() : entry.value}</span>
         </p>
       ))}
@@ -50,7 +50,7 @@ const SORT_OPTIONS = [
 ]
 
 const BAR_COLORS = [
-  '#00E5FF', '#B8FF00', '#FFB800', '#FF2D78', '#8B5CF6',
+  '#C3F23B', '#2DD4BF', '#FFB800', '#FF2D78', '#8B5CF6',
   '#22D3EE', '#22C55E', '#FBBF24', '#EF4444', '#A78BFA',
   '#F472B6', '#34D399', '#FB923C', '#60A5FA', '#E879F9',
 ]
@@ -107,7 +107,7 @@ export default function BattingRecords() {
       key: 'player',
       label: 'Player',
       render: (val) => (
-        <Link to={`/batting/${encodeURIComponent(val)}`} className="flex items-center gap-2 text-accent-cyan hover:underline font-medium">
+        <Link to={`/batting/${encodeURIComponent(val)}`} className="flex items-center gap-2 text-accent-brand hover:underline font-medium">
           <PlayerAvatar name={val} size={28} showBorder={false} />
           {val}
         </Link>
@@ -119,7 +119,7 @@ export default function BattingRecords() {
       key: 'runs',
       label: 'Runs',
       align: 'right',
-      render: (val) => <span className="font-mono font-semibold text-accent-lime">{formatNumber(val)}</span>,
+      render: (val) => <span className="font-mono font-semibold text-accent-teal">{formatNumber(val)}</span>,
     },
     { key: 'avg', label: 'Avg', align: 'right', render: (val) => <span className="font-mono">{formatDecimal(val)}</span> },
     { key: 'sr', label: 'SR', align: 'right', render: (val) => <span className="font-mono">{formatDecimal(val)}</span> },
@@ -159,7 +159,7 @@ export default function BattingRecords() {
           <p className="text-text-secondary text-sm mt-1">Top run scorers across {tournament.name} {tournament.competitionLabelPlural.toLowerCase()}</p>
         </div>
         <div className="flex flex-wrap items-center gap-2">
-          <Link to="/batting/compare" className="inline-flex items-center rounded-lg border border-border-subtle px-3.5 py-2 text-xs font-semibold text-text-secondary hover:border-accent-cyan/40 hover:text-accent-cyan transition-colors">Compare batters</Link>
+          <Link to="/batting/compare" className="inline-flex items-center rounded-lg border border-border-subtle px-3.5 py-2 text-xs font-semibold text-text-secondary hover:border-accent-brand/40 hover:text-accent-brand transition-colors">Compare batters</Link>
           <MakeCardButton label="Share the top 5" params={{ t: 'leaderboard', stat: 'runs' }} />
         </div>
       </div>
@@ -206,7 +206,7 @@ export default function BattingRecords() {
             <button
               onClick={handleDownloadChart}
               disabled={downloading}
-              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border border-border-subtle text-text-secondary hover:text-accent-cyan hover:border-accent-cyan/40 transition-colors disabled:opacity-40"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border border-border-subtle text-text-secondary hover:text-accent-brand hover:border-accent-brand/40 transition-colors disabled:opacity-40"
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -223,22 +223,22 @@ export default function BattingRecords() {
               layout="vertical"
               margin={{ top: 5, right: 60, left: 10, bottom: 5 }}
             >
-              <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" horizontal={false} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#22302B" horizontal={false} />
               <XAxis
                 type="number"
-                tick={{ fill: '#8888A0', fontSize: 12, fontFamily: 'JetBrains Mono' }}
-                axisLine={{ stroke: '#1E1E2A' }}
-                tickLine={{ stroke: '#1E1E2A' }}
+                tick={{ fill: '#9AA69F', fontSize: 12, fontFamily: 'JetBrains Mono' }}
+                axisLine={{ stroke: '#22302B' }}
+                tickLine={{ stroke: '#22302B' }}
               />
               <YAxis
                 type="category"
                 dataKey="name"
                 width={120}
-                tick={{ fill: '#8888A0', fontSize: 11, fontFamily: 'JetBrains Mono' }}
-                axisLine={{ stroke: '#1E1E2A' }}
-                tickLine={{ stroke: '#1E1E2A' }}
+                tick={{ fill: '#9AA69F', fontSize: 11, fontFamily: 'JetBrains Mono' }}
+                axisLine={{ stroke: '#22302B' }}
+                tickLine={{ stroke: '#22302B' }}
               />
-              <Tooltip content={<ChartTooltip />} cursor={{ fill: '#1E1E2A' }} />
+              <Tooltip content={<ChartTooltip />} cursor={{ fill: '#22302B' }} />
               <Bar
                 dataKey="value"
                 name={SORT_OPTIONS.find((o) => o.value === sortBy)?.label || sortBy}

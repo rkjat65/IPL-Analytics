@@ -36,7 +36,7 @@ export default function Venues() {
       key: 'venue',
       label: 'Venue',
       render: (val) => (
-        <span className="text-accent-cyan font-medium">{val}</span>
+        <span className="text-accent-brand font-medium">{val}</span>
       ),
     },
     { key: 'city', label: 'City', render: (val) => <span className="text-text-secondary">{val || '-'}</span> },

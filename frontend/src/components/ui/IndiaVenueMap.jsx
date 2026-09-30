@@ -298,8 +298,8 @@ export default function IndiaVenueMap({ venues = [] }) {
                       <Geography
                         key={geo.rpiKey || stateName || geo.id}
                         geography={geo}
-                        fill={hasVenue ? '#1A1A28' : '#111118'}
-                        stroke="#2A2A3A"
+                        fill={hasVenue ? '#1A1A28' : '#121a17'}
+                        stroke="#2E3F39"
                         strokeWidth={0.5}
                         style={{
                           default: { outline: 'none' },
@@ -334,12 +334,12 @@ export default function IndiaVenueMap({ venues = [] }) {
                     {/* Glow ring */}
                     <circle
                       r={size + 4}
-                      fill="#00E5FF"
+                      fill="#C3F23B"
                       opacity={isHov ? 0.25 : 0.06}
                     />
                     {/* Pulse animation on hover */}
                     {isHov && (
-                      <circle r={size + 8} fill="none" stroke="#00E5FF" strokeWidth={1} opacity={0.3}>
+                      <circle r={size + 8} fill="none" stroke="#C3F23B" strokeWidth={1} opacity={0.3}>
                         <animate attributeName="r" from={size + 4} to={size + 16} dur="1.5s" repeatCount="indefinite" />
                         <animate attributeName="opacity" from="0.4" to="0" dur="1.5s" repeatCount="indefinite" />
                       </circle>
@@ -347,7 +347,7 @@ export default function IndiaVenueMap({ venues = [] }) {
                     {/* Main dot */}
                     <circle
                       r={size}
-                      fill={isHov ? '#00E5FF' : '#00E5FF'}
+                      fill={isHov ? '#C3F23B' : '#C3F23B'}
                       opacity={isHov ? 1 : 0.75}
                       stroke={isHov ? '#fff' : 'none'}
                       strokeWidth={isHov ? 1.5 : 0}
@@ -360,7 +360,7 @@ export default function IndiaVenueMap({ venues = [] }) {
                         style={{
                           fontFamily: 'Inter, sans-serif',
                           fontSize: isHov ? 10 : 8,
-                          fill: isHov ? '#F0F0F5' : '#8888A0',
+                          fill: isHov ? '#F0F0F5' : '#9AA69F',
                           fontWeight: isHov ? 600 : 400,
                           pointerEvents: 'none',
                         }}
@@ -377,7 +377,7 @@ export default function IndiaVenueMap({ venues = [] }) {
           {/* Floating tooltip */}
           {hovered && (
             <div
-              className="fixed z-50 pointer-events-none bg-[#16161F] border border-[#2A2A3A] rounded-lg px-3 py-2 shadow-xl"
+              className="fixed z-50 pointer-events-none bg-[#17211F] border border-[#2E3F39] rounded-lg px-3 py-2 shadow-xl"
               style={{
                 left: tooltipPos.x + 16,
                 top: tooltipPos.y - 10,
@@ -386,7 +386,7 @@ export default function IndiaVenueMap({ venues = [] }) {
               <p className="text-text-primary text-sm font-semibold font-heading">
                 {hovered}
               </p>
-              <p className="text-accent-cyan text-xs font-mono">
+              <p className="text-accent-brand text-xs font-mono">
                 {indianVenues.find((v) => v.city === hovered)?.matches || 0}{' '}
                 matches
               </p>
@@ -405,19 +405,19 @@ export default function IndiaVenueMap({ venues = [] }) {
           )}
 
           {/* Legend */}
-          <div className="absolute bottom-3 left-3 bg-[#111118]/90 border border-border-subtle rounded-lg px-3 py-2 backdrop-blur-sm">
+          <div className="absolute bottom-3 left-3 bg-[#121a17]/90 border border-border-subtle rounded-lg px-3 py-2 backdrop-blur-sm">
             <p className="text-[10px] text-text-muted mb-1.5 font-heading uppercase tracking-wider">
               Matches
             </p>
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1">
-                <div className="w-2 h-2 rounded-full bg-accent-cyan opacity-60" />
+                <div className="w-2 h-2 rounded-full bg-accent-brand opacity-60" />
                 <span className="text-[9px] text-text-muted font-mono">
                   Few
                 </span>
               </div>
               <div className="flex items-center gap-1">
-                <div className="w-3.5 h-3.5 rounded-full bg-accent-cyan opacity-80" />
+                <div className="w-3.5 h-3.5 rounded-full bg-accent-brand opacity-80" />
                 <span className="text-[9px] text-text-muted font-mono">
                   Many
                 </span>
@@ -447,7 +447,7 @@ export default function IndiaVenueMap({ venues = [] }) {
                     className="w-full text-left flex items-center justify-between py-2 px-2 rounded-lg hover:bg-bg-card transition-colors group"
                   >
                     <div className="min-w-0 flex-1">
-                      <span className="text-accent-cyan text-sm group-hover:text-white transition-colors truncate block">
+                      <span className="text-accent-brand text-sm group-hover:text-white transition-colors truncate block">
                         {v.city}
                       </span>
                       <span className="text-text-muted text-[10px] truncate block">
@@ -482,7 +482,7 @@ export default function IndiaVenueMap({ venues = [] }) {
                     className="w-full text-left flex items-center justify-between py-1.5 px-2 rounded-lg hover:bg-bg-card transition-colors group"
                   >
                     <div className="min-w-0 flex-1">
-                      <span className="text-text-primary text-xs group-hover:text-accent-cyan transition-colors truncate block">
+                      <span className="text-text-primary text-xs group-hover:text-accent-brand transition-colors truncate block">
                         {v.city}
                       </span>
                     </div>
@@ -498,7 +498,7 @@ export default function IndiaVenueMap({ venues = [] }) {
           {/* Top Indian Venues */}
           <div className="bg-bg-elevated border border-border-subtle rounded-xl p-4">
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-1.5 h-1.5 rounded-full bg-accent-cyan" />
+              <div className="w-1.5 h-1.5 rounded-full bg-accent-brand" />
               <p className="text-xs text-text-muted uppercase tracking-wider font-heading">
                 Top Venues
               </p>
@@ -519,7 +519,7 @@ export default function IndiaVenueMap({ venues = [] }) {
                     {i + 1}
                   </span>
                   <div className="min-w-0">
-                    <p className="text-text-primary text-xs truncate group-hover:text-accent-cyan transition-colors">
+                    <p className="text-text-primary text-xs truncate group-hover:text-accent-brand transition-colors">
                       {v.city}
                     </p>
                     {v.venues.length > 1 && (
@@ -529,7 +529,7 @@ export default function IndiaVenueMap({ venues = [] }) {
                     )}
                   </div>
                 </div>
-                <span className="text-accent-lime text-xs font-mono font-bold ml-2">
+                <span className="text-accent-teal text-xs font-mono font-bold ml-2">
                   {v.matches}
                 </span>
               </button>

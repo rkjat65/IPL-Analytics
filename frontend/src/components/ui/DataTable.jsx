@@ -130,7 +130,7 @@ export default function DataTable({
             </button>
 
             <span className="text-xs text-text-muted">
-              Page <span className="text-accent-cyan font-medium">{currentPage}</span> of {totalPages}
+              Page <span className="text-accent-brand font-medium">{currentPage}</span> of {totalPages}
             </span>
 
             <button

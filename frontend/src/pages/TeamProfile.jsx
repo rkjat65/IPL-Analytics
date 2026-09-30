@@ -30,10 +30,10 @@ import {
 function ChartTooltip({ active, payload, label }) {
   if (!active || !payload?.length) return null
   return (
-    <div className="bg-[#16161F] border border-[#2A2A3A] rounded-lg px-3 py-2 shadow-lg">
-      <p className="text-[#8888A0] text-xs mb-1 font-mono">{label}</p>
+    <div className="bg-[#17211F] border border-[#2E3F39] rounded-lg px-3 py-2 shadow-lg">
+      <p className="text-[#9AA69F] text-xs mb-1 font-mono">{label}</p>
       {payload.map((entry, i) => (
-        <p key={i} className="text-xs" style={{ color: entry.color || '#E8E8ED' }}>
+        <p key={i} className="text-xs" style={{ color: entry.color || '#F3F4EE' }}>
           {entry.name}: <span className="font-mono font-semibold">{typeof entry.value === 'number' ? entry.value.toLocaleString() : entry.value}</span>
         </p>
       ))}
@@ -112,7 +112,7 @@ export default function TeamProfile() {
   const seasonColumns = [
     { key: 'season', label: 'Season' },
     { key: 'matches', label: 'Mat', align: 'right', render: (val) => <span className="font-mono">{val}</span> },
-    { key: 'wins', label: 'W', align: 'right', render: (val) => <span className="font-mono text-accent-lime">{val}</span> },
+    { key: 'wins', label: 'W', align: 'right', render: (val) => <span className="font-mono text-accent-teal">{val}</span> },
     { key: 'losses', label: 'L', align: 'right', render: (val) => <span className="font-mono text-danger">{val}</span> },
     { key: 'ties', label: 'T', align: 'right', render: (val) => <span className="font-mono text-accent-amber">{val || 0}</span> },
     { key: 'no_results', label: 'NR', align: 'right', render: (val) => <span className="font-mono text-text-muted">{val || 0}</span> },
@@ -120,7 +120,7 @@ export default function TeamProfile() {
       key: 'win_pct',
       label: 'Win%',
       align: 'right',
-      render: (val) => <span className="font-mono font-semibold text-accent-cyan">{formatDecimal(val, 1)}%</span>,
+      render: (val) => <span className="font-mono font-semibold text-accent-brand">{formatDecimal(val, 1)}%</span>,
     },
   ]
 
@@ -132,20 +132,20 @@ export default function TeamProfile() {
       render: (val) => (
         <div className="flex items-center gap-2">
           <TeamLogo team={val} size={22} />
-          <Link to={`/teams/${encodeURIComponent(val)}`} className="text-accent-cyan hover:underline">
+          <Link to={`/teams/${encodeURIComponent(val)}`} className="text-accent-brand hover:underline">
             {val}
           </Link>
         </div>
       ),
     },
     { key: 'played', label: 'Played', align: 'right', render: (val) => <span className="font-mono">{val}</span> },
-    { key: 'won', label: 'Won', align: 'right', render: (val) => <span className="font-mono text-accent-lime">{val}</span> },
+    { key: 'won', label: 'Won', align: 'right', render: (val) => <span className="font-mono text-accent-teal">{val}</span> },
     { key: 'lost', label: 'Lost', align: 'right', render: (val) => <span className="font-mono text-danger">{val}</span> },
     {
       key: 'win_pct',
       label: 'Win%',
       align: 'right',
-      render: (val) => <span className="font-mono font-semibold text-accent-cyan">{formatDecimal(val, 1)}%</span>,
+      render: (val) => <span className="font-mono font-semibold text-accent-brand">{formatDecimal(val, 1)}%</span>,
     },
   ]
 
@@ -157,7 +157,7 @@ export default function TeamProfile() {
       {seoEl}
       {/* Header */}
       <div>
-        <Link to="/teams" className="text-text-muted text-sm hover:text-accent-cyan transition-colors mb-2 inline-block">
+        <Link to="/teams" className="text-text-muted text-sm hover:text-accent-brand transition-colors mb-2 inline-block">
           &larr; All Teams
         </Link>
         <div className="flex items-center gap-4 mt-1">
@@ -201,20 +201,20 @@ export default function TeamProfile() {
             <h3 className="text-sm font-heading font-semibold text-text-secondary mb-3">Wins &amp; Losses by Season</h3>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={seasons} margin={{ top: 10, right: 20, left: 0, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#22302B" />
                 <XAxis
                   dataKey="season"
-                  tick={{ fill: '#8888A0', fontSize: 11, fontFamily: 'JetBrains Mono' }}
-                  axisLine={{ stroke: '#1E1E2A' }}
-                  tickLine={{ stroke: '#1E1E2A' }}
+                  tick={{ fill: '#9AA69F', fontSize: 11, fontFamily: 'JetBrains Mono' }}
+                  axisLine={{ stroke: '#22302B' }}
+                  tickLine={{ stroke: '#22302B' }}
                 />
                 <YAxis
-                  tick={{ fill: '#8888A0', fontSize: 12, fontFamily: 'JetBrains Mono' }}
-                  axisLine={{ stroke: '#1E1E2A' }}
-                  tickLine={{ stroke: '#1E1E2A' }}
+                  tick={{ fill: '#9AA69F', fontSize: 12, fontFamily: 'JetBrains Mono' }}
+                  axisLine={{ stroke: '#22302B' }}
+                  tickLine={{ stroke: '#22302B' }}
                   allowDecimals={false}
                 />
-                <Tooltip content={<ChartTooltip />} cursor={{ fill: '#1E1E2A' }} />
+                <Tooltip content={<ChartTooltip />} cursor={{ fill: '#22302B' }} />
                 <Legend wrapperStyle={{ fontSize: 12 }} />
                 <Bar dataKey="wins" stackId="wl" fill="#22C55E" name="Wins" radius={[0, 0, 0, 0]} />
                 <Bar dataKey="losses" stackId="wl" fill="#EF4444" name="Losses" radius={[0, 0, 0, 0]} />
@@ -237,9 +237,9 @@ export default function TeamProfile() {
                     <stop offset="95%" stopColor={color} stopOpacity={0} />
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" />
-                <XAxis dataKey="season" tick={{ fill: '#8888A0', fontSize: 11, fontFamily: 'JetBrains Mono' }} axisLine={{ stroke: '#1E1E2A' }} tickLine={{ stroke: '#1E1E2A' }} />
-                <YAxis domain={[0, 100]} tick={{ fill: '#8888A0', fontSize: 11 }} axisLine={{ stroke: '#1E1E2A' }} tickLine={{ stroke: '#1E1E2A' }} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#22302B" />
+                <XAxis dataKey="season" tick={{ fill: '#9AA69F', fontSize: 11, fontFamily: 'JetBrains Mono' }} axisLine={{ stroke: '#22302B' }} tickLine={{ stroke: '#22302B' }} />
+                <YAxis domain={[0, 100]} tick={{ fill: '#9AA69F', fontSize: 11 }} axisLine={{ stroke: '#22302B' }} tickLine={{ stroke: '#22302B' }} />
                 <Tooltip content={<ChartTooltip />} cursor={{ stroke: color, strokeDasharray: '3 3' }} />
                 <Area type="monotone" dataKey="win_pct" stroke={color} strokeWidth={2} fill="url(#winPctGrad)" name="Win %" dot={{ fill: color, r: 3 }} />
               </AreaChart>
@@ -271,23 +271,23 @@ export default function TeamProfile() {
                 layout="vertical"
                 margin={{ top: 5, right: 30, left: 10, bottom: 5 }}
               >
-                <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" horizontal={false} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#22302B" horizontal={false} />
                 <XAxis
                   type="number"
-                  tick={{ fill: '#8888A0', fontSize: 12, fontFamily: 'JetBrains Mono' }}
-                  axisLine={{ stroke: '#1E1E2A' }}
-                  tickLine={{ stroke: '#1E1E2A' }}
+                  tick={{ fill: '#9AA69F', fontSize: 12, fontFamily: 'JetBrains Mono' }}
+                  axisLine={{ stroke: '#22302B' }}
+                  tickLine={{ stroke: '#22302B' }}
                   allowDecimals={false}
                 />
                 <YAxis
                   type="category"
                   dataKey="name"
                   width={55}
-                  tick={{ fill: '#8888A0', fontSize: 11, fontFamily: 'JetBrains Mono' }}
-                  axisLine={{ stroke: '#1E1E2A' }}
-                  tickLine={{ stroke: '#1E1E2A' }}
+                  tick={{ fill: '#9AA69F', fontSize: 11, fontFamily: 'JetBrains Mono' }}
+                  axisLine={{ stroke: '#22302B' }}
+                  tickLine={{ stroke: '#22302B' }}
                 />
-                <Tooltip content={<ChartTooltip />} cursor={{ fill: '#1E1E2A' }} />
+                <Tooltip content={<ChartTooltip />} cursor={{ fill: '#22302B' }} />
                 <Legend wrapperStyle={{ fontSize: 12 }} />
                 <Bar dataKey="won" stackId="h2h" fill="#22C55E" name="Won" radius={[0, 0, 0, 0]} barSize={16} />
                 <Bar dataKey="lost" stackId="h2h" fill="#EF4444" name="Lost" radius={[0, 4, 4, 0]} barSize={16} />
@@ -305,13 +305,13 @@ export default function TeamProfile() {
 
       {/* Compare CTA */}
       {otherTeams.length > 0 && (
-        <div className="card border-accent-cyan/20">
+        <div className="card border-accent-brand/20">
           <p className="text-text-secondary text-sm mb-3">
             Compare {decoded} with another team
           </p>
           <Link
             to={`/h2h?team1=${encodeURIComponent(decoded)}`}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20 rounded-md text-sm font-medium hover:bg-accent-cyan/20 transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-accent-brand/10 text-accent-brand border border-accent-brand/20 rounded-md text-sm font-medium hover:bg-accent-brand/20 transition-colors"
           >
             Head to Head Comparison &rarr;
           </Link>

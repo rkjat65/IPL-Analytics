@@ -46,7 +46,7 @@ export const TEAM_COLORS = {
 }
 
 export function getTeamColor(teamName) {
-  return TEAM_COLORS[teamName]?.primary || '#8888A0'
+  return TEAM_COLORS[teamName]?.primary || '#9AA69F'
 }
 
 export function getTeamAbbr(teamName) {

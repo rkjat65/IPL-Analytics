@@ -46,7 +46,7 @@ export default function Admin() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-full">
-        <div className="w-8 h-8 border-2 border-accent-cyan border-t-transparent rounded-full animate-spin" />
+        <div className="w-8 h-8 border-2 border-accent-brand border-t-transparent rounded-full animate-spin" />
       </div>
     )
   }
@@ -85,9 +85,9 @@ export default function Admin() {
       {stats && (
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
           {[
-            { label: 'Total Users', value: stats.total_users, color: 'text-accent-cyan' },
+            { label: 'Total Users', value: stats.total_users, color: 'text-accent-brand' },
             { label: 'Google Users', value: stats.google_users, color: 'text-accent-magenta' },
-            { label: 'Email Users', value: stats.email_users, color: 'text-accent-lime' },
+            { label: 'Email Users', value: stats.email_users, color: 'text-accent-teal' },
             { label: 'Active Sessions', value: stats.active_sessions, color: 'text-accent-amber' },
             { label: 'Today Signups', value: stats.today_signups, color: 'text-green-400' },
           ].map(s => (
@@ -133,7 +133,7 @@ export default function Admin() {
                       {u.avatar_url ? (
                         <img src={u.avatar_url} alt="" className="w-8 h-8 rounded-full object-cover border border-border-subtle" />
                       ) : (
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-accent-cyan to-accent-magenta flex items-center justify-center text-white text-xs font-bold">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-accent-brand to-accent-magenta flex items-center justify-center text-white text-xs font-bold">
                           {u.name?.[0]?.toUpperCase() || '?'}
                         </div>
                       )}
@@ -145,7 +145,7 @@ export default function Admin() {
                     <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider ${
                       u.auth_provider === 'google'
                         ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
-                        : 'bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20'
+                        : 'bg-accent-brand/10 text-accent-brand border border-accent-brand/20'
                     }`}>
                       {u.auth_provider === 'google' && (
                         <svg className="w-3 h-3" viewBox="0 0 24 24">
@@ -166,7 +166,7 @@ export default function Admin() {
                     )}
                   </td>
                   <td className="py-3 px-4">
-                    <span className="font-mono text-xs text-accent-cyan">{u.login_count || 0}</span>
+                    <span className="font-mono text-xs text-accent-brand">{u.login_count || 0}</span>
                   </td>
                   <td className="py-3 px-4 text-text-muted font-mono text-xs whitespace-nowrap">
                     {u.last_login ? new Date(u.last_login + 'Z').toLocaleDateString('en-IN', {
@@ -175,7 +175,7 @@ export default function Admin() {
                     }) : 'Never'}
                   </td>
                   <td className="py-3 px-4">
-                    <span className={`font-mono text-xs ${u.active_sessions > 0 ? 'text-accent-lime' : 'text-text-muted'}`}>
+                    <span className={`font-mono text-xs ${u.active_sessions > 0 ? 'text-accent-teal' : 'text-text-muted'}`}>
                       {u.active_sessions > 0 ? `${u.active_sessions} active` : 'none'}
                     </span>
                   </td>
@@ -211,11 +211,11 @@ export default function Admin() {
       {resetModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
           onClick={() => setResetModal(null)}>
-          <div className="bg-[#111118] border border-border-subtle rounded-2xl p-6 w-full max-w-md mx-4 shadow-2xl"
+          <div className="bg-[#121a17] border border-border-subtle rounded-2xl p-6 w-full max-w-md mx-4 shadow-2xl"
             onClick={e => e.stopPropagation()}>
             <h3 className="font-heading font-bold text-text-primary text-lg mb-1">Reset Password</h3>
             <p className="text-text-secondary text-sm mb-4">
-              Set a new password for <span className="text-accent-cyan font-mono">{resetModal.email}</span>
+              Set a new password for <span className="text-accent-brand font-mono">{resetModal.email}</span>
             </p>
 
             {resetMsg && (
@@ -233,8 +233,8 @@ export default function Admin() {
               value={resetPassword}
               onChange={e => { setResetPassword(e.target.value); setResetMsg('') }}
               placeholder="New password (min 6 characters)"
-              className="w-full px-4 py-2.5 rounded-lg bg-[#0A0A0F] border border-[#1E1E2A] text-text-primary text-sm
-                placeholder-text-muted/50 focus:outline-none focus:ring-2 focus:ring-accent-cyan/40 mb-4"
+              className="w-full px-4 py-2.5 rounded-lg bg-[#0C1210] border border-[#22302B] text-text-primary text-sm
+                placeholder-text-muted/50 focus:outline-none focus:ring-2 focus:ring-accent-brand/40 mb-4"
             />
 
             <div className="flex gap-3">

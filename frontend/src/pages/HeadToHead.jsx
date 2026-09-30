@@ -17,14 +17,14 @@ import {
 /* ── Neon Tooltip ─────────────────────────────────────────── */
 function NeonTooltip({ children }) {
   return (
-    <div className="bg-[#16161F] border border-[#2A2A3A] rounded-lg px-3 py-2 shadow-lg text-xs">
+    <div className="bg-[#17211F] border border-[#2E3F39] rounded-lg px-3 py-2 shadow-lg text-xs">
       {children}
     </div>
   )
 }
 
 /* ── Section Header ───────────────────────────────────────── */
-function SectionHeader({ title, accentColor = 'bg-accent-cyan' }) {
+function SectionHeader({ title, accentColor = 'bg-accent-brand' }) {
   return (
     <div className="flex items-center gap-3 mb-4">
       <div className={`w-1 h-6 ${accentColor} rounded-full`} />
@@ -46,15 +46,15 @@ function VisualStatRow({ label, val1, val2, color1, color2, higherIsBetter = tru
   const display2 = isDecimal ? formatDecimal(n2, 1) : formatNumber(n2)
 
   return (
-    <div className="py-3 border-b border-[#1E1E2A] last:border-b-0">
+    <div className="py-3 border-b border-[#22302B] last:border-b-0">
       <p className="text-center text-xs text-text-muted uppercase tracking-wider mb-2">{label}</p>
       <div className="grid grid-cols-2 gap-3">
         {/* Team 1 bar (right-aligned, grows left) */}
         <div className="flex items-center gap-2">
-          <span className={`font-mono text-sm font-bold min-w-[50px] text-right ${better1 ? 'text-accent-lime' : 'text-text-primary'}`}>
+          <span className={`font-mono text-sm font-bold min-w-[50px] text-right ${better1 ? 'text-accent-teal' : 'text-text-primary'}`}>
             {display1}
           </span>
-          <div className="flex-1 h-3 rounded-full bg-[#1A1A24] overflow-hidden flex justify-end">
+          <div className="flex-1 h-3 rounded-full bg-[#1D2925] overflow-hidden flex justify-end">
             <div
               className="h-full rounded-full transition-all duration-700"
               style={{ width: `${pct1}%`, backgroundColor: color1, opacity: better1 ? 1 : 0.5 }}
@@ -63,13 +63,13 @@ function VisualStatRow({ label, val1, val2, color1, color2, higherIsBetter = tru
         </div>
         {/* Team 2 bar (left-aligned, grows right) */}
         <div className="flex items-center gap-2">
-          <div className="flex-1 h-3 rounded-full bg-[#1A1A24] overflow-hidden">
+          <div className="flex-1 h-3 rounded-full bg-[#1D2925] overflow-hidden">
             <div
               className="h-full rounded-full transition-all duration-700"
               style={{ width: `${pct2}%`, backgroundColor: color2, opacity: better2 ? 1 : 0.5 }}
             />
           </div>
-          <span className={`font-mono text-sm font-bold min-w-[50px] text-left ${better2 ? 'text-accent-lime' : 'text-text-primary'}`}>
+          <span className={`font-mono text-sm font-bold min-w-[50px] text-left ${better2 ? 'text-accent-teal' : 'text-text-primary'}`}>
             {display2}
           </span>
         </div>
@@ -117,7 +117,7 @@ export default function HeadToHead() {
   const abbr2 = getTeamAbbr(team2)
 
   const selectClass =
-    'bg-[#111118] border border-[#1E1E2A] rounded-lg px-4 py-3 text-sm text-text-primary font-body focus:outline-none focus:border-accent-cyan transition-colors appearance-none cursor-pointer pr-8 w-full'
+    'bg-[#121a17] border border-[#22302B] rounded-lg px-4 py-3 text-sm text-text-primary font-body focus:outline-none focus:border-accent-brand transition-colors appearance-none cursor-pointer pr-8 w-full'
   const selectStyle = {
     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238888A0' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")`,
     backgroundRepeat: 'no-repeat',
@@ -254,7 +254,7 @@ export default function HeadToHead() {
         <button
           onClick={handleSwap}
           disabled={!bothSelected}
-          className="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-[#111118] border border-[#1E1E2A] text-text-muted hover:text-accent-cyan hover:border-accent-cyan transition-colors disabled:opacity-30 disabled:cursor-not-allowed mb-0.5"
+          className="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-[#121a17] border border-[#22302B] text-text-muted hover:text-accent-brand hover:border-accent-brand transition-colors disabled:opacity-30 disabled:cursor-not-allowed mb-0.5"
           title="Swap teams"
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -292,7 +292,7 @@ export default function HeadToHead() {
         <div className="flex md:hidden justify-center -mt-4">
           <button
             onClick={handleSwap}
-            className="flex items-center gap-2 text-xs text-text-muted hover:text-accent-cyan transition-colors"
+            className="flex items-center gap-2 text-xs text-text-muted hover:text-accent-brand transition-colors"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
@@ -305,7 +305,7 @@ export default function HeadToHead() {
       {/* Empty state */}
       {!bothSelected && (
         <div className="flex flex-col items-center justify-center py-16 gap-3">
-          <div className="w-16 h-16 rounded-full bg-[#111118] border border-[#1E1E2A] flex items-center justify-center mb-2">
+          <div className="w-16 h-16 rounded-full bg-[#121a17] border border-[#22302B] flex items-center justify-center mb-2">
             <svg className="w-8 h-8 text-text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5" />
             </svg>
@@ -329,7 +329,7 @@ export default function HeadToHead() {
               1. H2H RECORD HERO
               ═══════════════════════════════════════════════════ */}
           {h2h && (
-            <div className="bg-[#111118] border border-[#1E1E2A] rounded-2xl p-6 md:p-8">
+            <div className="bg-[#121a17] border border-[#22302B] rounded-2xl p-6 md:p-8">
               {/* Team names + abbreviations */}
               <div className="flex items-center justify-between mb-6">
                 <div className="flex flex-col items-start">
@@ -438,7 +438,7 @@ export default function HeadToHead() {
             {streakData.dots.length > 0 && (
               <section>
                 <SectionHeader title="Win Streak Analysis" accentColor="bg-accent-magenta" />
-                <div className="bg-[#111118] border border-[#1E1E2A] rounded-2xl p-6 flex flex-col justify-center h-[calc(100%-2.5rem)]">
+                <div className="bg-[#121a17] border border-[#22302B] rounded-2xl p-6 flex flex-col justify-center h-[calc(100%-2.5rem)]">
                   <p className="text-text-muted text-xs uppercase tracking-wider text-center mb-5">Last {streakData.dots.length} Encounters</p>
 
                   {/* Dot row */}
@@ -479,14 +479,14 @@ export default function HeadToHead() {
                   </div>
 
                   {/* Current streak */}
-                  <div className="text-center pt-4 border-t border-[#1E1E2A]">
+                  <div className="text-center pt-4 border-t border-[#22302B]">
                     {streakData.streak ? (
                       <p className="text-sm">
                         <span className="text-text-muted uppercase tracking-wider text-xs">Current Streak: </span>
                         <span className="font-heading font-bold" style={{ color: streakData.streak.color }}>
                           {streakData.streak.abbr}
                         </span>
-                        <span className="font-mono font-bold text-accent-lime ml-1">
+                        <span className="font-mono font-bold text-accent-teal ml-1">
                           {streakData.streak.count} wins in a row
                         </span>
                       </p>
@@ -502,7 +502,7 @@ export default function HeadToHead() {
             {avgH2HScores ? (
               <section>
                 <SectionHeader title="Average H2H Scores" accentColor="bg-accent-amber" />
-                <div className="bg-[#111118] border border-[#1E1E2A] rounded-2xl p-6 flex flex-col justify-center h-[calc(100%-2.5rem)]">
+                <div className="bg-[#121a17] border border-[#22302B] rounded-2xl p-6 flex flex-col justify-center h-[calc(100%-2.5rem)]">
                   <div className="space-y-8">
                     {/* Team 1 avg score */}
                     <div>
@@ -512,7 +512,7 @@ export default function HeadToHead() {
                           {formatDecimal(avgH2HScores.team1_avg, 1)}
                         </span>
                       </div>
-                      <div className="h-4 rounded-full bg-[#1A1A24] overflow-hidden">
+                      <div className="h-4 rounded-full bg-[#1D2925] overflow-hidden">
                         <div
                           className="h-full rounded-full transition-all duration-700"
                           style={{
@@ -531,7 +531,7 @@ export default function HeadToHead() {
                           {formatDecimal(avgH2HScores.team2_avg, 1)}
                         </span>
                       </div>
-                      <div className="h-4 rounded-full bg-[#1A1A24] overflow-hidden">
+                      <div className="h-4 rounded-full bg-[#1D2925] overflow-hidden">
                         <div
                           className="h-full rounded-full transition-all duration-700"
                           style={{
@@ -545,7 +545,7 @@ export default function HeadToHead() {
 
                     {/* Difference callout */}
                     {avgH2HScores.team1_avg !== avgH2HScores.team2_avg && (
-                      <div className="text-center pt-4 border-t border-[#1E1E2A]">
+                      <div className="text-center pt-4 border-t border-[#22302B]">
                         <span className="text-text-muted text-xs uppercase tracking-wider">Score Advantage</span>
                         <p className="mt-1">
                           <span className="font-heading font-bold" style={{
@@ -554,7 +554,7 @@ export default function HeadToHead() {
                             {avgH2HScores.team1_avg > avgH2HScores.team2_avg ? abbr1 : abbr2}
                           </span>
                           <span className="text-text-secondary text-sm"> by </span>
-                          <span className="font-mono font-bold text-accent-lime">
+                          <span className="font-mono font-bold text-accent-teal">
                             {formatDecimal(Math.abs(avgH2HScores.team1_avg - avgH2HScores.team2_avg), 1)}
                           </span>
                           <span className="text-text-secondary text-sm"> runs on average</span>
@@ -569,7 +569,7 @@ export default function HeadToHead() {
               t1Stats && t2Stats && (
                 <section>
                   <SectionHeader title="Team Overview" accentColor="bg-accent-amber" />
-                  <div className="bg-[#111118] border border-[#1E1E2A] rounded-2xl p-6 flex flex-col justify-center h-[calc(100%-2.5rem)]">
+                  <div className="bg-[#121a17] border border-[#22302B] rounded-2xl p-6 flex flex-col justify-center h-[calc(100%-2.5rem)]">
                     <div className="grid grid-cols-2 gap-6">
                       {[
                         { label: 'Win %', v1: t1Stats.win_pct, v2: t2Stats.win_pct, dec: true },
@@ -602,8 +602,8 @@ export default function HeadToHead() {
               ═══════════════════════════════════════════════════ */}
           {cumulativeData.length > 0 && (
             <section>
-              <SectionHeader title={`Cumulative H2H Wins Over ${tournament.competitionLabelPlural}`} accentColor="bg-accent-cyan" />
-              <div className="bg-[#111118] border border-[#1E1E2A] rounded-2xl p-4">
+              <SectionHeader title={`Cumulative H2H Wins Over ${tournament.competitionLabelPlural}`} accentColor="bg-accent-brand" />
+              <div className="bg-[#121a17] border border-[#22302B] rounded-2xl p-4">
                 <ResponsiveContainer width="100%" height={340}>
                   <AreaChart data={cumulativeData} margin={{ top: 25, right: 30, left: 0, bottom: 5 }}>
                     <defs>
@@ -618,16 +618,16 @@ export default function HeadToHead() {
                     </defs>
                     <XAxis
                       dataKey="season"
-                      tick={{ fill: '#8888A0', fontSize: 11 }}
-                      axisLine={{ stroke: '#1E1E2A' }}
+                      tick={{ fill: '#9AA69F', fontSize: 11 }}
+                      axisLine={{ stroke: '#22302B' }}
                       tickLine={false}
                     />
                     <YAxis
                       allowDecimals={false}
-                      tick={{ fill: '#8888A0', fontSize: 11 }}
+                      tick={{ fill: '#9AA69F', fontSize: 11 }}
                       axisLine={false}
                       tickLine={false}
-                      label={{ value: 'Cumulative Wins', angle: -90, position: 'insideLeft', fill: '#8888A0', fontSize: 11, dx: -5 }}
+                      label={{ value: 'Cumulative Wins', angle: -90, position: 'insideLeft', fill: '#9AA69F', fontSize: 11, dx: -5 }}
                     />
                     <Tooltip
                       content={({ active, payload, label }) => {
@@ -643,7 +643,7 @@ export default function HeadToHead() {
                           </NeonTooltip>
                         )
                       }}
-                      cursor={{ stroke: '#2A2A3A' }}
+                      cursor={{ stroke: '#2E3F39' }}
                     />
                     <Legend wrapperStyle={{ fontSize: 12 }} iconType="circle" />
                     <Area
@@ -697,11 +697,11 @@ export default function HeadToHead() {
               ═══════════════════════════════════════════════════ */}
           {tossStats && (tossDonutData.length > 0 || tossDecisionData.length > 0) && (
             <section>
-              <SectionHeader title="Toss Impact" accentColor="bg-accent-lime" />
+              <SectionHeader title="Toss Impact" accentColor="bg-accent-teal" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Toss Wins Donut */}
                 {tossDonutData.length > 0 && (
-                  <div className="bg-[#111118] border border-[#1E1E2A] rounded-2xl p-4">
+                  <div className="bg-[#121a17] border border-[#22302B] rounded-2xl p-4">
                     <p className="text-center text-text-secondary text-sm mb-2">Toss Wins in H2H</p>
                     <ResponsiveContainer width="100%" height={240}>
                       <PieChart>
@@ -748,7 +748,7 @@ export default function HeadToHead() {
 
                 {/* Bat First vs Chase Wins */}
                 {tossDecisionData.length > 0 && (
-                  <div className="bg-[#111118] border border-[#1E1E2A] rounded-2xl p-4">
+                  <div className="bg-[#121a17] border border-[#22302B] rounded-2xl p-4">
                     <p className="text-center text-text-secondary text-sm mb-2">Batting First vs Chasing Wins</p>
                     <ResponsiveContainer width="100%" height={240}>
                       <PieChart>
@@ -804,10 +804,10 @@ export default function HeadToHead() {
               ═══════════════════════════════════════════════════ */}
           {t1Stats && t2Stats && (
             <section>
-              <SectionHeader title="Team Comparison" accentColor="bg-accent-cyan" />
-              <div className="bg-[#111118] border border-[#1E1E2A] rounded-2xl p-6">
+              <SectionHeader title="Team Comparison" accentColor="bg-accent-brand" />
+              <div className="bg-[#121a17] border border-[#22302B] rounded-2xl p-6">
                 {/* Column headers */}
-                <div className="grid grid-cols-2 gap-3 mb-2 pb-3 border-b border-[#1E1E2A]">
+                <div className="grid grid-cols-2 gap-3 mb-2 pb-3 border-b border-[#22302B]">
                   <div className="flex items-center gap-2">
                     <TeamLogo team={team1} size={24} />
                     <span className="font-heading font-bold text-sm" style={{ color: color1 }}>{team1}</span>
@@ -843,13 +843,13 @@ export default function HeadToHead() {
                 {recentMatches.map((match, idx) => {
                   const isT1Winner = match.winner === team1
                   const isT2Winner = match.winner === team2
-                  const winnerColor = isT1Winner ? color1 : isT2Winner ? color2 : '#8888A0'
+                  const winnerColor = isT1Winner ? color1 : isT2Winner ? color2 : '#9AA69F'
 
                   return (
                     <div
                       key={idx}
-                      className="bg-[#111118] border rounded-2xl p-5 transition-all hover:border-[#2A2A3A]"
-                      style={{ borderColor: '#1E1E2A' }}
+                      className="bg-[#121a17] border rounded-2xl p-5 transition-all hover:border-[#2E3F39]"
+                      style={{ borderColor: '#22302B' }}
                     >
                       {/* Date + Season */}
                       <div className="flex items-center justify-between mb-3">
@@ -857,7 +857,7 @@ export default function HeadToHead() {
                           {formatDate(match.date)}
                         </span>
                         {match.season && (
-                          <span className="text-xs text-text-muted bg-[#1A1A24] px-2 py-0.5 rounded-full">
+                          <span className="text-xs text-text-muted bg-[#1D2925] px-2 py-0.5 rounded-full">
                             {match.season}
                           </span>
                         )}

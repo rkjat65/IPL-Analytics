@@ -22,10 +22,10 @@ import {
 function ChartTooltip({ active, payload, label }) {
   if (!active || !payload?.length) return null
   return (
-    <div className="bg-[#16161F] border border-[#2A2A3A] rounded-lg px-3 py-2 shadow-lg">
-      <p className="text-[#8888A0] text-xs mb-1 font-mono">{label}</p>
+    <div className="bg-[#17211F] border border-[#2E3F39] rounded-lg px-3 py-2 shadow-lg">
+      <p className="text-[#9AA69F] text-xs mb-1 font-mono">{label}</p>
       {payload.map((entry, i) => (
-        <p key={i} className="text-xs" style={{ color: entry.color || '#E8E8ED' }}>
+        <p key={i} className="text-xs" style={{ color: entry.color || '#F3F4EE' }}>
           {entry.name}: <span className="font-mono font-semibold">{typeof entry.value === 'number' ? entry.value.toLocaleString() : entry.value}</span>
         </p>
       ))}
@@ -95,13 +95,13 @@ export default function VenueProfile() {
       render: (val) => (
         <Link
           to={`/batting/${encodeURIComponent(val)}`}
-          className="text-accent-cyan hover:underline"
+          className="text-accent-brand hover:underline"
         >
           {val}
         </Link>
       ),
     },
-    { key: 'runs', label: 'Runs', align: 'right', render: (val) => <span className="font-mono font-semibold text-accent-lime">{val}</span> },
+    { key: 'runs', label: 'Runs', align: 'right', render: (val) => <span className="font-mono font-semibold text-accent-teal">{val}</span> },
     { key: 'matches', label: 'Mat', align: 'right', render: (val) => <span className="font-mono">{val}</span> },
     { key: 'sr', label: 'SR', align: 'right', render: (val) => <span className="font-mono">{val ? formatDecimal(val, 1) : '-'}</span> },
   ]
@@ -114,7 +114,7 @@ export default function VenueProfile() {
       render: (val) => (
         <Link
           to={`/bowling/${encodeURIComponent(val)}`}
-          className="text-accent-cyan hover:underline"
+          className="text-accent-brand hover:underline"
         >
           {val}
         </Link>
@@ -133,11 +133,11 @@ export default function VenueProfile() {
       {seoEl}
       {/* Header */}
       <div>
-        <Link to="/venues" className="text-text-muted text-sm hover:text-accent-cyan transition-colors mb-2 inline-block">
+        <Link to="/venues" className="text-text-muted text-sm hover:text-accent-brand transition-colors mb-2 inline-block">
           &larr; All Venues
         </Link>
         <h1 className="text-3xl font-heading font-bold text-text-primary">{decoded}</h1>
-        <div className="h-1 w-24 bg-accent-cyan rounded-full mt-2" />
+        <div className="h-1 w-24 bg-accent-brand rounded-full mt-2" />
       </div>
 
       {/* Stats Row */}
@@ -163,13 +163,13 @@ export default function VenueProfile() {
           <h3 className="text-sm font-heading font-semibold text-text-secondary mb-3">Bat First vs Chase Success</h3>
           <div className="flex items-center gap-3">
             <span className="text-xs text-text-secondary font-mono w-20 text-right">Bat First</span>
-            <div className="flex-1 h-8 bg-[#1E1E2A] rounded-full overflow-hidden flex">
+            <div className="flex-1 h-8 bg-[#22302B] rounded-full overflow-hidden flex">
               <div
                 className="h-full flex items-center justify-center text-xs font-mono font-semibold transition-all duration-500"
                 style={{
                   width: `${stats.stats.bat_first_win_pct}%`,
                   backgroundColor: '#FFB800',
-                  color: '#0A0A0F',
+                  color: '#0C1210',
                   minWidth: stats.stats.bat_first_win_pct > 5 ? undefined : '2rem',
                 }}
               >
@@ -179,8 +179,8 @@ export default function VenueProfile() {
                 className="h-full flex items-center justify-center text-xs font-mono font-semibold transition-all duration-500"
                 style={{
                   width: `${100 - stats.stats.bat_first_win_pct}%`,
-                  backgroundColor: '#00E5FF',
-                  color: '#0A0A0F',
+                  backgroundColor: '#C3F23B',
+                  color: '#0C1210',
                   minWidth: (100 - stats.stats.bat_first_win_pct) > 5 ? undefined : '2rem',
                 }}
               >
@@ -197,7 +197,7 @@ export default function VenueProfile() {
         {/* Top Batters */}
         <section>
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-1 h-6 bg-accent-lime rounded-full" />
+            <div className="w-1 h-6 bg-accent-teal rounded-full" />
             <h2 className="text-xl font-heading font-bold text-text-primary">Top Batters</h2>
           </div>
           {!perfLoading && topBatters.length > 0 && (
@@ -209,11 +209,11 @@ export default function VenueProfile() {
                   layout="vertical"
                   margin={{ top: 5, right: 30, left: 10, bottom: 5 }}
                 >
-                  <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" horizontal={false} />
-                  <XAxis type="number" tick={{ fill: '#8888A0', fontSize: 11, fontFamily: 'JetBrains Mono' }} axisLine={{ stroke: '#1E1E2A' }} tickLine={{ stroke: '#1E1E2A' }} />
-                  <YAxis type="category" dataKey="name" width={100} tick={{ fill: '#8888A0', fontSize: 10, fontFamily: 'JetBrains Mono' }} axisLine={{ stroke: '#1E1E2A' }} tickLine={{ stroke: '#1E1E2A' }} />
-                  <Tooltip content={<ChartTooltip />} cursor={{ fill: '#1E1E2A' }} />
-                  <Bar dataKey="runs" fill="#B8FF00" name="Runs" radius={[0, 4, 4, 0]} barSize={16} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#22302B" horizontal={false} />
+                  <XAxis type="number" tick={{ fill: '#9AA69F', fontSize: 11, fontFamily: 'JetBrains Mono' }} axisLine={{ stroke: '#22302B' }} tickLine={{ stroke: '#22302B' }} />
+                  <YAxis type="category" dataKey="name" width={100} tick={{ fill: '#9AA69F', fontSize: 10, fontFamily: 'JetBrains Mono' }} axisLine={{ stroke: '#22302B' }} tickLine={{ stroke: '#22302B' }} />
+                  <Tooltip content={<ChartTooltip />} cursor={{ fill: '#22302B' }} />
+                  <Bar dataKey="runs" fill="#2DD4BF" name="Runs" radius={[0, 4, 4, 0]} barSize={16} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -240,10 +240,10 @@ export default function VenueProfile() {
                   layout="vertical"
                   margin={{ top: 5, right: 30, left: 10, bottom: 5 }}
                 >
-                  <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" horizontal={false} />
-                  <XAxis type="number" tick={{ fill: '#8888A0', fontSize: 11, fontFamily: 'JetBrains Mono' }} axisLine={{ stroke: '#1E1E2A' }} tickLine={{ stroke: '#1E1E2A' }} allowDecimals={false} />
-                  <YAxis type="category" dataKey="name" width={100} tick={{ fill: '#8888A0', fontSize: 10, fontFamily: 'JetBrains Mono' }} axisLine={{ stroke: '#1E1E2A' }} tickLine={{ stroke: '#1E1E2A' }} />
-                  <Tooltip content={<ChartTooltip />} cursor={{ fill: '#1E1E2A' }} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#22302B" horizontal={false} />
+                  <XAxis type="number" tick={{ fill: '#9AA69F', fontSize: 11, fontFamily: 'JetBrains Mono' }} axisLine={{ stroke: '#22302B' }} tickLine={{ stroke: '#22302B' }} allowDecimals={false} />
+                  <YAxis type="category" dataKey="name" width={100} tick={{ fill: '#9AA69F', fontSize: 10, fontFamily: 'JetBrains Mono' }} axisLine={{ stroke: '#22302B' }} tickLine={{ stroke: '#22302B' }} />
+                  <Tooltip content={<ChartTooltip />} cursor={{ fill: '#22302B' }} />
                   <Bar dataKey="wickets" fill="#FF2D78" name="Wickets" radius={[0, 4, 4, 0]} barSize={16} />
                 </BarChart>
               </ResponsiveContainer>

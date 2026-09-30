@@ -16,7 +16,7 @@ function StatBar({ label, val1, val2, sf }) {
       <div style={{
         width: '100px', textAlign: 'right',
         fontFamily: FONTS.mono, fontSize: sf ? sf(26) : '26px', fontWeight: 700,
-        color: w1 ? '#00E5FF' : '#F0F0F5',
+        color: w1 ? '#C3F23B' : '#F0F0F5',
         opacity: w1 ? 1 : 0.6,
       }}>
         {val1}
@@ -127,7 +127,7 @@ export default function ComparisonCard({ player1 = {}, player2 = {}, metric = 'b
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: isPortrait ? '28px' : '28px' }}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px', flex: 1 }}>
             <PlayerAvatar name={player1.name || 'Player 1'} imageUrl={player1.imageUrl} teamColor={NEON_COLORS.cyan} size={isPortrait ? scaledSize(120, dimensions) : scaledSize(110, dimensions)} inline shape="circle" />
-            <div style={{ fontFamily: FONTS.heading, fontSize: sf(30), fontWeight: 700, color: '#00E5FF', textAlign: 'center', lineHeight: 1.2 }}>
+            <div style={{ fontFamily: FONTS.heading, fontSize: sf(30), fontWeight: 700, color: '#C3F23B', textAlign: 'center', lineHeight: 1.2 }}>
               {player1.name || 'Player 1'}
             </div>
           </div>
@@ -164,10 +164,10 @@ export default function ComparisonCard({ player1 = {}, player2 = {}, metric = 'b
             /* Mixed type: side-by-side stat panels */
             <div style={{ display: 'flex', flexDirection: dimensions.height > dimensions.width ? 'column' : 'row', gap: '32px' }}>
               <div style={{ flex: 1 }}>
-                <div style={{ fontFamily: FONTS.mono, fontSize: '14px', color: '#00E5FF', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '12px', fontWeight: 600 }}>
+                <div style={{ fontFamily: FONTS.mono, fontSize: '14px', color: '#C3F23B', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '12px', fontWeight: 600 }}>
                   {p1Type}
                 </div>
-                <div style={{ fontFamily: FONTS.mono, fontSize: '36px', fontWeight: 700, color: '#00E5FF', marginBottom: '16px' }}>
+                <div style={{ fontFamily: FONTS.mono, fontSize: '36px', fontWeight: 700, color: '#C3F23B', marginBottom: '16px' }}>
                   {p1Rows.primary.value}
                   <span style={{ fontSize: '15px', color: '#F0F0F5', marginLeft: '8px', opacity: 0.6 }}>{p1Rows.primary.label}</span>
                 </div>

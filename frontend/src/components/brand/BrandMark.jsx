@@ -14,8 +14,8 @@ export default function BrandMark({ className = '', title }) {
         </mask>
       </defs>
       <path d="M0,0 L66,0 L66,98 L0,194Z" fill="currentColor" />
-      <path d="M61.4,125.9 L95.7,76 L238.4,234.1 Q243.8,240 235.8,240 L164.4,240Z" fill="#B8FF00" />
-      <circle cx="176" cy="42" r="39" fill="#B8FF00" mask={`url(#${mask})`} />
+      <path d="M61.4,125.9 L95.7,76 L238.4,234.1 Q243.8,240 235.8,240 L164.4,240Z" fill="#C3F23B" />
+      <circle cx="176" cy="42" r="39" fill="#C3F23B" mask={`url(#${mask})`} />
     </svg>
   )
 }

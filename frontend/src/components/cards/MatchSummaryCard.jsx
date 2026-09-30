@@ -30,7 +30,7 @@ export default function MatchSummaryCard({ team1, team2, team1Score, team2Score,
             <div style={{ fontFamily: FONTS.heading, fontSize: sf(40), fontWeight: 700, color: t1Color, letterSpacing: '0.05em', marginBottom: '14px' }}>
               {t1Abbr}
             </div>
-            <div style={{ fontFamily: FONTS.mono, fontSize: sf(64), fontWeight: 700, color: isT1Winner ? '#00E5FF' : NEON_COLORS.textSecondary, lineHeight: 1, textShadow: isT1Winner ? '0 0 30px rgba(0,229,255,0.2)' : 'none' }}>
+            <div style={{ fontFamily: FONTS.mono, fontSize: sf(64), fontWeight: 700, color: isT1Winner ? '#C3F23B' : NEON_COLORS.textSecondary, lineHeight: 1, textShadow: isT1Winner ? '0 0 30px rgba(195,242,59,0.2)' : 'none' }}>
               {team1Score || '-'}
             </div>
           </div>
@@ -48,7 +48,7 @@ export default function MatchSummaryCard({ team1, team2, team1Score, team2Score,
             <div style={{ fontFamily: FONTS.heading, fontSize: sf(40), fontWeight: 700, color: t2Color, letterSpacing: '0.05em', marginBottom: '14px' }}>
               {t2Abbr}
             </div>
-            <div style={{ fontFamily: FONTS.mono, fontSize: sf(64), fontWeight: 700, color: !isT1Winner ? '#00E5FF' : NEON_COLORS.textSecondary, lineHeight: 1, textShadow: !isT1Winner ? '0 0 30px rgba(0,229,255,0.2)' : 'none' }}>
+            <div style={{ fontFamily: FONTS.mono, fontSize: sf(64), fontWeight: 700, color: !isT1Winner ? '#C3F23B' : NEON_COLORS.textSecondary, lineHeight: 1, textShadow: !isT1Winner ? '0 0 30px rgba(195,242,59,0.2)' : 'none' }}>
               {team2Score || '-'}
             </div>
           </div>

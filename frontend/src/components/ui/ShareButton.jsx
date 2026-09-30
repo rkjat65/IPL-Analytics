@@ -45,8 +45,8 @@ export default function ShareButton({ targetRef, filename = 'rkjat65-stat', clas
       <button
         onClick={() => setShowModal(!showModal)}
         className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono rounded-lg
-          bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20
-          hover:bg-accent-cyan/20 hover:border-accent-cyan/40 transition-all duration-200"
+          bg-accent-brand/10 text-accent-brand border border-accent-brand/20
+          hover:bg-accent-brand/20 hover:border-accent-brand/40 transition-all duration-200"
         title="Share / Export"
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
@@ -63,7 +63,7 @@ export default function ShareButton({ targetRef, filename = 'rkjat65-stat', clas
           <div className="fixed inset-0 z-40" onClick={() => setShowModal(false)} />
           <div className="absolute right-0 top-full mt-2 z-50 w-56 bg-bg-elevated border border-border-subtle rounded-xl shadow-2xl p-2">
             {status && (
-              <div className="px-3 py-2 text-xs font-mono text-accent-cyan text-center mb-1">
+              <div className="px-3 py-2 text-xs font-mono text-accent-brand text-center mb-1">
                 {status}
               </div>
             )}

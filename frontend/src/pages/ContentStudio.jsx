@@ -16,13 +16,13 @@ import { useTournament } from '../contexts/TournamentContext'
 import { buildCaption, statLines } from '../utils/caption'
 
 const TEMPLATES = [
-  { id: 'player', label: 'Player Stats', color: '#00E5FF' },
+  { id: 'player', label: 'Player Stats', color: '#C3F23B' },
   { id: 'match', label: 'Match Summary', color: '#FF2D78' },
-  { id: 'comparison', label: 'Comparison', color: '#B8FF00' },
+  { id: 'comparison', label: 'Comparison', color: '#2DD4BF' },
   { id: 'bat_v_ball', label: 'Bat v Ball', color: '#FFB800' },
   { id: 'ball_v_bat', label: 'Ball v Bat', color: '#8B5CF6' },
   { id: 'record', label: 'Record Card', color: '#FFB800' },
-  { id: 'season', label: 'Season Recap', color: '#00E5FF' },
+  { id: 'season', label: 'Season Recap', color: '#C3F23B' },
   { id: 'team_form', label: 'Team Form', color: '#22D3EE' },
   { id: 'leaderboard', label: 'Top 5', color: '#FFB800' },
 ]
@@ -63,7 +63,7 @@ function PlayerSearchInput({ query, setQuery, results, setResults, onSelect, sel
           value={selectedName || query}
           onChange={e => { setQuery(e.target.value); onSelect('') }}
           placeholder="Search player..."
-          className={`w-full bg-bg-card border border-border-subtle rounded-lg py-2 text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent-cyan/50 ${selectedName ? 'pl-9 pr-3' : 'px-3'}`}
+          className={`w-full bg-bg-card border border-border-subtle rounded-lg py-2 text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent-brand/50 ${selectedName ? 'pl-9 pr-3' : 'px-3'}`}
         />
       </div>
       {results.length > 0 && !selectedName && (
@@ -585,7 +585,7 @@ export default function ContentStudio() {
               <div className="flex gap-2">
                 {['batting', 'bowling'].map(t => (
                   <button key={t} onClick={() => setPlayerType(t)}
-                    className={`px-4 py-2 text-sm rounded-lg border transition-colors ${playerType === t ? 'bg-accent-cyan/20 border-accent-cyan/40 text-accent-cyan' : 'border-border-subtle text-text-secondary hover:text-text-primary'}`}
+                    className={`px-4 py-2 text-sm rounded-lg border transition-colors ${playerType === t ? 'bg-accent-brand/20 border-accent-brand/40 text-accent-brand' : 'border-border-subtle text-text-secondary hover:text-text-primary'}`}
                   >
                     {t.charAt(0).toUpperCase() + t.slice(1)}
                   </button>
@@ -604,7 +604,7 @@ export default function ContentStudio() {
               <select
                 value={matchSeason}
                 onChange={e => { setMatchSeason(e.target.value); setMatchId('') }}
-                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary focus:outline-none focus:border-accent-cyan/50"
+                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary focus:outline-none focus:border-accent-brand/50"
               >
                 <option value="">All Seasons</option>
                 {seasons.map(s => (
@@ -617,7 +617,7 @@ export default function ContentStudio() {
               <select
                 value={matchTeam}
                 onChange={e => { setMatchTeam(e.target.value); setMatchId('') }}
-                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary focus:outline-none focus:border-accent-cyan/50"
+                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary focus:outline-none focus:border-accent-brand/50"
               >
                 <option value="">All Teams</option>
                 {teams.map(t => (
@@ -630,7 +630,7 @@ export default function ContentStudio() {
               <select
                 value={matchId}
                 onChange={e => setMatchId(e.target.value)}
-                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary focus:outline-none focus:border-accent-cyan/50"
+                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary focus:outline-none focus:border-accent-brand/50"
               >
                 <option value="">Choose a match...</option>
                 {matchList.map(m => (
@@ -657,7 +657,7 @@ export default function ContentStudio() {
               <div className="flex gap-2">
                 {['batting', 'bowling'].map(t => (
                   <button key={t} onClick={() => setP1Type(t)}
-                    className={`flex-1 px-3 py-1.5 text-xs rounded-lg border transition-colors ${p1Type === t ? 'bg-accent-cyan/20 border-accent-cyan/40 text-accent-cyan' : 'border-border-subtle text-text-secondary hover:text-text-primary'}`}
+                    className={`flex-1 px-3 py-1.5 text-xs rounded-lg border transition-colors ${p1Type === t ? 'bg-accent-brand/20 border-accent-brand/40 text-accent-brand' : 'border-border-subtle text-text-secondary hover:text-text-primary'}`}
                   >
                     {t === 'batting' ? 'Batsman' : 'Bowler'}
                   </button>
@@ -676,7 +676,7 @@ export default function ContentStudio() {
               <div className="flex gap-2">
                 {['batting', 'bowling'].map(t => (
                   <button key={t} onClick={() => setP2Type(t)}
-                    className={`flex-1 px-3 py-1.5 text-xs rounded-lg border transition-colors ${p2Type === t ? 'bg-accent-cyan/20 border-accent-cyan/40 text-accent-cyan' : 'border-border-subtle text-text-secondary hover:text-text-primary'}`}
+                    className={`flex-1 px-3 py-1.5 text-xs rounded-lg border transition-colors ${p2Type === t ? 'bg-accent-brand/20 border-accent-brand/40 text-accent-brand' : 'border-border-subtle text-text-secondary hover:text-text-primary'}`}
                   >
                     {t === 'batting' ? 'Batsman' : 'Bowler'}
                   </button>
@@ -701,7 +701,7 @@ export default function ContentStudio() {
                 <select
                   value={bvbOpponent}
                   onChange={e => setBvbOpponent(e.target.value)}
-                  className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary focus:outline-none focus:border-accent-cyan/50"
+                  className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary focus:outline-none focus:border-accent-brand/50"
                 >
                   <option value="">Choose bowler...</option>
                   {bvbMatchups.map(m => (
@@ -733,7 +733,7 @@ export default function ContentStudio() {
                 <select
                   value={blvbOpponent}
                   onChange={e => setBlvbOpponent(e.target.value)}
-                  className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary focus:outline-none focus:border-accent-cyan/50"
+                  className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary focus:outline-none focus:border-accent-brand/50"
                 >
                   <option value="">Choose batsman...</option>
                   {blvbMatchups.map(m => (
@@ -757,21 +757,21 @@ export default function ContentStudio() {
               <label className="block text-xs font-mono text-text-muted mb-1">Title</label>
               <input type="text" value={recordTitle} onChange={e => setRecordTitle(e.target.value)}
                 placeholder="e.g. Most sixes in a season"
-                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent-cyan/50"
+                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent-brand/50"
               />
             </div>
             <div>
               <label className="block text-xs font-mono text-text-muted mb-1">Value</label>
               <input type="text" value={recordValue} onChange={e => setRecordValue(e.target.value)}
                 placeholder="e.g. 59"
-                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent-cyan/50"
+                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent-brand/50"
               />
             </div>
             <div>
               <label className="block text-xs font-mono text-text-muted mb-1">Subtitle / Badge</label>
               <input type="text" value={recordSubtitle} onChange={e => setRecordSubtitle(e.target.value)}
                 placeholder="e.g. Did you know?"
-                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent-cyan/50"
+                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent-brand/50"
               />
             </div>
             <div>
@@ -779,7 +779,7 @@ export default function ContentStudio() {
               <textarea value={recordDesc} onChange={e => setRecordDesc(e.target.value)}
                 placeholder="Additional context about this record..."
                 rows={3}
-                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent-cyan/50 resize-none"
+                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent-brand/50 resize-none"
               />
             </div>
           </div>
@@ -793,7 +793,7 @@ export default function ContentStudio() {
               <select
                 value={selectedSeason}
                 onChange={e => setSelectedSeason(e.target.value)}
-                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary focus:outline-none focus:border-accent-cyan/50"
+                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary focus:outline-none focus:border-accent-brand/50"
               >
                 <option value="">Choose season...</option>
                 {seasons.map(s => (
@@ -810,14 +810,14 @@ export default function ContentStudio() {
             <div>
               <label htmlFor="lb-metric" className="block text-xs font-mono text-text-muted mb-1">Stat</label>
               <select id="lb-metric" value={lbMetric} onChange={e => setLbMetric(e.target.value)}
-                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary focus:outline-none focus:border-accent-cyan/50">
+                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary focus:outline-none focus:border-accent-brand/50">
                 {LEADERBOARD_METRICS.map(m => <option key={m.id} value={m.id}>{m.label}</option>)}
               </select>
             </div>
             <div>
               <label htmlFor="lb-season" className="block text-xs font-mono text-text-muted mb-1">{tournament.competitionLabel}</label>
               <select id="lb-season" value={lbSeason} onChange={e => setLbSeason(e.target.value)}
-                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary focus:outline-none focus:border-accent-cyan/50">
+                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary focus:outline-none focus:border-accent-brand/50">
                 <option value="">All-time</option>
                 {seasons.slice().reverse().map(s => <option key={s} value={s}>{s}</option>)}
               </select>
@@ -831,7 +831,7 @@ export default function ContentStudio() {
             <div>
               <label className="block text-xs font-mono text-text-muted mb-1">Team</label>
               <select value={tfTeam} onChange={e => setTfTeam(e.target.value)}
-                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary focus:outline-none focus:border-accent-cyan/50">
+                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary focus:outline-none focus:border-accent-brand/50">
                 <option value="">Select team...</option>
                 {teams.map(t => <option key={t} value={t}>{t}</option>)}
               </select>
@@ -839,7 +839,7 @@ export default function ContentStudio() {
             <div>
               <label className="block text-xs font-mono text-text-muted mb-1">Last N Matches</label>
               <select value={tfLastN} onChange={e => setTfLastN(Number(e.target.value))}
-                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary focus:outline-none focus:border-accent-cyan/50">
+                className="w-full bg-bg-card border border-border-subtle rounded-lg px-3 py-2 text-sm text-text-primary focus:outline-none focus:border-accent-brand/50">
                 {[5, 10, 15, 20].map(n => <option key={n} value={n}>Last {n}</option>)}
               </select>
             </div>
@@ -927,19 +927,19 @@ export default function ContentStudio() {
         const trend = tfData?.trend ?? tfData?.recent_matches ?? []
         const wins = trend.filter(m => m.result === 'W').length
         const losses = trend.filter(m => m.result === 'L').length
-        const fiColor = fi >= 80 ? '#B8FF00' : fi >= 60 ? '#00E5FF' : fi >= 40 ? '#FFB800' : '#FF2D78'
+        const fiColor = fi >= 80 ? '#2DD4BF' : fi >= 60 ? '#C3F23B' : fi >= 40 ? '#FFB800' : '#FF2D78'
         const fiLabel = fi >= 80 ? 'DOMINANT' : fi >= 60 ? 'STRONG' : fi >= 40 ? 'AVERAGE' : fi >= 20 ? 'STRUGGLING' : 'POOR'
         const isPortrait = currentDims.height > currentDims.width
         const scale = Math.sqrt((currentDims.width * currentDims.height) / (1200 * 675))
         const sf = (px) => Math.round(px * scale)
         return (
-              <div style={{ width: currentDims.width, height: currentDims.height, background: 'linear-gradient(145deg, #0A0A0F, #111118)', position: 'relative', overflow: 'hidden', fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}>
+              <div style={{ width: currentDims.width, height: currentDims.height, background: 'linear-gradient(145deg, #0C1210, #121a17)', position: 'relative', overflow: 'hidden', fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: sf(5), background: `linear-gradient(90deg, ${fiColor}, ${fiColor}88)` }} />
                 <div style={{ padding: isPortrait ? '8% 6%' : '5%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: isPortrait ? 'center' : 'space-between', gap: isPortrait ? sf(40) : undefined }}>
                   <div>
                     <p style={{ color: '#60607A', fontSize: sf(14), letterSpacing: 3, textTransform: 'uppercase', marginBottom: sf(8) }}>Team Form Index</p>
                     <h2 style={{ color: '#F0F0F5', fontSize: sf(36), fontWeight: 800, margin: 0 }}>{tfTeam || 'Select Team'}</h2>
-                    <p style={{ color: '#A0A0B8', fontSize: sf(16), marginTop: sf(6) }}>Last {tfLastN} matches</p>
+                    <p style={{ color: '#AEB8B2', fontSize: sf(16), marginTop: sf(6) }}>Last {tfLastN} matches</p>
                   </div>
                   <div style={{ display: 'flex', flexDirection: isPortrait ? 'column' : 'row', alignItems: 'center', gap: isPortrait ? sf(32) : '8%' }}>
                     <div style={{ textAlign: 'center' }}>
@@ -948,24 +948,24 @@ export default function ContentStudio() {
                     </div>
                     <div style={{ flex: isPortrait ? undefined : 1, width: isPortrait ? '100%' : undefined }}>
                       <div style={{ display: 'flex', gap: sf(12), marginBottom: sf(16), justifyContent: isPortrait ? 'center' : 'flex-start' }}>
-                        <div style={{ background: '#B8FF0018', border: '1px solid #B8FF0030', borderRadius: sf(10), padding: `${sf(14)}px ${sf(24)}px`, textAlign: 'center' }}>
-                          <div style={{ fontSize: sf(28), fontWeight: 800, color: '#B8FF00', fontFamily: 'monospace' }}>{wins}</div>
-                          <div style={{ fontSize: sf(11), color: '#A0A0B8', letterSpacing: 2 }}>WINS</div>
+                        <div style={{ background: '#2DD4BF18', border: '1px solid #2DD4BF30', borderRadius: sf(10), padding: `${sf(14)}px ${sf(24)}px`, textAlign: 'center' }}>
+                          <div style={{ fontSize: sf(28), fontWeight: 800, color: '#2DD4BF', fontFamily: 'monospace' }}>{wins}</div>
+                          <div style={{ fontSize: sf(11), color: '#AEB8B2', letterSpacing: 2 }}>WINS</div>
                         </div>
                         <div style={{ background: '#FF2D7818', border: '1px solid #FF2D7830', borderRadius: sf(10), padding: `${sf(14)}px ${sf(24)}px`, textAlign: 'center' }}>
                           <div style={{ fontSize: sf(28), fontWeight: 800, color: '#FF2D78', fontFamily: 'monospace' }}>{losses}</div>
-                          <div style={{ fontSize: sf(11), color: '#A0A0B8', letterSpacing: 2 }}>LOSSES</div>
+                          <div style={{ fontSize: sf(11), color: '#AEB8B2', letterSpacing: 2 }}>LOSSES</div>
                         </div>
                         {streak && (
                           <div style={{ background: '#FFB80018', border: '1px solid #FFB80030', borderRadius: sf(10), padding: `${sf(14)}px ${sf(24)}px`, textAlign: 'center' }}>
                             <div style={{ fontSize: sf(28), fontWeight: 800, color: '#FFB800', fontFamily: 'monospace' }}>{streak}</div>
-                            <div style={{ fontSize: sf(11), color: '#A0A0B8', letterSpacing: 2 }}>STREAK</div>
+                            <div style={{ fontSize: sf(11), color: '#AEB8B2', letterSpacing: 2 }}>STREAK</div>
                           </div>
                         )}
                       </div>
                       <div style={{ display: 'flex', gap: sf(5), justifyContent: isPortrait ? 'center' : 'flex-start' }}>
                         {trend.slice().reverse().map((m, idx) => (
-                          <div key={idx} style={{ width: sf(16), height: sf(16), borderRadius: sf(4), background: m.result === 'W' ? '#B8FF00' : m.result === 'L' ? '#FF2D78' : '#60607A' }} />
+                          <div key={idx} style={{ width: sf(16), height: sf(16), borderRadius: sf(4), background: m.result === 'W' ? '#2DD4BF' : m.result === 'L' ? '#FF2D78' : '#60607A' }} />
                         ))}
                       </div>
                     </div>
@@ -997,7 +997,7 @@ export default function ContentStudio() {
               onClick={() => { setTemplate(t.id); setCaption('') }}
               className={`shrink-0 px-5 py-3 rounded-xl border text-sm font-medium transition-all duration-200 ${
                 template === t.id
-                  ? 'border-accent-cyan/40 bg-accent-cyan/10 text-accent-cyan shadow-lg shadow-accent-cyan/5'
+                  ? 'border-accent-brand/40 bg-accent-brand/10 text-accent-brand shadow-lg shadow-accent-brand/5'
                   : 'border-border-subtle bg-bg-card text-text-secondary hover:text-text-primary hover:border-border-subtle/80'
               }`}
               style={template === t.id ? { borderColor: `${t.color}66`, color: t.color, background: `${t.color}15` } : {}}
@@ -1022,7 +1022,7 @@ export default function ContentStudio() {
                 <button key={f.id} onClick={() => setFormat(f.id)}
                   className={`flex-1 px-3 py-2 text-xs rounded-lg border transition-colors ${
                     format === f.id
-                      ? 'bg-accent-cyan/20 border-accent-cyan/40 text-accent-cyan'
+                      ? 'bg-accent-brand/20 border-accent-brand/40 text-accent-brand'
                       : 'border-border-subtle text-text-secondary hover:text-text-primary'
                   }`}
                 >
@@ -1036,7 +1036,7 @@ export default function ContentStudio() {
           <div className="space-y-2 pt-2">
             <button
               onClick={handleDownload}
-              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-accent-cyan/20 text-accent-cyan border border-accent-cyan/30 rounded-lg text-sm font-medium hover:bg-accent-cyan/30 transition-colors"
+              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-accent-brand/20 text-accent-brand border border-accent-brand/30 rounded-lg text-sm font-medium hover:bg-accent-brand/30 transition-colors"
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -1111,7 +1111,7 @@ export default function ContentStudio() {
           )}
 
           {status && (
-            <div className="text-center text-xs font-mono text-accent-cyan py-1">{status}</div>
+            <div className="text-center text-xs font-mono text-accent-brand py-1">{status}</div>
           )}
         </div>
 

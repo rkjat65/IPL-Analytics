@@ -33,7 +33,7 @@ export default function SiteHeader() {
   }, [])
 
   return (
-    <header className={`sticky top-0 z-40 border-b border-white/[0.06] bg-[#12121a]/85 backdrop-blur-xl transition-shadow ${scrolled ? 'shadow-[0_10px_30px_-18px_#000]' : ''}`}>
+    <header className={`sticky top-0 z-40 border-b border-white/[0.06] bg-[#111916]/85 backdrop-blur-xl transition-shadow ${scrolled ? 'shadow-[0_10px_30px_-18px_#000]' : ''}`}>
       <div className="relative mx-auto flex h-16 max-w-[1440px] items-center gap-6 px-4 sm:px-6">
         <a href="/" aria-label="Crickrida home" className="flex shrink-0 items-center gap-2.5 text-text-primary hover:no-underline">
           <BrandMark className="h-[30px] w-[30px]" />
@@ -43,7 +43,7 @@ export default function SiteHeader() {
         <nav
           id="site-nav"
           aria-label="Crickrida"
-          className={`${open ? 'flex' : 'hidden'} absolute inset-x-0 top-16 flex-col border-b border-white/[0.06] bg-[#12121a] px-4 py-2 lg:static lg:flex lg:flex-1 lg:flex-row lg:items-center lg:gap-6 lg:border-0 lg:bg-transparent lg:p-0`}
+          className={`${open ? 'flex' : 'hidden'} absolute inset-x-0 top-16 flex-col border-b border-white/[0.06] bg-[#111916] px-4 py-2 lg:static lg:flex lg:flex-1 lg:flex-row lg:items-center lg:gap-6 lg:border-0 lg:bg-transparent lg:p-0`}
         >
           {SITE_NAV.map(([href, label]) => (
             <a key={href} href={href} className="py-3 text-[13px] font-semibold text-text-secondary transition-colors hover:text-text-primary lg:py-0">
@@ -58,8 +58,8 @@ export default function SiteHeader() {
                 aria-current={tournament === slug ? 'page' : undefined}
                 className={`rounded-full border px-3 py-1 text-[13px] font-bold transition-colors ${
                   tournament === slug
-                    ? 'border-accent-amber bg-accent-amber text-bg-primary'
-                    : 'border-accent-amber/25 bg-accent-amber/10 text-accent-amber hover:bg-accent-amber/20'
+                    ? 'border-accent-brand bg-accent-brand text-bg-primary'
+                    : 'border-accent-brand/25 bg-accent-brand/10 text-accent-brand hover:bg-accent-brand/20'
                 }`}
               >
                 {label}

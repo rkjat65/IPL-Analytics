@@ -4,25 +4,26 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Play K palette: lime on deep green-black (see the logo on crickrida.com/brand/)
         bg: {
-          primary: '#0A0A0F',
-          card: '#111118',
-          'card-hover': '#1A1A24',
-          elevated: '#16161F',
+          primary: '#0C1210',
+          card: '#121A17',
+          'card-hover': '#1D2925',
+          elevated: '#17211F',
         },
         border: {
-          subtle: '#1E1E2A',
-          active: '#2A2A3A',
+          subtle: '#22302B',
+          active: '#2E3F39',
         },
         text: {
-          primary: '#E8E8ED',
-          secondary: '#8888A0',
-          muted: '#555566',
+          primary: '#F3F4EE',
+          secondary: '#9AA69F',
+          muted: '#7C8983',
         },
         accent: {
-          cyan: '#00E5FF',
+          brand: '#C3F23B',
+          teal: '#2DD4BF',
           magenta: '#FF2D78',
-          lime: '#B8FF00',
           amber: '#FFB800',
           purple: '#8B5CF6',
         },
@@ -48,9 +49,9 @@ export default {
         body: ['Inter', 'sans-serif'],
       },
       boxShadow: {
-        'glow-cyan': '0 0 20px rgba(0, 229, 255, 0.15)',
+        'glow-brand': '0 0 20px rgba(195, 242, 59, 0.15)',
         'glow-magenta': '0 0 20px rgba(255, 45, 120, 0.15)',
-        'glow-lime': '0 0 20px rgba(184, 255, 0, 0.15)',
+        'glow-teal': '0 0 20px rgba(45, 212, 191, 0.15)',
         'glow-amber': '0 0 20px rgba(255, 184, 0, 0.15)',
       },
     },

@@ -35,7 +35,7 @@ const MORE = [
 const link = ({ isActive }) =>
   `relative flex h-11 shrink-0 items-center whitespace-nowrap px-1 text-[13px] font-semibold transition-colors ${
     isActive
-      ? 'text-accent-cyan after:absolute after:inset-x-0 after:bottom-0 after:h-[3px] after:rounded-t after:bg-accent-cyan'
+      ? 'text-accent-brand after:absolute after:inset-x-0 after:bottom-0 after:h-[3px] after:rounded-t after:bg-accent-brand'
       : 'text-text-secondary hover:text-text-primary'
   }`
 
@@ -69,7 +69,7 @@ export default function SectionNav({ onSearch }) {
   }, [])
 
   return (
-    <div className="sticky top-16 z-30 border-b border-white/[0.06] bg-[#0A0A0F]/90 backdrop-blur-xl">
+    <div className="sticky top-16 z-30 border-b border-white/[0.06] bg-[#0C1210]/90 backdrop-blur-xl">
       <div className="mx-auto flex max-w-[1440px] items-center gap-4 px-4 sm:px-6">
         {/* Section switch: the same page in the other tournament */}
         <div className="flex shrink-0 rounded-lg border border-white/[0.08] bg-white/[0.03] p-0.5" role="group" aria-label="Tournament">
@@ -80,7 +80,7 @@ export default function SectionNav({ onSearch }) {
               onClick={() => tournament.selectTournament(slug)}
               aria-pressed={tournament.tournament === slug}
               className={`rounded-md px-2.5 py-1 font-heading text-xs font-bold transition-colors ${
-                tournament.tournament === slug ? 'bg-accent-lime text-bg-primary' : 'text-text-muted hover:text-text-primary'
+                tournament.tournament === slug ? 'bg-accent-brand text-bg-primary' : 'text-text-muted hover:text-text-primary'
               }`}
             >
               {text}
@@ -108,7 +108,7 @@ export default function SectionNav({ onSearch }) {
               type="button"
               onClick={() => setMoreOpen((o) => !o)}
               aria-expanded={moreOpen}
-              className={`flex h-11 items-center gap-1 text-[13px] font-semibold transition-colors ${moreActive ? 'text-accent-cyan' : 'text-text-secondary hover:text-text-primary'}`}
+              className={`flex h-11 items-center gap-1 text-[13px] font-semibold transition-colors ${moreActive ? 'text-accent-brand' : 'text-text-secondary hover:text-text-primary'}`}
             >
               More
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className={`h-3.5 w-3.5 transition-transform ${moreOpen ? 'rotate-180' : ''}`} aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
@@ -117,7 +117,7 @@ export default function SectionNav({ onSearch }) {
               <div className="absolute right-0 top-full mt-1 min-w-[180px] overflow-hidden rounded-lg border border-border-active bg-bg-elevated py-1 shadow-2xl">
                 {[...EXTRA.map((item) => [...item, true]), ...MORE].map(([path, text, extra]) => (
                   <NavLink key={path} to={path}
-                    className={({ isActive }) => `block px-4 py-2 text-[13px] font-medium ${extra ? 'xl:hidden' : ''} ${isActive ? 'text-accent-cyan' : 'text-text-secondary hover:bg-white/[0.04] hover:text-text-primary'}`}>
+                    className={({ isActive }) => `block px-4 py-2 text-[13px] font-medium ${extra ? 'xl:hidden' : ''} ${isActive ? 'text-accent-brand' : 'text-text-secondary hover:bg-white/[0.04] hover:text-text-primary'}`}>
                     {label(path, text)}
                   </NavLink>
                 ))}
@@ -129,7 +129,7 @@ export default function SectionNav({ onSearch }) {
         <button
           type="button"
           onClick={onSearch}
-          className="hidden h-8 shrink-0 items-center gap-2 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 text-xs text-text-muted transition-colors hover:border-accent-cyan/40 hover:text-text-primary md:flex"
+          className="hidden h-8 shrink-0 items-center gap-2 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 text-xs text-text-muted transition-colors hover:border-accent-brand/40 hover:text-text-primary md:flex"
           aria-label={`Search ${tournament.shortName} players, teams and venues (Ctrl+K)`}
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-3.5 w-3.5" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
