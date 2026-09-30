@@ -19,6 +19,7 @@ try:
     PILLOW_AVAILABLE = True
 except ImportError:
     PILLOW_AVAILABLE = False
+from ..brand import draw_mark
 
 router = APIRouter(prefix="/api/images", tags=["Images"])
 
@@ -392,7 +393,9 @@ def generate_og_image(
     draw_accent_bar(draw, 0, 0, w, 6, accent, PALETTE["magenta"])
 
     # Brand + kicker
-    draw.text((pad, 48), "CRICKRIDA", fill=(*accent, 255), font=get_font(28, bold=True))
+    mark_w = draw_mark(img, pad, 40, 34)
+    draw = ImageDraw.Draw(img, "RGBA")
+    draw.text((pad + mark_w + 10, 40), "crickrida", fill=(*PALETTE["text"], 255), font=get_font(30, bold=True))
     kicker = kicker or f"{get_tournament().short_name} analytics"
     draw.text((pad, 88), kicker.upper(), fill=(*PALETTE["muted"], 230),
               font=get_font(18, family="JetBrainsMono"))
