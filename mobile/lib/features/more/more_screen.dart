@@ -17,7 +17,7 @@ import '../venues/venues_screen.dart';
 class MoreScreen extends StatelessWidget {
   const MoreScreen({super.key});
 
-  static const _site = 'https://crickrida.rkjat.in';
+  static const _site = 'https://crickrida.com';
 
   @override
   Widget build(BuildContext context) {
@@ -227,7 +227,7 @@ class MoreScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 6),
                 const Text(
-                  'Full IPL analytics client powered by the same FastAPI backend as crickrida.rkjat.in',
+                  'Full IPL analytics client powered by the same FastAPI backend as crickrida.com',
                   style: TextStyle(
                     color: CrickTheme.textSecondary,
                     fontSize: 12,

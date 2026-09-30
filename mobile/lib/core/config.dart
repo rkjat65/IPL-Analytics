@@ -2,7 +2,7 @@ class AppConfig {
   /// Production API base (no trailing slash).
   static const String apiBase = String.fromEnvironment(
     'API_BASE',
-    defaultValue: 'https://crickrida.rkjat.in',
+    defaultValue: 'https://crickrida.com',
   );
 
   /// Store builds use neutral initials and team badges by default. Enable

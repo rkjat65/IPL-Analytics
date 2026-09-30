@@ -17,11 +17,11 @@ Prepared: 15 July 2026
 
 ## URLs
 
-- Marketing URL: https://crickrida.rkjat.in
-- Support URL: https://crickrida.rkjat.in/faq
-- Privacy policy: https://crickrida.rkjat.in/privacy
-- Terms: https://crickrida.rkjat.in/terms
-- Account deletion: https://crickrida.rkjat.in/account-deletion
+- Marketing URL: https://crickrida.com
+- Support URL: https://crickrida.com/faq
+- Privacy policy: https://crickrida.com/privacy
+- Terms: https://crickrida.com/terms
+- Account deletion: https://crickrida.com/account-deletion
 
 These public legal routes and the in-app account deletion control must be deployed before the listing is submitted.
 

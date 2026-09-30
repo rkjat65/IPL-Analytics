@@ -81,7 +81,7 @@ class _StudioScaffold extends StatelessWidget {
             right: pad,
             bottom: 18,
             child: Text(
-              'crickrida.rkjat.in',
+              'crickrida.com',
               style: GoogleFonts.jetBrainsMono(
                 color: CrickTheme.textMuted,
                 fontSize: format.isPortrait ? 16 : 14,

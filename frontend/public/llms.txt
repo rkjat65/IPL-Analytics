@@ -1,7 +1,7 @@
 # Crickrida — Cricket via Stats
 > Free IPL and T20 World Cup analytics built on ball-by-ball data (IPL 2008–2026, T20 World Cup 2007–2026). No account needed.
 
-Crickrida (https://crickrida.rkjat.in) is an open analytics platform for the Indian Premier League (IPL). It provides historical match data, player statistics, team performance, venue analysis, trending insights and a free studio for creating shareable stat cards.
+Crickrida (https://crickrida.com) is an open analytics platform for the Indian Premier League (IPL). It provides historical match data, player statistics, team performance, venue analysis, trending insights and a free studio for creating shareable stat cards.
 
 ## What Crickrida covers
 
@@ -43,7 +43,7 @@ Crickrida (https://crickrida.rkjat.in) is an open analytics platform for the Ind
 
 ## Contact & attribution
 
-- Website: https://crickrida.rkjat.in
+- Website: https://crickrida.com
 - Author: Radhakishan Jat
 - Twitter/X: @Rkjat65
 - Email: radhakishanjat65@gmail.com

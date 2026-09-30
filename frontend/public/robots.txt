@@ -1,4 +1,4 @@
-# robots.txt — https://crickrida.rkjat.in
+# robots.txt — https://crickrida.com
 # https://www.robotstxt.org/robotstxt.html
 
 # Allow all search engine crawlers
@@ -53,4 +53,4 @@ Allow: /
 User-agent: Omgilibot
 Allow: /
 
-Sitemap: https://crickrida.rkjat.in/sitemap.xml
+Sitemap: https://crickrida.com/sitemap.xml

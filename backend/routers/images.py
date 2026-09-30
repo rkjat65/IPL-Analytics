@@ -334,7 +334,7 @@ def generate_stat_card_image(req: ImageGenRequest) -> bytes:
     # Watermark — always visible
     wm_size = max(14, int(16 * sf))
     font_wm = get_font(wm_size)
-    wm_text = "crickrida.rkjat.in • Cricket via Stats"
+    wm_text = "crickrida.com • Cricket via Stats"
     wm_bbox = draw.textbbox((0, 0), wm_text, font=font_wm)
     wm_w = wm_bbox[2] - wm_bbox[0]
     draw.text((w - wm_w - int(24 * sf), h - int(36 * sf)), wm_text, fill=(*PALETTE["muted"], 150), font=font_wm)
@@ -440,7 +440,7 @@ def generate_og_image(
 
     # Footer
     font_wm = get_font(18, family="JetBrainsMono")
-    site = "crickrida.rkjat.in"
+    site = "crickrida.com"
     draw.text((w - pad - draw.textlength(site, font=font_wm), h - 44), site,
               fill=(*PALETTE["muted"], 200), font=font_wm)
     draw.rectangle([0, h - 5, w, h], fill=(*accent, 160))

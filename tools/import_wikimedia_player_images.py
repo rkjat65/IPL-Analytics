@@ -37,7 +37,7 @@ IMAGE_DIR = ROOT / "backend" / "player_images"
 WIKIDATA_SPARQL = "https://query.wikidata.org/sparql"
 COMMONS_API = "https://commons.wikimedia.org/w/api.php"
 USER_AGENT = (
-    "Crickrida/1.0 (https://crickrida.rkjat.in; "
+    "Crickrida/1.0 (https://crickrida.com; "
     "https://github.com/rkjat65/IPL-Analytics)"
 )
 

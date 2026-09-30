@@ -66,7 +66,7 @@ class RenderIndexTest(unittest.TestCase):
         self.assertEqual(status, 200)
         self.assertEqual(page.count("<title>"), 1)
         self.assertIn("<title>Mumbai Indians — IPL Team Profile", page)
-        self.assertIn('rel="canonical" href="https://crickrida.rkjat.in/teams/Mumbai%20Indians" data-rh="true"', page)
+        self.assertIn('rel="canonical" href="https://crickrida.com/teams/Mumbai%20Indians" data-rh="true"', page)
         self.assertIn("/api/og?path=", page)
         self.assertIn('application/ld+json', page)
         self.assertIn('<div id="root"><main', page)

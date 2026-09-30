@@ -5,7 +5,7 @@ import logging
 import os
 from contextlib import asynccontextmanager
 from pathlib import Path
-from urllib.parse import unquote
+from urllib.parse import unquote, urlsplit
 
 # Load .env BEFORE any router imports so all env vars are available
 try:
@@ -18,7 +18,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse, HTMLResponse, Response
+from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse, Response
 
 from . import seo
 from .auth_db import init_auth_db
@@ -75,6 +75,33 @@ async def select_tournament(request, call_next):
 # Outermost last: gzip wraps the cache, which stores uncompressed bodies.
 app.add_middleware(HttpCacheMiddleware)
 app.add_middleware(GZipMiddleware, minimum_size=1024)
+
+
+_LOCAL_HOSTS = {"localhost", "127.0.0.1", "[::1]", "testserver"}
+
+
+def canonical_redirect(host: str, path: str, query: str, method: str) -> str | None:
+    """Where a page request on a retired hostname should go, or None to serve it here.
+
+    Only active when CANONICAL_ORIGIN is set. The API stays reachable on every
+    host so installed mobile apps and embeds keep working after a domain move.
+    """
+    origin = (os.getenv("CANONICAL_ORIGIN") or "").rstrip("/")
+    if not origin or method not in ("GET", "HEAD") or path.startswith("/api/"):
+        return None
+    host = (host or "").lower()
+    canonical_host = urlsplit(origin).netloc.lower()
+    if not host or host == canonical_host or host.split(":")[0] in _LOCAL_HOSTS:
+        return None
+    return origin + path + (f"?{query}" if query else "")
+
+
+@app.middleware("http")
+async def redirect_to_canonical_host(request, call_next):
+    target = canonical_redirect(request.headers.get("host", ""), request.url.path, request.url.query, request.method)
+    if target:
+        return RedirectResponse(target, status_code=301)
+    return await call_next(request)
 
 # API Routers
 app.include_router(meta.router)

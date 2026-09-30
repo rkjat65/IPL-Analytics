@@ -91,7 +91,7 @@ export function dotGridBackground() {
 }
 
 // Every exported card carries the site address so shares lead back here.
-export const WATERMARK_TEXT = 'crickrida.rkjat.in • Cricket via Stats'
+export const WATERMARK_TEXT = 'crickrida.com • Cricket via Stats'
 
 export function watermarkStyle() {
   return {

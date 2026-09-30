@@ -38,7 +38,7 @@ Cricsheet JSON (ball-by-ball)
         ↓
     FastAPI (analytical backend)
         ↓
-    ├── React + Tailwind (web dashboard — crickrida.rkjat.in)
+    ├── React + Tailwind (web dashboard — crickrida.com)
     └── Flutter (iOS & Android app — /mobile)
 ```
 

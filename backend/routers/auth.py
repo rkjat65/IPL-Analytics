@@ -35,7 +35,7 @@ SMTP_PORT = int(os.environ.get("SMTP_PORT") or "587")
 SMTP_USERNAME = os.environ.get("SMTP_USERNAME", "")
 SMTP_PASSWORD = os.environ.get("SMTP_PASSWORD", "")
 SMTP_FROM = os.environ.get("SMTP_FROM") or "Crickrida <no-reply@crickrida.rkjat.in>"
-PUBLIC_APP_URL = (os.environ.get("PUBLIC_APP_URL") or "https://crickrida.rkjat.in").rstrip("/")
+PUBLIC_APP_URL = (os.environ.get("PUBLIC_APP_URL") or "https://crickrida.com").rstrip("/")
 EXPOSE_RESET_TOKEN = os.environ.get("EXPOSE_RESET_TOKEN", "").lower() in {
     "1", "true", "yes"
 }

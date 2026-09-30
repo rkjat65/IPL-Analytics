@@ -56,7 +56,7 @@ export default function Quiz() {
   }
 
   const share = async () => {
-    const text = `I'm on a ${Math.max(streak, best)}-player streak in the Crickrida ${tournament.shortName} "Guess the player" quiz 🏏 Can you beat it? https://crickrida.rkjat.in/quiz`
+    const text = `I'm on a ${Math.max(streak, best)}-player streak in the Crickrida ${tournament.shortName} "Guess the player" quiz 🏏 Can you beat it? https://crickrida.com/quiz`
     try { await navigator.clipboard.writeText(text); setCopied(true); setTimeout(() => setCopied(false), 2000) } catch { /* ignore */ }
   }
 

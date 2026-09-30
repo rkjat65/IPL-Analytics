@@ -48,8 +48,8 @@ jobs:
         SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
         SMTP_FROM: ${{ secrets.SMTP_FROM }}
       with:
-        # Deploy to the host currently serving the public site. The previous
-        # ORACLE_IP secret can drift when an instance/IP is replaced.
+        # Deploy to the host currently serving the public site. The old
+        # subdomain stays in DNS for redirects, so it is a stable SSH name.
         host: crickrida.rkjat.in
         # The current public host is an Ubuntu instance (confirmed by its SSH
         # banner); the retired Oracle Linux host used the `opc` account.
@@ -96,7 +96,8 @@ jobs:
             -e SMTP_USERNAME \
             -e SMTP_PASSWORD \
             -e SMTP_FROM \
-            -e PUBLIC_APP_URL=https://crickrida.rkjat.in \
+            -e PUBLIC_APP_URL=https://crickrida.com \
+            -e CANONICAL_ORIGIN=https://crickrida.com \
             -v crickrida-data:/data \
             ghcr.io/${{ github.repository_owner }}/ipl-analytics:latest
 
@@ -118,7 +119,7 @@ jobs:
       run: |
         set -e
         for attempt in $(seq 1 30); do
-          release=$(curl -fsS "https://crickrida.rkjat.in/api/health?release=${{ github.sha }}" | sed -n 's/.*"release":"\([^"]*\)".*/\1/p' || true)
+          release=$(curl -fsS "https://crickrida.com/api/health?release=${{ github.sha }}" | sed -n 's/.*"release":"\([^"]*\)".*/\1/p' || true)
           if [ "$release" = "${{ github.sha }}" ]; then
             echo "Public site is serving release $release"
             exit 0
@@ -127,3 +128,10 @@ jobs:
         done
         echo "Public site did not switch to release ${{ github.sha }}" >&2
         exit 1
+
+    - name: Check the old host redirects
+      shell: bash
+      run: |
+        result=$(curl -s -o /dev/null -w '%{http_code} %{redirect_url}' https://crickrida.rkjat.in/records || true)
+        echo "crickrida.rkjat.in/records -> $result"
+        [ "$result" = "301 https://crickrida.com/records" ] || echo "::warning::The old host is not redirecting to crickrida.com"

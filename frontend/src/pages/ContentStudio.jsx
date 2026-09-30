@@ -566,7 +566,7 @@ export default function ContentStudio() {
         tags = [tfTeam]
         break
     }
-    setCaption(buildCaption({ headline, lines, tags, tournament: t, url: 'crickrida.rkjat.in' }))
+    setCaption(buildCaption({ headline, lines, tags, tournament: t, url: 'crickrida.com' }))
   }, [template, tournament, playerName, playerType, playerStats, matchData, p1Name, p1Stats, p2Name, p2Stats, recordTitle, recordValue, recordSubtitle, recordDesc, seasonData, selectedSeason, bvbPlayerName, bvbOpponent, bvbStats, blvbPlayerName, blvbOpponent, blvbStats, tfTeam, tfData, lbConfig, lbSeason, lbRows])
 
   function renderDataInputs() {

@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import html
 import json
+import os
 from dataclasses import dataclass, field
 from functools import lru_cache
 from urllib.parse import quote
@@ -19,7 +20,7 @@ from urllib.parse import quote
 from .database import normalize_team, query
 from .tournaments import TOURNAMENTS, get_tournament, get_tournament_slug
 
-SITE_URL = "https://crickrida.rkjat.in"
+SITE_URL = (os.environ.get("PUBLIC_APP_URL") or "https://crickrida.com").rstrip("/")
 SITE_NAME = "Crickrida"
 TWITTER_HANDLE = "@Rkjat65"
 

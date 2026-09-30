@@ -1,11 +1,11 @@
 # Crickrida Mobile
 
-Flutter iOS & Android client for [Crickrida](https://crickrida.rkjat.in) — the IPL analytics platform.
+Flutter iOS & Android client for [Crickrida](https://crickrida.com) — the IPL analytics platform.
 
 ## Architecture
 
 ```
-Flutter app  →  https://crickrida.rkjat.in/api/*  →  FastAPI + DuckDB
+Flutter app  →  https://crickrida.com/api/*  →  FastAPI + DuckDB
 ```
 
 Same backend as the web dashboard. No separate mobile API.
