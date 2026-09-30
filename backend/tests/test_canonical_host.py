@@ -1,10 +1,39 @@
+import asyncio
 import os
 import unittest
 from unittest import mock
-
-from fastapi.testclient import TestClient
+from urllib.parse import quote
 
 from backend.main import FRONTEND_DIST, app, canonical_redirect, legacy_app_path, spa_prefix
+
+
+class Result:
+    def __init__(self, status, headers, body):
+        self.status_code = status
+        self.headers = {k.decode().lower(): v.decode() for k, v in headers}
+        self.text = body.decode("utf-8", "replace")
+
+
+def get(url, host="testserver"):
+    """Call the app in-process, like the other tests here (CI has no httpx)."""
+    path, _, qs = url.partition("?")
+    raw = quote(path, safe="/%")
+    scope = {"type": "http", "method": "GET", "path": path, "raw_path": raw.encode(),
+             "query_string": qs.encode(), "headers": [(b"host", host.encode())], "scheme": "http",
+             "server": ("testserver", 80), "client": ("test", 1), "root_path": "",
+             "http_version": "1.1", "asgi": {"version": "3.0"}}
+    sent = []
+
+    async def receive():
+        return {"type": "http.request", "body": b"", "more_body": False}
+
+    async def send(message):
+        sent.append(message)
+
+    asyncio.run(app(scope, receive, send))
+    start = next(m for m in sent if m["type"] == "http.response.start")
+    body = b"".join(m.get("body", b"") for m in sent if m["type"] == "http.response.body")
+    return Result(start["status"], start.get("headers", []), body)
 
 ORIGIN = {"CANONICAL_ORIGIN": "https://crickrida.com"}
 
@@ -52,36 +81,33 @@ class CanonicalHostTest(unittest.TestCase):
 
 
 class RouteTest(unittest.TestCase):
-    def setUp(self):
-        self.client = TestClient(app)
-
     def test_old_root_pages_redirect_on_the_canonical_host(self):
-        r = self.client.get("/matches/1082591?tournament=t20wc", follow_redirects=False)
+        r = get("/matches/1082591?tournament=t20wc")
         self.assertEqual(r.status_code, 301)
         self.assertEqual(r.headers["location"], "/t20-world-cup/matches/1082591")
-        r = self.client.get("/", follow_redirects=False)
+        r = get("/")
         self.assertEqual(r.headers["location"], "/ipl/dashboard")
 
     def test_retired_service_worker_unregisters_itself(self):
-        r = self.client.get("/sw.js")
+        r = get("/sw.js")
         self.assertEqual(r.status_code, 200)
         self.assertIn("unregister()", r.text)
         self.assertIn("no-cache", r.headers["cache-control"])
 
     def test_unknown_paths_are_404(self):
-        self.assertEqual(self.client.get("/app/nope.js").status_code, 404)
-        self.assertEqual(self.client.get("/grounds/eden-gardens-c0d7f8/").status_code, 404)
+        self.assertEqual(get("/app/nope.js").status_code, 404)
+        self.assertEqual(get("/grounds/eden-gardens-c0d7f8/").status_code, 404)
 
     @unittest.skipUnless((FRONTEND_DIST / "index.html").is_file(), "frontend not built")
     def test_app_pages_render_under_their_prefix(self):
-        r = self.client.get("/t20-world-cup/teams/India")
+        r = get("/t20-world-cup/teams/India")
         self.assertEqual(r.status_code, 200)
         self.assertIn('rel="canonical" href="https://crickrida.com/t20-world-cup/teams/India"', r.text)
         self.assertIn('href="/t20-world-cup/teams/', r.text)
         self.assertIn('src="/app/assets/', r.text)
-        r = self.client.get("/ipl/batting/Virat%20Kohli")
+        r = get("/ipl/batting/Virat Kohli")
         self.assertIn('href="https://crickrida.com/ipl/batting/Virat%20Kohli"', r.text)
-        self.assertEqual(self.client.get("/app/logo.png").status_code, 200)
+        self.assertEqual(get("/app/logo.png").status_code, 200)
 
 
 if __name__ == "__main__":
