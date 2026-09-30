@@ -1,7 +1,9 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+  // Built files are served from /app/ on crickrida.com; pages live under /ipl and /t20-world-cup.
+  base: command === 'build' ? '/app/' : '/',
   plugins: [react()],
   build: {
     // recharts (+d3) is one ~540 kB chunk loaded only by chart pages
@@ -29,4 +31,4 @@ export default defineConfig({
       },
     },
   },
-})
+}))

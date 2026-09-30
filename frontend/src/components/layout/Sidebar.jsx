@@ -287,6 +287,19 @@ export default function Sidebar({ open, onToggle }) {
 
         {/* Navigation */}
         <nav className="flex-1 overflow-y-auto py-2 px-2 space-y-0.5">
+          {/* The rest of crickrida.com: internationals, every format, all players */}
+          <a
+            href="/"
+            className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-text-secondary hover:text-text-primary border border-transparent hover:bg-white/[0.03] transition-all duration-150 ${!open ? 'justify-center px-0' : ''}`}
+            title="All cricket: internationals, Tests, ODIs and T20Is"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 shrink-0">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
+            </svg>
+            {open && <span>All cricket</span>}
+          </a>
+          <div className="my-1 border-t border-border-subtle" />
           {navItems.map((item) => {
             const highlightColor = item.highlight === 'lime'
               ? { text: 'text-accent-lime', bg: 'bg-accent-lime', hover: 'hover:text-accent-lime' }

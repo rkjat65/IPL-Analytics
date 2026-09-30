@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import { appPath } from '../lib/site'
 
 const CHUNK_ERROR = /Loading chunk|dynamically imported module|Importing a module script failed|ChunkLoadError/i
 
@@ -48,7 +49,7 @@ export default class ErrorBoundary extends Component {
           >
             Reload
           </button>
-          <a href="/dashboard" className="px-4 py-2 rounded-md border border-border-subtle text-sm text-text-primary">Dashboard</a>
+          <a href={appPath('/dashboard')} className="px-4 py-2 rounded-md border border-border-subtle text-sm text-text-primary">Dashboard</a>
         </div>
       </div>
     )

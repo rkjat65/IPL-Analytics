@@ -1,5 +1,15 @@
 import TournamentSwitch from './TournamentSwitch'
 
+// Sections of crickrida.com outside this app (the international archive).
+// Plain links: they leave the app's router.
+const SITE_LINKS = [
+  ['/', 'Home'],
+  ['/matches/', 'Internationals'],
+  ['/players/', 'Players'],
+  ['/records/', 'Records'],
+  ['/compare/', 'Compare'],
+]
+
 export default function Header({ onSidebarToggle, onSearch }) {
   return (
     <header className="sticky top-0 z-30 flex h-16 shrink-0 items-center border-b border-white/[0.08] bg-[#0A0A0F]/80 px-3 shadow-[0_8px_30px_rgba(0,0,0,0.28)] backdrop-blur-xl sm:px-4 lg:px-6">
@@ -22,14 +32,14 @@ export default function Header({ onSidebarToggle, onSearch }) {
           <line x1="3" y1="18" x2="21" y2="18" />
         </svg>
       </button>
-      <div className="ml-2 min-w-0 lg:ml-0">
+      <a href="/" className="ml-2 min-w-0 lg:ml-0" aria-label="Crickrida home">
         <span className="block truncate font-heading text-sm font-bold text-text-primary sm:text-base">
           Crickrida
         </span>
         <span className="hidden text-[9px] font-mono uppercase tracking-[0.18em] text-text-muted sm:block">
           Cricket Analytics
         </span>
-      </div>
+      </a>
 
       <button
         type="button"
@@ -43,6 +53,15 @@ export default function Header({ onSidebarToggle, onSearch }) {
         <span className="flex-1 text-left">Search players, teams…</span>
         <kbd className="rounded border border-white/10 px-1.5 font-mono text-[10px]">Ctrl K</kbd>
       </button>
+
+      <nav aria-label="Crickrida" className="ml-6 hidden items-center gap-1 2xl:flex">
+        {SITE_LINKS.map(([href, label]) => (
+          <a key={href} href={href}
+            className="rounded-md px-2.5 py-1.5 text-xs font-medium text-text-secondary transition-colors hover:bg-white/[0.05] hover:text-text-primary">
+            {label}
+          </a>
+        ))}
+      </nav>
 
       <div className="ml-auto flex items-center gap-3">
         <span className="hidden font-mono text-[10px] uppercase tracking-[0.2em] text-text-muted xl:block">

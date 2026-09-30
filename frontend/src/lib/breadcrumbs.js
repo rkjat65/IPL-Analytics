@@ -1,4 +1,4 @@
-import { SITE_URL } from '../components/SEO'
+import { appUrl } from './site'
 
 // Builds a schema.org BreadcrumbList JSON-LD object from an ordered list of
 // { name, path } crumbs (path relative to site root, e.g. '/teams').
@@ -10,7 +10,7 @@ export function breadcrumbSchema(crumbs) {
       '@type': 'ListItem',
       position: i + 1,
       name: crumb.name,
-      item: `${SITE_URL}${crumb.path}`,
+      item: appUrl(crumb.path),
     })),
   }
 }

@@ -42,14 +42,28 @@ class PageMeta:
 
 # ── URL helpers ──────────────────────────────────────────────────────────────
 
+# The app lives under one prefix per tournament on crickrida.com; the rest of
+# the site (the international archive) owns the root.
+PREFIXES = {"ipl": "/ipl", "t20wc": "/t20-world-cup"}
+
+
+def prefix(slug: str | None = None) -> str:
+    return PREFIXES[slug or get_tournament_slug()]
+
+
 def _tq(slug: str | None = None) -> str:
-    """Query string that selects a tournament; IPL is the default (none)."""
-    slug = slug or get_tournament_slug()
-    return "" if slug == "ipl" else f"?tournament={slug}"
+    """Tournament query suffix for internal links. The URL prefix now carries
+    the tournament, so this is empty; kept so link builders stay unchanged."""
+    return ""
+
+
+def app_path(path: str, slug: str | None = None) -> str:
+    """Site path of an app page: '/teams/India' -> '/t20-world-cup/teams/India'."""
+    return f"{prefix(slug)}{path}"
 
 
 def canonical_url(path: str, slug: str | None = None) -> str:
-    return f"{SITE_URL}{path}{_tq(slug)}"
+    return f"{SITE_URL}{app_path(path, slug)}"
 
 
 def enc(value) -> str:
@@ -756,6 +770,8 @@ def body_html(meta: PageMeta) -> str:
     if meta.links:
         out.append(f'<h2 style="font:600 18px Space Grotesk,sans-serif;margin:24px 0 8px">{_e(meta.links_heading or "Explore")}</h2><ul style="padding-left:18px;line-height:1.9">')
         for text, href in meta.links:
+            if href.startswith("/") and not href.startswith("/api/"):
+                href = app_path(href)
             out.append(f'<li><a href="{_e(href)}" style="color:#00E5FF">{_e(text)}</a></li>')
         out.append("</ul>")
     out.append("</main>")

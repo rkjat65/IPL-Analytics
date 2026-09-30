@@ -9,7 +9,8 @@ import {
 } from 'recharts'
 import { useFetch } from '../hooks/useFetch'
 import { getMatch, getWinProbability } from '../lib/api'
-import SEO, { SITE_URL } from '../components/SEO'
+import SEO from '../components/SEO'
+import { appUrl } from '../lib/site'
 import { breadcrumbSchema } from '../lib/breadcrumbs'
 import Loading from '../components/ui/Loading'
 import Badge from '../components/ui/Badge'
@@ -183,7 +184,7 @@ export default function MatchDetail() {
     '@context': 'https://schema.org',
     '@type': 'SportsEvent',
     name: matchTitle,
-    url: `${SITE_URL}${canonicalPath}`,
+    url: `${appUrl(canonicalPath)}`,
     description: seoDescription,
     sport: 'Cricket',
     startDate: match.date || undefined,

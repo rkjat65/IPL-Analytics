@@ -3,7 +3,8 @@ import MakeCardButton from '../components/ui/MakeCardButton'
 import { useTournament } from '../contexts/TournamentContext'
 import { useFetch } from '../hooks/useFetch'
 import { getTeamStats, getTeamSeasons, getTeamH2H, getTeams } from '../lib/api'
-import SEO, { SITE_URL } from '../components/SEO'
+import SEO from '../components/SEO'
+import { appUrl } from '../lib/site'
 import { breadcrumbSchema } from '../lib/breadcrumbs'
 import StatCard from '../components/ui/StatCard'
 import DataTable from '../components/ui/DataTable'
@@ -72,7 +73,7 @@ export default function TeamProfile() {
     '@context': 'https://schema.org',
     '@type': 'SportsTeam',
     name: decoded,
-    url: `${SITE_URL}${canonicalPath}`,
+    url: `${appUrl(canonicalPath)}`,
     description: seoDescription,
     sport: 'Cricket',
     memberOf: {

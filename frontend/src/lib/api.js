@@ -1,12 +1,13 @@
+import { tournamentFromPath } from './site'
+
 const API_BASE = '/api'
 // Public GET responses are cached by the installable app. Change this token
 // when bundled databases or canonical API labels change.
-const DATA_RELEASE = 'records-hub-v1'
+const DATA_RELEASE = 'one-site-v1'
 
 export function getActiveTournament() {
-  const queryValue = new URLSearchParams(window.location.search).get('tournament')
-  if (queryValue === 't20wc' || queryValue === 'ipl') return queryValue
-  return window.localStorage.getItem('crickrida-tournament') === 't20wc' ? 't20wc' : 'ipl'
+  // The URL prefix (/ipl or /t20-world-cup) decides the tournament.
+  return tournamentFromPath()
 }
 
 export function apiUrl(endpoint, params = {}) {

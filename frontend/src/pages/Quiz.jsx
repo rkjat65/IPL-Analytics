@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+import { appUrl } from '../lib/site'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import PlayerAvatar from '../components/ui/PlayerAvatar'
@@ -56,7 +57,7 @@ export default function Quiz() {
   }
 
   const share = async () => {
-    const text = `I'm on a ${Math.max(streak, best)}-player streak in the Crickrida ${tournament.shortName} "Guess the player" quiz 🏏 Can you beat it? https://crickrida.com/quiz`
+    const text = `I'm on a ${Math.max(streak, best)}-player streak in the Crickrida ${tournament.shortName} "Guess the player" quiz 🏏 Can you beat it? ${appUrl('/quiz')}`
     try { await navigator.clipboard.writeText(text); setCopied(true); setTimeout(() => setCopied(false), 2000) } catch { /* ignore */ }
   }
 

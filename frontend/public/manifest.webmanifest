@@ -2,20 +2,20 @@
   "name": "Crickrida — IPL & T20 World Cup Analytics",
   "short_name": "Crickrida",
   "description": "Free ball-by-ball IPL and T20 World Cup stats, records and a stat-card studio.",
-  "start_url": "/dashboard?source=pwa",
-  "scope": "/",
+  "start_url": "/ipl/dashboard?source=pwa",
+  "scope": "/ipl/",
   "display": "standalone",
   "background_color": "#0A0A0F",
   "theme_color": "#0A0A0F",
   "categories": ["sports"],
   "icons": [
-    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
-    { "src": "/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ],
   "shortcuts": [
-    { "name": "Matches", "url": "/matches" },
-    { "name": "Batting records", "url": "/batting" },
-    { "name": "Studio", "url": "/content-studio" }
+    { "name": "Matches", "url": "/ipl/matches" },
+    { "name": "Batting records", "url": "/ipl/batting" },
+    { "name": "Studio", "url": "/ipl/content-studio" }
   ]
 }

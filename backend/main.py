@@ -5,7 +5,7 @@ import logging
 import os
 from contextlib import asynccontextmanager
 from pathlib import Path
-from urllib.parse import unquote, urlsplit
+from urllib.parse import parse_qsl, unquote, urlencode, urlsplit
 
 # Load .env BEFORE any router imports so all env vars are available
 try:
@@ -14,7 +14,7 @@ try:
 except ImportError:
     pass
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -79,21 +79,65 @@ app.add_middleware(GZipMiddleware, minimum_size=1024)
 
 _LOCAL_HOSTS = {"localhost", "127.0.0.1", "[::1]", "testserver"}
 
+# crickrida.com is one site: the international archive owns the root and this
+# app lives under one prefix per tournament. These map the app's old root-level
+# addresses (and the retired subdomain) onto the new ones.
+SPA_PREFIXES = {"/ipl": "ipl", "/t20-world-cup": "t20wc"}
+TOURNAMENT_PREFIX = {slug: prefix for prefix, slug in SPA_PREFIXES.items()}
+LEGACY_APP_ROOTS = {
+    "dashboard", "matches", "batting", "bowling", "players", "teams", "venues", "seasons",
+    "h2h", "charts", "pulse", "records", "matchups", "phases", "content-studio", "fantasy",
+    "quiz", "faq", "image-credits", "privacy", "terms", "account-deletion", "admin", "login",
+    "social", "ask", "player-impact",
+}
+SITE_FILES = {"/sitemap.xml", "/robots.txt", "/llms.txt"}
+ANY_HOST_PATHS = {"/sw.js"}
+
+
+def spa_prefix(path: str) -> tuple[str, str] | None:
+    """('/ipl', 'ipl') when ``path`` is an app page, else None."""
+    for prefix, slug in SPA_PREFIXES.items():
+        if path == prefix or path.startswith(prefix + "/"):
+            return prefix, slug
+    return None
+
+
+def legacy_app_path(path: str, query: str) -> str | None:
+    """New address of an app page from before it moved under /ipl and /t20-world-cup."""
+    first = path.strip("/").split("/", 1)[0]
+    if first and first not in LEGACY_APP_ROOTS:
+        return None
+    params = parse_qsl(query, keep_blank_values=True)
+    tournament = next((value for key, value in params if key == "tournament"), "ipl")
+    rest = [(key, value) for key, value in params if key not in ("tournament", "data_release")]
+    inner = path.rstrip("/") if first else "/dashboard"
+    target = TOURNAMENT_PREFIX.get(tournament, "/ipl") + inner
+    return target + (f"?{urlencode(rest)}" if rest else "")
+
 
 def canonical_redirect(host: str, path: str, query: str, method: str) -> str | None:
-    """Where a page request on a retired hostname should go, or None to serve it here.
+    """Where a request on a retired hostname should go, or None to serve it here.
 
-    Only active when CANONICAL_ORIGIN is set. The API stays reachable on every
-    host so installed mobile apps and embeds keep working after a domain move.
+    Only active when CANONICAL_ORIGIN is set. Old app pages go straight to their
+    /ipl or /t20-world-cup address in one hop. The API stays reachable on every
+    host so installed mobile apps keep working after the move.
     """
     origin = (os.getenv("CANONICAL_ORIGIN") or "").rstrip("/")
-    if not origin or method not in ("GET", "HEAD") or path.startswith("/api/"):
+    if not origin or method not in ("GET", "HEAD") or path.startswith("/api/") or path in ANY_HOST_PATHS:
         return None
     host = (host or "").lower()
     canonical_host = urlsplit(origin).netloc.lower()
     if not host or host == canonical_host or host.split(":")[0] in _LOCAL_HOSTS:
         return None
-    return origin + path + (f"?{query}" if query else "")
+    same = path + (f"?{query}" if query else "")
+    if spa_prefix(path) or path in SITE_FILES or path.startswith("/app/"):
+        return origin + same
+    moved = legacy_app_path(path, query)
+    if moved:
+        return origin + moved
+    if FRONTEND_DIST.is_dir() and resolve_static_file(FRONTEND_DIST, path.lstrip("/")):
+        return origin + "/app" + same  # fonts, icons and images the old app served from the root
+    return origin + same
 
 
 @app.middleware("http")
@@ -102,6 +146,7 @@ async def redirect_to_canonical_host(request, call_next):
     if target:
         return RedirectResponse(target, status_code=301)
     return await call_next(request)
+
 
 # API Routers
 app.include_router(meta.router)
@@ -131,6 +176,7 @@ def health_check():
 _sitemap_cache: dict[str, str] = {}
 
 
+@app.get("/sitemap-ipl.xml", include_in_schema=False)
 @app.get("/sitemap.xml", include_in_schema=False)
 def sitemap():
     if "xml" not in _sitemap_cache:
@@ -210,19 +256,54 @@ def resolve_static_file(root: Path, requested: str) -> Path | None:
         return candidate
     return None
 
-if FRONTEND_DIST.is_dir():
-    # Serve static assets (JS, CSS, images)
-    app.mount("/assets", StaticFiles(directory=str(FRONTEND_DIST / "assets")), name="static-assets")
+# Crickrida no longer runs a service worker. This one replaces any worker an
+# earlier version registered at the site root, clears its caches and removes itself.
+RETIRED_SERVICE_WORKER = """self.addEventListener('install', () => self.skipWaiting())
+self.addEventListener('activate', (event) => {
+  event.waitUntil((async () => {
+    for (const key of await caches.keys()) if (key.startsWith('crickrida-')) await caches.delete(key)
+    await self.registration.unregister()
+  })())
+})
+"""
 
-    # Serve other static files at root level (favicon, etc.)
-    @app.get("/{full_path:path}")
-    async def serve_frontend(full_path: str):
-        """Serve React SPA — all non-API routes return index.html."""
-        if full_path == "api" or full_path.startswith("api/"):
-            raise HTTPException(status_code=404, detail="Not found")
-        file_path = resolve_static_file(FRONTEND_DIST, full_path)
+
+@app.get("/sw.js", include_in_schema=False)
+def retired_service_worker():
+    return Response(RETIRED_SERVICE_WORKER, media_type="application/javascript", headers={"Cache-Control": "no-cache"})
+
+
+def _frontend_file(requested: str) -> Path | None:
+    return resolve_static_file(FRONTEND_DIST, requested) if FRONTEND_DIST.is_dir() else None
+
+
+@app.get("/{full_path:path}", include_in_schema=False)
+async def serve_frontend(request: Request, full_path: str):
+    """App pages under /ipl and /t20-world-cup, built files under /app, redirects for old addresses."""
+    path = "/" + full_path
+    if full_path == "api" or full_path.startswith("api/"):
+        raise HTTPException(status_code=404, detail="Not found")
+    if full_path.startswith("app/"):
+        file_path = _frontend_file(full_path[len("app/"):])
         if file_path:
             return FileResponse(str(file_path))
-        # Every app route gets server-rendered meta + a crawlable summary.
-        page, status = seo.render_index(_index_html(), full_path)
+        raise HTTPException(status_code=404, detail="Not found")
+    hit = spa_prefix(path)
+    if hit:
+        if not FRONTEND_DIST.is_dir():
+            raise HTTPException(status_code=404, detail="Frontend not built")
+        prefix, slug = hit
+        token = set_tournament(slug)
+        try:
+            # Every app route gets server-rendered meta and a crawlable summary.
+            page, status = seo.render_index(_index_html(), path[len(prefix):] or "/")
+        finally:
+            reset_tournament(token)
         return HTMLResponse(page, status_code=status, headers={"Cache-Control": "no-cache"})
+    moved = legacy_app_path(path, request.url.query)
+    if moved:
+        return RedirectResponse(moved, status_code=301)
+    file_path = _frontend_file(full_path)  # robots.txt, llms.txt and root files older clients still ask for
+    if file_path:
+        return FileResponse(str(file_path))
+    raise HTTPException(status_code=404, detail="Not found")

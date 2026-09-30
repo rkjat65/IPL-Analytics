@@ -1,5 +1,6 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { createContext, useContext, useMemo } from 'react'
+import { useLocation } from 'react-router-dom'
+import { PREFIXES, tournamentFromPath } from '../lib/site'
 
 export const TOURNAMENTS = {
   ipl: {
@@ -24,46 +25,15 @@ export const TOURNAMENTS = {
 
 const TournamentContext = createContext(null)
 
-function normalize(value) {
-  return TOURNAMENTS[value] ? value : 'ipl'
-}
-
-function initialTournament() {
-  const query = new URLSearchParams(window.location.search).get('tournament')
-  return normalize(query || window.localStorage.getItem('crickrida-tournament'))
-}
-
 export function TournamentProvider({ children }) {
   const location = useLocation()
-  const navigate = useNavigate()
-  const [slug, setSlug] = useState(initialTournament)
-
-  useEffect(() => {
-    const requested = new URLSearchParams(location.search).get('tournament')
-    if (requested && TOURNAMENTS[requested] && requested !== slug) {
-      setSlug(requested)
-    }
-  }, [location.search, slug])
-
-  useEffect(() => {
-    window.localStorage.setItem('crickrida-tournament', slug)
-    // Read the *current* URL, not this render's location: a child <Navigate>
-    // (e.g. / -> /dashboard) may already have moved on in the same commit, and
-    // re-using the stale pathname would undo that redirect.
-    const { pathname, search } = window.location
-    const params = new URLSearchParams(search)
-    if (params.get('tournament') !== slug) {
-      params.set('tournament', slug)
-      navigate({ pathname, search: params.toString() }, { replace: true })
-    }
-  }, [slug, location.pathname, location.search, navigate])
+  // The router's basename is the tournament prefix, so the slug never changes
+  // inside one page load; switching tournaments is a full navigation.
+  const slug = tournamentFromPath()
 
   const selectTournament = (nextSlug) => {
-    const normalized = normalize(nextSlug)
-    setSlug(normalized)
-    const params = new URLSearchParams(location.search)
-    params.set('tournament', normalized)
-    navigate({ pathname: location.pathname, search: params.toString() })
+    if (!TOURNAMENTS[nextSlug] || nextSlug === slug) return
+    window.location.assign(PREFIXES[nextSlug] + location.pathname + location.search)
   }
 
   const value = useMemo(() => ({
@@ -72,7 +42,7 @@ export function TournamentProvider({ children }) {
     isIPL: slug === 'ipl',
     isT20WorldCup: slug === 't20wc',
     selectTournament,
-  }), [slug])
+  }), [slug, location.pathname, location.search])
 
   return <TournamentContext.Provider value={value}>{children}</TournamentContext.Provider>
 }

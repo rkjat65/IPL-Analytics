@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
+import { appPath } from '../lib/site'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 
@@ -369,7 +370,7 @@ export default function LoginPage({ inline = false }) {
               {mode === 'login' && !inline && (
                 <p className="text-text-muted text-sm">
                   Not an admin?{' '}
-                  <a href="/dashboard" className="text-accent-cyan hover:underline font-medium transition-colors">
+                  <a href={appPath('/dashboard')} className="text-accent-cyan hover:underline font-medium transition-colors">
                     Explore Crickrida — it&apos;s free, no account needed
                   </a>
                 </p>

@@ -2,7 +2,8 @@ import { Link, useParams } from 'react-router-dom'
 import { useTournament } from '../contexts/TournamentContext'
 import { useFetch } from '../hooks/useFetch'
 import { getVenueStats, getVenueTopPerformers } from '../lib/api'
-import SEO, { SITE_URL } from '../components/SEO'
+import SEO from '../components/SEO'
+import { appUrl } from '../lib/site'
 import { breadcrumbSchema } from '../lib/breadcrumbs'
 import StatCard from '../components/ui/StatCard'
 import DataTable from '../components/ui/DataTable'
@@ -56,7 +57,7 @@ export default function VenueProfile() {
     '@context': 'https://schema.org',
     '@type': 'SportsActivityLocation',
     name: decoded,
-    url: `${SITE_URL}${canonicalPath}`,
+    url: `${appUrl(canonicalPath)}`,
     description: seoDescription,
   }
 

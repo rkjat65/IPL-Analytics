@@ -70,7 +70,7 @@ def build_client():
     app = Starlette(routes=[
         Route("/api/analytics/kpis", data),
         Route("/api/auth/me", me),
-        Route("/assets/app.js", asset),
+        Route("/app/assets/app.js", asset),
     ])
     return AsgiClient(HttpCacheMiddleware(app))
 
@@ -104,7 +104,7 @@ class HttpCacheTest(unittest.TestCase):
         self.assertFalse(cacheable_api_path("/api/quiz/player"))
 
     def test_hashed_assets_are_immutable(self):
-        response = self.client.get("/assets/app.js")
+        response = self.client.get("/app/assets/app.js")
         self.assertIn("immutable", response.headers["cache-control"])
 
 

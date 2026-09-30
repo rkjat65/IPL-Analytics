@@ -56,7 +56,7 @@ class PageMetaTest(unittest.TestCase):
         with InTournament("t20wc"):
             meta = seo.page_meta("/dashboard")
             self.assertIn("T20 World Cup", meta.title)
-            self.assertEqual(seo.canonical_url(meta.path), f"{seo.SITE_URL}/dashboard?tournament=t20wc")
+            self.assertEqual(seo.canonical_url(meta.path), f"{seo.SITE_URL}/t20-world-cup/dashboard")
             self.assertEqual(seo.page_meta("/teams/India").status, 200)
 
 
@@ -66,7 +66,7 @@ class RenderIndexTest(unittest.TestCase):
         self.assertEqual(status, 200)
         self.assertEqual(page.count("<title>"), 1)
         self.assertIn("<title>Mumbai Indians — IPL Team Profile", page)
-        self.assertIn('rel="canonical" href="https://crickrida.com/teams/Mumbai%20Indians" data-rh="true"', page)
+        self.assertIn('rel="canonical" href="https://crickrida.com/ipl/teams/Mumbai%20Indians" data-rh="true"', page)
         self.assertIn("/api/og?path=", page)
         self.assertIn('application/ld+json', page)
         self.assertIn('<div id="root"><main', page)
@@ -85,9 +85,9 @@ class SitemapTest(unittest.TestCase):
         locs = [el.text for el in root.iter("{http://www.sitemaps.org/schemas/sitemap/0.9}loc")]
         self.assertGreater(len(locs), 1000)
         self.assertEqual(len(locs), len(set(locs)))
-        self.assertIn(f"{seo.SITE_URL}/batting/Virat%20Kohli", locs)
-        self.assertIn(f"{seo.SITE_URL}/dashboard?tournament=t20wc", locs)
-        self.assertIn(f"{seo.SITE_URL}/seasons/2007%2F08", locs)
+        self.assertIn(f"{seo.SITE_URL}/ipl/batting/Virat%20Kohli", locs)
+        self.assertIn(f"{seo.SITE_URL}/t20-world-cup/dashboard", locs)
+        self.assertIn(f"{seo.SITE_URL}/ipl/seasons/2007%2F08", locs)
         self.assertFalse(any("/ask" in loc or "/login" in loc or "/admin" in loc for loc in locs))
 
 

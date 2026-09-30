@@ -9,7 +9,7 @@ import {
 } from 'react-simple-maps'
 
 // Local GeoJSON for India states (includes J&K and Ladakh as part of India)
-const INDIA_GEO_JSON = '/india-states.json'
+const INDIA_GEO_JSON = `${import.meta.env.BASE_URL}india-states.json`
 
 // City lat/lon coordinates for IPL venues
 const CITY_COORDINATES = {

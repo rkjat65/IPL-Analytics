@@ -11,7 +11,8 @@ import {
   getPlayerSplits,
 } from '../lib/api'
 import { BattingSplits, BowlingSplits } from '../components/profile/PlayerSplits'
-import SEO, { SITE_URL } from '../components/SEO'
+import SEO from '../components/SEO'
+import { appUrl } from '../lib/site'
 import { breadcrumbSchema } from '../lib/breadcrumbs'
 import StatCard from '../components/ui/StatCard'
 import PlayerAvatar from '../components/ui/PlayerAvatar'
@@ -126,7 +127,7 @@ export default function PlayerProfile() {
     '@type': 'Person',
     name: displayName,
     ...(famousNames.length ? { alternateName: famousNames } : {}),
-    url: `${SITE_URL}${canonicalPath}`,
+    url: `${appUrl(canonicalPath)}`,
     description: seoDescription,
     ...(hasBatting || hasBowling
       ? {

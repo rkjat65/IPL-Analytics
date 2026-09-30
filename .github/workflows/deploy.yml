@@ -134,4 +134,4 @@ jobs:
       run: |
         result=$(curl -s -o /dev/null -w '%{http_code} %{redirect_url}' https://crickrida.rkjat.in/records || true)
         echo "crickrida.rkjat.in/records -> $result"
-        [ "$result" = "301 https://crickrida.com/records" ] || echo "::warning::The old host is not redirecting to crickrida.com"
+        [ "$result" = "301 https://crickrida.com/ipl/records" ] || echo "::warning::The old host is not redirecting to crickrida.com"

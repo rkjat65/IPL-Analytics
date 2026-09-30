@@ -81,14 +81,14 @@ class HttpCacheMiddleware:
             return
 
         path: str = scope["path"]
-        if path.startswith("/assets/"):
+        if path.startswith("/app/assets/"):
             await self.app(scope, receive, self._with_header(send, ASSET_CACHE_CONTROL))
             return
         if path == "/sw.js":
             # Browsers must always check for a new service worker
             await self.app(scope, receive, self._with_header(send, "no-cache"))
             return
-        if path.startswith("/fonts/") or path.startswith("/icons/"):
+        if path.startswith("/app/fonts/") or path.startswith("/app/icons/"):
             await self.app(scope, receive, self._with_header(send, FONT_CACHE_CONTROL))
             return
         if is_image_path(path):

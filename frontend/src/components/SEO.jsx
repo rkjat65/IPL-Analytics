@@ -1,18 +1,18 @@
 import { Helmet } from 'react-helmet-async'
 import { useTournament } from '../contexts/TournamentContext'
+import { SITE_URL, PREFIXES, asset } from '../lib/site'
 
-const DEFAULT_OG_IMAGE = '/og-default.png'
+export { SITE_URL }
+const DEFAULT_OG_IMAGE = asset('og-default.png')
 const SITE_NAME = 'Crickrida'
 const TWITTER_HANDLE = '@Rkjat65'
-export const SITE_URL = 'https://crickrida.com'
 
 export default function SEO({ title, description, image, url, type = 'website', schema, noindex = false }) {
   const { tournament } = useTournament()
   const fullTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME
-  // IPL is the default; other tournaments are separate pages for search engines.
-  const tq = tournament === 'ipl' ? '' : `?tournament=${tournament}`
+  // Each tournament lives under its own prefix, so its pages are distinct URLs.
   const canonical = url
-    ? `${SITE_URL}${url}${tq}`
+    ? `${SITE_URL}${PREFIXES[tournament]}${url}`
     : (typeof window !== 'undefined' ? window.location.href : SITE_URL)
   // Per-page preview image rendered by the backend from the page's own data.
   const ogImage = image || (url

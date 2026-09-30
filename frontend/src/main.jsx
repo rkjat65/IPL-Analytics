@@ -5,13 +5,17 @@ import { HelmetProvider } from 'react-helmet-async'
 import { AuthProvider } from './contexts/AuthContext'
 import { TournamentProvider } from './contexts/TournamentContext'
 import App from './App'
+import { currentPrefix, isAppPath, PREFIXES } from './lib/site'
 import './index.css'
+
+// Outside /ipl or /t20-world-cup (only in local development) start at the IPL dashboard.
+if (!isAppPath()) window.location.replace(`${PREFIXES.ipl}/dashboard`)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <HelmetProvider>
       <AuthProvider>
-        <BrowserRouter>
+        <BrowserRouter basename={currentPrefix()}>
           <TournamentProvider>
             <App />
           </TournamentProvider>
@@ -21,9 +25,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   </React.StrictMode>,
 )
 
-// Installable app + offline reading (production builds only)
-if ('serviceWorker' in navigator && import.meta.env.PROD) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').catch(() => {})
-  })
+// The app no longer runs a service worker: one registered at the site root
+// would sit in front of the whole of crickrida.com. Remove any left behind.
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then((regs) => regs.forEach((r) => r.unregister())).catch(() => {})
 }
