@@ -142,7 +142,7 @@ export default function MultiSeasonSelect({ seasons = [], value = '', onChange }
     <div ref={ref} className="relative">
       <button
         onClick={() => { setOpen(!open); setCustomMode(false) }}
-        className="bg-bg-card border border-border-subtle rounded-md px-3 py-2 text-sm text-text-primary font-body focus:outline-none focus:border-accent-brand transition-colors cursor-pointer pr-8 text-left min-w-[140px]"
+        className="bg-bg-card border border-border-subtle rounded-md px-3 py-2 text-sm text-text-primary font-body focus:outline-none focus:border-accent-cyan transition-colors cursor-pointer pr-8 text-left min-w-[140px]"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238888A0' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")`,
           backgroundRepeat: 'no-repeat',
@@ -173,7 +173,7 @@ export default function MultiSeasonSelect({ seasons = [], value = '', onChange }
             <button
               onClick={selectAll}
               className={`px-2.5 py-1 text-xs rounded-md border transition-colors ${
-                isAll ? 'bg-accent-brand/20 border-accent-brand/40 text-accent-brand' : 'border-border-subtle text-text-secondary hover:text-text-primary'
+                isAll ? 'bg-accent-cyan/20 border-accent-cyan/40 text-accent-cyan' : 'border-border-subtle text-text-secondary hover:text-text-primary'
               }`}
             >
               All
@@ -182,7 +182,7 @@ export default function MultiSeasonSelect({ seasons = [], value = '', onChange }
               <button
                 key={r.label}
                 onClick={() => selectRange(r.from, r.to)}
-                className="px-2.5 py-1 text-xs rounded-md border border-border-subtle text-text-secondary hover:text-text-primary hover:border-accent-brand/30 transition-colors"
+                className="px-2.5 py-1 text-xs rounded-md border border-border-subtle text-text-secondary hover:text-text-primary hover:border-accent-cyan/30 transition-colors"
               >
                 {r.label}
               </button>
@@ -205,7 +205,7 @@ export default function MultiSeasonSelect({ seasons = [], value = '', onChange }
                 <select
                   value={customFrom}
                   onChange={(e) => setCustomFrom(e.target.value)}
-                  className="flex-1 bg-bg-card border border-border-subtle rounded px-2 py-1 text-xs text-text-primary focus:outline-none focus:border-accent-brand"
+                  className="flex-1 bg-bg-card border border-border-subtle rounded px-2 py-1 text-xs text-text-primary focus:outline-none focus:border-accent-cyan"
                 >
                   <option value="">From</option>
                   {sortedAsc.map(s => <option key={s} value={s}>{s}</option>)}
@@ -214,7 +214,7 @@ export default function MultiSeasonSelect({ seasons = [], value = '', onChange }
                 <select
                   value={customTo}
                   onChange={(e) => setCustomTo(e.target.value)}
-                  className="flex-1 bg-bg-card border border-border-subtle rounded px-2 py-1 text-xs text-text-primary focus:outline-none focus:border-accent-brand"
+                  className="flex-1 bg-bg-card border border-border-subtle rounded px-2 py-1 text-xs text-text-primary focus:outline-none focus:border-accent-cyan"
                 >
                   <option value="">To</option>
                   {sortedAsc.map(s => <option key={s} value={s}>{s}</option>)}
@@ -222,7 +222,7 @@ export default function MultiSeasonSelect({ seasons = [], value = '', onChange }
                 <button
                   onClick={applyCustomRange}
                   disabled={!customFrom || !customTo}
-                  className="px-2.5 py-1 text-xs rounded-md bg-accent-brand/20 border border-accent-brand/40 text-accent-brand hover:bg-accent-brand/30 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="px-2.5 py-1 text-xs rounded-md bg-accent-cyan/20 border border-accent-cyan/40 text-accent-cyan hover:bg-accent-cyan/30 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   Apply
                 </button>
@@ -248,7 +248,7 @@ export default function MultiSeasonSelect({ seasons = [], value = '', onChange }
                   }}
                   className={`px-1 py-1.5 text-xs font-mono rounded transition-colors ${
                     isSelected
-                      ? 'bg-accent-brand/20 text-accent-brand border border-accent-brand/40'
+                      ? 'bg-accent-cyan/20 text-accent-cyan border border-accent-cyan/40'
                       : 'text-text-secondary hover:text-text-primary hover:bg-bg-card border border-transparent'
                   }`}
                 >
@@ -264,7 +264,7 @@ export default function MultiSeasonSelect({ seasons = [], value = '', onChange }
             {selected.length > 0 && (
               <button
                 onClick={selectAll}
-                className="text-[10px] text-accent-brand hover:underline"
+                className="text-[10px] text-accent-cyan hover:underline"
               >
                 Clear ({selected.length})
               </button>

@@ -15,7 +15,7 @@ export function Spinner({ size = 'md', className = '' }) {
 
   return (
     <div
-      className={`${sizes[size]} border-border-subtle border-t-accent-brand rounded-full animate-spin ${className}`}
+      className={`${sizes[size]} border-border-subtle border-t-accent-cyan rounded-full animate-spin ${className}`}
     />
   )
 }

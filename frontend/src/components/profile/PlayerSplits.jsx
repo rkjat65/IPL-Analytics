@@ -5,21 +5,21 @@ import {
   Bar, BarChart, CartesianGrid, Cell, ComposedChart, Legend, Line, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis,
 } from 'recharts'
 
-const PIE_COLORS = ['#C3F23B', '#FF2D78', '#2DD4BF', '#FFB800', '#8B5CF6', '#22C55E', '#EF4444', '#6366F1']
-const AXIS = { fill: '#9AA69F', fontSize: 11, fontFamily: 'JetBrains Mono' }
-const LINE = { stroke: '#22302B' }
+const PIE_COLORS = ['#00E5FF', '#FF2D78', '#B8FF00', '#FFB800', '#8B5CF6', '#22C55E', '#EF4444', '#6366F1']
+const AXIS = { fill: '#8888A0', fontSize: 11, fontFamily: 'JetBrains Mono' }
+const LINE = { stroke: '#1E1E2A' }
 const mono = (v) => <span className="font-mono">{v ?? '-'}</span>
 const dec = (v) => <span className="font-mono">{v == null ? '-' : formatDecimal(v)}</span>
-const phaseOf = (over) => (over <= 6 ? '#C3F23B' : over <= 15 ? '#FFB800' : '#FF2D78')
+const phaseOf = (over) => (over <= 6 ? '#00E5FF' : over <= 15 ? '#FFB800' : '#FF2D78')
 const POSITION_LABEL = { 1: 'Opener', 2: 'Opener', 3: 'No. 3', 4: 'No. 4', 5: 'No. 5', 6: 'No. 6', 7: 'No. 7' }
 
 function ChartTooltip({ active, payload, label }) {
   if (!active || !payload?.length) return null
   return (
-    <div className="bg-[#17211F] border border-[#2E3F39] rounded-lg px-3 py-2 shadow-lg">
-      <p className="text-[#9AA69F] text-xs mb-1 font-mono">{label}</p>
+    <div className="bg-[#16161F] border border-[#2A2A3A] rounded-lg px-3 py-2 shadow-lg">
+      <p className="text-[#8888A0] text-xs mb-1 font-mono">{label}</p>
       {payload.map((entry, i) => (
-        <p key={i} className="text-xs" style={{ color: entry.color || '#F3F4EE' }}>
+        <p key={i} className="text-xs" style={{ color: entry.color || '#E8E8ED' }}>
           {entry.name}: <span className="font-mono font-semibold">{typeof entry.value === 'number' ? entry.value.toLocaleString() : entry.value}</span>
         </p>
       ))}
@@ -28,7 +28,7 @@ function ChartTooltip({ active, payload, label }) {
 }
 
 function Section({ title, color = 'cyan', note, children }) {
-  const colorMap = { cyan: 'bg-accent-brand', magenta: 'bg-accent-magenta', lime: 'bg-accent-teal', amber: 'bg-accent-amber' }
+  const colorMap = { cyan: 'bg-accent-cyan', magenta: 'bg-accent-magenta', lime: 'bg-accent-lime', amber: 'bg-accent-amber' }
   return (
     <section className="animate-in">
       <div className="flex items-baseline gap-3 mb-4">
@@ -41,14 +41,14 @@ function Section({ title, color = 'cyan', note, children }) {
   )
 }
 
-const venueLink = (v) => <Link to={`/venues/${encodeURIComponent(v)}`} className="text-accent-brand hover:underline">{v}</Link>
+const venueLink = (v) => <Link to={`/venues/${encodeURIComponent(v)}`} className="text-accent-cyan hover:underline">{v}</Link>
 
 export function BattingSplits({ splits }) {
   if (!splits) return null
   const positionCols = [
     { key: 'position', label: 'Position', render: (v) => <span className="text-text-primary">{v} <span className="text-text-muted text-xs">{POSITION_LABEL[v] || ''}</span></span> },
     { key: 'innings', label: 'Inn', align: 'right', render: mono },
-    { key: 'runs', label: 'Runs', align: 'right', render: (v) => <span className="font-mono font-semibold text-accent-teal">{v}</span> },
+    { key: 'runs', label: 'Runs', align: 'right', render: (v) => <span className="font-mono font-semibold text-accent-lime">{v}</span> },
     { key: 'avg', label: 'Avg', align: 'right', render: dec },
     { key: 'sr', label: 'SR', align: 'right', render: dec },
     { key: 'highest', label: 'HS', align: 'right', render: mono },
@@ -58,7 +58,7 @@ export function BattingSplits({ splits }) {
   const venueCols = [
     { key: 'venue', label: 'Venue', render: venueLink },
     { key: 'innings', label: 'Inn', align: 'right', render: mono },
-    { key: 'runs', label: 'Runs', align: 'right', render: (v) => <span className="font-mono font-semibold text-accent-teal">{v}</span> },
+    { key: 'runs', label: 'Runs', align: 'right', render: (v) => <span className="font-mono font-semibold text-accent-lime">{v}</span> },
     { key: 'avg', label: 'Avg', align: 'right', render: dec },
     { key: 'sr', label: 'SR', align: 'right', render: dec },
     { key: 'highest', label: 'HS', align: 'right', render: mono },
@@ -74,7 +74,7 @@ export function BattingSplits({ splits }) {
           <div className="card">
             <ResponsiveContainer width="100%" height={280}>
               <ComposedChart data={splits.by_over} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#22302B" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" />
                 <XAxis dataKey="over" tick={AXIS} axisLine={LINE} tickLine={LINE} />
                 <YAxis yAxisId="runs" tick={AXIS} axisLine={LINE} tickLine={LINE} />
                 <YAxis yAxisId="sr" orientation="right" tick={AXIS} axisLine={LINE} tickLine={LINE} />
@@ -83,7 +83,7 @@ export function BattingSplits({ splits }) {
                 <Bar yAxisId="runs" dataKey="runs" name="Runs" radius={[3, 3, 0, 0]}>
                   {splits.by_over.map((r) => <Cell key={r.over} fill={phaseOf(r.over)} fillOpacity={0.85} />)}
                 </Bar>
-                <Line yAxisId="sr" type="monotone" dataKey="sr" name="Strike rate" stroke="#F3F4EE" strokeWidth={2} dot={false} />
+                <Line yAxisId="sr" type="monotone" dataKey="sr" name="Strike rate" stroke="#E8E8ED" strokeWidth={2} dot={false} />
               </ComposedChart>
             </ResponsiveContainer>
             <p className="text-[11px] text-text-muted font-mono mt-2">Bars: powerplay cyan, middle amber, death magenta.</p>
@@ -102,11 +102,11 @@ export function BattingSplits({ splits }) {
             <div className="card">
               <ResponsiveContainer width="100%" height={splits.positions?.length ? 300 : 240}>
                 <BarChart data={splits.scores} layout="vertical" margin={{ top: 4, right: 30, left: 10, bottom: 4 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#22302B" horizontal={false} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" horizontal={false} />
                   <XAxis type="number" tick={AXIS} axisLine={LINE} tickLine={LINE} allowDecimals={false} />
                   <YAxis type="category" dataKey="bucket" width={90} tick={AXIS} axisLine={LINE} tickLine={LINE} />
                   <Tooltip content={<ChartTooltip />} />
-                  <Bar dataKey="innings" name="Innings" fill="#C3F23B" radius={[0, 4, 4, 0]} label={{ position: 'right', fill: '#9AA69F', fontSize: 11, fontFamily: 'JetBrains Mono' }} />
+                  <Bar dataKey="innings" name="Innings" fill="#00E5FF" radius={[0, 4, 4, 0]} label={{ position: 'right', fill: '#8888A0', fontSize: 11, fontFamily: 'JetBrains Mono' }} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -158,7 +158,7 @@ export function BowlingSplits({ splits }) {
           <div className="card">
             <ResponsiveContainer width="100%" height={280}>
               <ComposedChart data={splits.by_over} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#22302B" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" />
                 <XAxis dataKey="over" tick={AXIS} axisLine={LINE} tickLine={LINE} />
                 <YAxis yAxisId="econ" tick={AXIS} axisLine={LINE} tickLine={LINE} />
                 <YAxis yAxisId="wkts" orientation="right" tick={AXIS} axisLine={LINE} tickLine={LINE} allowDecimals={false} />
@@ -167,7 +167,7 @@ export function BowlingSplits({ splits }) {
                 <Bar yAxisId="econ" dataKey="economy" name="Economy" radius={[3, 3, 0, 0]}>
                   {splits.by_over.map((r) => <Cell key={r.over} fill={phaseOf(r.over)} fillOpacity={0.85} />)}
                 </Bar>
-                <Line yAxisId="wkts" type="monotone" dataKey="wickets" name="Wickets" stroke="#F3F4EE" strokeWidth={2} dot={{ r: 3, fill: '#F3F4EE' }} />
+                <Line yAxisId="wkts" type="monotone" dataKey="wickets" name="Wickets" stroke="#E8E8ED" strokeWidth={2} dot={{ r: 3, fill: '#E8E8ED' }} />
               </ComposedChart>
             </ResponsiveContainer>
             <p className="text-[11px] text-text-muted font-mono mt-2">Bars: powerplay cyan, middle amber, death magenta. Overs with very few balls swing wildly.</p>

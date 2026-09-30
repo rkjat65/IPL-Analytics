@@ -6,7 +6,7 @@ const STAT_CONFIGS = {
     title: 'Top Run Scorer',
     endpoint: '/api/batting/leaderboard?sort_by=runs&limit=5',
     icon: '🏏',
-    color: '#C3F23B',
+    color: '#00E5FF',
     mapRow: (r) => ({ name: r.player, value: `${r.runs} runs`, sub: `SR ${r.strike_rate?.toFixed(1) || '-'}` }),
   },
   'most-wickets': {
@@ -20,7 +20,7 @@ const STAT_CONFIGS = {
     title: 'Team Standings',
     endpoint: '/api/teams/most-wins',
     icon: '🏆',
-    color: '#2DD4BF',
+    color: '#B8FF00',
     mapRow: (r) => ({ name: r.team, value: `${r.wins} wins`, sub: `${r.matches} matches` }),
   },
 }
@@ -53,47 +53,47 @@ export default function EmbedWidget({ statType = 'top-scorer' }) {
 
   return (
     <div
-      className="rounded-xl border border-[#22302B] overflow-hidden"
-      style={{ background: '#0C1210', maxWidth: 350, fontFamily: 'Inter, system-ui, sans-serif' }}
+      className="rounded-xl border border-[#1E1E2A] overflow-hidden"
+      style={{ background: '#0A0A0F', maxWidth: 350, fontFamily: 'Inter, system-ui, sans-serif' }}
     >
       {/* Header */}
       <div
-        className="flex items-center gap-2 px-4 py-3 border-b border-[#22302B]"
+        className="flex items-center gap-2 px-4 py-3 border-b border-[#1E1E2A]"
         style={{ background: `${config.color}08` }}
       >
         <span className="text-lg">{config.icon}</span>
         <span className="font-semibold text-sm" style={{ color: config.color }}>
           {config.title}
         </span>
-        <span className="ml-auto text-[10px] text-[#9AA69F]">Crickrida</span>
+        <span className="ml-auto text-[10px] text-[#8888A0]">Crickrida</span>
       </div>
 
       {/* Body */}
       <div className="px-4 py-3 space-y-2">
         {loading ? (
           <div className="flex items-center justify-center py-6">
-            <div className="w-5 h-5 border-2 border-[#22302B] border-t-[#C3F23B] rounded-full animate-spin" />
+            <div className="w-5 h-5 border-2 border-[#1E1E2A] border-t-[#00E5FF] rounded-full animate-spin" />
           </div>
         ) : data.length === 0 ? (
-          <p className="text-[#9AA69F] text-xs text-center py-4">No data available</p>
+          <p className="text-[#8888A0] text-xs text-center py-4">No data available</p>
         ) : (
           data.map((row, i) => (
             <div
               key={i}
-              className="flex items-center gap-3 py-1.5 border-b border-[#22302B]/50 last:border-0"
+              className="flex items-center gap-3 py-1.5 border-b border-[#1E1E2A]/50 last:border-0"
             >
               <span
                 className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold"
                 style={{
                   background: i === 0 ? `${config.color}20` : '#14141F',
-                  color: i === 0 ? config.color : '#9AA69F',
+                  color: i === 0 ? config.color : '#8888A0',
                 }}
               >
                 {i + 1}
               </span>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium text-[#E8E8F0] truncate">{row.name}</p>
-                <p className="text-[10px] text-[#9AA69F]">{row.sub}</p>
+                <p className="text-[10px] text-[#8888A0]">{row.sub}</p>
               </div>
               <span className="text-xs font-mono font-semibold" style={{ color: config.color }}>
                 {row.value}
@@ -104,12 +104,12 @@ export default function EmbedWidget({ statType = 'top-scorer' }) {
       </div>
 
       {/* Footer */}
-      <div className="px-4 py-2 border-t border-[#22302B] flex items-center justify-between">
+      <div className="px-4 py-2 border-t border-[#1E1E2A] flex items-center justify-between">
         <a
           href={typeof window !== 'undefined' ? window.location.origin : '#'}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[10px] text-[#9AA69F] hover:text-[#C3F23B] transition-colors"
+          className="text-[10px] text-[#8888A0] hover:text-[#00E5FF] transition-colors"
         >
           Powered by Crickrida
         </a>
@@ -118,8 +118,8 @@ export default function EmbedWidget({ statType = 'top-scorer' }) {
           className="text-[10px] font-medium px-2 py-1 rounded-md transition-colors"
           style={{
             background: showEmbed ? `${config.color}20` : '#14141F',
-            color: showEmbed ? config.color : '#9AA69F',
-            border: `1px solid ${showEmbed ? config.color + '40' : '#22302B'}`,
+            color: showEmbed ? config.color : '#8888A0',
+            border: `1px solid ${showEmbed ? config.color + '40' : '#1E1E2A'}`,
           }}
         >
           {showEmbed ? 'Hide Code' : 'Get Embed Code'}
@@ -128,17 +128,17 @@ export default function EmbedWidget({ statType = 'top-scorer' }) {
 
       {/* Embed code panel */}
       {showEmbed && (
-        <div className="px-4 py-3 border-t border-[#22302B] bg-[#0D0D14]">
-          <p className="text-[10px] text-[#9AA69F] mb-2">Copy and paste this code into your site:</p>
+        <div className="px-4 py-3 border-t border-[#1E1E2A] bg-[#0D0D14]">
+          <p className="text-[10px] text-[#8888A0] mb-2">Copy and paste this code into your site:</p>
           <div className="relative">
-            <pre className="text-[10px] text-[#2DD4BF] bg-[#0C1210] rounded-md p-2 overflow-x-auto border border-[#22302B] whitespace-pre-wrap break-all">
+            <pre className="text-[10px] text-[#B8FF00] bg-[#0A0A0F] rounded-md p-2 overflow-x-auto border border-[#1E1E2A] whitespace-pre-wrap break-all">
               {embedCode}
             </pre>
             <button
               onClick={() => {
                 navigator.clipboard.writeText(embedCode).catch(() => {})
               }}
-              className="absolute top-1 right-1 text-[9px] px-1.5 py-0.5 rounded bg-[#14141F] text-[#9AA69F] hover:text-[#C3F23B] border border-[#22302B] transition-colors"
+              className="absolute top-1 right-1 text-[9px] px-1.5 py-0.5 rounded bg-[#14141F] text-[#8888A0] hover:text-[#00E5FF] border border-[#1E1E2A] transition-colors"
             >
               Copy
             </button>

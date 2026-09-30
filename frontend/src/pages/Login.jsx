@@ -224,13 +224,13 @@ export default function LoginPage({ inline = false }) {
   const formContent = (
     <div className={`w-full max-w-md mx-auto ${inline ? '' : 'min-h-screen flex items-center justify-center px-4'}`}>
       <div className={`w-full animate-pop ${inline ? '' : 'my-8'}`}>
-        <div className="p-[1px] rounded-2xl bg-gradient-to-br from-accent-brand/40 via-accent-magenta/20 to-accent-teal/30">
-          <div className="bg-[#121a17] rounded-2xl p-8">
+        <div className="p-[1px] rounded-2xl bg-gradient-to-br from-accent-cyan/40 via-accent-magenta/20 to-accent-lime/30">
+          <div className="bg-[#111118] rounded-2xl p-8">
             {/* Header */}
             <div className="text-center mb-8">
               <div className="flex items-center justify-center gap-2 mb-3">
-                <div className="w-8 h-8 rounded-lg bg-accent-brand/20 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-accent-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <div className="w-8 h-8 rounded-lg bg-accent-cyan/20 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-accent-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     {mode === 'forgot' || mode === 'reset' ? (
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
                     ) : (
@@ -262,9 +262,9 @@ export default function LoginPage({ inline = false }) {
               <>
                 <div ref={googleBtnRef} className="w-full flex justify-center mb-6" />
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="flex-1 h-px bg-[#22302B]" />
+                  <div className="flex-1 h-px bg-[#1E1E2A]" />
                   <span className="text-text-muted text-xs uppercase tracking-wider font-medium">or</span>
-                  <div className="flex-1 h-px bg-[#22302B]" />
+                  <div className="flex-1 h-px bg-[#1E1E2A]" />
                 </div>
               </>
             )}
@@ -278,9 +278,9 @@ export default function LoginPage({ inline = false }) {
                   <label htmlFor="auth-email" className="block text-text-secondary text-sm font-medium mb-1.5">Email</label>
                   <input id="auth-email" name="email" type="email" value={formData.email} onChange={handleChange}
                     placeholder="you@example.com" autoComplete="email"
-                    className={`w-full px-4 py-2.5 rounded-lg bg-[#0C1210] border text-text-primary text-sm placeholder-text-muted/50
-                      focus:outline-none focus:ring-2 focus:ring-accent-brand/40 focus:border-accent-brand/60 transition-all
-                      ${errors.email ? 'border-accent-magenta/60' : 'border-[#22302B]'}`} />
+                    className={`w-full px-4 py-2.5 rounded-lg bg-[#0A0A0F] border text-text-primary text-sm placeholder-text-muted/50
+                      focus:outline-none focus:ring-2 focus:ring-accent-cyan/40 focus:border-accent-cyan/60 transition-all
+                      ${errors.email ? 'border-accent-magenta/60' : 'border-[#1E1E2A]'}`} />
                   {errors.email && <p className="mt-1 text-xs text-accent-magenta">{errors.email}</p>}
                 </div>
               )}
@@ -292,28 +292,28 @@ export default function LoginPage({ inline = false }) {
                     <label htmlFor="auth-reset-token" className="block text-text-secondary text-sm font-medium mb-1.5">Reset Token</label>
                     <input id="auth-reset-token" name="resetToken" type="text" value={formData.resetToken} onChange={handleChange}
                       placeholder="Paste your reset token" readOnly={!!formData.resetToken}
-                      className={`w-full px-4 py-2.5 rounded-lg bg-[#0C1210] border text-text-primary text-sm placeholder-text-muted/50
-                        font-mono text-xs focus:outline-none focus:ring-2 focus:ring-accent-brand/40 focus:border-accent-brand/60 transition-all
+                      className={`w-full px-4 py-2.5 rounded-lg bg-[#0A0A0F] border text-text-primary text-sm placeholder-text-muted/50
+                        font-mono text-xs focus:outline-none focus:ring-2 focus:ring-accent-cyan/40 focus:border-accent-cyan/60 transition-all
                         ${formData.resetToken ? 'opacity-60' : ''}
-                        ${errors.resetToken ? 'border-accent-magenta/60' : 'border-[#22302B]'}`} />
+                        ${errors.resetToken ? 'border-accent-magenta/60' : 'border-[#1E1E2A]'}`} />
                     {errors.resetToken && <p className="mt-1 text-xs text-accent-magenta">{errors.resetToken}</p>}
                   </div>
                   <div>
                     <label htmlFor="auth-new-password" className="block text-text-secondary text-sm font-medium mb-1.5">New Password</label>
                     <input id="auth-new-password" name="newPassword" type="password" value={formData.newPassword} onChange={handleChange}
                       placeholder="Min. 6 characters" autoComplete="new-password"
-                      className={`w-full px-4 py-2.5 rounded-lg bg-[#0C1210] border text-text-primary text-sm placeholder-text-muted/50
-                        focus:outline-none focus:ring-2 focus:ring-accent-brand/40 focus:border-accent-brand/60 transition-all
-                        ${errors.newPassword ? 'border-accent-magenta/60' : 'border-[#22302B]'}`} />
+                      className={`w-full px-4 py-2.5 rounded-lg bg-[#0A0A0F] border text-text-primary text-sm placeholder-text-muted/50
+                        focus:outline-none focus:ring-2 focus:ring-accent-cyan/40 focus:border-accent-cyan/60 transition-all
+                        ${errors.newPassword ? 'border-accent-magenta/60' : 'border-[#1E1E2A]'}`} />
                     {errors.newPassword && <p className="mt-1 text-xs text-accent-magenta">{errors.newPassword}</p>}
                   </div>
                   <div>
                     <label htmlFor="auth-confirm-new-password" className="block text-text-secondary text-sm font-medium mb-1.5">Confirm New Password</label>
                     <input id="auth-confirm-new-password" name="confirmNewPassword" type="password" value={formData.confirmNewPassword} onChange={handleChange}
                       placeholder="Repeat your password" autoComplete="new-password"
-                      className={`w-full px-4 py-2.5 rounded-lg bg-[#0C1210] border text-text-primary text-sm placeholder-text-muted/50
-                        focus:outline-none focus:ring-2 focus:ring-accent-brand/40 focus:border-accent-brand/60 transition-all
-                        ${errors.confirmNewPassword ? 'border-accent-magenta/60' : 'border-[#22302B]'}`} />
+                      className={`w-full px-4 py-2.5 rounded-lg bg-[#0A0A0F] border text-text-primary text-sm placeholder-text-muted/50
+                        focus:outline-none focus:ring-2 focus:ring-accent-cyan/40 focus:border-accent-cyan/60 transition-all
+                        ${errors.confirmNewPassword ? 'border-accent-magenta/60' : 'border-[#1E1E2A]'}`} />
                     {errors.confirmNewPassword && <p className="mt-1 text-xs text-accent-magenta">{errors.confirmNewPassword}</p>}
                   </div>
                 </>
@@ -327,9 +327,9 @@ export default function LoginPage({ inline = false }) {
                     <label htmlFor="auth-email" className="block text-text-secondary text-sm font-medium mb-1.5">Email</label>
                     <input id="auth-email" name="email" type="email" value={formData.email} onChange={handleChange}
                       placeholder="you@example.com" autoComplete="email"
-                      className={`w-full px-4 py-2.5 rounded-lg bg-[#0C1210] border text-text-primary text-sm placeholder-text-muted/50
-                        focus:outline-none focus:ring-2 focus:ring-accent-brand/40 focus:border-accent-brand/60 transition-all
-                        ${errors.email ? 'border-accent-magenta/60' : 'border-[#22302B]'}`} />
+                      className={`w-full px-4 py-2.5 rounded-lg bg-[#0A0A0F] border text-text-primary text-sm placeholder-text-muted/50
+                        focus:outline-none focus:ring-2 focus:ring-accent-cyan/40 focus:border-accent-cyan/60 transition-all
+                        ${errors.email ? 'border-accent-magenta/60' : 'border-[#1E1E2A]'}`} />
                     {errors.email && <p className="mt-1 text-xs text-accent-magenta">{errors.email}</p>}
                   </div>
 
@@ -338,16 +338,16 @@ export default function LoginPage({ inline = false }) {
                       <label htmlFor="auth-password" className="block text-text-secondary text-sm font-medium">Password</label>
                       {mode === 'login' && (
                         <button type="button" onClick={() => switchMode('forgot')}
-                          className="text-accent-brand text-xs hover:underline transition-colors">
+                          className="text-accent-cyan text-xs hover:underline transition-colors">
                           Forgot password?
                         </button>
                       )}
                     </div>
                     <input id="auth-password" name="password" type="password" value={formData.password} onChange={handleChange}
                       placeholder="Min. 6 characters" autoComplete="current-password"
-                      className={`w-full px-4 py-2.5 rounded-lg bg-[#0C1210] border text-text-primary text-sm placeholder-text-muted/50
-                        focus:outline-none focus:ring-2 focus:ring-accent-brand/40 focus:border-accent-brand/60 transition-all
-                        ${errors.password ? 'border-accent-magenta/60' : 'border-[#22302B]'}`} />
+                      className={`w-full px-4 py-2.5 rounded-lg bg-[#0A0A0F] border text-text-primary text-sm placeholder-text-muted/50
+                        focus:outline-none focus:ring-2 focus:ring-accent-cyan/40 focus:border-accent-cyan/60 transition-all
+                        ${errors.password ? 'border-accent-magenta/60' : 'border-[#1E1E2A]'}`} />
                     {errors.password && <p className="mt-1 text-xs text-accent-magenta">{errors.password}</p>}
                   </div>
 
@@ -356,7 +356,7 @@ export default function LoginPage({ inline = false }) {
 
               {/* Submit Button */}
               <button type="submit" disabled={submitting}
-                className="w-full py-2.5 rounded-lg bg-accent-brand text-black font-bold text-sm
+                className="w-full py-2.5 rounded-lg bg-accent-cyan text-black font-bold text-sm
                   hover:brightness-110 active:brightness-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed
                   flex items-center justify-center gap-2">
                 {submitting && <div className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin" />}
@@ -370,7 +370,7 @@ export default function LoginPage({ inline = false }) {
               {mode === 'login' && !inline && (
                 <p className="text-text-muted text-sm">
                   Not an admin?{' '}
-                  <a href={appPath('/dashboard')} className="text-accent-brand hover:underline font-medium transition-colors">
+                  <a href={appPath('/dashboard')} className="text-accent-cyan hover:underline font-medium transition-colors">
                     Explore Crickrida — it&apos;s free, no account needed
                   </a>
                 </p>
@@ -379,7 +379,7 @@ export default function LoginPage({ inline = false }) {
                 <p className="text-text-muted text-sm">
                   Remember your password?{' '}
                   <button onClick={() => switchMode('login')}
-                    className="text-accent-brand hover:underline font-medium transition-colors">
+                    className="text-accent-cyan hover:underline font-medium transition-colors">
                     Back to Sign In
                   </button>
                 </p>
@@ -396,9 +396,9 @@ export default function LoginPage({ inline = false }) {
       <div className="relative min-h-[60vh] flex items-center justify-center">
         <div className="absolute inset-0 flex items-center justify-center opacity-10 blur-sm pointer-events-none select-none">
           <div className="text-center">
-            <div className="w-16 h-16 rounded-full bg-[#22302B] mx-auto mb-4" />
-            <div className="h-4 w-48 bg-[#22302B] rounded mx-auto mb-2" />
-            <div className="h-3 w-32 bg-[#22302B] rounded mx-auto" />
+            <div className="w-16 h-16 rounded-full bg-[#1E1E2A] mx-auto mb-4" />
+            <div className="h-4 w-48 bg-[#1E1E2A] rounded mx-auto mb-2" />
+            <div className="h-3 w-32 bg-[#1E1E2A] rounded mx-auto" />
           </div>
         </div>
         <div className="relative z-10 w-full">{formContent}</div>
@@ -406,5 +406,5 @@ export default function LoginPage({ inline = false }) {
     )
   }
 
-  return <div className="min-h-screen bg-[#0C1210]">{formContent}</div>
+  return <div className="min-h-screen bg-[#0A0A0F]">{formContent}</div>
 }

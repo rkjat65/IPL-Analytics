@@ -32,9 +32,9 @@ function cachedList(key, loader) {
 }
 
 const KIND_STYLE = {
-  Player: 'text-accent-brand bg-accent-brand/10',
+  Player: 'text-accent-cyan bg-accent-cyan/10',
   Team: 'text-accent-magenta bg-accent-magenta/10',
-  Venue: 'text-accent-teal bg-accent-teal/10',
+  Venue: 'text-accent-lime bg-accent-lime/10',
   Season: 'text-accent-amber bg-accent-amber/10',
   Page: 'text-text-secondary bg-white/[0.04]',
 }
@@ -143,7 +143,7 @@ export default function CommandPalette({ open, onClose }) {
               onMouseEnter={() => setActive(i)}
               onClick={() => go(item)}
               className={`flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors ${
-                i === active ? 'bg-accent-brand/10 text-text-primary' : 'text-text-secondary'
+                i === active ? 'bg-accent-cyan/10 text-text-primary' : 'text-text-secondary'
               }`}
             >
               {item.kind === 'Player'

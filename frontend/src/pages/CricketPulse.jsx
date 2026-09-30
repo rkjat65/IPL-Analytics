@@ -24,17 +24,17 @@ function InsightCard({ insight, onCreateImage }) {
   const [copied, setCopied] = useState(false)
   const [tweetCopied, setTweetCopied] = useState(false)
 
-  const scoreBg = insight.shareability_score >= 80 ? 'from-accent-teal/20 to-accent-teal/5'
-    : insight.shareability_score >= 60 ? 'from-accent-brand/20 to-accent-brand/5'
+  const scoreBg = insight.shareability_score >= 80 ? 'from-accent-lime/20 to-accent-lime/5'
+    : insight.shareability_score >= 60 ? 'from-accent-cyan/20 to-accent-cyan/5'
     : 'from-accent-amber/20 to-accent-amber/5'
 
-  const scoreColor = insight.shareability_score >= 80 ? 'text-accent-teal'
-    : insight.shareability_score >= 60 ? 'text-accent-brand'
+  const scoreColor = insight.shareability_score >= 80 ? 'text-accent-lime'
+    : insight.shareability_score >= 60 ? 'text-accent-cyan'
     : 'text-accent-amber'
 
   const categoryColors = {
-    milestone: 'bg-accent-brand/15 text-accent-brand border-accent-brand/30',
-    streak: 'bg-accent-teal/15 text-accent-teal border-accent-teal/30',
+    milestone: 'bg-accent-cyan/15 text-accent-cyan border-accent-cyan/30',
+    streak: 'bg-accent-lime/15 text-accent-lime border-accent-lime/30',
     did_you_know: 'bg-accent-magenta/15 text-accent-magenta border-accent-magenta/30',
     record_watch: 'bg-accent-amber/15 text-accent-amber border-accent-amber/30',
     on_this_day: 'bg-purple-500/15 text-purple-400 border-purple-500/30',
@@ -54,7 +54,7 @@ function InsightCard({ insight, onCreateImage }) {
 
   return (
     <div className="group bg-bg-card border border-border-subtle rounded-2xl overflow-hidden
-      hover:border-accent-brand/30 transition-all duration-300 hover:shadow-lg hover:shadow-accent-brand/5">
+      hover:border-accent-cyan/30 transition-all duration-300 hover:shadow-lg hover:shadow-accent-cyan/5">
       <div className="p-5 pb-3">
         <div className="flex items-start justify-between gap-3 mb-3">
           <div className="flex items-center gap-2.5">
@@ -87,7 +87,7 @@ function InsightCard({ insight, onCreateImage }) {
 
       <div className="px-5 py-3 border-t border-border-subtle bg-bg-elevated/30 flex items-center gap-2 flex-wrap">
         <button onClick={copyTweet}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-semibold bg-accent-brand/10 text-accent-brand border border-accent-brand/20 hover:bg-accent-brand/20 transition-all">
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-semibold bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20 hover:bg-accent-cyan/20 transition-all">
           {tweetCopied ? '✓ Copied!' : '📋 Copy Tweet'}
         </button>
         <button onClick={() => onCreateImage(insight)}
@@ -99,7 +99,7 @@ function InsightCard({ insight, onCreateImage }) {
           {copied ? '✓ Copied!' : '📊 Copy Data'}
         </button>
         <button onClick={() => setExpanded(!expanded)}
-          className="ml-auto flex items-center gap-1 text-[11px] font-mono text-text-muted hover:text-accent-brand transition-colors">
+          className="ml-auto flex items-center gap-1 text-[11px] font-mono text-text-muted hover:text-accent-cyan transition-colors">
           {expanded ? '▲ Less' : '▼ Preview Tweet'}
         </button>
       </div>
@@ -108,7 +108,7 @@ function InsightCard({ insight, onCreateImage }) {
         <div className="px-5 pb-5 border-t border-border-subtle bg-bg-elevated/20 animate-fade-in">
           <div className="mt-3 bg-bg-card rounded-xl border border-border-subtle p-4">
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-8 h-8 rounded-full bg-accent-brand/20 flex items-center justify-center text-accent-brand font-heading font-bold text-xs">C</div>
+              <div className="w-8 h-8 rounded-full bg-accent-cyan/20 flex items-center justify-center text-accent-cyan font-heading font-bold text-xs">C</div>
               <div>
                 <span className="text-sm font-heading font-bold text-text-primary">Crickrida</span>
                 <span className="text-xs text-text-muted ml-1.5">@Crickrida</span>
@@ -187,7 +187,7 @@ function ImageCreatorModal({ insight, onClose }) {
           <div className="flex gap-2">
             {FORMATS.map(f => (
               <button key={f.id} onClick={() => { setFormat(f.id); setImage(null) }}
-                className={`flex-1 px-3 py-2 text-xs font-mono rounded-lg border transition-all ${format === f.id ? 'bg-accent-brand/15 border-accent-brand/40 text-accent-brand' : 'border-border-subtle text-text-secondary hover:text-text-primary'}`}>
+                className={`flex-1 px-3 py-2 text-xs font-mono rounded-lg border transition-all ${format === f.id ? 'bg-accent-cyan/15 border-accent-cyan/40 text-accent-cyan' : 'border-border-subtle text-text-secondary hover:text-text-primary'}`}>
                 {f.label}
               </button>
             ))}
@@ -196,14 +196,14 @@ function ImageCreatorModal({ insight, onClose }) {
         <div className="p-5">
           {generating && (
             <div className="flex flex-col items-center justify-center py-16 gap-3">
-              <div className="w-8 h-8 border-2 border-accent-brand border-t-transparent rounded-full animate-spin" />
+              <div className="w-8 h-8 border-2 border-accent-cyan border-t-transparent rounded-full animate-spin" />
               <span className="text-sm text-text-muted font-mono">Generating branded card...</span>
             </div>
           )}
           {error && (
             <div className="text-center py-8">
               <p className="text-red-400 text-sm mb-3">{'⚠️ '}{error}</p>
-              <button onClick={handleGenerate} className="text-xs text-accent-brand hover:underline">Retry</button>
+              <button onClick={handleGenerate} className="text-xs text-accent-cyan hover:underline">Retry</button>
             </div>
           )}
           {image && !generating && (
@@ -213,7 +213,7 @@ function ImageCreatorModal({ insight, onClose }) {
               </div>
               <div className="flex gap-2">
                 <button onClick={handleDownload}
-                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-heading font-semibold bg-accent-brand/15 text-accent-brand border border-accent-brand/30 hover:bg-accent-brand/25 transition-all">
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-heading font-semibold bg-accent-cyan/15 text-accent-cyan border border-accent-cyan/30 hover:bg-accent-cyan/25 transition-all">
                   {'⬇️ Download PNG'}
                 </button>
                 <button onClick={handleCopyImage}
@@ -296,14 +296,14 @@ export default function CricketPulse() {
 
       {/* Hero Header */}
       <div className="relative overflow-hidden rounded-2xl mb-8 border border-border-subtle">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent-brand/8 via-accent-magenta/4 to-accent-teal/6" />
+        <div className="absolute inset-0 bg-gradient-to-br from-accent-cyan/8 via-accent-magenta/4 to-accent-lime/6" />
         <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-accent-brand/5 rounded-full blur-3xl" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-accent-cyan/5 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent-magenta/5 rounded-full blur-3xl" />
         </div>
         <div className="relative p-8">
           <div className="flex items-center gap-4 mb-3">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-accent-brand via-accent-magenta to-accent-teal flex items-center justify-center text-white text-2xl shadow-lg shadow-accent-brand/20">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-accent-cyan via-accent-magenta to-accent-lime flex items-center justify-center text-white text-2xl shadow-lg shadow-accent-cyan/20">
               ⚡
             </div>
             <div>
@@ -313,7 +313,7 @@ export default function CricketPulse() {
           </div>
           <div className="flex items-center gap-4 mt-4 text-xs text-text-muted font-mono">
             <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-accent-teal animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-accent-lime animate-pulse" />
               {insights.length} insights discovered
             </span>
             <span>•</span>
@@ -330,14 +330,14 @@ export default function CricketPulse() {
           <button key={tab.key} onClick={() => setActiveTab(tab.key)}
             className={`flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-heading font-semibold whitespace-nowrap transition-all duration-300
               ${activeTab === tab.key
-                ? 'bg-gradient-to-r from-accent-brand/15 to-accent-magenta/8 text-accent-brand border border-accent-brand/30 shadow-lg shadow-accent-brand/10'
-                : 'bg-bg-card text-text-secondary border border-border-subtle hover:border-accent-brand/20 hover:text-text-primary'
+                ? 'bg-gradient-to-r from-accent-cyan/15 to-accent-magenta/8 text-accent-cyan border border-accent-cyan/30 shadow-lg shadow-accent-cyan/10'
+                : 'bg-bg-card text-text-secondary border border-border-subtle hover:border-accent-cyan/20 hover:text-text-primary'
               }`}>
             <span className="text-base">{tab.icon}</span>
             {tab.label}
             {tab.count > 0 && (
               <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full ${
-                activeTab === tab.key ? 'bg-accent-brand/20 text-accent-brand' : 'bg-accent-amber/15 text-accent-amber'
+                activeTab === tab.key ? 'bg-accent-cyan/20 text-accent-cyan' : 'bg-accent-amber/15 text-accent-amber'
               }`}>
                 {tab.count}
               </span>
@@ -354,7 +354,7 @@ export default function CricketPulse() {
               <button key={cat.key} onClick={() => setCategory(cat.key)}
                 className={`flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-mono whitespace-nowrap transition-all
                   ${category === cat.key
-                    ? 'bg-accent-brand/15 text-accent-brand border border-accent-brand/30'
+                    ? 'bg-accent-cyan/15 text-accent-cyan border border-accent-cyan/30'
                     : 'bg-bg-card text-text-muted border border-border-subtle hover:text-text-primary'
                   }`}>
                 <span>{cat.icon}</span>{cat.label}
@@ -364,8 +364,8 @@ export default function CricketPulse() {
           {loading && (
             <div className="flex flex-col items-center justify-center py-20 gap-4">
               <div className="relative">
-                <div className="w-12 h-12 border-2 border-accent-brand/30 rounded-full" />
-                <div className="absolute inset-0 w-12 h-12 border-2 border-accent-brand border-t-transparent rounded-full animate-spin" />
+                <div className="w-12 h-12 border-2 border-accent-cyan/30 rounded-full" />
+                <div className="absolute inset-0 w-12 h-12 border-2 border-accent-cyan border-t-transparent rounded-full animate-spin" />
               </div>
               <p className="text-text-muted text-sm font-mono animate-pulse">Discovering insights...</p>
             </div>
@@ -422,7 +422,7 @@ export default function CricketPulse() {
             {/* Insights list */}
             {otdLoading && (
               <div className="flex items-center justify-center py-16 gap-3">
-                <div className="w-6 h-6 border-2 border-accent-brand border-t-transparent rounded-full animate-spin" />
+                <div className="w-6 h-6 border-2 border-accent-cyan border-t-transparent rounded-full animate-spin" />
                 <span className="text-sm text-text-muted font-mono">Looking through {tournament.shortName} history...</span>
               </div>
             )}
@@ -479,15 +479,15 @@ export default function CricketPulse() {
                       key={day}
                       onClick={() => setCalSelectedDay(isSelected ? null : day)}
                       className={`relative aspect-square rounded-lg flex flex-col items-center justify-center text-sm font-mono transition-all duration-200
-                        ${isSelected ? 'bg-accent-brand/20 border border-accent-brand/50 text-accent-brand shadow-lg shadow-accent-brand/10' :
+                        ${isSelected ? 'bg-accent-cyan/20 border border-accent-cyan/50 text-accent-cyan shadow-lg shadow-accent-cyan/10' :
                           isToday ? 'bg-accent-amber/15 border border-accent-amber/30 text-accent-amber' :
-                          matchCount > 0 ? 'bg-bg-elevated border border-border-subtle text-text-primary hover:border-accent-brand/30 hover:bg-accent-brand/5 cursor-pointer' :
+                          matchCount > 0 ? 'bg-bg-elevated border border-border-subtle text-text-primary hover:border-accent-cyan/30 hover:bg-accent-cyan/5 cursor-pointer' :
                           'text-text-muted/50 cursor-default'
                         }`}
                     >
                       <span className={`text-sm ${matchCount > 0 ? 'font-bold' : ''}`}>{day}</span>
                       {matchCount > 0 && (
-                        <span className={`text-[9px] mt-0.5 ${isSelected ? 'text-accent-brand' : 'text-accent-teal'}`}>
+                        <span className={`text-[9px] mt-0.5 ${isSelected ? 'text-accent-cyan' : 'text-accent-lime'}`}>
                           {matchCount} {matchCount === 1 ? 'match' : 'matches'}
                         </span>
                       )}

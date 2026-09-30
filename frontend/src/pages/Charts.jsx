@@ -91,7 +91,7 @@ function DrawAnimationBtn({ drawer }) {
       className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-semibold transition-all
         ${drawer.animating
           ? 'bg-accent-magenta/20 border border-accent-magenta/40 text-accent-magenta cursor-wait'
-          : 'bg-accent-brand/10 border border-accent-brand/30 text-accent-brand hover:bg-accent-brand/20 cursor-pointer'}`}>
+          : 'bg-accent-cyan/10 border border-accent-cyan/30 text-accent-cyan hover:bg-accent-cyan/20 cursor-pointer'}`}>
       {drawer.animating ? (
         <>
           <svg className="w-3.5 h-3.5 animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="10" strokeDasharray="32" strokeDashoffset="10" /></svg>
@@ -136,12 +136,12 @@ function ZoomControls({ zoom, setZoom }) {
   return (
     <div className="flex items-center gap-1">
       <button onClick={() => setZoom(z => Math.max(0.5, z - 0.25))} title="Zoom out"
-        className="w-7 h-7 flex items-center justify-center rounded bg-bg-card border border-border-subtle text-text-muted hover:text-text-primary hover:border-accent-brand/40 transition-all text-sm font-bold">
+        className="w-7 h-7 flex items-center justify-center rounded bg-bg-card border border-border-subtle text-text-muted hover:text-text-primary hover:border-accent-cyan/40 transition-all text-sm font-bold">
         −
       </button>
       <span className="text-[10px] text-text-muted font-mono w-10 text-center">{Math.round(zoom * 100)}%</span>
       <button onClick={() => setZoom(z => Math.min(2, z + 0.25))} title="Zoom in"
-        className="w-7 h-7 flex items-center justify-center rounded bg-bg-card border border-border-subtle text-text-muted hover:text-text-primary hover:border-accent-brand/40 transition-all text-sm font-bold">
+        className="w-7 h-7 flex items-center justify-center rounded bg-bg-card border border-border-subtle text-text-muted hover:text-text-primary hover:border-accent-cyan/40 transition-all text-sm font-bold">
         +
       </button>
       {zoom !== 1 && (
@@ -161,14 +161,14 @@ function AnimDataOverlay({ data, dataKey, label, color, visible }) {
   const val = last?.[dataKey]
   return (
     <div className="absolute top-3 right-3 rounded-lg px-3 py-2 border animate-pulse z-10"
-      style={{ background: '#17211FDD', borderColor: color + '40' }}>
+      style={{ background: '#16161FDD', borderColor: color + '40' }}>
       <p className="text-[10px] text-text-muted">{label}</p>
       <p className="font-mono font-bold text-lg" style={{ color }}>{typeof val === 'number' ? val.toFixed(1) : val}</p>
     </div>
   )
 }
 
-const DISMISS_COLORS = ['#FF2D78', '#C3F23B', '#2DD4BF', '#FFB800', '#8B5CF6', '#22D3EE', '#F472B6', '#34D399']
+const DISMISS_COLORS = ['#FF2D78', '#00E5FF', '#B8FF00', '#FFB800', '#8B5CF6', '#22D3EE', '#F472B6', '#34D399']
 
 export default function Charts() {
   const tournament = useTournament()
@@ -241,7 +241,7 @@ export default function Charts() {
           ═══════════════════════════════════════════════════ */}
       <section>
         <div className="flex items-center gap-3 mb-1">
-          <div className="w-1 h-6 rounded-full" style={{ background: 'linear-gradient(to bottom, #C3F23B, #FF2D78)' }} />
+          <div className="w-1 h-6 rounded-full" style={{ background: 'linear-gradient(to bottom, #00E5FF, #FF2D78)' }} />
           <h2 className="text-xl font-heading font-bold text-text-primary">Innings DNA</h2>
         </div>
         <p className="text-text-muted text-xs mb-2 ml-5">Average runs scored per over — the signature shape of a T20 innings</p>
@@ -250,7 +250,7 @@ export default function Charts() {
           <ZoomControls zoom={dnaZoom} setZoom={setDnaZoom} />
         </div>
         <div className="card mt-3 relative overflow-x-auto">
-          {dnaDrawer.animating && <AnimDataOverlay data={inningsDNA} dataKey="avg_runs" label="Peak Avg Runs" color="#C3F23B" visible={true} />}
+          {dnaDrawer.animating && <AnimDataOverlay data={inningsDNA} dataKey="avg_runs" label="Peak Avg Runs" color="#00E5FF" visible={true} />}
           {dnaLoading ? <Loading message="Decoding innings DNA..." /> :
            !inningsDNA?.length ? <p className="text-text-muted text-sm py-8 text-center">No data</p> : (
             <div style={{ width: `${Math.max(100, dnaZoom * 100)}%`, minWidth: '100%' }}>
@@ -258,7 +258,7 @@ export default function Charts() {
               <AreaChart data={inningsDNA} margin={{ top: 10, right: 20, left: 0, bottom: 5 }}>
                 <defs>
                   <linearGradient id="chartDnaGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#C3F23B" stopOpacity={0.6} />
+                    <stop offset="0%" stopColor="#00E5FF" stopOpacity={0.6} />
                     <stop offset="50%" stopColor="#8B5CF6" stopOpacity={0.3} />
                     <stop offset="100%" stopColor="#FF2D78" stopOpacity={0.05} />
                   </linearGradient>
@@ -267,31 +267,31 @@ export default function Charts() {
                     <stop offset="100%" stopColor="#FFB800" stopOpacity={0} />
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="#22302B" />
-                <XAxis dataKey="over_num" tick={{ fill: '#9AA69F', fontSize: 11 }} axisLine={{ stroke: '#2E3F39' }} tickLine={false}
-                  label={{ value: 'Over', position: 'insideBottom', offset: -2, fill: '#9AA69F', fontSize: 10 }} />
-                <YAxis tick={{ fill: '#9AA69F', fontSize: 11 }} axisLine={false} tickLine={false}
-                  label={{ value: 'Avg Runs', angle: -90, position: 'insideLeft', fill: '#9AA69F', fontSize: 10 }} />
-                <ReferenceLine x={6} stroke="#2E3F39" strokeDasharray="5 5" label={{ value: 'Powerplay', fill: '#C3F23B', fontSize: 9, position: 'top' }} />
-                <ReferenceLine x={15} stroke="#2E3F39" strokeDasharray="5 5" label={{ value: 'Death', fill: '#FF2D78', fontSize: 9, position: 'top' }} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" />
+                <XAxis dataKey="over_num" tick={{ fill: '#8888A0', fontSize: 11 }} axisLine={{ stroke: '#2A2A3A' }} tickLine={false}
+                  label={{ value: 'Over', position: 'insideBottom', offset: -2, fill: '#8888A0', fontSize: 10 }} />
+                <YAxis tick={{ fill: '#8888A0', fontSize: 11 }} axisLine={false} tickLine={false}
+                  label={{ value: 'Avg Runs', angle: -90, position: 'insideLeft', fill: '#8888A0', fontSize: 10 }} />
+                <ReferenceLine x={6} stroke="#2A2A3A" strokeDasharray="5 5" label={{ value: 'Powerplay', fill: '#00E5FF', fontSize: 9, position: 'top' }} />
+                <ReferenceLine x={15} stroke="#2A2A3A" strokeDasharray="5 5" label={{ value: 'Death', fill: '#FF2D78', fontSize: 9, position: 'top' }} />
                 <Tooltip content={({ active, payload, label }) => {
                   if (!active || !payload?.length) return null
                   const d = payload[0]?.payload
                   return (
-                    <div className="rounded-lg px-3 py-2 text-xs shadow-xl border" style={{ background: '#17211F', borderColor: '#2E3F39' }}>
+                    <div className="rounded-lg px-3 py-2 text-xs shadow-xl border" style={{ background: '#16161F', borderColor: '#2A2A3A' }}>
                       <p className="text-text-primary font-semibold mb-1">Over {label}</p>
-                      <p style={{ color: '#C3F23B' }}>Avg Runs: <span className="font-mono font-bold">{d?.avg_runs}</span></p>
+                      <p style={{ color: '#00E5FF' }}>Avg Runs: <span className="font-mono font-bold">{d?.avg_runs}</span></p>
                       <p style={{ color: '#FFB800' }}>Sixes/over: <span className="font-mono font-bold">{d?.sixes_per_over}</span></p>
-                      <p style={{ color: '#2DD4BF' }}>Fours/over: <span className="font-mono font-bold">{d?.fours_per_over}</span></p>
+                      <p style={{ color: '#B8FF00' }}>Fours/over: <span className="font-mono font-bold">{d?.fours_per_over}</span></p>
                       <p className="text-text-muted">Dot%: <span className="font-mono">{d?.dot_pct}%</span></p>
                       <p style={{ color: '#FF2D78' }}>Avg Wkts: <span className="font-mono">{d?.avg_wickets}</span></p>
                     </div>
                   )
                 }} />
-                <Area type="monotone" dataKey="avg_runs" stroke="#C3F23B" strokeWidth={2.5} fill="url(#chartDnaGradient)" name="Avg Runs"
+                <Area type="monotone" dataKey="avg_runs" stroke="#00E5FF" strokeWidth={2.5} fill="url(#chartDnaGradient)" name="Avg Runs"
                   isAnimationActive={true} animationDuration={dnaDrawer.duration} animationBegin={0} animationEasing="ease-in-out"
-                  dot={{ fill: '#C3F23B', r: 2, stroke: '#0C1210', strokeWidth: 1 }}
-                  label={dnaDrawer.animating ? false : { position: 'top', fill: '#C3F23B', fontSize: 9, fontFamily: 'monospace', formatter: v => v?.toFixed(1) }} />
+                  dot={{ fill: '#00E5FF', r: 2, stroke: '#0A0A0F', strokeWidth: 1 }}
+                  label={dnaDrawer.animating ? false : { position: 'top', fill: '#00E5FF', fontSize: 9, fontFamily: 'monospace', formatter: v => v?.toFixed(1) }} />
                 <Area type="monotone" dataKey="sixes_per_over" stroke="#FFB800" strokeWidth={1.5} fill="url(#chartSixGradient)" name="Sixes"
                   isAnimationActive={true} animationDuration={dnaDrawer.duration} animationBegin={300} animationEasing="ease-in-out" />
               </AreaChart>
@@ -329,17 +329,17 @@ export default function Charts() {
                       <stop offset="100%" stopColor="#FFB800" stopOpacity={0} />
                     </linearGradient>
                   </defs>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#22302B" />
-                  <XAxis dataKey="season" tick={{ fill: '#9AA69F', fontSize: 10 }} axisLine={{ stroke: '#2E3F39' }} tickLine={false} />
-                  <YAxis tick={{ fill: '#9AA69F', fontSize: 11 }} axisLine={false} tickLine={false} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" />
+                  <XAxis dataKey="season" tick={{ fill: '#8888A0', fontSize: 10 }} axisLine={{ stroke: '#2A2A3A' }} tickLine={false} />
+                  <YAxis tick={{ fill: '#8888A0', fontSize: 11 }} axisLine={false} tickLine={false} />
                   <Tooltip content={({ active, payload }) => {
                     if (!active || !payload?.length) return null
                     const d = payload[0]?.payload
                     return (
-                      <div className="rounded-lg px-3 py-2 text-xs shadow-xl border" style={{ background: '#17211F', borderColor: '#2E3F39' }}>
+                      <div className="rounded-lg px-3 py-2 text-xs shadow-xl border" style={{ background: '#16161F', borderColor: '#2A2A3A' }}>
                         <p className="text-text-primary font-semibold mb-1">{tournament.shortName} {d?.season}</p>
                         <p style={{ color: '#FFB800' }}>Sixes/match: <span className="font-mono font-bold">{d?.sixes_per_match}</span></p>
-                        <p style={{ color: '#2DD4BF' }}>Fours/match: <span className="font-mono font-bold">{d?.fours_per_match}</span></p>
+                        <p style={{ color: '#B8FF00' }}>Fours/match: <span className="font-mono font-bold">{d?.fours_per_match}</span></p>
                         <p className="text-text-muted">Total sixes: <span className="font-mono">{formatNumber(d?.total_sixes)}</span></p>
                         <p className="text-text-muted">Avg score: <span className="font-mono">{d?.avg_innings_score}</span></p>
                         <p className="text-text-muted">Matches: <span className="font-mono">{d?.matches}</span></p>
@@ -347,8 +347,8 @@ export default function Charts() {
                     )
                   }} />
                   <Area type="monotone" dataKey="sixes_per_match" stroke="#FFB800" strokeWidth={2.5} fill="url(#chartSixEvoGrad)" name="Sixes/Match"
-                    dot={{ fill: '#FFB800', r: 3, stroke: '#0C1210', strokeWidth: 2 }}
-                    activeDot={{ fill: '#FFB800', r: 5, stroke: '#0C1210', strokeWidth: 2 }}
+                    dot={{ fill: '#FFB800', r: 3, stroke: '#0A0A0F', strokeWidth: 2 }}
+                    activeDot={{ fill: '#FFB800', r: 5, stroke: '#0A0A0F', strokeWidth: 2 }}
                     isAnimationActive={true} animationDuration={sixDrawer.duration} animationBegin={0} animationEasing="ease-in-out"
                     label={{ position: 'top', fill: '#FFB800', fontSize: 9, fontFamily: 'monospace', formatter: v => v?.toFixed(1) }}
                   />
@@ -362,7 +362,7 @@ export default function Charts() {
         {/* Chase Analysis */}
         <section>
           <div className="flex items-center gap-3 mb-1">
-            <div className="w-1 h-6 bg-accent-teal rounded-full" />
+            <div className="w-1 h-6 bg-accent-lime rounded-full" />
             <h2 className="text-xl font-heading font-bold text-text-primary">The Chasing Game</h2>
           </div>
           <p className="text-text-muted text-xs mb-4 ml-5">Win % when chasing by target score range</p>
@@ -371,18 +371,18 @@ export default function Charts() {
              !chaseAnalysis?.length ? <p className="text-text-muted text-sm py-8 text-center">No data</p> : (
               <ResponsiveContainer width="100%" height={320}>
                 <BarChart data={chaseAnalysis} margin={{ top: 10, right: 20, left: 0, bottom: 5 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#22302B" />
-                  <XAxis dataKey="target_range" tick={{ fill: '#9AA69F', fontSize: 11 }} axisLine={{ stroke: '#2E3F39' }} tickLine={false} />
-                  <YAxis tick={{ fill: '#9AA69F', fontSize: 11 }} axisLine={false} tickLine={false} domain={[0, 100]}
-                    label={{ value: 'Chase Win %', angle: -90, position: 'insideLeft', fill: '#9AA69F', fontSize: 10 }} />
-                  <ReferenceLine y={50} stroke="#9AA69F" strokeDasharray="3 3" label={{ value: '50%', fill: '#9AA69F', fontSize: 9, position: 'right' }} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" />
+                  <XAxis dataKey="target_range" tick={{ fill: '#8888A0', fontSize: 11 }} axisLine={{ stroke: '#2A2A3A' }} tickLine={false} />
+                  <YAxis tick={{ fill: '#8888A0', fontSize: 11 }} axisLine={false} tickLine={false} domain={[0, 100]}
+                    label={{ value: 'Chase Win %', angle: -90, position: 'insideLeft', fill: '#8888A0', fontSize: 10 }} />
+                  <ReferenceLine y={50} stroke="#8888A0" strokeDasharray="3 3" label={{ value: '50%', fill: '#8888A0', fontSize: 9, position: 'right' }} />
                   <Tooltip content={({ active, payload }) => {
                     if (!active || !payload?.length) return null
                     const d = payload[0]?.payload
                     return (
-                      <div className="rounded-lg px-3 py-2 text-xs shadow-xl border" style={{ background: '#17211F', borderColor: '#2E3F39' }}>
+                      <div className="rounded-lg px-3 py-2 text-xs shadow-xl border" style={{ background: '#16161F', borderColor: '#2A2A3A' }}>
                         <p className="text-text-primary font-semibold mb-1">Target: {d?.target_range}</p>
-                        <p style={{ color: d?.chase_win_pct >= 50 ? '#2DD4BF' : '#FF2D78' }}>
+                        <p style={{ color: d?.chase_win_pct >= 50 ? '#B8FF00' : '#FF2D78' }}>
                           Chase Win%: <span className="font-mono font-bold">{d?.chase_win_pct}%</span>
                         </p>
                         <p className="text-text-muted">Chases: <span className="font-mono">{d?.total_chases}</span></p>
@@ -395,7 +395,7 @@ export default function Charts() {
                     label={{ position: 'top', fill: '#E8E8F0', fontSize: 11, fontWeight: 700, fontFamily: 'monospace', formatter: (v) => `${v}%` }}
                   >
                     {(chaseAnalysis || []).map((entry, idx) => (
-                      <Cell key={idx} fill={entry.chase_win_pct >= 50 ? '#2DD4BF' : entry.chase_win_pct >= 35 ? '#FFB800' : '#FF2D78'} fillOpacity={0.85} />
+                      <Cell key={idx} fill={entry.chase_win_pct >= 50 ? '#B8FF00' : entry.chase_win_pct >= 35 ? '#FFB800' : '#FF2D78'} fillOpacity={0.85} />
                     ))}
                   </Bar>
                 </BarChart>
@@ -412,7 +412,7 @@ export default function Charts() {
         {/* Batting Impact Matrix — takes 2 cols */}
         <section className="lg:col-span-2">
           <div className="flex items-center gap-3 mb-1">
-            <div className="w-1 h-6 rounded-full" style={{ background: 'linear-gradient(to bottom, #2DD4BF, #C3F23B)' }} />
+            <div className="w-1 h-6 rounded-full" style={{ background: 'linear-gradient(to bottom, #B8FF00, #00E5FF)' }} />
             <h2 className="text-xl font-heading font-bold text-text-primary">Batting Impact Matrix</h2>
           </div>
           <p className="text-text-muted text-xs mb-2 ml-5">Strike Rate vs Average — bubble size = total runs. Top-right = legends</p>
@@ -434,33 +434,33 @@ export default function Charts() {
                 <div style={{ width: `${Math.max(100, batMatrixZoom * 100)}%`, minWidth: '100%' }}>
                 <ResponsiveContainer width="100%" height={chartH}>
                   <ScatterChart margin={{ top: 20, right: 30, left: 10, bottom: 20 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#22302B" />
+                    <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" />
                     <XAxis dataKey="avg" type="number" name="Average" domain={[20, 'auto']}
-                      tick={{ fill: '#9AA69F', fontSize: 11 }} axisLine={{ stroke: '#2E3F39' }} tickLine={false}
-                      label={{ value: 'Batting Average', position: 'insideBottom', offset: -10, fill: '#9AA69F', fontSize: 11 }} />
+                      tick={{ fill: '#8888A0', fontSize: 11 }} axisLine={{ stroke: '#2A2A3A' }} tickLine={false}
+                      label={{ value: 'Batting Average', position: 'insideBottom', offset: -10, fill: '#8888A0', fontSize: 11 }} />
                     <YAxis dataKey="sr" type="number" name="Strike Rate" domain={[100, 'auto']}
-                      tick={{ fill: '#9AA69F', fontSize: 11 }} axisLine={false} tickLine={false}
-                      label={{ value: 'Strike Rate', angle: -90, position: 'insideLeft', fill: '#9AA69F', fontSize: 11 }} />
+                      tick={{ fill: '#8888A0', fontSize: 11 }} axisLine={false} tickLine={false}
+                      label={{ value: 'Strike Rate', angle: -90, position: 'insideLeft', fill: '#8888A0', fontSize: 11 }} />
                     <ZAxis dataKey="runs" range={[40, 400]} name="Runs" />
-                    <ReferenceLine x={avgAvg} stroke="#2E3F39" strokeDasharray="4 4" />
-                    <ReferenceLine y={avgSR} stroke="#2E3F39" strokeDasharray="4 4" />
+                    <ReferenceLine x={avgAvg} stroke="#2A2A3A" strokeDasharray="4 4" />
+                    <ReferenceLine y={avgSR} stroke="#2A2A3A" strokeDasharray="4 4" />
                     <Tooltip content={({ active, payload }) => {
                       if (!active || !payload?.length) return null
                       const d = payload[0]?.payload
                       return (
-                        <div className="rounded-lg px-3 py-2 text-xs shadow-xl border" style={{ background: '#17211F', borderColor: '#2E3F39' }}>
+                        <div className="rounded-lg px-3 py-2 text-xs shadow-xl border" style={{ background: '#16161F', borderColor: '#2A2A3A' }}>
                           <div className="flex items-center gap-2 mb-1">
                             <img src={realPlayerImageUrl(d?.player)} alt="" className="w-6 h-6 rounded-full border border-border-subtle object-cover"
                               onError={(e) => { e.target.src = playerAvatarUrl(d?.player, 24) }} />
                             <p className="text-text-primary font-semibold">{d?.player}</p>
                           </div>
-                          <p style={{ color: '#2DD4BF' }}>Runs: <span className="font-mono font-bold">{formatNumber(d?.runs)}</span></p>
-                          <p style={{ color: '#C3F23B' }}>Average: <span className="font-mono font-bold">{formatDecimal(d?.avg)}</span></p>
+                          <p style={{ color: '#B8FF00' }}>Runs: <span className="font-mono font-bold">{formatNumber(d?.runs)}</span></p>
+                          <p style={{ color: '#00E5FF' }}>Average: <span className="font-mono font-bold">{formatDecimal(d?.avg)}</span></p>
                           <p style={{ color: '#FFB800' }}>SR: <span className="font-mono font-bold">{formatDecimal(d?.sr)}</span></p>
                           <p className="text-text-muted">Innings: <span className="font-mono">{d?.innings}</span> | 6s: <span className="font-mono">{d?.sixes}</span> | 4s: <span className="font-mono">{d?.fours}</span></p>
                         </div>
                       )
-                    }} cursor={{ strokeDasharray: '3 3', stroke: '#9AA69F' }} />
+                    }} cursor={{ strokeDasharray: '3 3', stroke: '#8888A0' }} />
                     <Scatter data={visibleData} isAnimationActive={batRevealer.revealing} animationDuration={300} shape={(props) => {
                       const { cx, cy, payload } = props
                       const r = 5 + (payload.runs / maxRuns) * 18
@@ -471,7 +471,7 @@ export default function Charts() {
                         <g>
                           <circle cx={cx} cy={cy} r={r + 2}
                             fill="none"
-                            stroke={isElite ? '#2DD4BF' : payload.sr >= 140 ? '#FFB800' : payload.avg >= 30 ? '#C3F23B' : '#8B5CF6'}
+                            stroke={isElite ? '#B8FF00' : payload.sr >= 140 ? '#FFB800' : payload.avg >= 30 ? '#00E5FF' : '#8B5CF6'}
                             strokeWidth={isElite ? 2.5 : 1.5}
                             strokeOpacity={0.9}
                           />
@@ -518,13 +518,13 @@ export default function Charts() {
           </div>
           <div className="flex flex-wrap gap-4 mt-3 ml-5">
             <span className="flex items-center gap-1.5 text-[10px] text-text-muted">
-              <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#2DD4BF' }} /> Elite (Avg 30+ & SR 135+)
+              <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#B8FF00' }} /> Elite (Avg 30+ & SR 135+)
             </span>
             <span className="flex items-center gap-1.5 text-[10px] text-text-muted">
               <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#FFB800' }} /> Power Hitter (SR 140+)
             </span>
             <span className="flex items-center gap-1.5 text-[10px] text-text-muted">
-              <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#C3F23B' }} /> Consistent (Avg 30+)
+              <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#00E5FF' }} /> Consistent (Avg 30+)
             </span>
             <span className="flex items-center gap-1.5 text-[10px] text-text-muted">
               <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#8B5CF6' }} /> Others
@@ -548,7 +548,7 @@ export default function Charts() {
                   <ResponsiveContainer width="100%" height={260}>
                     <PieChart>
                       <Pie data={dismissalTypes} cx="50%" cy="50%" innerRadius={55} outerRadius={90}
-                        dataKey="count" nameKey="type" stroke="#0C1210" strokeWidth={2} paddingAngle={2}
+                        dataKey="count" nameKey="type" stroke="#0A0A0F" strokeWidth={2} paddingAngle={2}
                         label={({ type, pct, cx, cy, midAngle, outerRadius: or }) => {
                           if (pct < 5) return null
                           const RADIAN = Math.PI / 180
@@ -571,7 +571,7 @@ export default function Charts() {
                         if (!active || !payload?.length) return null
                         const d = payload[0]?.payload
                         return (
-                          <div className="rounded-lg px-3 py-2 text-xs shadow-xl border" style={{ background: '#17211F', borderColor: '#2E3F39' }}>
+                          <div className="rounded-lg px-3 py-2 text-xs shadow-xl border" style={{ background: '#16161F', borderColor: '#2A2A3A' }}>
                             <p className="text-text-primary font-semibold">{d?.type}</p>
                             <p style={{ color: payload[0]?.color }}>Count: <span className="font-mono font-bold">{formatNumber(d?.count)}</span></p>
                             <p className="text-text-muted">{d?.pct}% of all dismissals</p>
@@ -622,33 +622,33 @@ export default function Charts() {
               <div style={{ width: `${Math.max(100, bowlMatrixZoom * 100)}%`, minWidth: '100%' }}>
               <ResponsiveContainer width="100%" height={chartH}>
                 <ScatterChart margin={{ top: 20, right: 30, left: 10, bottom: 20 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#22302B" />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" />
                   <XAxis dataKey="avg" type="number" name="Bowling Average" domain={[10, 'auto']}
-                    tick={{ fill: '#9AA69F', fontSize: 11 }} axisLine={{ stroke: '#2E3F39' }} tickLine={false}
-                    label={{ value: 'Bowling Average', position: 'insideBottom', offset: -10, fill: '#9AA69F', fontSize: 11 }} />
+                    tick={{ fill: '#8888A0', fontSize: 11 }} axisLine={{ stroke: '#2A2A3A' }} tickLine={false}
+                    label={{ value: 'Bowling Average', position: 'insideBottom', offset: -10, fill: '#8888A0', fontSize: 11 }} />
                   <YAxis dataKey="economy" type="number" name="Economy" domain={[5, 'auto']}
-                    tick={{ fill: '#9AA69F', fontSize: 11 }} axisLine={false} tickLine={false}
-                    label={{ value: 'Economy Rate', angle: -90, position: 'insideLeft', fill: '#9AA69F', fontSize: 11 }} />
+                    tick={{ fill: '#8888A0', fontSize: 11 }} axisLine={false} tickLine={false}
+                    label={{ value: 'Economy Rate', angle: -90, position: 'insideLeft', fill: '#8888A0', fontSize: 11 }} />
                   <ZAxis dataKey="wickets" range={[40, 400]} name="Wickets" />
-                  <ReferenceLine x={avgAvg} stroke="#2E3F39" strokeDasharray="4 4" />
-                  <ReferenceLine y={avgEcon} stroke="#2E3F39" strokeDasharray="4 4" />
+                  <ReferenceLine x={avgAvg} stroke="#2A2A3A" strokeDasharray="4 4" />
+                  <ReferenceLine y={avgEcon} stroke="#2A2A3A" strokeDasharray="4 4" />
                   <Tooltip content={({ active, payload }) => {
                     if (!active || !payload?.length) return null
                     const d = payload[0]?.payload
                     return (
-                      <div className="rounded-lg px-3 py-2 text-xs shadow-xl border" style={{ background: '#17211F', borderColor: '#2E3F39' }}>
+                      <div className="rounded-lg px-3 py-2 text-xs shadow-xl border" style={{ background: '#16161F', borderColor: '#2A2A3A' }}>
                         <div className="flex items-center gap-2 mb-1">
                           <img src={realPlayerImageUrl(d?.player)} alt="" className="w-6 h-6 rounded-full border border-border-subtle object-cover"
                             onError={(e) => { e.target.src = playerAvatarUrl(d?.player, 24) }} />
                           <p className="text-text-primary font-semibold">{d?.player}</p>
                         </div>
                         <p style={{ color: '#FF2D78' }}>Wickets: <span className="font-mono font-bold">{formatNumber(d?.wickets)}</span></p>
-                        <p style={{ color: '#C3F23B' }}>Average: <span className="font-mono font-bold">{formatDecimal(d?.avg)}</span></p>
+                        <p style={{ color: '#00E5FF' }}>Average: <span className="font-mono font-bold">{formatDecimal(d?.avg)}</span></p>
                         <p style={{ color: '#FFB800' }}>Economy: <span className="font-mono font-bold">{formatDecimal(d?.economy)}</span></p>
                         <p className="text-text-muted">Innings: <span className="font-mono">{d?.innings}</span> | Dot%: <span className="font-mono">{d?.dot_pct}%</span></p>
                       </div>
                     )
-                  }} cursor={{ strokeDasharray: '3 3', stroke: '#9AA69F' }} />
+                  }} cursor={{ strokeDasharray: '3 3', stroke: '#8888A0' }} />
                   <Scatter data={visibleData} isAnimationActive={bowlRevealer.revealing} animationDuration={300} shape={(props) => {
                     const { cx, cy, payload } = props
                     const r = 5 + (payload.wickets / maxWickets) * 18
@@ -659,7 +659,7 @@ export default function Charts() {
                       <g>
                         <circle cx={cx} cy={cy} r={r + 2}
                           fill="none"
-                          stroke={isElite ? '#FF2D78' : payload.economy <= 7 ? '#2DD4BF' : payload.avg <= 20 ? '#C3F23B' : '#8B5CF6'}
+                          stroke={isElite ? '#FF2D78' : payload.economy <= 7 ? '#B8FF00' : payload.avg <= 20 ? '#00E5FF' : '#8B5CF6'}
                           strokeWidth={isElite ? 2.5 : 1.5}
                           strokeOpacity={0.9}
                         />
@@ -709,10 +709,10 @@ export default function Charts() {
             <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#FF2D78' }} /> Elite (Avg &le;22 & Econ &le;7.5)
           </span>
           <span className="flex items-center gap-1.5 text-[10px] text-text-muted">
-            <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#2DD4BF' }} /> Economical (Econ &le;7)
+            <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#B8FF00' }} /> Economical (Econ &le;7)
           </span>
           <span className="flex items-center gap-1.5 text-[10px] text-text-muted">
-            <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#C3F23B' }} /> Wicket-taker (Avg &le;20)
+            <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#00E5FF' }} /> Wicket-taker (Avg &le;20)
           </span>
           <span className="flex items-center gap-1.5 text-[10px] text-text-muted">
             <span className="w-2.5 h-2.5 rounded-full" style={{ background: '#8B5CF6' }} /> Others
@@ -725,7 +725,7 @@ export default function Charts() {
           ═══════════════════════════════════════════════════ */}
       <section>
         <div className="flex items-center gap-3 mb-1">
-          <div className="w-1 h-6 rounded-full" style={{ background: 'linear-gradient(to bottom, #2DD4BF, #FFB800, #FF2D78)' }} />
+          <div className="w-1 h-6 rounded-full" style={{ background: 'linear-gradient(to bottom, #B8FF00, #FFB800, #FF2D78)' }} />
           <h2 className="text-xl font-heading font-bold text-text-primary">Phase Dominance</h2>
         </div>
         <p className="text-text-muted text-xs mb-4 ml-5">Team run rates across powerplay, middle, and death overs — reveals batting DNA</p>
@@ -738,25 +738,25 @@ export default function Charts() {
             return (
               <ResponsiveContainer width="100%" height={Math.max(380, phaseData.length * 36)}>
                 <BarChart data={phaseData} layout="vertical" margin={{ top: 5, right: 30, left: 10, bottom: 5 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#22302B" />
-                  <XAxis type="number" tick={{ fill: '#9AA69F', fontSize: 11 }} axisLine={{ stroke: '#2E3F39' }} tickLine={false}
-                    label={{ value: 'Run Rate', position: 'insideBottom', offset: -2, fill: '#9AA69F', fontSize: 10 }} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" />
+                  <XAxis type="number" tick={{ fill: '#8888A0', fontSize: 11 }} axisLine={{ stroke: '#2A2A3A' }} tickLine={false}
+                    label={{ value: 'Run Rate', position: 'insideBottom', offset: -2, fill: '#8888A0', fontSize: 10 }} />
                   <YAxis type="category" dataKey="team" width={50} tick={{ fill: '#C8C8D8', fontSize: 11 }} axisLine={false} tickLine={false} />
                   <Tooltip content={({ active, payload }) => {
                     if (!active || !payload?.length) return null
                     const d = payload[0]?.payload
                     return (
-                      <div className="rounded-lg px-3 py-2 text-xs shadow-xl border" style={{ background: '#17211F', borderColor: '#2E3F39' }}>
+                      <div className="rounded-lg px-3 py-2 text-xs shadow-xl border" style={{ background: '#16161F', borderColor: '#2A2A3A' }}>
                         <p className="text-text-primary font-semibold mb-1">{d?.fullTeam}</p>
-                        <p style={{ color: '#C3F23B' }}>Powerplay (1-6): <span className="font-mono font-bold">{d?.powerplay}</span></p>
-                        <p style={{ color: '#2DD4BF' }}>Middle (7-15): <span className="font-mono font-bold">{d?.middle}</span></p>
+                        <p style={{ color: '#00E5FF' }}>Powerplay (1-6): <span className="font-mono font-bold">{d?.powerplay}</span></p>
+                        <p style={{ color: '#B8FF00' }}>Middle (7-15): <span className="font-mono font-bold">{d?.middle}</span></p>
                         <p style={{ color: '#FF2D78' }}>Death (16-20): <span className="font-mono font-bold">{d?.death}</span></p>
                       </div>
                     )
                   }} />
-                  <Legend wrapperStyle={{ color: '#9AA69F', fontSize: 11, paddingTop: 10 }} />
-                  <Bar dataKey="powerplay" name="Powerplay (Overs 1-6)" fill="#C3F23B" fillOpacity={0.9} barSize={10} radius={[0, 4, 4, 0]} />
-                  <Bar dataKey="middle" name="Middle (Overs 7-15)" fill="#2DD4BF" fillOpacity={0.9} barSize={10} radius={[0, 4, 4, 0]} />
+                  <Legend wrapperStyle={{ color: '#8888A0', fontSize: 11, paddingTop: 10 }} />
+                  <Bar dataKey="powerplay" name="Powerplay (Overs 1-6)" fill="#00E5FF" fillOpacity={0.9} barSize={10} radius={[0, 4, 4, 0]} />
+                  <Bar dataKey="middle" name="Middle (Overs 7-15)" fill="#B8FF00" fillOpacity={0.9} barSize={10} radius={[0, 4, 4, 0]} />
                   <Bar dataKey="death" name="Death (Overs 16-20)" fill="#FF2D78" fillOpacity={0.9} barSize={10} radius={[0, 4, 4, 0]} />
                 </BarChart>
               </ResponsiveContainer>
@@ -784,7 +784,7 @@ export default function Charts() {
                     <div className="flex items-center gap-3">
                       <span className="text-text-muted text-xs font-mono w-14">{c.season}</span>
                       <Link to={`/batting/${encodeURIComponent(c.player)}`}
-                        className="text-sm font-medium text-accent-brand hover:text-white hover:underline transition-colors">
+                        className="text-sm font-medium text-accent-cyan hover:text-white hover:underline transition-colors">
                         {c.player}
                       </Link>
                     </div>
@@ -813,7 +813,7 @@ export default function Charts() {
                     <div className="flex items-center gap-3">
                       <span className="text-text-muted text-xs font-mono w-14">{c.season}</span>
                       <Link to={`/bowling/${encodeURIComponent(c.player)}`}
-                        className="text-sm font-medium text-accent-brand hover:text-white hover:underline transition-colors">
+                        className="text-sm font-medium text-accent-cyan hover:text-white hover:underline transition-colors">
                         {c.player}
                       </Link>
                     </div>

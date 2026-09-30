@@ -15,7 +15,7 @@ function FAQItem({ q, a, isOpen, onToggle }) {
       >
         <span className="font-heading font-semibold text-text-primary text-sm sm:text-base">{q}</span>
         <span
-          className={`flex-shrink-0 mt-0.5 text-accent-brand transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+          className={`flex-shrink-0 mt-0.5 text-accent-cyan transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
           aria-hidden="true"
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -91,7 +91,7 @@ export default function FAQ() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search questions, e.g. &quot;Super Over&quot;, &quot;Orange Cap&quot;, &quot;auction&quot;..."
-          className="w-full px-4 py-2.5 rounded-lg bg-surface border border-border text-sm text-text-primary placeholder:text-text-secondary/60 focus:outline-none focus:ring-2 focus:ring-accent-brand/40 focus:border-accent-brand"
+          className="w-full px-4 py-2.5 rounded-lg bg-surface border border-border text-sm text-text-primary placeholder:text-text-secondary/60 focus:outline-none focus:ring-2 focus:ring-accent-cyan/40 focus:border-accent-cyan"
         />
       </div>
 
@@ -106,7 +106,7 @@ export default function FAQ() {
           <section key={cat.category} aria-labelledby={`faq-cat-${cat.category}`}>
             <h2
               id={`faq-cat-${cat.category}`}
-              className="text-lg font-heading font-bold text-accent-brand mb-3 border-l-4 border-accent-brand pl-3"
+              className="text-lg font-heading font-bold text-accent-cyan mb-3 border-l-4 border-accent-cyan pl-3"
             >
               {cat.category}
             </h2>

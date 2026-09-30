@@ -2,9 +2,9 @@ import AnimatedNumber from './AnimatedNumber'
 
 export default function StatCard({ label, value, delta, color = 'cyan', className = '' }) {
   const colorMap = {
-    cyan: 'text-accent-brand stat-glow-brand',
+    cyan: 'text-accent-cyan stat-glow-cyan',
     magenta: 'text-accent-magenta stat-glow-magenta',
-    lime: 'text-accent-teal stat-glow-teal',
+    lime: 'text-accent-lime stat-glow-lime',
     amber: 'text-accent-amber stat-glow-amber',
   }
 

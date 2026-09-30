@@ -8,25 +8,25 @@ export const CARD_DIMENSIONS = {
 }
 
 export const NEON_COLORS = {
-  cyan: '#C3F23B',
+  cyan: '#00E5FF',
   magenta: '#FF2D78',
-  lime: '#2DD4BF',
+  lime: '#B8FF00',
   amber: '#FFB800',
   purple: '#8B5CF6',
-  bg: '#0C1210',
-  bgCard: '#111916',
+  bg: '#0A0A0F',
+  bgCard: '#12121A',
   bgElevated: '#1A1A25',
   textPrimary: '#F0F0F5',
-  textSecondary: '#AEB8B2',
+  textSecondary: '#A0A0B8',
   textMuted: '#60607A',
-  border: '#2E3F39',
+  border: '#2A2A3A',
 }
 
 // Subtle distinct box colors for stat grid cards
 export const BOX_COLORS = [
-  { bg: '#0D1B2A', border: '#C3F23B25', accent: '#C3F23B' },   // Deep blue / cyan
+  { bg: '#0D1B2A', border: '#00E5FF25', accent: '#00E5FF' },   // Deep blue / cyan
   { bg: '#1A0D1F', border: '#FF2D7825', accent: '#FF2D78' },   // Deep purple / magenta
-  { bg: '#0D1A12', border: '#2DD4BF25', accent: '#2DD4BF' },   // Deep green / lime
+  { bg: '#0D1A12', border: '#B8FF0025', accent: '#B8FF00' },   // Deep green / lime
   { bg: '#1A1508', border: '#FFB80025', accent: '#FFB800' },    // Deep amber / gold
   { bg: '#120D1F', border: '#8B5CF625', accent: '#8B5CF6' },   // Deep indigo / purple
   { bg: '#0D1A1A', border: '#22D3EE25', accent: '#22D3EE' },   // Teal

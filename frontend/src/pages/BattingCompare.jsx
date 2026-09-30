@@ -22,12 +22,12 @@ import {
   CartesianGrid,
 } from 'recharts'
 
-const PLAYER_COLORS = ['#C3F23B', '#FF2D78', '#2DD4BF', '#FFB800', '#8B5CF6']
+const PLAYER_COLORS = ['#00E5FF', '#FF2D78', '#B8FF00', '#FFB800', '#8B5CF6']
 
 const darkTooltipStyle = {
-  contentStyle: { backgroundColor: '#121a17', border: '1px solid #22302B', borderRadius: 8, color: '#F3F4EE' },
-  itemStyle: { color: '#F3F4EE' },
-  labelStyle: { color: '#9AA69F' },
+  contentStyle: { backgroundColor: '#111118', border: '1px solid #1E1E2A', borderRadius: 8, color: '#E8E8ED' },
+  itemStyle: { color: '#E8E8ED' },
+  labelStyle: { color: '#8888A0' },
 }
 
 export default function BattingCompare() {
@@ -164,12 +164,12 @@ export default function BattingCompare() {
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Search for a player..."
-            className="flex-1 bg-bg-elevated border border-border-subtle rounded-md px-4 py-2 text-sm text-text-primary placeholder:text-text-muted font-body focus:outline-none focus:border-accent-brand transition-colors"
+            className="flex-1 bg-bg-elevated border border-border-subtle rounded-md px-4 py-2 text-sm text-text-primary placeholder:text-text-muted font-body focus:outline-none focus:border-accent-cyan transition-colors"
           />
           <button
             onClick={handleSearch}
             disabled={searching || !query.trim()}
-            className="px-4 py-2 bg-accent-brand/10 text-accent-brand border border-accent-brand/20 rounded-md text-sm font-medium hover:bg-accent-brand/20 transition-colors disabled:opacity-50"
+            className="px-4 py-2 bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20 rounded-md text-sm font-medium hover:bg-accent-cyan/20 transition-colors disabled:opacity-50"
           >
             {searching ? 'Searching...' : 'Search'}
           </button>
@@ -183,7 +183,7 @@ export default function BattingCompare() {
                 key={name}
                 onClick={() => addPlayer(name)}
                 disabled={selectedPlayers.includes(name) || selectedPlayers.length >= 5}
-                className="px-3 py-1.5 bg-bg-elevated border border-border-subtle rounded-full text-xs text-text-primary hover:border-accent-brand hover:text-accent-brand transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                className="px-3 py-1.5 bg-bg-elevated border border-border-subtle rounded-full text-xs text-text-primary hover:border-accent-cyan hover:text-accent-cyan transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 + {name}
               </button>
@@ -254,9 +254,9 @@ export default function BattingCompare() {
             <div className="card">
               <ResponsiveContainer width="100%" height={400}>
                 <RadarChart data={radarData} cx="50%" cy="50%" outerRadius="70%">
-                  <PolarGrid stroke="#22302B" />
-                  <PolarAngleAxis dataKey="metric" tick={{ fill: '#9AA69F', fontSize: 12 }} />
-                  <PolarRadiusAxis tick={{ fill: '#7c8983', fontSize: 10 }} domain={[0, 100]} />
+                  <PolarGrid stroke="#1E1E2A" />
+                  <PolarAngleAxis dataKey="metric" tick={{ fill: '#8888A0', fontSize: 12 }} />
+                  <PolarRadiusAxis tick={{ fill: '#555566', fontSize: 10 }} domain={[0, 100]} />
                   {playersWithData.map((name, i) => (
                     <Radar
                       key={name}
@@ -270,7 +270,7 @@ export default function BattingCompare() {
                   ))}
                   <Tooltip {...darkTooltipStyle} />
                   <Legend
-                    wrapperStyle={{ color: '#9AA69F', fontSize: 12 }}
+                    wrapperStyle={{ color: '#8888A0', fontSize: 12 }}
                     formatter={(value) => <span className="text-text-secondary text-xs">{value}</span>}
                   />
                 </RadarChart>
@@ -285,12 +285,12 @@ export default function BattingCompare() {
               <div className="card">
                 <ResponsiveContainer width="100%" height={300}>
                   <BarChart data={phaseCompareData} barGap={4}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#22302B" />
-                    <XAxis dataKey="phase" tick={{ fill: '#9AA69F', fontSize: 12 }} axisLine={{ stroke: '#22302B' }} />
-                    <YAxis tick={{ fill: '#9AA69F', fontSize: 12 }} axisLine={{ stroke: '#22302B' }} />
+                    <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" />
+                    <XAxis dataKey="phase" tick={{ fill: '#8888A0', fontSize: 12 }} axisLine={{ stroke: '#1E1E2A' }} />
+                    <YAxis tick={{ fill: '#8888A0', fontSize: 12 }} axisLine={{ stroke: '#1E1E2A' }} />
                     <Tooltip {...darkTooltipStyle} />
                     <Legend
-                      wrapperStyle={{ color: '#9AA69F', fontSize: 12 }}
+                      wrapperStyle={{ color: '#8888A0', fontSize: 12 }}
                       formatter={(value) => <span className="text-text-secondary text-xs">{value}</span>}
                     />
                     {playersWithData.map((name, i) => (
@@ -328,16 +328,16 @@ function StatRow({ label, value, highlight }) {
   return (
     <div className="flex justify-between items-center">
       <span className="text-text-muted">{label}</span>
-      <span className={`font-mono ${highlight ? 'font-semibold text-accent-teal' : 'text-text-primary'}`}>{value}</span>
+      <span className={`font-mono ${highlight ? 'font-semibold text-accent-lime' : 'text-text-primary'}`}>{value}</span>
     </div>
   )
 }
 
 function SectionHeader({ title, color = 'cyan' }) {
   const colorMap = {
-    cyan: 'bg-accent-brand',
+    cyan: 'bg-accent-cyan',
     magenta: 'bg-accent-magenta',
-    lime: 'bg-accent-teal',
+    lime: 'bg-accent-lime',
     amber: 'bg-accent-amber',
   }
   return (

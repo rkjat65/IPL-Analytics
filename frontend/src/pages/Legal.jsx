@@ -10,9 +10,9 @@ function Shell({ title, children }) {
   }, [title])
 
   return (
-    <main className="min-h-screen bg-[#0C1210] text-[#F3F4EE] px-5 py-10 sm:px-8">
-      <article className="max-w-3xl mx-auto rounded-2xl border border-[#22302B] bg-[#121a17] p-6 sm:p-10 shadow-2xl">
-        <Link to="/dashboard" className="inline-flex items-center gap-2 text-accent-brand text-sm mb-8 hover:underline">
+    <main className="min-h-screen bg-[#0A0A0F] text-[#E8E8ED] px-5 py-10 sm:px-8">
+      <article className="max-w-3xl mx-auto rounded-2xl border border-[#1E1E2A] bg-[#111118] p-6 sm:p-10 shadow-2xl">
+        <Link to="/dashboard" className="inline-flex items-center gap-2 text-accent-cyan text-sm mb-8 hover:underline">
           ← Back to Crickrida
         </Link>
         <h1 className="text-3xl sm:text-4xl font-heading font-bold mb-2">{title}</h1>
@@ -62,7 +62,7 @@ export function PrivacyPolicy() {
       </Section>
 
       <Section title="Retention and deletion">
-        <p>Expired sessions and temporary generated files are removed or overwritten during normal operation. If you have a legacy account, you can permanently delete it and its account-linked records; see the <Link to="/account-deletion" className="text-accent-brand hover:underline">account deletion page</Link>.</p>
+        <p>Expired sessions and temporary generated files are removed or overwritten during normal operation. If you have a legacy account, you can permanently delete it and its account-linked records; see the <Link to="/account-deletion" className="text-accent-cyan hover:underline">account deletion page</Link>.</p>
       </Section>
 
       <Section title="Security and your choices">
@@ -74,7 +74,7 @@ export function PrivacyPolicy() {
       </Section>
 
       <Section title="Contact">
-        <p>For privacy questions, email <a className="text-accent-brand hover:underline" href={`mailto:${contact}`}>{contact}</a>.</p>
+        <p>For privacy questions, email <a className="text-accent-cyan hover:underline" href={`mailto:${contact}`}>{contact}</a>.</p>
       </Section>
     </Shell>
   )
@@ -111,7 +111,7 @@ export function TermsOfUse() {
       </Section>
 
       <Section title="Contact">
-        <p>Questions about these terms can be sent to <a className="text-accent-brand hover:underline" href={`mailto:${contact}`}>{contact}</a>.</p>
+        <p>Questions about these terms can be sent to <a className="text-accent-cyan hover:underline" href={`mailto:${contact}`}>{contact}</a>.</p>
       </Section>
     </Shell>
   )
@@ -126,7 +126,7 @@ export function AccountDeletion() {
       <Section title="Request deletion">
         <p>Email us from the address associated with your account. We may ask you to verify ownership before deletion. Older versions of the mobile app can also delete an account from More → Account → Delete account.</p>
         <a
-          className="inline-flex mt-4 rounded-xl bg-accent-brand text-[#0C1210] font-semibold px-5 py-3 hover:brightness-110"
+          className="inline-flex mt-4 rounded-xl bg-accent-cyan text-[#0A0A0F] font-semibold px-5 py-3 hover:brightness-110"
           href={`mailto:${contact}?subject=${subject}&body=${body}`}
         >
           Request account deletion

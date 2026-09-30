@@ -30,7 +30,7 @@ export default function RecordCard({ title, value, subtitle, description, dimens
 
         <div style={{
           fontFamily: FONTS.mono, fontSize: sf(120), fontWeight: 700,
-          color: '#C3F23B', lineHeight: 1, marginBottom: isPortrait ? '48px' : '24px',
+          color: '#00E5FF', lineHeight: 1, marginBottom: isPortrait ? '48px' : '24px',
           textShadow: `0 0 40px ${NEON_COLORS.cyan}33`,
         }}>
           {value || '0'}

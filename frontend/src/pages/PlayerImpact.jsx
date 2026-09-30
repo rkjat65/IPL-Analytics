@@ -12,15 +12,15 @@ import { getPlayerImpact, searchPlayers } from '../lib/api'
 
 /* ── Colors (Neon Noir) ──────────────────────────────────── */
 const C = {
-  bg: '#0C1210',
-  card: '#121a17',
-  cardAlt: '#111916',
-  cyan: '#C3F23B',
+  bg: '#0A0A0F',
+  card: '#111118',
+  cardAlt: '#12121A',
+  cyan: '#00E5FF',
   magenta: '#FF2D78',
-  lime: '#2DD4BF',
+  lime: '#B8FF00',
   amber: '#FFB800',
   text: '#F0F0F5',
-  secondary: '#AEB8B2',
+  secondary: '#A0A0B8',
   muted: '#60607A',
 }
 
@@ -141,7 +141,7 @@ function ImpactGauge({ score, size = 260 }) {
           startAngle={180} endAngle={0}
           data={data} barSize={16}
         >
-          <RadialBar dataKey="value" cornerRadius={8} background={{ fill: '#1D2925' }} />
+          <RadialBar dataKey="value" cornerRadius={8} background={{ fill: '#1A1A24' }} />
         </RadialBarChart>
       </ResponsiveContainer>
       <div className="absolute left-0 right-0 text-center" style={{ bottom: 0 }}>
@@ -160,7 +160,7 @@ function RadarTooltip({ active, payload }) {
   const d = payload[0].payload
   return (
     <div className="rounded-lg px-3 py-2 text-xs shadow-xl border"
-      style={{ background: '#17211F', borderColor: '#2E3F39' }}>
+      style={{ background: '#16161F', borderColor: '#2A2A3A' }}>
       <p style={{ color: C.text }} className="font-semibold">{d.metric}</p>
       <p style={{ color: C.secondary }}>
         Normalized: <span className="font-mono font-bold" style={{ color: C.cyan }}>{d.value}</span>/100
@@ -262,10 +262,10 @@ export default function PlayerImpactPage() {
       <div className="mb-8">
         <div className="relative overflow-hidden rounded-2xl border p-8"
           style={{
-            background: 'linear-gradient(135deg, #C3F23B08, #FF2D7806, #2DD4BF08)',
+            background: 'linear-gradient(135deg, #00E5FF08, #FF2D7806, #B8FF0008)',
             borderColor: '#1E1E2E',
           }}>
-          <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at top right, #C3F23B08, transparent 60%)' }} />
+          <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at top right, #00E5FF08, transparent 60%)' }} />
           <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at bottom left, #FF2D7808, transparent 60%)' }} />
           <div className="relative">
             <h1 className="text-3xl md:text-4xl font-heading font-bold mb-2" style={{ color: C.text }}>
@@ -297,7 +297,7 @@ export default function PlayerImpactPage() {
               className="w-full rounded-lg px-4 py-3 text-sm font-body focus:outline-none transition-all"
               style={{
                 background: C.bg,
-                border: `1px solid #2E3F39`,
+                border: `1px solid #2A2A3A`,
                 color: C.text,
               }}
             />
@@ -305,7 +305,7 @@ export default function PlayerImpactPage() {
             {/* Autocomplete dropdown */}
             {showSuggestions && suggestions.length > 0 && (
               <div className="absolute z-50 left-0 right-0 mt-1 rounded-xl overflow-hidden shadow-2xl border"
-                style={{ background: '#17211F', borderColor: '#2E3F39' }}>
+                style={{ background: '#16161F', borderColor: '#2A2A3A' }}>
                 {suggestions.map((s, i) => {
                   const name = typeof s === 'string' ? s : s?.name || s?.player || ''
                   return (
@@ -440,7 +440,7 @@ export default function PlayerImpactPage() {
                 {radarData.length > 0 ? (
                   <ResponsiveContainer width="100%" height={360}>
                     <RadarChart cx="50%" cy="50%" outerRadius="75%" data={radarData}>
-                      <PolarGrid stroke="#2E3F39" />
+                      <PolarGrid stroke="#2A2A3A" />
                       <PolarAngleAxis
                         dataKey="metric"
                         tick={{ fill: C.secondary, fontSize: 11 }}
@@ -506,7 +506,7 @@ export default function PlayerImpactPage() {
                       </span>
                     </p>
                     {/* Mini bar */}
-                    <div className="mt-3 w-full h-1.5 rounded-full overflow-hidden" style={{ background: '#1D2925' }}>
+                    <div className="mt-3 w-full h-1.5 rounded-full overflow-hidden" style={{ background: '#1A1A24' }}>
                       <div className="h-full rounded-full transition-all duration-1000"
                         style={{
                           width: `${Math.min(radarData.find(r => r.key === key)?.value ?? 50, 100)}%`,

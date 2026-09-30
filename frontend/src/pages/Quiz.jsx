@@ -77,7 +77,7 @@ export default function Quiz() {
           <p className="mt-1 text-sm text-text-secondary">Name the {tournament.shortName} player from their career numbers.</p>
         </div>
         <div className="flex gap-3 font-mono text-xs">
-          <div className="card px-3 py-2 text-center"><div className="text-text-muted">STREAK</div><div className="font-heading text-xl font-bold text-accent-teal">{streak}</div></div>
+          <div className="card px-3 py-2 text-center"><div className="text-text-muted">STREAK</div><div className="font-heading text-xl font-bold text-accent-lime">{streak}</div></div>
           <div className="card px-3 py-2 text-center"><div className="text-text-muted">BEST</div><div className="font-heading text-xl font-bold text-accent-amber">{best}</div></div>
         </div>
       </div>
@@ -85,7 +85,7 @@ export default function Quiz() {
       <div className="flex flex-wrap gap-2" role="radiogroup" aria-label="Difficulty">
         {LEVELS.map(l => (
           <button key={l.id} role="radio" aria-checked={level === l.id} onClick={() => { setLevel(l.id); setStreak(0) }} title={l.hint}
-            className={`rounded-lg border px-4 py-2 text-sm transition-colors ${level === l.id ? 'border-accent-brand/40 bg-accent-brand/10 text-accent-brand' : 'border-border-subtle text-text-secondary hover:text-text-primary'}`}>
+            className={`rounded-lg border px-4 py-2 text-sm transition-colors ${level === l.id ? 'border-accent-cyan/40 bg-accent-cyan/10 text-accent-cyan' : 'border-border-subtle text-text-secondary hover:text-text-primary'}`}>
             {l.label}
           </button>
         ))}
@@ -112,7 +112,7 @@ export default function Quiz() {
               const isAnswer = name === round.answer
               const state = !picked ? 'idle' : isAnswer ? 'right' : name === picked ? 'wrong' : 'dim'
               const styles = {
-                idle: 'border-border-subtle bg-bg-elevated hover:border-accent-brand/50 hover:text-text-primary',
+                idle: 'border-border-subtle bg-bg-elevated hover:border-accent-cyan/50 hover:text-text-primary',
                 right: 'border-success/60 bg-success/15 text-text-primary',
                 wrong: 'border-danger/60 bg-danger/15 text-text-primary',
                 dim: 'border-border-subtle opacity-50',
@@ -133,12 +133,12 @@ export default function Quiz() {
             <div className="flex flex-wrap items-center gap-3 border-t border-border-subtle pt-4">
               <p className="flex-1 text-sm text-text-secondary">
                 {picked === round.answer ? 'Nailed it!' : <>It was <strong className="text-text-primary">{round.answer}</strong>.</>}{' '}
-                <Link to={`/batting/${encodeURIComponent(round.answer)}`} className="text-accent-brand hover:underline">See their profile</Link>
+                <Link to={`/batting/${encodeURIComponent(round.answer)}`} className="text-accent-cyan hover:underline">See their profile</Link>
               </p>
               <button onClick={share} className="rounded-lg border border-border-subtle px-3 py-2 text-xs text-text-secondary hover:text-text-primary">
                 {copied ? 'Copied!' : 'Share score'}
               </button>
-              <button onClick={next} className="rounded-lg bg-accent-brand px-4 py-2 text-sm font-bold text-black hover:brightness-110">
+              <button onClick={next} className="rounded-lg bg-accent-cyan px-4 py-2 text-sm font-bold text-black hover:brightness-110">
                 Next player →
               </button>
             </div>

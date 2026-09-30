@@ -32,7 +32,7 @@ function NeonTooltip({ active, payload, label, valueLabel }) {
   if (!active || !payload?.length) return null
   return (
     <div className="rounded-lg px-3 py-2 text-xs shadow-xl border"
-      style={{ background: '#17211F', borderColor: '#2E3F39' }}>
+      style={{ background: '#16161F', borderColor: '#2A2A3A' }}>
       <p className="text-text-primary font-semibold mb-0.5">{label}</p>
       {payload.map((p, i) => (
         <p key={i} style={{ color: p.color || p.fill }}>
@@ -111,7 +111,7 @@ export default function Dashboard() {
       render: (val) => (
         <Link
           to={`/batting/${encodeURIComponent(val)}`}
-          className="text-accent-brand hover:underline"
+          className="text-accent-cyan hover:underline"
         >
           {val}
         </Link>
@@ -119,7 +119,7 @@ export default function Dashboard() {
     },
     { key: 'matches', label: 'Mat', align: 'right' },
     { key: 'innings', label: 'Inn', align: 'right' },
-    { key: 'runs', label: 'Runs', align: 'right', render: (val) => <span className="font-mono font-semibold text-accent-teal">{formatNumber(val)}</span> },
+    { key: 'runs', label: 'Runs', align: 'right', render: (val) => <span className="font-mono font-semibold text-accent-lime">{formatNumber(val)}</span> },
     { key: 'avg', label: 'Avg', align: 'right', render: (val) => <span className="font-mono">{formatDecimal(val)}</span> },
     { key: 'sr', label: 'SR', align: 'right', render: (val) => <span className="font-mono">{formatDecimal(val)}</span> },
     { key: 'fifties', label: '50s', align: 'right' },
@@ -135,7 +135,7 @@ export default function Dashboard() {
       render: (val) => (
         <Link
           to={`/bowling/${encodeURIComponent(val)}`}
-          className="text-accent-brand hover:underline"
+          className="text-accent-cyan hover:underline"
         >
           {val}
         </Link>
@@ -182,8 +182,8 @@ export default function Dashboard() {
     { key: 'matches', label: 'Matches' },
   ]
 
-  const BAT_BAR_COLORS = ['#C3F23B', '#2DD4BF', '#FFB800', '#FF2D78', '#8B5CF6', '#22D3EE', '#22C55E', '#FBBF24', '#EF4444', '#A78BFA']
-  const BOWL_BAR_COLORS = ['#FF2D78', '#8B5CF6', '#C3F23B', '#FFB800', '#2DD4BF', '#EF4444', '#22D3EE', '#F472B6', '#A78BFA', '#34D399']
+  const BAT_BAR_COLORS = ['#00E5FF', '#B8FF00', '#FFB800', '#FF2D78', '#8B5CF6', '#22D3EE', '#22C55E', '#FBBF24', '#EF4444', '#A78BFA']
+  const BOWL_BAR_COLORS = ['#FF2D78', '#8B5CF6', '#00E5FF', '#FFB800', '#B8FF00', '#EF4444', '#22D3EE', '#F472B6', '#A78BFA', '#34D399']
 
   const batSortLabel = BAT_SORT_OPTIONS.find(o => o.key === batSort)?.label || batSort
   const bowlSortLabel = BOWL_SORT_OPTIONS.find(o => o.key === bowlSort)?.label || bowlSort
@@ -293,10 +293,10 @@ export default function Dashboard() {
           ═══════════════════════════════════════════════════ */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Highest Totals */}
-        <div className="bg-[#121a17] border border-[#22302B] rounded-xl p-4">
+        <div className="bg-[#111118] border border-[#1E1E2A] rounded-xl p-4">
           <div className="flex items-center gap-3 mb-3">
-            <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-accent-teal/10 flex items-center justify-center">
-              <svg className="w-5 h-5 text-accent-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+            <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-accent-lime/10 flex items-center justify-center">
+              <svg className="w-5 h-5 text-accent-lime" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
             </div>
@@ -312,7 +312,7 @@ export default function Dashboard() {
               <div className="flex items-baseline gap-2 mb-2">
                 <span className="text-text-muted font-mono text-xs w-5 text-right">#1</span>
                 <Link to={`/matches/${topTotalsList[0].match_id}`} className="hover:underline flex-1 min-w-0">
-                  <span className="text-xl font-heading font-bold text-accent-teal stat-glow-teal">
+                  <span className="text-xl font-heading font-bold text-accent-lime stat-glow-lime">
                     {topTotalsList[0].total_runs}
                   </span>
                   <span className="text-text-secondary ml-2 text-sm">
@@ -326,10 +326,10 @@ export default function Dashboard() {
 
               {/* Expandable list */}
               {showTopTotals && topTotalsList.slice(1, 10).map((item, idx) => (
-                <div key={item.match_id || idx} className="flex items-baseline gap-2 py-1.5 border-t border-[#22302B]">
+                <div key={item.match_id || idx} className="flex items-baseline gap-2 py-1.5 border-t border-[#1E1E2A]">
                   <span className="text-text-muted font-mono text-xs w-5 text-right">#{idx + 2}</span>
                   <Link to={`/matches/${item.match_id}`} className="hover:underline flex-1 min-w-0">
-                    <span className="font-mono font-bold text-accent-teal text-sm">{item.total_runs}</span>
+                    <span className="font-mono font-bold text-accent-lime text-sm">{item.total_runs}</span>
                     <span className="text-text-secondary ml-2 text-xs">{item.batting_team}</span>
                     <span className="text-text-muted ml-1 text-xs">vs {item.opponent}</span>
                   </Link>
@@ -339,7 +339,7 @@ export default function Dashboard() {
               {topTotalsList.length > 1 && (
                 <button
                   onClick={() => setShowTopTotals(!showTopTotals)}
-                  className="text-accent-brand text-xs mt-2 hover:underline cursor-pointer"
+                  className="text-accent-cyan text-xs mt-2 hover:underline cursor-pointer"
                 >
                   {showTopTotals ? 'Collapse \u25B2' : 'View Top 10 \u25BC'}
                 </button>
@@ -349,7 +349,7 @@ export default function Dashboard() {
         </div>
 
         {/* Most Sixes */}
-        <div className="bg-[#121a17] border border-[#22302B] rounded-xl p-4">
+        <div className="bg-[#111118] border border-[#1E1E2A] rounded-xl p-4">
           <div className="flex items-center gap-3 mb-3">
             <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-accent-amber/10 flex items-center justify-center">
               <svg className="w-5 h-5 text-accent-amber" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -380,7 +380,7 @@ export default function Dashboard() {
               </div>
 
               {showTopSixes && topSixesList.slice(1, 10).map((item, idx) => (
-                <div key={item.player || idx} className="flex items-baseline gap-2 py-1.5 border-t border-[#22302B]">
+                <div key={item.player || idx} className="flex items-baseline gap-2 py-1.5 border-t border-[#1E1E2A]">
                   <span className="text-text-muted font-mono text-xs w-5 text-right">#{idx + 2}</span>
                   <Link to={`/batting/${encodeURIComponent(item.player)}`} className="hover:underline flex-1 min-w-0">
                     <span className="font-mono font-bold text-accent-amber text-sm">{item.sixes}</span>
@@ -393,7 +393,7 @@ export default function Dashboard() {
               {topSixesList.length > 1 && (
                 <button
                   onClick={() => setShowTopSixes(!showTopSixes)}
-                  className="text-accent-brand text-xs mt-2 hover:underline cursor-pointer"
+                  className="text-accent-cyan text-xs mt-2 hover:underline cursor-pointer"
                 >
                   {showTopSixes ? 'Collapse \u25B2' : 'View Top 10 \u25BC'}
                 </button>
@@ -403,10 +403,10 @@ export default function Dashboard() {
         </div>
 
         {/* Most Fours */}
-        <div className="bg-[#121a17] border border-[#22302B] rounded-xl p-4">
+        <div className="bg-[#111118] border border-[#1E1E2A] rounded-xl p-4">
           <div className="flex items-center gap-3 mb-3">
-            <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-accent-brand/10 flex items-center justify-center">
-              <svg className="w-5 h-5 text-accent-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+            <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-accent-cyan/10 flex items-center justify-center">
+              <svg className="w-5 h-5 text-accent-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z" />
               </svg>
             </div>
@@ -421,7 +421,7 @@ export default function Dashboard() {
               <div className="flex items-baseline gap-2 mb-2">
                 <span className="text-text-muted font-mono text-xs w-5 text-right">#1</span>
                 <Link to={`/batting/${encodeURIComponent(topFoursList[0].player)}`} className="hover:underline flex-1 min-w-0">
-                  <span className="text-xl font-heading font-bold text-accent-brand stat-glow-brand">
+                  <span className="text-xl font-heading font-bold text-accent-cyan stat-glow-cyan">
                     {topFoursList[0].fours}
                   </span>
                   <span className="text-text-secondary ml-2 text-sm">
@@ -434,10 +434,10 @@ export default function Dashboard() {
               </div>
 
               {showTopFours && topFoursList.slice(1, 10).map((item, idx) => (
-                <div key={item.player || idx} className="flex items-baseline gap-2 py-1.5 border-t border-[#22302B]">
+                <div key={item.player || idx} className="flex items-baseline gap-2 py-1.5 border-t border-[#1E1E2A]">
                   <span className="text-text-muted font-mono text-xs w-5 text-right">#{idx + 2}</span>
                   <Link to={`/batting/${encodeURIComponent(item.player)}`} className="hover:underline flex-1 min-w-0">
-                    <span className="font-mono font-bold text-accent-brand text-sm">{item.fours}</span>
+                    <span className="font-mono font-bold text-accent-cyan text-sm">{item.fours}</span>
                     <span className="text-text-secondary ml-2 text-xs">{item.player}</span>
                     <span className="text-text-muted ml-1 text-xs">({item.matches} mat)</span>
                   </Link>
@@ -447,7 +447,7 @@ export default function Dashboard() {
               {topFoursList.length > 1 && (
                 <button
                   onClick={() => setShowTopFours(!showTopFours)}
-                  className="text-accent-brand text-xs mt-2 hover:underline cursor-pointer"
+                  className="text-accent-cyan text-xs mt-2 hover:underline cursor-pointer"
                 >
                   {showTopFours ? 'Collapse \u25B2' : 'View Top 10 \u25BC'}
                 </button>
@@ -457,7 +457,7 @@ export default function Dashboard() {
         </div>
 
         {/* Most Wickets */}
-        <div className="bg-[#121a17] border border-[#22302B] rounded-xl p-4">
+        <div className="bg-[#111118] border border-[#1E1E2A] rounded-xl p-4">
           <div className="flex items-center gap-3 mb-3">
             <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-accent-magenta/10 flex items-center justify-center">
               <svg className="w-5 h-5 text-accent-magenta" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -490,7 +490,7 @@ export default function Dashboard() {
               </div>
 
               {showTopWickets && bowlersWithRank.slice(1, 10).map((item, idx) => (
-                <div key={item.player || idx} className="flex items-baseline gap-2 py-1.5 border-t border-[#22302B]">
+                <div key={item.player || idx} className="flex items-baseline gap-2 py-1.5 border-t border-[#1E1E2A]">
                   <span className="text-text-muted font-mono text-xs w-5 text-right">#{idx + 2}</span>
                   <Link to={`/bowling/${encodeURIComponent(item.player)}`} className="hover:underline flex-1 min-w-0">
                     <span className="font-mono font-bold text-accent-magenta text-sm">{item.wickets}</span>
@@ -503,7 +503,7 @@ export default function Dashboard() {
               {bowlersWithRank.length > 1 && (
                 <button
                   onClick={() => setShowTopWickets(!showTopWickets)}
-                  className="text-accent-brand text-xs mt-2 hover:underline cursor-pointer"
+                  className="text-accent-cyan text-xs mt-2 hover:underline cursor-pointer"
                 >
                   {showTopWickets ? 'Collapse \u25B2' : 'View Top 10 \u25BC'}
                 </button>
@@ -520,7 +520,7 @@ export default function Dashboard() {
         {/* Most Wins (All Teams) */}
         <section>
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-1 h-6 bg-accent-teal rounded-full" />
+            <div className="w-1 h-6 bg-accent-lime rounded-full" />
             <h2 className="text-xl font-heading font-bold text-text-primary">Most Wins (All Teams)</h2>
           </div>
           <div className="card">
@@ -537,8 +537,8 @@ export default function Dashboard() {
                 >
                   <XAxis
                     type="number"
-                    tick={{ fill: '#9AA69F', fontSize: 11 }}
-                    axisLine={{ stroke: '#2E3F39' }}
+                    tick={{ fill: '#8888A0', fontSize: 11 }}
+                    axisLine={{ stroke: '#2A2A3A' }}
                     tickLine={false}
                   />
                   <YAxis
@@ -555,7 +555,7 @@ export default function Dashboard() {
                       const d = payload[0].payload
                       return (
                         <div className="rounded-lg px-3 py-2 text-xs shadow-xl border"
-                          style={{ background: '#17211F', borderColor: '#2E3F39' }}>
+                          style={{ background: '#16161F', borderColor: '#2A2A3A' }}>
                           <p className="text-text-primary font-semibold mb-0.5">{d.fullTeam}</p>
                           <p style={{ color: d.fill }}>
                             Wins: <span className="font-mono font-bold">{d.wins}</span>
@@ -566,7 +566,7 @@ export default function Dashboard() {
                         </div>
                       )
                     }}
-                    cursor={{ fill: 'rgba(45,212,191,0.05)' }}
+                    cursor={{ fill: 'rgba(184,255,0,0.05)' }}
                   />
                   <Bar
                     dataKey="wins"
@@ -610,8 +610,8 @@ export default function Dashboard() {
                 >
                   <XAxis
                     type="number"
-                    tick={{ fill: '#9AA69F', fontSize: 11 }}
-                    axisLine={{ stroke: '#2E3F39' }}
+                    tick={{ fill: '#8888A0', fontSize: 11 }}
+                    axisLine={{ stroke: '#2A2A3A' }}
                     tickLine={false}
                     allowDecimals={false}
                   />
@@ -629,7 +629,7 @@ export default function Dashboard() {
                       const d = payload[0].payload
                       return (
                         <div className="rounded-lg px-3 py-2 text-xs shadow-xl border"
-                          style={{ background: '#17211F', borderColor: '#2E3F39' }}>
+                          style={{ background: '#16161F', borderColor: '#2A2A3A' }}>
                           <p className="text-text-primary font-semibold mb-0.5">{d.fullTeam}</p>
                           <p style={{ color: d.fill }}>
                             Titles: <span className="font-mono font-bold">{d.titles}</span>
@@ -668,13 +668,13 @@ export default function Dashboard() {
       <section>
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
-            <div className="w-1 h-6 bg-accent-teal rounded-full" />
+            <div className="w-1 h-6 bg-accent-lime rounded-full" />
             <h2 className="text-xl font-heading font-bold text-text-primary">Top Batters</h2>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-xs text-text-muted font-mono">Sort by</span>
             <select value={batSort} onChange={e => setBatSort(e.target.value)}
-              className="bg-bg-card border border-border-subtle rounded-lg px-3 py-1.5 text-xs text-text-primary font-mono focus:outline-none focus:border-accent-teal/50">
+              className="bg-bg-card border border-border-subtle rounded-lg px-3 py-1.5 text-xs text-text-primary font-mono focus:outline-none focus:border-accent-lime/50">
               {BAT_SORT_OPTIONS.map(o => <option key={o.key} value={o.key}>{o.label}</option>)}
             </select>
           </div>
@@ -694,8 +694,8 @@ export default function Dashboard() {
                   >
                     <XAxis
                       type="number"
-                      tick={{ fill: '#9AA69F', fontSize: 11 }}
-                      axisLine={{ stroke: '#2E3F39' }}
+                      tick={{ fill: '#8888A0', fontSize: 11 }}
+                      axisLine={{ stroke: '#2A2A3A' }}
                       tickLine={false}
                     />
                     <YAxis
@@ -712,9 +712,9 @@ export default function Dashboard() {
                         const d = payload[0].payload
                         return (
                           <div className="rounded-lg px-3 py-2 text-xs shadow-xl border"
-                            style={{ background: '#17211F', borderColor: '#2E3F39' }}>
+                            style={{ background: '#16161F', borderColor: '#2A2A3A' }}>
                             <p className="text-text-primary font-semibold mb-0.5">{d.fullName}</p>
-                            <p style={{ color: '#2DD4BF' }}>
+                            <p style={{ color: '#B8FF00' }}>
                               {batSortLabel}: <span className="font-mono font-bold">{['avg', 'sr', 'economy'].includes(batSort) ? formatDecimal(d.value) : formatNumber(d.value)}</span>
                             </p>
                             <p className="text-text-secondary">
@@ -723,7 +723,7 @@ export default function Dashboard() {
                           </div>
                         )
                       }}
-                      cursor={{ fill: 'rgba(45,212,191,0.05)' }}
+                      cursor={{ fill: 'rgba(184,255,0,0.05)' }}
                     />
                     <Bar
                       dataKey="value"
@@ -783,8 +783,8 @@ export default function Dashboard() {
                   >
                     <XAxis
                       type="number"
-                      tick={{ fill: '#9AA69F', fontSize: 11 }}
-                      axisLine={{ stroke: '#2E3F39' }}
+                      tick={{ fill: '#8888A0', fontSize: 11 }}
+                      axisLine={{ stroke: '#2A2A3A' }}
                       tickLine={false}
                     />
                     <YAxis
@@ -801,7 +801,7 @@ export default function Dashboard() {
                         const d = payload[0].payload
                         return (
                           <div className="rounded-lg px-3 py-2 text-xs shadow-xl border"
-                            style={{ background: '#17211F', borderColor: '#2E3F39' }}>
+                            style={{ background: '#16161F', borderColor: '#2A2A3A' }}>
                             <p className="text-text-primary font-semibold mb-0.5">{d.fullName}</p>
                             <p style={{ color: '#FF2D78' }}>
                               {bowlSortLabel}: <span className="font-mono font-bold">{['economy', 'avg', 'sr'].includes(bowlSort) ? formatDecimal(d.value) : d.value}</span>
@@ -845,7 +845,7 @@ export default function Dashboard() {
           ═══════════════════════════════════════════════════ */}
       <section>
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-1 h-6 bg-accent-brand rounded-full" />
+          <div className="w-1 h-6 bg-accent-cyan rounded-full" />
           <h2 className="text-xl font-heading font-bold text-text-primary">Recent Matches</h2>
         </div>
         {matchesLoading ? (
@@ -896,7 +896,7 @@ export default function Dashboard() {
                             className="h-full rounded-full transition-all duration-500"
                             style={{
                               width: `${(t1Score / maxScore) * 100}%`,
-                              background: match.winner === match.team1 ? '#2DD4BF' : '#9AA69F',
+                              background: match.winner === match.team1 ? '#B8FF00' : '#8888A0',
                             }}
                           />
                         </div>
@@ -908,7 +908,7 @@ export default function Dashboard() {
                             className="h-full rounded-full transition-all duration-500"
                             style={{
                               width: `${(t2Score / maxScore) * 100}%`,
-                              background: match.winner === match.team2 ? '#2DD4BF' : '#9AA69F',
+                              background: match.winner === match.team2 ? '#B8FF00' : '#8888A0',
                             }}
                           />
                         </div>
@@ -916,7 +916,7 @@ export default function Dashboard() {
                     </div>
                   )}
 
-                  <p className="text-accent-brand text-xs mb-1">
+                  <p className="text-accent-cyan text-xs mb-1">
                     {getMatchResult(match)}
                   </p>
                   {match.player_of_match && (

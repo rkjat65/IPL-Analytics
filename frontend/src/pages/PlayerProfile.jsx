@@ -38,10 +38,10 @@ import {
 function ChartTooltip({ active, payload, label }) {
   if (!active || !payload?.length) return null
   return (
-    <div className="bg-[#17211F] border border-[#2E3F39] rounded-lg px-3 py-2 shadow-lg">
-      <p className="text-[#9AA69F] text-xs mb-1 font-mono">{label}</p>
+    <div className="bg-[#16161F] border border-[#2A2A3A] rounded-lg px-3 py-2 shadow-lg">
+      <p className="text-[#8888A0] text-xs mb-1 font-mono">{label}</p>
       {payload.map((entry, i) => (
-        <p key={i} className="text-xs" style={{ color: entry.color || '#F3F4EE' }}>
+        <p key={i} className="text-xs" style={{ color: entry.color || '#E8E8ED' }}>
           {entry.name}: <span className="font-mono font-semibold">{typeof entry.value === 'number' ? entry.value.toLocaleString() : entry.value}</span>
         </p>
       ))}
@@ -49,13 +49,13 @@ function ChartTooltip({ active, payload, label }) {
   )
 }
 
-const PHASE_COLORS = { Powerplay: '#C3F23B', Middle: '#FFB800', Death: '#FF2D78' }
-const PIE_COLORS = ['#C3F23B', '#FF2D78', '#2DD4BF', '#FFB800', '#8B5CF6', '#22C55E', '#EF4444', '#6366F1']
+const PHASE_COLORS = { Powerplay: '#00E5FF', Middle: '#FFB800', Death: '#FF2D78' }
+const PIE_COLORS = ['#00E5FF', '#FF2D78', '#B8FF00', '#FFB800', '#8B5CF6', '#22C55E', '#EF4444', '#6366F1']
 
 const darkTooltipStyle = {
-  contentStyle: { backgroundColor: '#121a17', border: '1px solid #22302B', borderRadius: 8, color: '#F3F4EE' },
-  itemStyle: { color: '#F3F4EE' },
-  labelStyle: { color: '#9AA69F' },
+  contentStyle: { backgroundColor: '#111118', border: '1px solid #1E1E2A', borderRadius: 8, color: '#E8E8ED' },
+  itemStyle: { color: '#E8E8ED' },
+  labelStyle: { color: '#8888A0' },
 }
 
 export default function PlayerProfile() {
@@ -164,7 +164,7 @@ export default function PlayerProfile() {
         {seoEl}
         <p className="text-danger font-heading text-lg">Player not found</p>
         <p className="text-text-secondary text-sm">No batting or bowling data for {decodedName}</p>
-        <Link to="/batting" className="text-accent-brand hover:underline text-sm">Back to Batting Records</Link>
+        <Link to="/batting" className="text-accent-cyan hover:underline text-sm">Back to Batting Records</Link>
       </div>
     )
   }
@@ -182,7 +182,7 @@ export default function PlayerProfile() {
           <PlayerAvatar name={displayName} size={72} shape="circle" />
           <Link
             to="/image-credits"
-            className="text-[10px] font-mono text-text-muted hover:text-accent-brand hover:underline"
+            className="text-[10px] font-mono text-text-muted hover:text-accent-cyan hover:underline"
           >
             Image credits
           </Link>
@@ -194,7 +194,7 @@ export default function PlayerProfile() {
             <div className="flex flex-wrap items-center gap-2 mt-3" aria-label="Famous names">
               <span className="text-xs font-mono uppercase tracking-wider text-text-muted">Also known as</span>
               {famousNames.map((name) => (
-                <span key={name} className="rounded-full border border-accent-brand/25 bg-accent-brand/10 px-2.5 py-1 text-xs font-medium text-accent-brand">
+                <span key={name} className="rounded-full border border-accent-cyan/25 bg-accent-cyan/10 px-2.5 py-1 text-xs font-medium text-accent-cyan">
                   {name}
                 </span>
               ))}
@@ -213,7 +213,7 @@ export default function PlayerProfile() {
               onClick={() => setActiveTab(tab)}
               className={`px-5 py-2 rounded-md text-sm font-medium transition-colors capitalize ${
                 activeTab === tab
-                  ? 'bg-bg-card text-accent-brand shadow-glow-brand'
+                  ? 'bg-bg-card text-accent-cyan shadow-glow-cyan'
                   : 'text-text-secondary hover:text-text-primary'
               }`}
             >
@@ -244,7 +244,7 @@ function BattingTab({ batting, matchups, matchupsLoading, splits }) {
   const seasonCols = [
     { key: 'season', label: 'Season' },
     { key: 'innings', label: 'Inn', align: 'right', render: (v) => <span className="font-mono">{v}</span> },
-    { key: 'runs', label: 'Runs', align: 'right', render: (v) => <span className="font-mono font-semibold text-accent-teal">{v}</span> },
+    { key: 'runs', label: 'Runs', align: 'right', render: (v) => <span className="font-mono font-semibold text-accent-lime">{v}</span> },
     { key: 'avg', label: 'Avg', align: 'right', render: (v) => <span className="font-mono">{formatDecimal(v)}</span> },
     { key: 'sr', label: 'SR', align: 'right', render: (v) => <span className="font-mono">{formatDecimal(v)}</span> },
     { key: 'highest', label: 'HS', align: 'right', render: (v) => <span className="font-mono">{v}</span> },
@@ -255,7 +255,7 @@ function BattingTab({ batting, matchups, matchupsLoading, splits }) {
   const vsTeamCols = [
     { key: 'opponent', label: 'Team' },
     { key: 'innings', label: 'Inn', align: 'right', render: (v) => <span className="font-mono">{v}</span> },
-    { key: 'runs', label: 'Runs', align: 'right', render: (v) => <span className="font-mono font-semibold text-accent-teal">{v}</span> },
+    { key: 'runs', label: 'Runs', align: 'right', render: (v) => <span className="font-mono font-semibold text-accent-lime">{v}</span> },
     { key: 'avg', label: 'Avg', align: 'right', render: (v) => <span className="font-mono">{formatDecimal(v)}</span> },
     { key: 'sr', label: 'SR', align: 'right', render: (v) => <span className="font-mono">{formatDecimal(v)}</span> },
   ]
@@ -263,7 +263,7 @@ function BattingTab({ batting, matchups, matchupsLoading, splits }) {
   const recentCols = [
     { key: 'date', label: 'Date', render: (v) => <span className="font-mono text-text-secondary text-xs">{formatDate(v)}</span> },
     { key: 'opponent', label: 'vs' },
-    { key: 'runs', label: 'Runs', align: 'right', render: (v) => <span className="font-mono font-semibold text-accent-teal">{v}</span> },
+    { key: 'runs', label: 'Runs', align: 'right', render: (v) => <span className="font-mono font-semibold text-accent-lime">{v}</span> },
     { key: 'balls', label: 'Balls', align: 'right', render: (v) => <span className="font-mono">{v}</span> },
     { key: 'fours', label: '4s', align: 'right', render: (v) => <span className="font-mono">{v}</span> },
     { key: 'sixes', label: '6s', align: 'right', render: (v) => <span className="font-mono">{v}</span> },
@@ -271,7 +271,7 @@ function BattingTab({ batting, matchups, matchupsLoading, splits }) {
   ]
 
   const matchupCols = [
-    { key: 'bowler', label: 'Bowler', render: (v) => <Link to={`/bowling/${encodeURIComponent(v)}`} className="text-accent-brand hover:underline">{v}</Link> },
+    { key: 'bowler', label: 'Bowler', render: (v) => <Link to={`/bowling/${encodeURIComponent(v)}`} className="text-accent-cyan hover:underline">{v}</Link> },
     { key: 'balls', label: 'Balls', align: 'right', render: (v) => <span className="font-mono">{v}</span> },
     { key: 'runs', label: 'Runs', align: 'right', render: (v) => <span className="font-mono">{v}</span> },
     { key: 'dots', label: 'Dots', align: 'right', render: (v) => <span className="font-mono">{v}</span> },
@@ -313,16 +313,16 @@ function BattingTab({ batting, matchups, matchupsLoading, splits }) {
               <AreaChart data={batting.seasons} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                 <defs>
                   <linearGradient id="limeGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#2DD4BF" stopOpacity={0.3} />
-                    <stop offset="95%" stopColor="#2DD4BF" stopOpacity={0} />
+                    <stop offset="5%" stopColor="#B8FF00" stopOpacity={0.3} />
+                    <stop offset="95%" stopColor="#B8FF00" stopOpacity={0} />
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="#22302B" />
-                <XAxis dataKey="season" tick={{ fill: '#9AA69F', fontSize: 12, fontFamily: 'JetBrains Mono' }} axisLine={{ stroke: '#22302B' }} tickLine={{ stroke: '#22302B' }} />
-                <YAxis tick={{ fill: '#9AA69F', fontSize: 12, fontFamily: 'JetBrains Mono' }} axisLine={{ stroke: '#22302B' }} tickLine={{ stroke: '#22302B' }} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" />
+                <XAxis dataKey="season" tick={{ fill: '#8888A0', fontSize: 12, fontFamily: 'JetBrains Mono' }} axisLine={{ stroke: '#1E1E2A' }} tickLine={{ stroke: '#1E1E2A' }} />
+                <YAxis tick={{ fill: '#8888A0', fontSize: 12, fontFamily: 'JetBrains Mono' }} axisLine={{ stroke: '#1E1E2A' }} tickLine={{ stroke: '#1E1E2A' }} />
                 <Tooltip content={<ChartTooltip />} />
-                <Legend wrapperStyle={{ color: '#9AA69F', fontSize: 12 }} formatter={(value) => <span className="text-text-secondary text-xs">{value}</span>} />
-                <Area type="monotone" dataKey="runs" stroke="#2DD4BF" strokeWidth={2} fill="url(#limeGradient)" name="Runs" dot={{ r: 4, fill: '#2DD4BF', stroke: '#0C1210', strokeWidth: 2 }} activeDot={{ r: 6 }} />
+                <Legend wrapperStyle={{ color: '#8888A0', fontSize: 12 }} formatter={(value) => <span className="text-text-secondary text-xs">{value}</span>} />
+                <Area type="monotone" dataKey="runs" stroke="#B8FF00" strokeWidth={2} fill="url(#limeGradient)" name="Runs" dot={{ r: 4, fill: '#B8FF00', stroke: '#0A0A0F', strokeWidth: 2 }} activeDot={{ r: 6 }} />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -335,14 +335,14 @@ function BattingTab({ batting, matchups, matchupsLoading, splits }) {
           <div className="card">
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={phaseData} barGap={8}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#22302B" />
-                <XAxis dataKey="phase" tick={{ fill: '#9AA69F', fontSize: 12 }} axisLine={{ stroke: '#22302B' }} />
-                <YAxis yAxisId="runs" tick={{ fill: '#9AA69F', fontSize: 12 }} axisLine={{ stroke: '#22302B' }} />
-                <YAxis yAxisId="sr" orientation="right" tick={{ fill: '#9AA69F', fontSize: 12 }} axisLine={{ stroke: '#22302B' }} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" />
+                <XAxis dataKey="phase" tick={{ fill: '#8888A0', fontSize: 12 }} axisLine={{ stroke: '#1E1E2A' }} />
+                <YAxis yAxisId="runs" tick={{ fill: '#8888A0', fontSize: 12 }} axisLine={{ stroke: '#1E1E2A' }} />
+                <YAxis yAxisId="sr" orientation="right" tick={{ fill: '#8888A0', fontSize: 12 }} axisLine={{ stroke: '#1E1E2A' }} />
                 <Tooltip content={<ChartTooltip />} />
-                <Legend wrapperStyle={{ color: '#9AA69F', fontSize: 12 }} formatter={(value) => <span className="text-text-secondary text-xs">{value}</span>} />
-                <Bar yAxisId="runs" dataKey="runs" fill="#2DD4BF" name="Runs" radius={[4, 4, 0, 0]} label={{ position: 'top', fill: '#2DD4BF', fontSize: 10, fontFamily: 'monospace' }} />
-                <Bar yAxisId="sr" dataKey="sr" fill="#C3F23B" name="Strike Rate" radius={[4, 4, 0, 0]} label={{ position: 'top', fill: '#C3F23B', fontSize: 10, fontFamily: 'monospace' }} />
+                <Legend wrapperStyle={{ color: '#8888A0', fontSize: 12 }} formatter={(value) => <span className="text-text-secondary text-xs">{value}</span>} />
+                <Bar yAxisId="runs" dataKey="runs" fill="#B8FF00" name="Runs" radius={[4, 4, 0, 0]} label={{ position: 'top', fill: '#B8FF00', fontSize: 10, fontFamily: 'monospace' }} />
+                <Bar yAxisId="sr" dataKey="sr" fill="#00E5FF" name="Strike Rate" radius={[4, 4, 0, 0]} label={{ position: 'top', fill: '#00E5FF', fontSize: 10, fontFamily: 'monospace' }} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -409,7 +409,7 @@ function BowlingTab({ bowling, matchups, matchupsLoading, splits }) {
   ]
 
   const matchupCols = [
-    { key: 'batter', label: 'Batter', render: (v) => <Link to={`/batting/${encodeURIComponent(v)}`} className="text-accent-brand hover:underline">{v}</Link> },
+    { key: 'batter', label: 'Batter', render: (v) => <Link to={`/batting/${encodeURIComponent(v)}`} className="text-accent-cyan hover:underline">{v}</Link> },
     { key: 'balls', label: 'Balls', align: 'right', render: (v) => <span className="font-mono">{v}</span> },
     { key: 'runs', label: 'Runs', align: 'right', render: (v) => <span className="font-mono">{v}</span> },
     { key: 'dots', label: 'Dots', align: 'right', render: (v) => <span className="font-mono">{v}</span> },
@@ -456,12 +456,12 @@ function BowlingTab({ bowling, matchups, matchupsLoading, splits }) {
                     <stop offset="95%" stopColor="#FF2D78" stopOpacity={0} />
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="#22302B" />
-                <XAxis dataKey="season" tick={{ fill: '#9AA69F', fontSize: 12, fontFamily: 'JetBrains Mono' }} axisLine={{ stroke: '#22302B' }} tickLine={{ stroke: '#22302B' }} />
-                <YAxis tick={{ fill: '#9AA69F', fontSize: 12, fontFamily: 'JetBrains Mono' }} axisLine={{ stroke: '#22302B' }} tickLine={{ stroke: '#22302B' }} allowDecimals={false} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" />
+                <XAxis dataKey="season" tick={{ fill: '#8888A0', fontSize: 12, fontFamily: 'JetBrains Mono' }} axisLine={{ stroke: '#1E1E2A' }} tickLine={{ stroke: '#1E1E2A' }} />
+                <YAxis tick={{ fill: '#8888A0', fontSize: 12, fontFamily: 'JetBrains Mono' }} axisLine={{ stroke: '#1E1E2A' }} tickLine={{ stroke: '#1E1E2A' }} allowDecimals={false} />
                 <Tooltip content={<ChartTooltip />} />
-                <Legend wrapperStyle={{ color: '#9AA69F', fontSize: 12 }} formatter={(value) => <span className="text-text-secondary text-xs">{value}</span>} />
-                <Area type="monotone" dataKey="wickets" stroke="#FF2D78" strokeWidth={2} fill="url(#magentaGradient)" name="Wickets" dot={{ r: 4, fill: '#FF2D78', stroke: '#0C1210', strokeWidth: 2 }} activeDot={{ r: 6 }} />
+                <Legend wrapperStyle={{ color: '#8888A0', fontSize: 12 }} formatter={(value) => <span className="text-text-secondary text-xs">{value}</span>} />
+                <Area type="monotone" dataKey="wickets" stroke="#FF2D78" strokeWidth={2} fill="url(#magentaGradient)" name="Wickets" dot={{ r: 4, fill: '#FF2D78', stroke: '#0A0A0F', strokeWidth: 2 }} activeDot={{ r: 6 }} />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -474,12 +474,12 @@ function BowlingTab({ bowling, matchups, matchupsLoading, splits }) {
           <div className="card">
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={phaseData} barGap={8}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#22302B" />
-                <XAxis dataKey="phase" tick={{ fill: '#9AA69F', fontSize: 12 }} axisLine={{ stroke: '#22302B' }} />
-                <YAxis yAxisId="econ" tick={{ fill: '#9AA69F', fontSize: 12 }} axisLine={{ stroke: '#22302B' }} />
-                <YAxis yAxisId="wkts" orientation="right" tick={{ fill: '#9AA69F', fontSize: 12 }} axisLine={{ stroke: '#22302B' }} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" />
+                <XAxis dataKey="phase" tick={{ fill: '#8888A0', fontSize: 12 }} axisLine={{ stroke: '#1E1E2A' }} />
+                <YAxis yAxisId="econ" tick={{ fill: '#8888A0', fontSize: 12 }} axisLine={{ stroke: '#1E1E2A' }} />
+                <YAxis yAxisId="wkts" orientation="right" tick={{ fill: '#8888A0', fontSize: 12 }} axisLine={{ stroke: '#1E1E2A' }} />
                 <Tooltip content={<ChartTooltip />} />
-                <Legend wrapperStyle={{ color: '#9AA69F', fontSize: 12 }} formatter={(value) => <span className="text-text-secondary text-xs">{value}</span>} />
+                <Legend wrapperStyle={{ color: '#8888A0', fontSize: 12 }} formatter={(value) => <span className="text-text-secondary text-xs">{value}</span>} />
                 <Bar yAxisId="econ" dataKey="economy" fill="#FFB800" name="Economy" radius={[4, 4, 0, 0]} label={{ position: 'top', fill: '#FFB800', fontSize: 10, fontFamily: 'monospace' }} />
                 <Bar yAxisId="wkts" dataKey="wickets" fill="#FF2D78" name="Wickets" radius={[4, 4, 0, 0]} label={{ position: 'top', fill: '#FF2D78', fontSize: 10, fontFamily: 'monospace' }} />
               </BarChart>
@@ -511,7 +511,7 @@ function BowlingTab({ bowling, matchups, matchupsLoading, splits }) {
                 </Pie>
                 <Tooltip content={<ChartTooltip />} />
                 <Legend
-                  wrapperStyle={{ color: '#9AA69F', fontSize: 12 }}
+                  wrapperStyle={{ color: '#8888A0', fontSize: 12 }}
                   formatter={(value) => <span className="text-text-secondary text-xs">{value}</span>}
                 />
               </PieChart>
@@ -554,9 +554,9 @@ function BowlingTab({ bowling, matchups, matchupsLoading, splits }) {
 /* ===================== SECTION HELPER ===================== */
 function Section({ title, color = 'cyan', children }) {
   const colorMap = {
-    cyan: 'bg-accent-brand',
+    cyan: 'bg-accent-cyan',
     magenta: 'bg-accent-magenta',
-    lime: 'bg-accent-teal',
+    lime: 'bg-accent-lime',
     amber: 'bg-accent-amber',
   }
   return (

@@ -17,9 +17,9 @@ function fetchAvailableImages() {
 
 // Gradient pairs for avatar backgrounds based on player name hash
 const GRADIENT_PAIRS = [
-  ['#C3F23B', '#0066FF'],  // cyan → blue
+  ['#00E5FF', '#0066FF'],  // cyan → blue
   ['#FF2D78', '#FF6B00'],  // magenta → orange
-  ['#2DD4BF', '#00CC88'],  // lime → teal
+  ['#B8FF00', '#00CC88'],  // lime → teal
   ['#FFB800', '#FF4500'],  // amber → red-orange
   ['#8B5CF6', '#EC4899'],  // purple → pink
   ['#06B6D4', '#3B82F6'],  // sky → blue
@@ -118,7 +118,7 @@ export default function PlayerAvatar({
           <span style={{
             fontSize: `${fontSize}px`,
             fontWeight: 700,
-            color: '#0C1210',
+            color: '#0A0A0F',
             fontFamily: "'Space Grotesk', 'Segoe UI', sans-serif",
             letterSpacing: '-0.02em',
             textShadow: '0 1px 2px rgba(0,0,0,0.2)',
@@ -177,7 +177,7 @@ export default function PlayerAvatar({
           className="font-heading font-bold select-none"
           style={{
             fontSize: `${fontSize}px`,
-            color: '#0C1210',
+            color: '#0A0A0F',
             letterSpacing: '-0.02em',
             textShadow: '0 1px 2px rgba(0,0,0,0.2)',
           }}

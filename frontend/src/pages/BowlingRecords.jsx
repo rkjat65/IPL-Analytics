@@ -27,10 +27,10 @@ import {
 function ChartTooltip({ active, payload, label }) {
   if (!active || !payload?.length) return null
   return (
-    <div className="bg-[#17211F] border border-[#2E3F39] rounded-lg px-3 py-2 shadow-lg">
-      <p className="text-[#9AA69F] text-xs mb-1 font-mono">{label}</p>
+    <div className="bg-[#16161F] border border-[#2A2A3A] rounded-lg px-3 py-2 shadow-lg">
+      <p className="text-[#8888A0] text-xs mb-1 font-mono">{label}</p>
       {payload.map((entry, i) => (
-        <p key={i} className="text-xs" style={{ color: entry.color || '#F3F4EE' }}>
+        <p key={i} className="text-xs" style={{ color: entry.color || '#E8E8ED' }}>
           {entry.name}: <span className="font-mono font-semibold">{typeof entry.value === 'number' ? entry.value.toLocaleString() : entry.value}</span>
         </p>
       ))}
@@ -49,7 +49,7 @@ const SORT_OPTIONS = [
 ]
 
 const BAR_COLORS = [
-  '#FF2D78', '#8B5CF6', '#C3F23B', '#FFB800', '#2DD4BF',
+  '#FF2D78', '#8B5CF6', '#00E5FF', '#FFB800', '#B8FF00',
   '#EF4444', '#22D3EE', '#F472B6', '#A78BFA', '#34D399',
   '#FB923C', '#FBBF24', '#60A5FA', '#E879F9', '#22C55E',
 ]
@@ -106,7 +106,7 @@ export default function BowlingRecords() {
       key: 'player',
       label: 'Player',
       render: (val) => (
-        <Link to={`/bowling/${encodeURIComponent(val)}`} className="flex items-center gap-2 text-accent-brand hover:underline font-medium">
+        <Link to={`/bowling/${encodeURIComponent(val)}`} className="flex items-center gap-2 text-accent-cyan hover:underline font-medium">
           <PlayerAvatar name={val} size={28} showBorder={false} />
           {val}
         </Link>
@@ -158,7 +158,7 @@ export default function BowlingRecords() {
           <p className="text-text-secondary text-sm mt-1">Top wicket takers across {tournament.name} {tournament.competitionLabelPlural.toLowerCase()}</p>
         </div>
         <div className="flex flex-wrap items-center gap-2">
-          <Link to="/bowling/compare" className="inline-flex items-center rounded-lg border border-border-subtle px-3.5 py-2 text-xs font-semibold text-text-secondary hover:border-accent-brand/40 hover:text-accent-brand transition-colors">Compare bowlers</Link>
+          <Link to="/bowling/compare" className="inline-flex items-center rounded-lg border border-border-subtle px-3.5 py-2 text-xs font-semibold text-text-secondary hover:border-accent-cyan/40 hover:text-accent-cyan transition-colors">Compare bowlers</Link>
           <MakeCardButton label="Share the top 5" params={{ t: 'leaderboard', stat: 'wickets' }} />
         </div>
       </div>
@@ -222,22 +222,22 @@ export default function BowlingRecords() {
               layout="vertical"
               margin={{ top: 5, right: 60, left: 10, bottom: 5 }}
             >
-              <CartesianGrid strokeDasharray="3 3" stroke="#22302B" horizontal={false} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" horizontal={false} />
               <XAxis
                 type="number"
-                tick={{ fill: '#9AA69F', fontSize: 12, fontFamily: 'JetBrains Mono' }}
-                axisLine={{ stroke: '#22302B' }}
-                tickLine={{ stroke: '#22302B' }}
+                tick={{ fill: '#8888A0', fontSize: 12, fontFamily: 'JetBrains Mono' }}
+                axisLine={{ stroke: '#1E1E2A' }}
+                tickLine={{ stroke: '#1E1E2A' }}
               />
               <YAxis
                 type="category"
                 dataKey="name"
                 width={120}
-                tick={{ fill: '#9AA69F', fontSize: 11, fontFamily: 'JetBrains Mono' }}
-                axisLine={{ stroke: '#22302B' }}
-                tickLine={{ stroke: '#22302B' }}
+                tick={{ fill: '#8888A0', fontSize: 11, fontFamily: 'JetBrains Mono' }}
+                axisLine={{ stroke: '#1E1E2A' }}
+                tickLine={{ stroke: '#1E1E2A' }}
               />
-              <Tooltip content={<ChartTooltip />} cursor={{ fill: '#22302B' }} />
+              <Tooltip content={<ChartTooltip />} cursor={{ fill: '#1E1E2A' }} />
               <Bar
                 dataKey="value"
                 name={SORT_OPTIONS.find((o) => o.value === sortBy)?.label || sortBy}

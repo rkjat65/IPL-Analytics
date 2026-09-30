@@ -32,7 +32,7 @@ function TeamCard({ team }) {
 
   return (
     <Link to={`/teams/${encodeURIComponent(team)}`} className="block group">
-      <div className="card hover:border-accent-brand/30 transition-all duration-200 overflow-hidden">
+      <div className="card hover:border-accent-cyan/30 transition-all duration-200 overflow-hidden">
         <div
           className="h-1 -mx-4 -mt-4 mb-4 rounded-t-lg"
           style={{ backgroundColor: color }}
@@ -46,7 +46,7 @@ function TeamCard({ team }) {
             {team}
           </h3>
         </div>
-        <p className="text-3xl font-heading font-bold text-accent-brand stat-glow-brand mb-4 font-mono">
+        <p className="text-3xl font-heading font-bold text-accent-cyan stat-glow-cyan mb-4 font-mono">
           {formatDecimal(stats.win_pct, 1)}%
           <span className="text-xs text-text-muted font-body font-normal ml-2 uppercase tracking-wider">
             Win Rate
@@ -59,7 +59,7 @@ function TeamCard({ team }) {
           </div>
           <div>
             <p className="text-xs text-text-muted uppercase tracking-wider">Won</p>
-            <p className="text-sm font-mono font-semibold text-accent-teal">{stats.wins}</p>
+            <p className="text-sm font-mono font-semibold text-accent-lime">{stats.wins}</p>
           </div>
           <div>
             <p className="text-xs text-text-muted uppercase tracking-wider">Lost</p>

@@ -24,7 +24,7 @@ export default function ImageCredits() {
         url="/image-credits"
       />
       <div>
-        <p className="text-xs font-mono uppercase tracking-[0.2em] text-accent-brand">Open image provenance</p>
+        <p className="text-xs font-mono uppercase tracking-[0.2em] text-accent-cyan">Open image provenance</p>
         <h1 className="mt-2 text-3xl font-heading font-bold text-text-primary">Player Image Credits</h1>
         <p className="mt-2 max-w-3xl text-sm leading-6 text-text-secondary">
           These player photographs come from Wikimedia Commons. Every entry records its creator,
@@ -39,7 +39,7 @@ export default function ImageCredits() {
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           placeholder="Search player, creator, or licence"
-          className="w-full rounded-xl border border-border-subtle bg-bg-card px-4 py-3 text-sm text-text-primary outline-none focus:border-accent-brand/60"
+          className="w-full rounded-xl border border-border-subtle bg-bg-card px-4 py-3 text-sm text-text-primary outline-none focus:border-accent-cyan/60"
         />
       </label>
 
@@ -56,17 +56,17 @@ export default function ImageCredits() {
                   className="h-16 w-16 shrink-0 rounded-full border border-border-subtle object-cover"
                 />
                 <div className="min-w-0">
-                  <Link to={`/players/${encodeURIComponent(item.player_name)}`} className="font-heading font-semibold text-text-primary hover:text-accent-brand">
+                  <Link to={`/players/${encodeURIComponent(item.player_name)}`} className="font-heading font-semibold text-text-primary hover:text-accent-cyan">
                     {item.player_name}
                   </Link>
                   <p className="mt-1 text-xs text-text-secondary">Photo by {item.artist || 'Wikimedia Commons contributor'}</p>
-                  <a href={item.license_url || item.commons_page} target="_blank" rel="noreferrer" className="mt-1 inline-block text-xs text-accent-brand hover:underline">
+                  <a href={item.license_url || item.commons_page} target="_blank" rel="noreferrer" className="mt-1 inline-block text-xs text-accent-cyan hover:underline">
                     {item.license || 'View licence'}
                   </a>
                 </div>
               </div>
               <p className="mt-3 text-xs leading-5 text-text-muted">Modified: {item.modification}</p>
-              <a href={item.commons_page} target="_blank" rel="noreferrer" className="mt-2 inline-block text-xs text-text-secondary hover:text-accent-brand hover:underline">
+              <a href={item.commons_page} target="_blank" rel="noreferrer" className="mt-2 inline-block text-xs text-text-secondary hover:text-accent-cyan hover:underline">
                 Original file and full metadata ↗
               </a>
             </article>

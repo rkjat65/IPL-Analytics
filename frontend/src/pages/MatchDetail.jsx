@@ -87,7 +87,7 @@ export default function MatchDetail() {
   const overs = oversData
 
   // Derive team colors
-  const team1Color = match ? getTeamColor(match.team1) : '#C3F23B'
+  const team1Color = match ? getTeamColor(match.team1) : '#00E5FF'
   const team2Color = match ? getTeamColor(match.team2) : '#FF00E5'
 
   // Build manhattan data
@@ -165,7 +165,7 @@ export default function MatchDetail() {
       <div className="flex flex-col items-center justify-center py-20 gap-4">
         <p className="text-danger font-heading text-lg">Failed to load match</p>
         <p className="text-text-secondary text-sm">{error || 'Match not found'}</p>
-        <Link to="/matches" className="text-accent-brand hover:underline text-sm">
+        <Link to="/matches" className="text-accent-cyan hover:underline text-sm">
           Back to Matches
         </Link>
       </div>
@@ -294,12 +294,12 @@ export default function MatchDetail() {
                           key={b.batter + i}
                           className={`border-b border-border-subtle transition-colors hover:bg-bg-card-hover ${
                             i % 2 === 1 ? 'bg-bg-card/50' : ''
-                          } ${isTopScorer ? 'bg-accent-brand/5' : ''}`}
+                          } ${isTopScorer ? 'bg-accent-cyan/5' : ''}`}
                         >
                           <td className="px-4 py-2.5 text-text-primary font-medium whitespace-nowrap">
                             <Link
                               to={`/batting/${encodeURIComponent(b.batter)}`}
-                              className={`hover:underline ${isTopScorer ? 'text-accent-brand' : ''}`}
+                              className={`hover:underline ${isTopScorer ? 'text-accent-cyan' : ''}`}
                             >
                               {b.batter}
                             </Link>
@@ -308,7 +308,7 @@ export default function MatchDetail() {
                             {b.dismissal || 'not out'}
                           </td>
                           <td className={`px-4 py-2.5 text-right font-mono font-semibold ${
-                            isTopScorer ? 'text-accent-brand' : 'text-text-primary'
+                            isTopScorer ? 'text-accent-cyan' : 'text-text-primary'
                           }`}>
                             {b.runs}
                           </td>
@@ -437,21 +437,21 @@ export default function MatchDetail() {
         <div className="h-80">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={manhattanData} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#22302B" vertical={false} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" vertical={false} />
               <XAxis
                 dataKey="over"
-                tick={{ fill: '#9AA69F', fontSize: 12 }}
-                axisLine={{ stroke: '#22302B' }}
+                tick={{ fill: '#8888A0', fontSize: 12 }}
+                axisLine={{ stroke: '#1E1E2A' }}
                 tickLine={false}
               />
               <YAxis
-                tick={{ fill: '#9AA69F', fontSize: 12 }}
-                axisLine={{ stroke: '#22302B' }}
+                tick={{ fill: '#8888A0', fontSize: 12 }}
+                axisLine={{ stroke: '#1E1E2A' }}
                 tickLine={false}
               />
               <Tooltip content={<ManhattanTooltip />} />
               <Legend
-                wrapperStyle={{ color: '#9AA69F', fontSize: 12 }}
+                wrapperStyle={{ color: '#8888A0', fontSize: 12 }}
               />
               <Bar dataKey="runs_1" name={team1Name} fill={color1} radius={[2, 2, 0, 0]} />
               {inn2 && <Bar dataKey="runs_2" name={team2Name} fill={color2} radius={[2, 2, 0, 0]} />}
@@ -480,22 +480,22 @@ export default function MatchDetail() {
         <div className="h-80">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={wormData} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#22302B" vertical={false} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" vertical={false} />
               <XAxis
                 dataKey="over"
-                tick={{ fill: '#9AA69F', fontSize: 12 }}
-                axisLine={{ stroke: '#22302B' }}
+                tick={{ fill: '#8888A0', fontSize: 12 }}
+                axisLine={{ stroke: '#1E1E2A' }}
                 tickLine={false}
-                label={{ value: 'Over', position: 'insideBottomRight', offset: -5, fill: '#9AA69F', fontSize: 12 }}
+                label={{ value: 'Over', position: 'insideBottomRight', offset: -5, fill: '#8888A0', fontSize: 12 }}
               />
               <YAxis
-                tick={{ fill: '#9AA69F', fontSize: 12 }}
-                axisLine={{ stroke: '#22302B' }}
+                tick={{ fill: '#8888A0', fontSize: 12 }}
+                axisLine={{ stroke: '#1E1E2A' }}
                 tickLine={false}
-                label={{ value: 'Runs', angle: -90, position: 'insideLeft', fill: '#9AA69F', fontSize: 12 }}
+                label={{ value: 'Runs', angle: -90, position: 'insideLeft', fill: '#8888A0', fontSize: 12 }}
               />
               <Tooltip content={<ChartTooltip />} />
-              <Legend wrapperStyle={{ color: '#9AA69F', fontSize: 12 }} />
+              <Legend wrapperStyle={{ color: '#8888A0', fontSize: 12 }} />
               <Line
                 type="monotone"
                 dataKey="cumulative_1"
@@ -634,18 +634,18 @@ export default function MatchDetail() {
                   <stop offset="95%" stopColor={battingColor} stopOpacity={0.05} />
                 </linearGradient>
               </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="#22302B" vertical={false} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" vertical={false} />
               <XAxis
                 dataKey="ball_label"
-                tick={{ fill: '#9AA69F', fontSize: 10 }}
-                axisLine={{ stroke: '#22302B' }}
+                tick={{ fill: '#8888A0', fontSize: 10 }}
+                axisLine={{ stroke: '#1E1E2A' }}
                 tickLine={false}
                 interval="preserveStartEnd"
               />
               <YAxis
                 domain={[0, 100]}
-                tick={{ fill: '#9AA69F', fontSize: 12 }}
-                axisLine={{ stroke: '#22302B' }}
+                tick={{ fill: '#8888A0', fontSize: 12 }}
+                axisLine={{ stroke: '#1E1E2A' }}
                 tickLine={false}
                 tickFormatter={(v) => `${v}%`}
               />
@@ -663,13 +663,13 @@ export default function MatchDetail() {
                       </p>
                       <p className="text-text-muted text-xs mt-1">
                         Score: {d.total_runs}/{d.total_wickets}
-                        {d.runs_scored > 0 && <span className="text-accent-teal ml-1">+{d.runs_scored}</span>}
+                        {d.runs_scored > 0 && <span className="text-accent-lime ml-1">+{d.runs_scored}</span>}
                       </p>
                     </div>
                   )
                 }}
               />
-              <ReferenceLine y={50} stroke="#9AA69F" strokeDasharray="6 4" strokeOpacity={0.5} />
+              <ReferenceLine y={50} stroke="#8888A0" strokeDasharray="6 4" strokeOpacity={0.5} />
               <Area
                 type="monotone"
                 dataKey="win_prob"
@@ -689,7 +689,7 @@ export default function MatchDetail() {
     <div className="space-y-6">
       {seoEl}
       {/* Back link */}
-      <Link to="/matches" className="text-text-muted hover:text-accent-brand text-sm inline-flex items-center gap-1 transition-colors">
+      <Link to="/matches" className="text-text-muted hover:text-accent-cyan text-sm inline-flex items-center gap-1 transition-colors">
         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
           <polyline points="15 18 9 12 15 6" />
         </svg>
@@ -735,8 +735,8 @@ export default function MatchDetail() {
         <div
           className="rounded-lg px-4 py-3 flex items-center gap-3"
           style={{
-            backgroundColor: winnerColor ? winnerColor + '15' : 'rgba(154, 166, 159, 0.1)',
-            borderLeft: `4px solid ${winnerColor || '#9AA69F'}`,
+            backgroundColor: winnerColor ? winnerColor + '15' : 'rgba(136, 136, 160, 0.1)',
+            borderLeft: `4px solid ${winnerColor || '#8888A0'}`,
           }}
         >
           <p className="text-text-primary font-heading font-semibold text-sm">
@@ -787,13 +787,13 @@ export default function MatchDetail() {
             onClick={() => setActiveTab(tab)}
             className={`px-4 py-2.5 text-sm font-body whitespace-nowrap transition-colors relative ${
               activeTab === tab
-                ? 'text-accent-brand font-medium'
+                ? 'text-accent-cyan font-medium'
                 : 'text-text-muted hover:text-text-primary'
             }`}
           >
             {tab}
             {activeTab === tab && (
-              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent-brand rounded-full" />
+              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent-cyan rounded-full" />
             )}
           </button>
         ))}

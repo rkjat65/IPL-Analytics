@@ -75,7 +75,7 @@ function PlayerPicker({ label, value, onChange, accent }) {
   )
 }
 
-function Stat({ label, value, color = 'text-accent-brand' }) {
+function Stat({ label, value, color = 'text-accent-cyan' }) {
   return (
     <div className="card">
       <p className="text-[11px] uppercase tracking-wider text-text-muted font-mono mb-1">{label}</p>
@@ -109,41 +109,41 @@ export default function Matchups() {
   const phaseColumns = [
     { key: 'phase', label: 'Phase', render: (v) => <span className="text-text-primary">{PHASE_LABEL[v] || v}</span> },
     { key: 'balls', label: 'Balls', align: 'right', render: mono },
-    { key: 'runs', label: 'Runs', align: 'right', render: (v) => <span className="font-mono text-accent-teal">{v}</span> },
+    { key: 'runs', label: 'Runs', align: 'right', render: (v) => <span className="font-mono text-accent-lime">{v}</span> },
     { key: 'sr', label: 'SR', align: 'right', render: (v) => mono(formatDecimal(v)) },
     { key: 'dismissals', label: 'Outs', align: 'right', render: (v) => <span className="font-mono text-accent-magenta">{v}</span> },
     { key: 'dot_pct', label: 'Dot %', align: 'right', render: (v) => mono(`${v}%`) },
     { key: 'boundary_pct', label: 'Boundary %', align: 'right', render: (v) => mono(`${v}%`) },
   ]
   const seasonColumns = [
-    { key: 'season', label: tournament.competitionLabel, render: (v) => <Link to={`/seasons/${encodeURIComponent(v)}`} className="text-accent-brand hover:underline">{v}</Link> },
+    { key: 'season', label: tournament.competitionLabel, render: (v) => <Link to={`/seasons/${encodeURIComponent(v)}`} className="text-accent-cyan hover:underline">{v}</Link> },
     { key: 'balls', label: 'Balls', align: 'right', render: mono },
-    { key: 'runs', label: 'Runs', align: 'right', render: (v) => <span className="font-mono text-accent-teal">{v}</span> },
+    { key: 'runs', label: 'Runs', align: 'right', render: (v) => <span className="font-mono text-accent-lime">{v}</span> },
     { key: 'sr', label: 'SR', align: 'right', render: (v) => mono(v == null ? '-' : formatDecimal(v)) },
     { key: 'dismissals', label: 'Outs', align: 'right', render: (v) => <span className="font-mono text-accent-magenta">{v}</span> },
   ]
   const historyColumns = [
     { key: 'date', label: 'Match', render: (v, r) => (
-      <Link to={`/matches/${r.match_id}`} className="flex items-center gap-2 text-text-primary hover:text-accent-brand whitespace-nowrap">
+      <Link to={`/matches/${r.match_id}`} className="flex items-center gap-2 text-text-primary hover:text-accent-cyan whitespace-nowrap">
         <TeamLogo team={r.team1} size={18} /><span className="text-xs text-text-muted">v</span><TeamLogo team={r.team2} size={18} />
         <span className="text-xs text-text-secondary">{r.season} · {formatDate(v)}</span>
       </Link>
     ) },
     { key: 'venue', label: 'Venue', render: (v) => <span className="text-xs text-text-secondary">{v}</span> },
     { key: 'balls', label: 'Balls', align: 'right', render: mono },
-    { key: 'runs', label: 'Runs', align: 'right', render: (v) => <span className="font-mono text-accent-teal">{v}</span> },
+    { key: 'runs', label: 'Runs', align: 'right', render: (v) => <span className="font-mono text-accent-lime">{v}</span> },
     { key: 'fours', label: '4s', align: 'right', render: mono },
     { key: 'sixes', label: '6s', align: 'right', render: mono },
     { key: 'dismissals', label: 'Out', align: 'right', render: (v) => <span className={`font-mono ${v ? 'text-accent-magenta' : 'text-text-muted'}`}>{v ? 'yes' : 'no'}</span> },
   ]
   const duelColumns = [
     { key: 'rank', label: '#', align: 'center', render: (v) => <span className="font-mono text-text-muted">{v}</span> },
-    { key: 'batter', label: 'Batter', render: (v) => <span className="flex items-center gap-2 text-accent-brand whitespace-nowrap"><PlayerAvatar name={v} size={24} showBorder={false} />{v}</span> },
-    { key: 'bowler', label: 'Bowler', render: (v) => <span className="flex items-center gap-2 text-accent-brand whitespace-nowrap"><PlayerAvatar name={v} size={24} showBorder={false} />{v}</span> },
-    { key: 'balls', label: 'Balls', align: 'right', render: (v) => <span className={`font-mono ${sort === 'balls' ? 'font-semibold text-accent-teal' : ''}`}>{v}</span> },
+    { key: 'batter', label: 'Batter', render: (v) => <span className="flex items-center gap-2 text-accent-cyan whitespace-nowrap"><PlayerAvatar name={v} size={24} showBorder={false} />{v}</span> },
+    { key: 'bowler', label: 'Bowler', render: (v) => <span className="flex items-center gap-2 text-accent-cyan whitespace-nowrap"><PlayerAvatar name={v} size={24} showBorder={false} />{v}</span> },
+    { key: 'balls', label: 'Balls', align: 'right', render: (v) => <span className={`font-mono ${sort === 'balls' ? 'font-semibold text-accent-lime' : ''}`}>{v}</span> },
     { key: 'runs', label: 'Runs', align: 'right', render: mono },
     { key: 'outs', label: 'Outs', align: 'right', render: (v) => <span className={`font-mono ${sort === 'outs' ? 'font-semibold text-accent-magenta' : ''}`}>{v}</span> },
-    { key: 'sr', label: 'SR', align: 'right', render: (v) => <span className={`font-mono ${sort === 'sr' ? 'font-semibold text-accent-teal' : ''}`}>{formatDecimal(v)}</span> },
+    { key: 'sr', label: 'SR', align: 'right', render: (v) => <span className={`font-mono ${sort === 'sr' ? 'font-semibold text-accent-lime' : ''}`}>{formatDecimal(v)}</span> },
     { key: 'dot_pct', label: 'Dot %', align: 'right', render: (v) => mono(v == null ? '-' : `${v}%`) },
     { key: 'sixes', label: '6s', align: 'right', render: mono },
     { key: 'matches', label: 'Mat', align: 'right', render: mono },
@@ -166,7 +166,7 @@ export default function Matchups() {
       </div>
 
       <div className="card flex flex-wrap items-end gap-4">
-        <PlayerPicker label="Batter" value={batter} onChange={setBatter} accent="accent-teal" />
+        <PlayerPicker label="Batter" value={batter} onChange={setBatter} accent="accent-lime" />
         <span className="hidden md:block text-text-muted font-heading font-bold pb-2">vs</span>
         <PlayerPicker label="Bowler" value={bowler} onChange={setBowler} accent="accent-magenta" />
         <button type="button" onClick={() => { const b = batter; setBatter(''); setBowler(''); setTimeout(() => { setBatter(bowler); setBowler(b) }, 0) }}
@@ -198,7 +198,7 @@ export default function Matchups() {
                 <PlayerAvatar name={duel.batter} size={56} />
                 <div>
                   <p className="text-[11px] uppercase tracking-wider text-text-muted font-mono">Batter</p>
-                  <p className="text-xl font-heading font-bold text-accent-teal">{duel.batter}</p>
+                  <p className="text-xl font-heading font-bold text-accent-lime">{duel.batter}</p>
                 </div>
               </Link>
               <span className="text-text-muted font-heading font-bold text-lg">vs</span>
@@ -213,8 +213,8 @@ export default function Matchups() {
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3">
               <Stat label="Innings" value={s.matches} />
               <Stat label="Balls" value={s.balls} />
-              <Stat label="Runs" value={s.runs} color="text-accent-teal" />
-              <Stat label="Strike rate" value={formatDecimal(s.sr)} color="text-accent-teal" />
+              <Stat label="Runs" value={s.runs} color="text-accent-lime" />
+              <Stat label="Strike rate" value={formatDecimal(s.sr)} color="text-accent-lime" />
               <Stat label="Dismissals" value={s.dismissals} color="text-accent-magenta" />
               <Stat label="Average" value={s.avg == null ? 'no dismissal' : formatDecimal(s.avg)} color="text-accent-amber" />
               <Stat label="Dot balls" value={`${s.dot_pct}%`} color="text-accent-magenta" />
@@ -246,7 +246,7 @@ export default function Matchups() {
           {SORTS.map((o) => (
             <button key={o.key} type="button" onClick={() => setSort(o.key)}
               className={`px-3 py-1.5 rounded-full text-xs font-mono border transition-colors ${
-                sort === o.key ? 'border-accent-brand text-accent-brand bg-accent-brand/10' : 'border-border-subtle text-text-muted hover:text-text-primary'}`}>
+                sort === o.key ? 'border-accent-cyan text-accent-cyan bg-accent-cyan/10' : 'border-border-subtle text-text-muted hover:text-text-primary'}`}>
               {o.label}
             </button>
           ))}
@@ -254,7 +254,7 @@ export default function Matchups() {
           <label className="flex items-center gap-2 text-xs text-text-secondary font-mono">
             Min balls
             <input type="number" min={6} max={500} value={minBalls} onChange={(e) => setMinBalls(Number(e.target.value) || 30)}
-              className="w-20 bg-bg-card border border-border-subtle rounded-md px-2 py-1.5 text-sm text-text-primary focus:outline-none focus:border-accent-brand" />
+              className="w-20 bg-bg-card border border-border-subtle rounded-md px-2 py-1.5 text-sm text-text-primary focus:outline-none focus:border-accent-cyan" />
           </label>
           <span className="text-xs text-text-muted font-mono">{formatNumber(duelRows.length)} pairs</span>
         </div>

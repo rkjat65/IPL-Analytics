@@ -754,16 +754,16 @@ def head_tags(meta: PageMeta) -> str:
 
 def body_html(meta: PageMeta) -> str:
     """Readable, crawlable summary shown until React mounts."""
-    out = ['<main style="max-width:880px;margin:0 auto;padding:40px 20px;font-family:Inter,system-ui,sans-serif;color:#EEF1EC">']
-    out.append(f'<p style="font:12px JetBrains Mono,monospace;letter-spacing:.08em;text-transform:uppercase;color:#9AA69F;margin:0 0 8px">{_e(meta.kicker or SITE_NAME)}</p>')
+    out = ['<main style="max-width:880px;margin:0 auto;padding:40px 20px;font-family:Inter,system-ui,sans-serif;color:#E0E0F0">']
+    out.append(f'<p style="font:12px JetBrains Mono,monospace;letter-spacing:.08em;text-transform:uppercase;color:#8888A0;margin:0 0 8px">{_e(meta.kicker or SITE_NAME)}</p>')
     out.append(f'<h1 style="font:700 36px Space Grotesk,sans-serif;margin:0 0 12px">{_e(meta.heading or meta.title)}</h1>')
-    out.append(f'<p style="color:#AEB8B2;line-height:1.6;margin:0 0 20px">{_e(meta.description)}</p>')
+    out.append(f'<p style="color:#A0A0B8;line-height:1.6;margin:0 0 20px">{_e(meta.description)}</p>')
     if meta.stats:
         out.append('<dl style="display:flex;flex-wrap:wrap;gap:12px;margin:0 0 24px">')
         for label, value in meta.stats:
             out.append(
-                '<div style="border:1px solid #2E3F39;border-radius:12px;padding:10px 14px;min-width:120px">'
-                f'<dt style="font:11px JetBrains Mono,monospace;text-transform:uppercase;color:#9AA69F">{_e(label)}</dt>'
+                '<div style="border:1px solid #2A2A3C;border-radius:12px;padding:10px 14px;min-width:120px">'
+                f'<dt style="font:11px JetBrains Mono,monospace;text-transform:uppercase;color:#8888A0">{_e(label)}</dt>'
                 f'<dd style="margin:4px 0 0;font:700 22px Space Grotesk,sans-serif">{_e(value)}</dd></div>'
             )
         out.append("</dl>")
@@ -772,7 +772,7 @@ def body_html(meta: PageMeta) -> str:
         for text, href in meta.links:
             if href.startswith("/") and not href.startswith("/api/"):
                 href = app_path(href)
-            out.append(f'<li><a href="{_e(href)}" style="color:#C3F23B">{_e(text)}</a></li>')
+            out.append(f'<li><a href="{_e(href)}" style="color:#00E5FF">{_e(text)}</a></li>')
         out.append("</ul>")
     out.append("</main>")
     return "".join(out)

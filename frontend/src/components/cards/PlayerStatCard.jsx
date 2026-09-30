@@ -63,7 +63,7 @@ export default function PlayerStatCard({ playerName, stats = {}, type = 'batting
             </div>
           </div>
           <div style={{ textAlign: isPortrait ? 'center' : 'right' }}>
-            <div style={{ fontFamily: FONTS.mono, fontSize: sf(76), fontWeight: 700, color: '#C3F23B', lineHeight: 1, textShadow: '0 0 30px rgba(195,242,59,0.2)' }}>
+            <div style={{ fontFamily: FONTS.mono, fontSize: sf(76), fontWeight: 700, color: '#00E5FF', lineHeight: 1, textShadow: '0 0 30px rgba(0,229,255,0.2)' }}>
               {heroStat.value}
             </div>
             <div style={{ fontFamily: FONTS.mono, fontSize: sf(18), color: '#F0F0F5', letterSpacing: '0.1em', marginTop: '6px', fontWeight: 700, opacity: 0.8 }}>

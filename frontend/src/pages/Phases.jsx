@@ -16,24 +16,24 @@ import {
 } from 'recharts'
 
 const PHASES = [
-  { key: 'powerplay', label: 'Powerplay', overs: 'overs 1 to 6', color: '#C3F23B', text: 'text-accent-brand' },
+  { key: 'powerplay', label: 'Powerplay', overs: 'overs 1 to 6', color: '#00E5FF', text: 'text-accent-cyan' },
   { key: 'middle', label: 'Middle', overs: 'overs 7 to 15', color: '#FFB800', text: 'text-accent-amber' },
   { key: 'death', label: 'Death', overs: 'overs 16 to 20', color: '#FF2D78', text: 'text-accent-magenta' },
 ]
-const AXIS = { fill: '#9AA69F', fontSize: 11, fontFamily: 'JetBrains Mono' }
-const LINE = { stroke: '#22302B' }
+const AXIS = { fill: '#8888A0', fontSize: 11, fontFamily: 'JetBrains Mono' }
+const LINE = { stroke: '#1E1E2A' }
 const mono = (v) => <span className="font-mono">{v ?? '-'}</span>
 const dec = (v) => <span className="font-mono">{v == null ? '-' : formatDecimal(v)}</span>
 const pct = (v) => <span className="font-mono">{v == null ? '-' : `${v}%`}</span>
-const phaseColor = (over) => (over <= 6 ? '#C3F23B' : over <= 15 ? '#FFB800' : '#FF2D78')
+const phaseColor = (over) => (over <= 6 ? '#00E5FF' : over <= 15 ? '#FFB800' : '#FF2D78')
 
 function ChartTooltip({ active, payload, label }) {
   if (!active || !payload?.length) return null
   return (
-    <div className="bg-[#17211F] border border-[#2E3F39] rounded-lg px-3 py-2 shadow-lg">
-      <p className="text-[#9AA69F] text-xs mb-1 font-mono">Over {label}</p>
+    <div className="bg-[#16161F] border border-[#2A2A3A] rounded-lg px-3 py-2 shadow-lg">
+      <p className="text-[#8888A0] text-xs mb-1 font-mono">Over {label}</p>
       {payload.map((entry, i) => (
-        <p key={i} className="text-xs" style={{ color: entry.color || '#F3F4EE' }}>
+        <p key={i} className="text-xs" style={{ color: entry.color || '#E8E8ED' }}>
           {entry.name}: <span className="font-mono font-semibold">{typeof entry.value === 'number' ? entry.value.toLocaleString() : entry.value}</span>
         </p>
       ))}
@@ -41,7 +41,7 @@ function ChartTooltip({ active, payload, label }) {
   )
 }
 
-function Section({ title, color = '#C3F23B', note, children }) {
+function Section({ title, color = '#00E5FF', note, children }) {
   return (
     <section className="animate-in">
       <div className="flex items-baseline gap-3 mb-4">
@@ -77,7 +77,7 @@ function PhaseCard({ phase, row }) {
 
 function playerCol(bowler) {
   return { key: 'player', label: 'Player', render: (v) => (
-    <Link to={`/${bowler ? 'bowling' : 'batting'}/${encodeURIComponent(v)}`} className="flex items-center gap-2 text-accent-brand hover:underline font-medium whitespace-nowrap">
+    <Link to={`/${bowler ? 'bowling' : 'batting'}/${encodeURIComponent(v)}`} className="flex items-center gap-2 text-accent-cyan hover:underline font-medium whitespace-nowrap">
       <PlayerAvatar name={v} size={26} showBorder={false} />{v}
     </Link>
   ) }
@@ -110,7 +110,7 @@ export default function Phases() {
     playerCol(false),
     { key: 'innings', label: 'Inn', align: 'right', render: mono },
     { key: 'balls', label: 'Balls', align: 'right', render: mono },
-    { key: 'runs', label: 'Runs', align: 'right', render: (v) => <span className="font-mono font-semibold text-accent-teal">{v}</span> },
+    { key: 'runs', label: 'Runs', align: 'right', render: (v) => <span className="font-mono font-semibold text-accent-lime">{v}</span> },
     { key: 'sr', label: 'SR', align: 'right', render: dec },
     { key: 'avg', label: 'Avg', align: 'right', render: dec },
     { key: 'boundary_pct', label: 'Boundary %', align: 'right', render: pct },
@@ -128,9 +128,9 @@ export default function Phases() {
     { key: 'dot_pct', label: 'Dot %', align: 'right', render: pct },
   ]
   const venueCols = [
-    { key: 'venue', label: 'Venue', render: (v) => <Link to={`/venues/${encodeURIComponent(v)}`} className="text-accent-brand hover:underline">{v}</Link> },
+    { key: 'venue', label: 'Venue', render: (v) => <Link to={`/venues/${encodeURIComponent(v)}`} className="text-accent-cyan hover:underline">{v}</Link> },
     { key: 'matches', label: 'Mat', align: 'right', render: mono },
-    { key: 'powerplay_rr', label: 'PP RR', align: 'right', render: (v) => <span className="font-mono text-accent-brand">{formatDecimal(v)}</span> },
+    { key: 'powerplay_rr', label: 'PP RR', align: 'right', render: (v) => <span className="font-mono text-accent-cyan">{formatDecimal(v)}</span> },
     { key: 'middle_rr', label: 'Middle RR', align: 'right', render: (v) => <span className="font-mono text-accent-amber">{formatDecimal(v)}</span> },
     { key: 'death_rr', label: 'Death RR', align: 'right', render: (v) => <span className="font-mono text-accent-magenta">{formatDecimal(v)}</span> },
     { key: 'powerplay_wkts', label: 'PP wkts', align: 'right', render: dec },
@@ -173,7 +173,7 @@ export default function Phases() {
             {PHASES.map((p) => <PhaseCard key={p.key} phase={p} row={phaseRows[p.key]} />)}
           </div>
 
-          <Section title="Over by Over" color="#2DD4BF" note="average runs in each over, and how often it falls">
+          <Section title="Over by Over" color="#B8FF00" note="average runs in each over, and how often it falls">
             <div className="card">
               <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
                 <Select options={inningsOptions} value={innings} onChange={setInnings} placeholder="" />
@@ -182,7 +182,7 @@ export default function Phases() {
               {oversLoading && !overs ? <Loading message="Loading overs..." /> : (
                 <ResponsiveContainer width="100%" height={320}>
                   <ComposedChart data={overs || []} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#22302B" />
+                    <CartesianGrid strokeDasharray="3 3" stroke="#1E1E2A" />
                     <XAxis dataKey="over" tick={AXIS} axisLine={LINE} tickLine={LINE} />
                     <YAxis yAxisId="runs" tick={AXIS} axisLine={LINE} tickLine={LINE} />
                     <YAxis yAxisId="wkts" orientation="right" tick={AXIS} axisLine={LINE} tickLine={LINE} domain={[0, 1]} />
@@ -191,7 +191,7 @@ export default function Phases() {
                     <Bar yAxisId="runs" dataKey="avg_runs" name="Runs per innings" radius={[3, 3, 0, 0]}>
                       {(overs || []).map((r) => <Cell key={r.over} fill={phaseColor(r.over)} fillOpacity={0.85} />)}
                     </Bar>
-                    <Line yAxisId="wkts" type="monotone" dataKey="avg_wickets" name="Wickets per innings" stroke="#F3F4EE" strokeWidth={2} dot={false} />
+                    <Line yAxisId="wkts" type="monotone" dataKey="avg_wickets" name="Wickets per innings" stroke="#E8E8ED" strokeWidth={2} dot={false} />
                   </ComposedChart>
                 </ResponsiveContainer>
               )}
@@ -225,12 +225,12 @@ export default function Phases() {
           )}
 
           {(summary?.toss?.length > 0 || summary?.chase) && (
-            <Section title="Toss and the Chase" color="#C3F23B">
+            <Section title="Toss and the Chase" color="#00E5FF">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {summary.chase && (
                   <>
-                    <div className="card"><p className="text-[11px] uppercase tracking-wider text-text-muted font-mono">Chasing side wins</p><p className="text-3xl font-heading font-bold text-accent-teal mt-1">{summary.chase.chase_win_pct}%</p><p className="text-xs text-text-secondary font-mono">{formatNumber(summary.chase.chases_won)} of {formatNumber(summary.chase.matches)} results</p></div>
-                    <div className="card"><p className="text-[11px] uppercase tracking-wider text-text-muted font-mono">Average first innings</p><p className="text-3xl font-heading font-bold text-accent-brand mt-1">{summary.chase.avg_first_innings}</p><p className="text-xs text-text-secondary font-mono">defended totals average {summary.chase.avg_defended ?? '-'}</p></div>
+                    <div className="card"><p className="text-[11px] uppercase tracking-wider text-text-muted font-mono">Chasing side wins</p><p className="text-3xl font-heading font-bold text-accent-lime mt-1">{summary.chase.chase_win_pct}%</p><p className="text-xs text-text-secondary font-mono">{formatNumber(summary.chase.chases_won)} of {formatNumber(summary.chase.matches)} results</p></div>
+                    <div className="card"><p className="text-[11px] uppercase tracking-wider text-text-muted font-mono">Average first innings</p><p className="text-3xl font-heading font-bold text-accent-cyan mt-1">{summary.chase.avg_first_innings}</p><p className="text-xs text-text-secondary font-mono">defended totals average {summary.chase.avg_defended ?? '-'}</p></div>
                   </>
                 )}
                 {summary.toss.map((t) => (
@@ -257,13 +257,13 @@ export default function Phases() {
               <label className="flex items-center gap-2 text-xs text-text-secondary font-mono">
                 Min balls
                 <input type="number" min={6} max={2000} step={30} value={minBalls} onChange={(e) => setMinBalls(Number(e.target.value) || 120)}
-                  className="w-20 bg-bg-card border border-border-subtle rounded-md px-2 py-1.5 text-sm text-text-primary focus:outline-none focus:border-accent-brand" />
+                  className="w-20 bg-bg-card border border-border-subtle rounded-md px-2 py-1.5 text-sm text-text-primary focus:outline-none focus:border-accent-cyan" />
               </label>
             </div>
             {leadersLoading && !leaders ? <Loading message="Ranking players..." /> : (
               <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
                 <div>
-                  <h3 className="text-sm font-heading font-semibold text-accent-teal mb-2">Batters</h3>
+                  <h3 className="text-sm font-heading font-semibold text-accent-lime mb-2">Batters</h3>
                   <DataTable columns={batterCols} data={(leaders?.batters || []).map((r) => ({ ...r, id: r.player }))} pageSize={15} />
                 </div>
                 <div>
