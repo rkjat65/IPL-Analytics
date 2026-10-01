@@ -12,7 +12,7 @@ const SITE_NAV = [
   ['/teams/', 'Teams'],
   ['/records/', 'Records'],
   ['/compare/', 'Compare'],
-  ['/studio/', 'Studio'],
+  ['/tools/', 'Tools'],
   ['/series/', 'Series'],
   ['/where-to-watch/', 'Watch'],
 ]

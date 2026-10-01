@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Layout from './components/layout/Layout'
 import ProtectedRoute from './components/auth/ProtectedRoute'
@@ -20,9 +20,6 @@ const Seasons = lazy(() => import('./pages/Seasons'))
 const HeadToHead = lazy(() => import('./pages/HeadToHead'))
 const BattingCompare = lazy(() => import('./pages/BattingCompare'))
 const BowlingCompare = lazy(() => import('./pages/BowlingCompare'))
-const Fantasy = lazy(() => import('./pages/Fantasy'))
-const Quiz = lazy(() => import('./pages/Quiz'))
-const ContentStudio = lazy(() => import('./pages/ContentStudio'))
 const SocialCompose = lazy(() => import('./pages/SocialCompose'))
 const CricketPulse = lazy(() => import('./pages/CricketPulse'))
 const PlayerImpact = lazy(() => import('./pages/PlayerImpact'))
@@ -30,12 +27,19 @@ const Charts = lazy(() => import('./pages/Charts'))
 const FAQ = lazy(() => import('./pages/FAQ'))
 const Records = lazy(() => import('./pages/Records'))
 const Players = lazy(() => import('./pages/Players'))
-const Matchups = lazy(() => import('./pages/Matchups'))
-const Phases = lazy(() => import('./pages/Phases'))
 const ImageCredits = lazy(() => import('./pages/ImageCredits'))
 const Admin = lazy(() => import('./pages/Admin'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 const legal = (name) => lazy(() => import('./pages/Legal').then(m => ({ default: m[name] })))
+
+// Matchups, Phases, Fantasy, Quiz and the stat-card studio moved to the shared
+// site. Loading the address from the server returns its redirect there.
+function ServerRedirect() {
+  useEffect(() => {
+    if (import.meta.env.PROD) window.location.replace(window.location.href)
+  }, [])
+  return import.meta.env.PROD ? null : <p className="p-6 text-text-muted">This tool now lives on the main site.</p>
+}
 const PrivacyPolicy = legal('PrivacyPolicy')
 const TermsOfUse = legal('TermsOfUse')
 const AccountDeletion = legal('AccountDeletion')
@@ -72,8 +76,8 @@ export default function App() {
         <Route path="/batting/:playerName" element={<PlayerProfile />} />
         <Route path="/bowling" element={<BowlingRecords />} />
         <Route path="/bowling/compare" element={<BowlingCompare />} />
-        <Route path="/fantasy" element={<Fantasy />} />
-        <Route path="/quiz" element={<Quiz />} />
+        <Route path="/fantasy" element={<ServerRedirect />} />
+        <Route path="/quiz" element={<ServerRedirect />} />
         <Route path="/bowling/:playerName" element={<PlayerProfile />} />
         <Route path="/teams" element={<Teams />} />
         <Route path="/teams/:teamName" element={<TeamProfile />} />
@@ -84,10 +88,10 @@ export default function App() {
         <Route path="/players" element={<Players />} />
         <Route path="/players/:playerName" element={<PlayerProfile />} />
         <Route path="/records" element={<Records />} />
-        <Route path="/matchups" element={<Matchups />} />
-        <Route path="/phases" element={<Phases />} />
+        <Route path="/matchups" element={<ServerRedirect />} />
+        <Route path="/phases" element={<ServerRedirect />} />
         <Route path="/h2h" element={<HeadToHead />} />
-        <Route path="/content-studio" element={<ContentStudio />} />
+        <Route path="/content-studio" element={<ServerRedirect />} />
         <Route path="/ask" element={<Navigate to="/dashboard" replace />} />
         <Route path="/social" element={<Navigate to="/admin/social" replace />} />
         <Route path="/charts" element={<Charts />} />

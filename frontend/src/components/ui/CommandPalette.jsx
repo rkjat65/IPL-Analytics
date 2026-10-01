@@ -20,7 +20,7 @@ const PAGES = [
   { label: 'Charts & insights', to: '/charts' },
   { label: 'Player impact', to: '/player-impact' },
   { label: 'Cricket Pulse', to: '/pulse' },
-  { label: 'Studio — make a stat card', to: '/content-studio' },
+  { label: 'Studio: make a stat card', to: '/content-studio' },
   { label: 'FAQ', to: '/faq' },
 ]
 

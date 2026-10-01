@@ -143,8 +143,6 @@ export const getAdminStats = (token) => {
 }
 
 // Fantasy picks and quiz
-export const getFantasyPicks = (team1, team2, venue) => fetchAPI('/fantasy/picks', { team1, team2, venue })
-export const getQuizPlayer = (level, seed) => fetchAPI('/quiz/player', { level, seed })
 
 // Records hub, player index and duels
 export const getInningsRecords = (params) => fetchAPI('/records/innings', params)
@@ -154,10 +152,6 @@ export const getSpecialRecords = (params) => fetchAPI('/records/special', params
 export const getDuelRecords = (params) => fetchAPI('/records/duels', params)
 export const getRecordsSummary = (params) => fetchAPI('/records/summary', params)
 export const getPlayerIndex = (params) => fetchAPI('/players/index', params)
-export const getPlayerMatchup = (batter, bowler) => fetchAPI(`/players/matchup/${encodeURIComponent(batter)}/${encodeURIComponent(bowler)}`)
 export const getPlayerSplits = (name) => fetchAPI(`/players/${encodeURIComponent(name)}/splits`)
 
 // Phase analytics
-export const getPhaseSummary = (params) => fetchAPI('/analytics/phases', params)
-export const getOverProfile = (params) => fetchAPI('/analytics/overs', params)
-export const getPhaseLeaders = (params) => fetchAPI('/analytics/phase-leaders', params)

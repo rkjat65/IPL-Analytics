@@ -102,6 +102,48 @@ def spa_prefix(path: str) -> tuple[str, str] | None:
     return None
 
 
+# Tools rebuilt on the shared site, one page for every competition. Their app
+# addresses 301 there with the matching competition filter.
+MOVED_TOOLS = ("/matchups", "/phases", "/fantasy", "/quiz", "/content-studio")
+
+
+def _season_span(value: str | None) -> tuple[str, str]:
+    years = sorted({part.strip()[:4] for part in (value or "").split(",") if part.strip()[:4].isdigit()})
+    return (years[0], years[-1]) if years else ("", "")
+
+
+def moved_tool(inner: str, slug: str, params: list[tuple[str, str]]) -> str | None:
+    """Shared-site address for an app tool page, or None if the page did not move."""
+    tool = inner.rstrip("/")
+    if tool not in MOVED_TOOLS:
+        return None
+    ipl = slug != "t20wc"
+    given = dict(params)
+    if tool == "/content-studio":
+        return "/studio/?format=" + ("IPL" if ipl else "T20I")
+    if tool == "/quiz":
+        q = {"mode": "ipl" if ipl else "t20wc", "level": given.get("level", "")}
+    elif tool == "/fantasy":
+        q = {"comp": "" if ipl else "T20I-Men", "team1": given.get("team1", ""), "team2": given.get("team2", "")}
+    else:
+        first, last = _season_span(given.get("season"))
+        q = {"comp": ("" if tool == "/phases" else "IPL") if ipl else "T20WC", "from": first, "to": last}
+        if tool == "/phases":
+            q["team"] = given.get("team", "")
+        else:
+            names = [given.get("batter", ""), given.get("bowler", "")]
+            if any(names):
+                from .database import query
+                token = set_tournament(slug)
+                try:
+                    ids = {r["name"]: r["player_id"] for r in query("SELECT name, player_id FROM players WHERE name IN (?, ?)", names)}
+                finally:
+                    reset_tournament(token)
+                q.update({"batter": ids.get(names[0], ""), "bowler": ids.get(names[1], "")})
+    q = {k: v for k, v in q.items() if v}
+    return f"{tool}/" + (f"?{urlencode(q)}" if q else "")
+
+
 def legacy_app_path(path: str, query: str) -> str | None:
     """New address of an app page from before it moved under /ipl and /t20-world-cup."""
     first = path.strip("/").split("/", 1)[0]
@@ -111,6 +153,9 @@ def legacy_app_path(path: str, query: str) -> str | None:
     tournament = next((value for key, value in params if key == "tournament"), "ipl")
     rest = [(key, value) for key, value in params if key not in ("tournament", "data_release")]
     inner = path.rstrip("/") if first else "/dashboard"
+    moved = moved_tool(inner, "t20wc" if tournament == "t20wc" else "ipl", rest)
+    if moved:
+        return moved
     target = TOURNAMENT_PREFIX.get(tournament, "/ipl") + inner
     return target + (f"?{urlencode(rest)}" if rest else "")
 
@@ -294,6 +339,9 @@ async def serve_frontend(request: Request, full_path: str):
         if not FRONTEND_DIST.is_dir():
             raise HTTPException(status_code=404, detail="Frontend not built")
         prefix, slug = hit
+        moved = moved_tool(path[len(prefix):] or "/", slug, parse_qsl(request.url.query, keep_blank_values=True))
+        if moved:
+            return RedirectResponse(moved, status_code=301)
         token = set_tournament(slug)
         try:
             # Every app route gets server-rendered meta and a crawlable summary.

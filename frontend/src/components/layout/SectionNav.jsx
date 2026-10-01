@@ -32,6 +32,21 @@ const MORE = [
   ['/faq', 'FAQ'],
 ]
 
+// Tools that now live on the shared site, one page for every competition.
+const SHARED = {
+  '/phases': (t) => (t === 't20wc' ? '/phases/?comp=T20WC' : '/phases/'),
+  '/matchups': (t) => `/matchups/?comp=${t === 't20wc' ? 'T20WC' : 'IPL'}`,
+  '/content-studio': (t) => `/studio/?format=${t === 't20wc' ? 'T20I' : 'IPL'}`,
+  '/fantasy': (t) => (t === 't20wc' ? '/fantasy/?comp=T20I-Men' : '/fantasy/'),
+  '/quiz': (t) => `/quiz/?mode=${t === 't20wc' ? 't20wc' : 'ipl'}`,
+}
+
+function Item({ path, slug, className, children }) {
+  const shared = SHARED[path]
+  if (shared) return <a href={shared(slug)} className={typeof className === 'function' ? className({ isActive: false }) : className}>{children}</a>
+  return <NavLink to={path} className={className}>{children}</NavLink>
+}
+
 const link = ({ isActive }) =>
   `relative flex h-11 shrink-0 items-center whitespace-nowrap px-1 text-[13px] font-semibold transition-colors ${
     isActive
@@ -91,17 +106,17 @@ export default function SectionNav({ onSearch }) {
         {/* Every page, scrolling sideways on small screens */}
         <nav ref={scrollerRef} aria-label={`${tournament.shortName} pages`} className="flex min-w-0 flex-1 items-center gap-5 overflow-x-auto [scrollbar-width:none] lg:hidden">
           {[...CORE, ...EXTRA, ...MORE].map(([path, text]) => (
-            <NavLink key={path} to={path} className={link}>{label(path, text)}</NavLink>
+            <Item key={path} path={path} slug={tournament.tournament} className={link}>{label(path, text)}</Item>
           ))}
         </nav>
 
         {/* Wide screens: main pages plus More */}
         <nav aria-label={`${tournament.shortName} pages`} className="hidden min-w-0 flex-1 items-center gap-4 lg:flex">
           {CORE.map(([path, text]) => (
-            <NavLink key={path} to={path} className={link}>{label(path, text)}</NavLink>
+            <Item key={path} path={path} slug={tournament.tournament} className={link}>{label(path, text)}</Item>
           ))}
           {EXTRA.map(([path, text]) => (
-            <NavLink key={path} to={path} className={(state) => `${link(state)} hidden xl:flex`}>{label(path, text)}</NavLink>
+            <Item key={path} path={path} slug={tournament.tournament} className={(state) => `${link(state)} hidden xl:flex`}>{label(path, text)}</Item>
           ))}
           <div className="relative" ref={moreRef}>
             <button
@@ -116,10 +131,10 @@ export default function SectionNav({ onSearch }) {
             {moreOpen && (
               <div className="absolute right-0 top-full mt-1 min-w-[180px] overflow-hidden rounded-lg border border-border-active bg-bg-elevated py-1 shadow-2xl">
                 {[...EXTRA.map((item) => [...item, true]), ...MORE].map(([path, text, extra]) => (
-                  <NavLink key={path} to={path}
+                  <Item key={path} path={path} slug={tournament.tournament}
                     className={({ isActive }) => `block px-4 py-2 text-[13px] font-medium ${extra ? 'xl:hidden' : ''} ${isActive ? 'text-accent-cyan' : 'text-text-secondary hover:bg-white/[0.04] hover:text-text-primary'}`}>
                     {label(path, text)}
-                  </NavLink>
+                  </Item>
                 ))}
               </div>
             )}
