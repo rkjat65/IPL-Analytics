@@ -11,6 +11,7 @@ Tables created
   innings    – one row per innings
   deliveries – one row per ball (with extras + wicket columns unpacked)
   players    – unique player registry (name + cricsheet people-id)
+  match_players – each match's line-ups (one row per player per match)
 
 Usage
 -----
@@ -121,6 +122,14 @@ CREATE TABLE IF NOT EXISTS deliveries (
 );
 """
 
+DDL_MATCH_PLAYERS = """
+CREATE TABLE IF NOT EXISTS match_players (
+    match_id        VARCHAR,
+    team            VARCHAR,
+    player          VARCHAR
+);
+"""
+
 DDL_PLAYERS = """
 CREATE TABLE IF NOT EXISTS players (
     player_id       VARCHAR PRIMARY KEY,
@@ -175,6 +184,7 @@ class MatchExtractor:
         self.innings:    list[dict] = []
         self.deliveries: list[dict] = []
         self.players:    dict[str, dict[str, Any]] = {}
+        self.match_players: list[dict] = []
         self._delivery_id = 0
         self.season_from_date_year = season_from_date_year
 
@@ -256,7 +266,9 @@ class MatchExtractor:
         # treated as the player table.
         for team, player_names in lineups.items():
             for player_name in player_names:
-                self._register_player(player_name, team)
+                name = self._register_player(player_name, team)
+                if name:
+                    self.match_players.append({"match_id": match_id, "team": team, "player": name})
 
         # --- Innings ---
         raw_innings: list[dict] = data.get("innings", [])
@@ -353,7 +365,7 @@ class MatchExtractor:
 
 def ensure_schema(con: duckdb.DuckDBPyConnection) -> None:
     """Create tables if they do not exist."""
-    for ddl in (DDL_MATCHES, DDL_INNINGS, DDL_DELIVERIES, DDL_PLAYERS):
+    for ddl in (DDL_MATCHES, DDL_INNINGS, DDL_DELIVERIES, DDL_PLAYERS, DDL_MATCH_PLAYERS):
         con.execute(ddl)
     con.execute("ALTER TABLE matches ADD COLUMN IF NOT EXISTS event_group VARCHAR")
     con.execute("ALTER TABLE matches ADD COLUMN IF NOT EXISTS event_stage VARCHAR")
@@ -366,6 +378,7 @@ def ensure_schema(con: duckdb.DuckDBPyConnection) -> None:
 def delete_match_rows(con: duckdb.DuckDBPyConnection, match_id: str) -> None:
     """Remove one match so it can be re-ingested without orphan deliveries."""
     con.execute("DELETE FROM deliveries WHERE match_id = ?", [match_id])
+    con.execute("DELETE FROM match_players WHERE match_id = ?", [match_id])
     con.execute("DELETE FROM innings WHERE match_id = ?", [match_id])
     con.execute("DELETE FROM matches WHERE match_id = ?", [match_id])
 
@@ -618,6 +631,33 @@ def ingest_json_paths(
     return extractor
 
 
+def rebuild_lineups(con: duckdb.DuckDBPyConnection, paths: list[Path]) -> int:
+    """Refill match_players from the source files for matches already loaded."""
+    ensure_schema(con)
+    known = {r[0] for r in con.execute("SELECT match_id FROM matches").fetchall()}
+    extractor = MatchExtractor()
+    for path in paths:
+        if path.stem not in known:
+            continue
+        with path.open("rb") as fh:
+            data = orjson.loads(fh.read())
+        info = data.get("info", {})
+        for team, names in info.get("players", {}).items():
+            for raw in names:
+                name = extractor._register_player(raw, team)  # noqa: SLF001
+                if name:
+                    extractor.match_players.append({"match_id": path.stem, "team": team, "player": name})
+    con.execute("DELETE FROM match_players")
+    rows = extractor.match_players
+    if rows:
+        con.executemany(
+            "INSERT INTO match_players (match_id, team, player) VALUES (?, ?, ?)",
+            [[r["match_id"], r["team"], r["player"]] for r in rows],
+        )
+    log.info("Line-ups: %d rows for %d matches", len(rows), len({r["match_id"] for r in rows}))
+    return len(rows)
+
+
 # ---------------------------------------------------------------------------
 # DB loader
 # ---------------------------------------------------------------------------
@@ -641,6 +681,7 @@ def _load_to_duckdb_rowwise(
     insert_table("matches", extractor.matches)
     insert_table("innings", extractor.innings)
     insert_table("deliveries", extractor.deliveries)
+    insert_table("match_players", extractor.match_players)
 
     for pid, record in extractor.players.items():
         con.execute(
@@ -677,6 +718,7 @@ def _load_to_duckdb(
     matches_df    = df(extractor.matches)
     innings_df    = df(extractor.innings)
     deliveries_df = df(extractor.deliveries)
+    match_players_df = df(extractor.match_players)
     players_df    = pd.DataFrame(
         [{
             "player_id": pid,
@@ -693,6 +735,7 @@ def _load_to_duckdb(
         match_ids = matches_df["match_id"].tolist()
         ph = ", ".join(["?"] * len(match_ids))
         con.execute(f"DELETE FROM deliveries WHERE match_id IN ({ph})", match_ids)
+        con.execute(f"DELETE FROM match_players WHERE match_id IN ({ph})", match_ids)
         con.execute(f"DELETE FROM innings WHERE match_id IN ({ph})", match_ids)
         con.execute(f"DELETE FROM matches WHERE match_id IN ({ph})", match_ids)
         
@@ -704,6 +747,9 @@ def _load_to_duckdb(
     if not deliveries_df.empty:
         # delivery_id is globally unique across the extractor lifetime
         con.execute("INSERT INTO deliveries SELECT * FROM deliveries_df")
+
+    if not match_players_df.empty:
+        con.execute("INSERT INTO match_players SELECT match_id, team, player FROM match_players_df")
 
     if not players_df.empty:
         # Use explicit conflict target on primary key; update name on conflict
@@ -745,6 +791,11 @@ def main() -> None:
         help="Use the match date year as season (useful for World Cup editions)",
     )
     parser.add_argument(
+        "--lineups-only",
+        action="store_true",
+        help="Rebuild only the match_players table from --src (no other table changes)",
+    )
+    parser.add_argument(
         "--only",
         nargs="*",
         metavar="GLOB",
@@ -782,9 +833,14 @@ def main() -> None:
 
     con = duckdb.connect(args.db)
 
+    if args.lineups_only:
+        rebuild_lineups(con, json_files)
+        con.close()
+        return
+
     if args.reset:
         log.warning("--reset: dropping all existing tables.")
-        for tbl in ("deliveries", "innings", "matches", "players"):
+        for tbl in ("deliveries", "innings", "matches", "players", "match_players"):
             con.execute(f"DROP TABLE IF EXISTS {tbl}")
 
     # Create schema
