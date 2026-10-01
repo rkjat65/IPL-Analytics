@@ -336,12 +336,12 @@ async def serve_frontend(request: Request, full_path: str):
         raise HTTPException(status_code=404, detail="Not found")
     hit = spa_prefix(path)
     if hit:
-        if not FRONTEND_DIST.is_dir():
-            raise HTTPException(status_code=404, detail="Frontend not built")
         prefix, slug = hit
         moved = moved_tool(path[len(prefix):] or "/", slug, parse_qsl(request.url.query, keep_blank_values=True))
         if moved:
             return RedirectResponse(moved, status_code=301)
+        if not FRONTEND_DIST.is_dir():
+            raise HTTPException(status_code=404, detail="Frontend not built")
         token = set_tournament(slug)
         try:
             # Every app route gets server-rendered meta and a crawlable summary.
