@@ -30,19 +30,15 @@ const Players = lazy(() => import('./pages/Players'))
 const ImageCredits = lazy(() => import('./pages/ImageCredits'))
 const Admin = lazy(() => import('./pages/Admin'))
 const NotFound = lazy(() => import('./pages/NotFound'))
-const legal = (name) => lazy(() => import('./pages/Legal').then(m => ({ default: m[name] })))
 
-// Matchups, Phases, Fantasy, Quiz and the stat-card studio moved to the shared
-// site. Loading the address from the server returns its redirect there.
+// Matchups, Phases, Fantasy, Quiz, the stat-card studio and the legal pages moved
+// to the shared site. Loading the address from the server returns its redirect there.
 function ServerRedirect() {
   useEffect(() => {
     if (import.meta.env.PROD) window.location.replace(window.location.href)
   }, [])
   return import.meta.env.PROD ? null : <p className="p-6 text-text-muted">This tool now lives on the main site.</p>
 }
-const PrivacyPolicy = legal('PrivacyPolicy')
-const TermsOfUse = legal('TermsOfUse')
-const AccountDeletion = legal('AccountDeletion')
 
 // Warm the chunks visitors open most, once the first page is idle.
 if (typeof window !== 'undefined') {
@@ -62,9 +58,9 @@ export default function App() {
       {/* Admin-only sign-in. There are no public accounts; /login stays for password-reset links. */}
       <Route path="/admin/login" element={<Login />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/privacy" element={<PrivacyPolicy />} />
-      <Route path="/terms" element={<TermsOfUse />} />
-      <Route path="/account-deletion" element={<AccountDeletion />} />
+      <Route path="/privacy" element={<ServerRedirect />} />
+      <Route path="/terms" element={<ServerRedirect />} />
+      <Route path="/account-deletion" element={<ServerRedirect />} />
 
       {/* App routes (with sidebar/header layout) */}
       <Route element={<Layout />}>

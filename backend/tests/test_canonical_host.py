@@ -103,6 +103,9 @@ class RouteTest(unittest.TestCase):
         self.assertEqual(get("/t20-world-cup/fantasy?team1=India&team2=Pakistan").headers["location"], "/fantasy/?comp=T20I-Men&team1=India&team2=Pakistan")
         self.assertEqual(get("/ipl/quiz?level=hard").headers["location"], "/quiz/?mode=ipl&level=hard")
         self.assertEqual(get("/ipl/content-studio").headers["location"], "/studio/?format=IPL")
+        for page in ("privacy", "terms", "account-deletion"):
+            self.assertEqual(get(f"/ipl/{page}").headers["location"], f"/{page}/")
+            self.assertEqual(legacy_app_path(f"/{page}", ""), f"/{page}/")
         # Pre-merge root addresses reach the shared page in one hop too.
         self.assertEqual(legacy_app_path("/quiz", "tournament=t20wc"), "/quiz/?mode=t20wc")
 

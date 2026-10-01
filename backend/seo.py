@@ -810,7 +810,7 @@ def build_sitemap() -> str:
             matches = _all_matches(slug)
             last = str(matches[-1]["date"]) if matches else None
             for path in _static_pages():
-                if path in ("/matchups", "/phases", "/fantasy", "/quiz", "/content-studio"):
+                if path in ("/matchups", "/phases", "/fantasy", "/quiz", "/content-studio", "/privacy", "/terms", "/account-deletion"):
                     continue  # moved to the shared site's own pages
                 if path in ("/privacy", "/terms", "/account-deletion"):
                     if slug != "ipl":

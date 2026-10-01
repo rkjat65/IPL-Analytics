@@ -105,6 +105,8 @@ def spa_prefix(path: str) -> tuple[str, str] | None:
 # Tools rebuilt on the shared site, one page for every competition. Their app
 # addresses 301 there with the matching competition filter.
 MOVED_TOOLS = ("/matchups", "/phases", "/fantasy", "/quiz", "/content-studio")
+# One privacy policy, one set of terms and one account-deletion page for the whole site.
+MOVED_PAGES = {"/privacy": "/privacy/", "/terms": "/terms/", "/account-deletion": "/account-deletion/"}
 
 
 def _season_span(value: str | None) -> tuple[str, str]:
@@ -115,6 +117,8 @@ def _season_span(value: str | None) -> tuple[str, str]:
 def moved_tool(inner: str, slug: str, params: list[tuple[str, str]]) -> str | None:
     """Shared-site address for an app tool page, or None if the page did not move."""
     tool = inner.rstrip("/")
+    if tool in MOVED_PAGES:
+        return MOVED_PAGES[tool]
     if tool not in MOVED_TOOLS:
         return None
     ipl = slug != "t20wc"

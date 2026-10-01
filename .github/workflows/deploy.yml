@@ -3,6 +3,8 @@ name: Deploy to Oracle Cloud
 on:
   push:
     branches: [ main ]
+    # Server routing and the archive mirror deploy through domain.yml, not a new container.
+    paths-ignore: [ 'deploy/**', '.github/workflows/domain.yml' ]
 
 jobs:
   test:
