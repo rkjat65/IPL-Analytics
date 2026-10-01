@@ -11,7 +11,7 @@ const SITE_NAV = [
   ['/players/', 'Players'],
   ['/teams/', 'Teams'],
   ['/records/', 'Records'],
-  ['/compare/', 'Compare'],
+  ['/world-cup/', 'World Cups'],
   ['/tools/', 'Tools'],
   ['/series/', 'Series'],
   ['/where-to-watch/', 'Watch'],
