@@ -1,6 +1,23 @@
 crickrida.com {
 	encode zstd gzip
 
+	# IPL and T20 World Cup pages the site's static build now provides (merge step 5),
+	# at the app's own addresses. Anything the build does not have goes to the app.
+	@built {
+		path /ipl/* /t20-world-cup/*
+		file {
+			root /srv/crickrida/site
+			try_files {path}/index.html {path}index.html
+		}
+	}
+	handle @built {
+		root * /srv/crickrida/site
+		rewrite * {file_match.relative}
+		header ?Cache-Control "public, max-age=300"
+		header X-Content-Type-Options nosniff
+		file_server
+	}
+
 	# The app, its files and its API run in the ipl-analytics container.
 	@app path /api/* /app/* /ipl /ipl/* /t20-world-cup /t20-world-cup/* /sw.js /sitemap-ipl.xml /llms.txt
 	handle @app {

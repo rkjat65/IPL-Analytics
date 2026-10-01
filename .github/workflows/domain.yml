@@ -124,6 +124,8 @@ jobs:
           check crickrida.com /privacy/ 200 || ok=0
           check crickrida.com /no-such-page-here/ 404 || ok=0
           check crickrida.com /ipl/matchups 301 || ok=0
+          check crickrida.com /ipl/matches/1529284 200 || ok=0
+          check crickrida.com /ipl/batting 200 || ok=0
           if [ "$ok" != 1 ]; then
             echo "Smoke test failed. Restoring the previous config." >&2
             restore
