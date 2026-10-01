@@ -110,6 +110,9 @@ VENUE_NAME_MAP = {
     # JSCA Ranchi
     "JSCA International Stadium Complex": "JSCA International Stadium Complex, Ranchi",
     "JSCA International Stadium Complex, Ranchi": "JSCA International Stadium Complex, Ranchi",
+    # Shaheed Veer Narayan Singh International Stadium, Raipur
+    "Shaheed Veer Narayan Singh International Stadium": "Shaheed Veer Narayan Singh International Stadium, Raipur",
+    "Shaheed Veer Narayan Singh International Stadium, Raipur": "Shaheed Veer Narayan Singh International Stadium, Raipur",
 
 }
 
