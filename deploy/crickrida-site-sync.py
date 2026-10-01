@@ -9,6 +9,7 @@ so a new page never points at a file that is not there yet. Run by the
 crickrida-site-sync timer; safe to run by hand.
 """
 import fcntl
+import gzip
 import hashlib
 import json
 import os
@@ -36,9 +37,14 @@ def fetch(url, tries=4):
             time.sleep(2 * (attempt + 1))
 
 
+STORE = {'name': 'objects'}   # 'objz' releases keep every object gzip-compressed
+
+
 def place(item):
     rel, sha = item
-    data = fetch(f'{BASE}objects/{sha[:2]}/{sha}')
+    data = fetch(f'{BASE}{STORE["name"]}/{sha[:2]}/{sha}')
+    if STORE['name'] == 'objz':
+        data = gzip.decompress(data)
     if hashlib.sha256(data).hexdigest() != sha:
         raise ValueError(f'hash mismatch for {rel}')
     target = SITE / rel
@@ -59,6 +65,7 @@ def main():
         except BlockingIOError:
             return 0
         manifest = json.loads(fetch(BASE + 'manifest.json?t=' + str(int(time.time()))))
+        STORE['name'] = manifest.get('store', 'objects')
         state = json.loads(STATE.read_text()) if STATE.exists() else {'version': None, 'files': {}}
         force = '--force' in sys.argv
         if manifest['version'] == state.get('version') and not force:
