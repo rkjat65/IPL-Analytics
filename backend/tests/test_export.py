@@ -1,7 +1,7 @@
 import unittest
 
 from backend.database import query
-from backend.routers.export import _careers
+from backend.routers.export import _careers, _teams, _venues
 from backend.tournaments import reset_tournament, set_tournament
 
 KOHLI = "ba607b88"
@@ -66,6 +66,36 @@ class CareerExportTests(unittest.TestCase):
         kohli = data["players"][KOHLI]
         self.assertEqual({t["team"] for t in kohli["teams"]}, {"India"})
         self.assertLess(kohli["career"]["runs"], 2000)
+
+
+    def test_venue_export_merges_name_variants(self):
+        token = set_tournament("ipl")
+        try:
+            data = _venues("ipl")
+        finally:
+            reset_tournament(token)
+        wankhede = data["venues"]["Wankhede Stadium, Mumbai"]
+        self.assertGreaterEqual(len(wankhede["aliases"]), 2)
+        self.assertEqual(sum(a["matches"] for a in wankhede["aliases"]), wankhede["matches"])
+        self.assertEqual(wankhede["bat_first_won"] + wankhede["chase_won"], wankhede["decided"])
+        self.assertEqual(wankhede["decided"] + wankhede["tied"] + wankhede["no_result"], wankhede["matches"])
+        self.assertGreaterEqual(wankhede["highest_total"]["runs"], wankhede["lowest_total"]["runs"])
+        self.assertTrue(all(b["id"] for b in wankhede["top_batters"]))
+
+    def test_team_export_finds_titles_and_finishes(self):
+        token = set_tournament("t20wc")
+        try:
+            data = _teams("t20wc")
+        finally:
+            reset_tournament(token)
+        india = data["teams"]["India"]
+        self.assertIn("2007", india["titles"])
+        self.assertEqual(india["won"] + india["lost"] + india["tied"] + india["no_result"], india["matches"])
+        self.assertEqual(sum(e["played"] for e in india["editions"]), india["matches"])
+        finishes = {e["edition"]: e["finish"] for e in india["editions"]}
+        self.assertEqual(finishes["2014"], "Runners-up")
+        self.assertIsNone(finishes["2021"])
+        self.assertEqual(len([t for t in data["teams"].values() if "2009" in t["titles"]]), 1)
 
 
 if __name__ == "__main__":
