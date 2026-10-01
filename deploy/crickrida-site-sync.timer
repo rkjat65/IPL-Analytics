@@ -1,0 +1,10 @@
+[Unit]
+Description=Check for a new crickrida.com archive release
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=2min
+Unit=crickrida-site-sync.service
+
+[Install]
+WantedBy=timers.target

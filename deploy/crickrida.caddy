@@ -1,0 +1,59 @@
+crickrida.com {
+	encode zstd gzip
+
+	# The app, its files and its API run in the ipl-analytics container.
+	@app path /api/* /app/* /ipl /ipl/* /t20-world-cup /t20-world-cup/* /sw.js /sitemap-ipl.xml /llms.txt
+	handle @app {
+		reverse_proxy 127.0.0.1:8000
+	}
+
+	# Addresses the app used before it moved under /ipl and /t20-world-cup.
+	# They never end in a slash or a file extension; the archive's pages do.
+	@legacy {
+		path_regexp ^/(dashboard|batting|bowling|venues|seasons|h2h|charts|pulse|matchups|phases|content-studio|fantasy|quiz|faq|image-credits|privacy|terms|account-deletion|admin|login|social|ask|player-impact)(/[^/]+)*$|^/(matches|teams|players)(/[^/]+)+$
+		not path *.json *.xml *.txt *.csv *.png *.svg *.webp *.jpg *.ico *.js *.css *.html *.parquet *.woff2
+	}
+	handle @legacy {
+		reverse_proxy 127.0.0.1:8000
+	}
+
+	# The analytics lake for Studio and the tools, served from this domain so the browser needs no CORS.
+	handle_path /lake/* {
+		reverse_proxy https://pub-2deb6471d5df4274810ac4497fdf3ab2.r2.dev {
+			header_up Host pub-2deb6471d5df4274810ac4497fdf3ab2.r2.dev
+		}
+	}
+
+	# Everything else is the archive, mirrored onto this server from each audited release
+	# by the crickrida-site-sync timer.
+	handle {
+		root * /srv/crickrida/site
+		@versioned query v=*
+		header @versioned Cache-Control "public, max-age=31536000, immutable"
+		header ?Cache-Control "public, max-age=300"
+		@manifest path *.webmanifest
+		header @manifest Content-Type application/manifest+json
+		header X-Content-Type-Options nosniff
+		file_server
+	}
+
+	handle_errors {
+		@missing expression {err.status_code} == 404
+		handle @missing {
+			root * /srv/crickrida/site
+			rewrite * /404.html
+			file_server {
+				status 404
+			}
+		}
+	}
+}
+
+crickrida.rkjat.in {
+	encode zstd gzip
+	reverse_proxy 127.0.0.1:8000
+}
+
+www.crickrida.com {
+	redir https://crickrida.com{uri} permanent
+}

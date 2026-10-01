@@ -1,0 +1,5 @@
+
+# The archive's old address: every path goes to the same page on crickrida.com.
+cricket.rkjat.in {
+	redir https://crickrida.com{uri} permanent
+}

@@ -1,20 +1,26 @@
 name: Caddy site config
 
-# Owns crickrida.com's routing on the server. crickrida.com is one site:
+# Owns crickrida.com's serving on the server. crickrida.com is one site:
 #   /api, /app, /ipl and /t20-world-cup  -> the ipl-analytics container
 #   the app's pre-merge addresses        -> the container, which 301s them
-#   /lake                                -> Studio's data lake (Cloudflare R2)
-#   everything else                      -> the international archive (GitHub Pages)
+#   /lake                                -> the analytics lake (Cloudflare R2)
+#   everything else                      -> the archive, mirrored to /srv/crickrida/site
+# The archive's publish workflow uploads each audited release to R2; the
+# crickrida-site-sync timer installed here applies it within two minutes.
 # The retired crickrida.rkjat.in goes to the container, which 301s every page.
+# cricket.rkjat.in gets a plain 301 once its DNS points at this server; the
+# daily run picks that up.
 #
-# The config is written to crickrida.caddy next to the main Caddyfile and
-# imported from it; any older crickrida site blocks there are removed. The
-# Caddyfile is backed up first and restored if validation or the smoke test fails.
+# deploy/crickrida.caddy is written next to the main Caddyfile and imported
+# from it; any older crickrida site blocks there are removed. The Caddyfile is
+# backed up first and restored if validation or the smoke test fails.
 
 on:
   push:
     branches: [ main ]
-    paths: [ .github/workflows/domain.yml ]
+    paths: [ .github/workflows/domain.yml, deploy/** ]
+  schedule:
+    - cron: '40 3 * * *'
   workflow_dispatch:
 
 jobs:
@@ -27,61 +33,42 @@ jobs:
         host: crickrida.rkjat.in
         username: ubuntu
         key: ${{ secrets.SSH_PRIVATE_KEY }}
+        command_timeout: 45m
         script: |
           set -eu
+          RAW=https://raw.githubusercontent.com/rkjat65/IPL-Analytics/${{ github.sha }}/deploy
+          caddy version || true
+
+          # 1. The archive mirror: a sync job and a two-minute timer.
+          sudo -n curl -fsSL "$RAW/crickrida-site-sync.py" -o /usr/local/bin/crickrida-site-sync
+          sudo -n chmod 755 /usr/local/bin/crickrida-site-sync
+          sudo -n curl -fsSL "$RAW/crickrida-site-sync.service" -o /etc/systemd/system/crickrida-site-sync.service
+          sudo -n curl -fsSL "$RAW/crickrida-site-sync.timer" -o /etc/systemd/system/crickrida-site-sync.timer
+          sudo -n systemctl daemon-reload
+          sudo -n systemctl enable --now crickrida-site-sync.timer
+          sudo -n /usr/bin/python3 /usr/local/bin/crickrida-site-sync
+          sudo -n test -f /srv/crickrida/site/index.html
+          sudo -n test -f /srv/crickrida/site/404.html
+          echo "Archive mirror: $(sudo -n find /srv/crickrida/site -type f | wc -l) files"
+
+          # 2. The Caddy site config.
           CF=$(systemctl show caddy -p ExecStart --value | grep -o -- '--config [^ ;]*' | awk '{print $2}' | head -1)
           CF=${CF:-/etc/caddy/Caddyfile}
           SITE="$(dirname "$CF")/crickrida.caddy"
           stamp=$(date +%Y%m%d%H%M%S)
           sudo -n cp "$CF" "$CF.bak-$stamp"
           if sudo -n test -f "$SITE"; then sudo -n cp "$SITE" "$SITE.bak-$stamp"; fi
+          sudo -n curl -fsSL "$RAW/crickrida.caddy" -o "$SITE"
 
-          sudo -n tee "$SITE" >/dev/null <<'CADDY'
-          crickrida.com {
-          	encode zstd gzip
-
-          	# The app, its files and its API run in the ipl-analytics container.
-          	@app path /api/* /app/* /ipl /ipl/* /t20-world-cup /t20-world-cup/* /sw.js /sitemap-ipl.xml /llms.txt
-          	handle @app {
-          		reverse_proxy 127.0.0.1:8000
-          	}
-
-          	# Addresses the app used before it moved under /ipl and /t20-world-cup.
-          	# They never end in a slash or a file extension; the archive's pages do.
-          	@legacy {
-          		path_regexp ^/(dashboard|batting|bowling|venues|seasons|h2h|charts|pulse|matchups|phases|content-studio|fantasy|quiz|faq|image-credits|privacy|terms|account-deletion|admin|login|social|ask|player-impact)(/[^/]+)*$|^/(matches|teams|players)(/[^/]+)+$
-          		not path *.json *.xml *.txt *.csv *.png *.svg *.webp *.jpg *.ico *.js *.css *.html *.parquet *.woff2
-          	}
-          	handle @legacy {
-          		reverse_proxy 127.0.0.1:8000
-          	}
-
-          	# Studio's data lake, served from this domain so the browser needs no CORS.
-          	handle_path /lake/* {
-          		reverse_proxy https://pub-2deb6471d5df4274810ac4497fdf3ab2.r2.dev {
-          			header_up Host pub-2deb6471d5df4274810ac4497fdf3ab2.r2.dev
-          		}
-          	}
-
-          	# Everything else is the international archive, published on GitHub Pages.
-          	handle {
-          		reverse_proxy https://cricket.rkjat.in {
-          			header_up Host cricket.rkjat.in
-          			header_down Location ^https?://cricket\.rkjat\.in https://crickrida.com
-          		}
-          	}
-          }
-
-          crickrida.rkjat.in {
-          	encode zstd gzip
-          	reverse_proxy 127.0.0.1:8000
-          }
-
-          www.crickrida.com {
-          	redir https://crickrida.com{uri} permanent
-          }
-          CADDY
-          sudo -n sed -i 's/^          //' "$SITE"
+          # cricket.rkjat.in becomes a plain 301 once its DNS points here.
+          here=$(getent ahostsv4 crickrida.com | awk 'NR==1{print $1}')
+          old=$(getent ahostsv4 cricket.rkjat.in | awk 'NR==1{print $1}')
+          OLD_DOMAIN=0
+          if [ -n "$here" ] && [ "$here" = "$old" ]; then
+            curl -fsSL "$RAW/cricket-rkjat-in.caddy" | sudo -n tee -a "$SITE" >/dev/null
+            OLD_DOMAIN=1
+          fi
+          echo "cricket.rkjat.in resolves to ${old:-nothing}; this server is $here; old-domain redirect: $OLD_DOMAIN"
 
           # Drop older crickrida site blocks and imports from the main Caddyfile, then import the managed file.
           sudo -n awk -v site="$SITE" '
@@ -116,7 +103,11 @@ jobs:
           sleep 3
 
           check() {
-            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 --resolve "$1:443:127.0.0.1" "https://$1$2" || true)
+            for try in 1 2 3 4 5; do
+              code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 --resolve "$1:443:127.0.0.1" "https://$1$2" || true)
+              [ "$code" = "$3" ] && break
+              sleep 3
+            done
             echo "$1$2 -> $code (want $3)"
             [ "$code" = "$3" ]
           }
@@ -127,9 +118,19 @@ jobs:
           check crickrida.com /lake/manifest.json 200 || ok=0
           check crickrida.com /dashboard 301 || ok=0
           check crickrida.rkjat.in /batting/Virat%20Kohli 301 || ok=0
+          check crickrida.com /players/virat-kohli/ 200 || ok=0
+          check crickrida.com /matchups/ 200 || ok=0
+          check crickrida.com /data/quiz/ipl.json 200 || ok=0
+          check crickrida.com /privacy/ 200 || ok=0
+          check crickrida.com /no-such-page-here/ 404 || ok=0
+          check crickrida.com /ipl/matchups 301 || ok=0
           if [ "$ok" != 1 ]; then
             echo "Smoke test failed. Restoring the previous config." >&2
             restore
             exit 1
           fi
-          echo "crickrida.com now serves the archive at the root and the app under /ipl and /t20-world-cup. Backup: $CF.bak-$stamp"
+          if [ "$OLD_DOMAIN" = 1 ]; then
+            code=$(curl -sk -o /dev/null -w '%{http_code}' --max-time 20 --resolve "cricket.rkjat.in:443:127.0.0.1" "https://cricket.rkjat.in/players/" || true)
+            echo "cricket.rkjat.in/players/ -> $code (301 once its certificate is issued)"
+          fi
+          echo "crickrida.com serves the archive from this server and the app under /ipl and /t20-world-cup. Backup: $CF.bak-$stamp"

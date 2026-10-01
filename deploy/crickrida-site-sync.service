@@ -1,0 +1,10 @@
+[Unit]
+Description=Mirror the crickrida.com archive from R2
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+UMask=0022
+Nice=10
+ExecStart=/usr/bin/python3 /usr/local/bin/crickrida-site-sync
