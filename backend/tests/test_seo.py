@@ -71,6 +71,26 @@ class RenderIndexTest(unittest.TestCase):
         self.assertIn('application/ld+json', page)
         self.assertIn('<div id="root"><main', page)
 
+    def test_a_title_named_in_a_comment_is_not_where_the_tags_go(self):
+        # index.html once said "<title> fallback" in a comment, so every page's title, description and
+        # canonical landed inside the comment, where search engines cannot read them.
+        index = "<head><!-- tags below, and the <title> fallback --><title>Fallback</title></head><body><div id=\"root\"></div></body>"
+        page, _ = seo.render_index(index, "teams/Mumbai Indians")
+        head_comment = page[page.index("<!--"):page.index("-->")]
+        self.assertNotIn("canonical", head_comment)
+        self.assertNotIn("Mumbai Indians", head_comment)
+        self.assertIn('rel="canonical"', page[page.index("-->"):])
+        self.assertEqual(page.count("Fallback"), 0)
+
+    def test_social_handle_and_sitemap_scope(self):
+        page, _ = seo.render_index(INDEX, "teams/Mumbai Indians")
+        self.assertIn('twitter:site" content="@CricketKrida"', page)
+        self.assertIn('twitter:creator" content="@CricketKrida"', page)
+        locs = [el.text for el in ET.fromstring(seo.build_sitemap()).iter("{http://www.sitemaps.org/schemas/sitemap/0.9}loc")]
+        self.assertFalse(any("/venues/" in loc for loc in locs))
+        self.assertFalse(any("/t20-world-cup/matches/" in loc for loc in locs))
+        self.assertTrue(any("/ipl/matches/" in loc for loc in locs))
+
     def test_hostile_path_is_escaped(self):
         page, status = seo.render_index(INDEX, 'batting/<script>alert(1)</script>')
         self.assertEqual(status, 404)

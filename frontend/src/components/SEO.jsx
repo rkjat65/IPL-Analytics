@@ -5,7 +5,7 @@ import { SITE_URL, PREFIXES, asset } from '../lib/site'
 export { SITE_URL }
 const DEFAULT_OG_IMAGE = asset('og-default.png')
 const SITE_NAME = 'Crickrida'
-const TWITTER_HANDLE = '@Rkjat65'
+const TWITTER_HANDLE = '@CricketKrida'
 
 export default function SEO({ title, description, image, url, type = 'website', schema, noindex = false }) {
   const { tournament } = useTournament()
@@ -40,6 +40,7 @@ export default function SEO({ title, description, image, url, type = 'website', 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content={TWITTER_HANDLE} />
+      <meta name="twitter:creator" content={TWITTER_HANDLE} />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />

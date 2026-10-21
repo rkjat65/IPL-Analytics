@@ -45,7 +45,8 @@ Crickrida (https://crickrida.com) is an open analytics platform for the Indian P
 
 - Website: https://crickrida.com
 - Author: Radhakishan Jat
-- Twitter/X: @Rkjat65
+- X: @CricketKrida
+- YouTube: @crickridastats
 - Email: radhakishanjat65@gmail.com
 
 Data attribution: IPL match data sourced from public records and official scorecards.

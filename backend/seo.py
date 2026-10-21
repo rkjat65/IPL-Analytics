@@ -13,6 +13,7 @@ from __future__ import annotations
 import html
 import json
 import os
+import re
 from dataclasses import dataclass, field
 from functools import lru_cache
 from urllib.parse import quote
@@ -22,7 +23,7 @@ from .tournaments import TOURNAMENTS, get_tournament, get_tournament_slug
 
 SITE_URL = (os.environ.get("PUBLIC_APP_URL") or "https://crickrida.com").rstrip("/")
 SITE_NAME = "Crickrida"
-TWITTER_HANDLE = "@Rkjat65"
+TWITTER_HANDLE = "@CricketKrida"
 
 
 @dataclass
@@ -740,6 +741,7 @@ def head_tags(meta: PageMeta) -> str:
         f'<meta property="og:site_name" content="{SITE_NAME}" data-rh="true">',
         '<meta name="twitter:card" content="summary_large_image" data-rh="true">',
         f'<meta name="twitter:site" content="{TWITTER_HANDLE}" data-rh="true">',
+        f'<meta name="twitter:creator" content="{TWITTER_HANDLE}" data-rh="true">',
         f'<meta name="twitter:title" content="{_e(full_title)}" data-rh="true">',
         f'<meta name="twitter:description" content="{_e(meta.description)}" data-rh="true">',
         f'<meta name="twitter:image" content="{_e(image)}" data-rh="true">',
@@ -778,13 +780,26 @@ def body_html(meta: PageMeta) -> str:
     return "".join(out)
 
 
+def _title_span(doc: str) -> tuple[int, int] | None:
+    """The page's own <title> element, never one named inside an HTML comment: tags written into a comment are invisible to search engines."""
+    comments = [(m.start(), m.end()) for m in re.finditer(r"<!--.*?-->", doc, re.S)]
+    for m in re.finditer(r"<title>", doc):
+        if any(a <= m.start() < b for a, b in comments):
+            continue
+        end = doc.find("</title>", m.end())
+        if end != -1:
+            return m.start(), end + len("</title>")
+    return None
+
+
 def render_index(index_html: str, raw_path: str) -> tuple[str, int]:
     meta = page_meta(raw_path)
     full_title = f"{meta.title} | {SITE_NAME}"
     doc = index_html
-    start, end = doc.find("<title>"), doc.find("</title>")
-    if start != -1 and end != -1:
-        doc = doc[:start] + f"<title>{_e(full_title)}</title>\n    " + head_tags(meta) + doc[end + len("</title>"):]
+    span = _title_span(doc)
+    if span:
+        start, end = span
+        doc = doc[:start] + f"<title>{_e(full_title)}</title>" + chr(10) + "    " + head_tags(meta) + doc[end:]
     doc = doc.replace('<div id="root"></div>', f'<div id="root">{body_html(meta)}</div>', 1)
     return doc, meta.status
 
@@ -823,14 +838,13 @@ def build_sitemap() -> str:
                 entries.append(_url_entry(canonical_url(f"/seasons/{enc(season)}", slug), last, "monthly", "0.7"))
             for team in _teams(slug):
                 entries.append(_url_entry(canonical_url(f"/teams/{enc(team['team'])}", slug), last, "weekly", "0.7"))
-            for venue in _venues(slug):
-                entries.append(_url_entry(canonical_url(f"/venues/{enc(venue['venue'])}", slug), last, "monthly", "0.6"))
             batters, bowlers = _all_players(slug)
             for name in sorted(batters):
                 entries.append(_url_entry(canonical_url(f"/batting/{enc(name)}", slug), last, "weekly", "0.6"))
             for name in sorted(bowlers - batters):
                 entries.append(_url_entry(canonical_url(f"/bowling/{enc(name)}", slug), last, "weekly", "0.5"))
-            for m in matches:
+            # Venue pages and the T20 World Cup match addresses are the archive's now (they 301 there); only IPL matches stay.
+            for m in (matches if slug == "ipl" else []):
                 entries.append(_url_entry(canonical_url(f"/matches/{enc(m['match_id'])}", slug), str(m["date"]), "yearly", "0.5"))
         finally:
             reset_tournament(token)
