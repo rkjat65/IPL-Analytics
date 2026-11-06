@@ -28,11 +28,15 @@ const FAQ = lazy(() => import('./pages/FAQ'))
 const Records = lazy(() => import('./pages/Records'))
 const Players = lazy(() => import('./pages/Players'))
 const ImageCredits = lazy(() => import('./pages/ImageCredits'))
+const ContentStudio = lazy(() => import('./pages/ContentStudio'))
+const Matchups = lazy(() => import('./pages/Matchups'))
+const Phases = lazy(() => import('./pages/Phases'))
+const Fantasy = lazy(() => import('./pages/Fantasy'))
+const Quiz = lazy(() => import('./pages/Quiz'))
 const Admin = lazy(() => import('./pages/Admin'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
-// Matchups, Phases, Fantasy, Quiz, the stat-card studio and the legal pages moved
-// to the shared site. Loading the address from the server returns its redirect there.
+// The legal pages live on the shared site. Loading the address from the server returns its redirect there.
 function ServerRedirect() {
   useEffect(() => {
     if (import.meta.env.PROD) window.location.replace(window.location.href)
@@ -72,8 +76,8 @@ export default function App() {
         <Route path="/batting/:playerName" element={<PlayerProfile />} />
         <Route path="/bowling" element={<BowlingRecords />} />
         <Route path="/bowling/compare" element={<BowlingCompare />} />
-        <Route path="/fantasy" element={<ServerRedirect />} />
-        <Route path="/quiz" element={<ServerRedirect />} />
+        <Route path="/fantasy" element={<Fantasy />} />
+        <Route path="/quiz" element={<Quiz />} />
         <Route path="/bowling/:playerName" element={<PlayerProfile />} />
         <Route path="/teams" element={<Teams />} />
         <Route path="/teams/:teamName" element={<TeamProfile />} />
@@ -84,10 +88,10 @@ export default function App() {
         <Route path="/players" element={<Players />} />
         <Route path="/players/:playerName" element={<PlayerProfile />} />
         <Route path="/records" element={<Records />} />
-        <Route path="/matchups" element={<ServerRedirect />} />
-        <Route path="/phases" element={<ServerRedirect />} />
+        <Route path="/matchups" element={<Matchups />} />
+        <Route path="/phases" element={<Phases />} />
         <Route path="/h2h" element={<HeadToHead />} />
-        <Route path="/content-studio" element={<ServerRedirect />} />
+        <Route path="/content-studio" element={<ContentStudio />} />
         <Route path="/ask" element={<Navigate to="/dashboard" replace />} />
         <Route path="/social" element={<Navigate to="/admin/social" replace />} />
         <Route path="/charts" element={<Charts />} />

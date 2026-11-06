@@ -94,20 +94,21 @@ class RouteTest(unittest.TestCase):
         self.assertIn("unregister()", r.text)
         self.assertIn("no-cache", r.headers["cache-control"])
 
-    def test_moved_tools_go_to_the_shared_pages(self):
-        r = get("/ipl/matchups?batter=Virat%20Kohli&bowler=Jasprit%20Bumrah&season=2016,2024")
-        self.assertEqual(r.status_code, 301)
-        self.assertEqual(r.headers["location"], "/matchups/?comp=IPL&from=2016&to=2024&batter=ba607b88&bowler=462411b3")
-        self.assertEqual(get("/t20-world-cup/phases").headers["location"], "/phases/?comp=T20WC")
-        self.assertEqual(get("/ipl/phases?team=Mumbai%20Indians").headers["location"], "/phases/?team=Mumbai+Indians")
-        self.assertEqual(get("/t20-world-cup/fantasy?team1=India&team2=Pakistan").headers["location"], "/fantasy/?comp=T20I-Men&team1=India&team2=Pakistan")
-        self.assertEqual(get("/ipl/quiz?level=hard").headers["location"], "/quiz/?mode=ipl&level=hard")
-        self.assertEqual(get("/ipl/content-studio").headers["location"], "/studio/?format=IPL")
+    def test_app_tools_render_in_app_and_legal_pages_redirect(self):
+        # Matchups, Phases, Fantasy, Quiz and ContentStudio are full interactive app pages
+        self.assertEqual(get("/ipl/matchups").status_code, 200)
+        self.assertEqual(get("/t20-world-cup/phases").status_code, 200)
+        self.assertEqual(get("/ipl/phases").status_code, 200)
+        self.assertEqual(get("/t20-world-cup/fantasy").status_code, 200)
+        self.assertEqual(get("/ipl/quiz").status_code, 200)
+        self.assertEqual(get("/ipl/content-studio").status_code, 200)
+        self.assertEqual(get("/t20-world-cup/content-studio").status_code, 200)
+        # Legal pages redirect to shared site
         for page in ("privacy", "terms", "account-deletion"):
             self.assertEqual(get(f"/ipl/{page}").headers["location"], f"/{page}/")
             self.assertEqual(legacy_app_path(f"/{page}", ""), f"/{page}/")
-        # Pre-merge root addresses reach the shared page in one hop too.
-        self.assertEqual(legacy_app_path("/quiz", "tournament=t20wc"), "/quiz/?mode=t20wc")
+        # Pre-merge legacy root addresses map to their tournament prefix
+        self.assertEqual(legacy_app_path("/quiz", "tournament=t20wc"), "/t20-world-cup/quiz")
 
     def test_unknown_paths_are_404(self):
         self.assertEqual(get("/app/nope.js").status_code, 404)

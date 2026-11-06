@@ -26,24 +26,13 @@ const MORE = [
   ['/charts', 'Insights'],
   ['/player-impact', 'Impact ratings'],
   ['/pulse', 'Pulse'],
-  ['/content-studio', 'Stat cards'],
+  ['/content-studio', 'Social cards'],
   ['/fantasy', 'Fantasy'],
   ['/quiz', 'Quiz'],
   ['/faq', 'FAQ'],
 ]
 
-// Tools that now live on the shared site, one page for every competition.
-const SHARED = {
-  '/phases': (t) => (t === 't20wc' ? '/phases/?comp=T20WC' : '/phases/'),
-  '/matchups': (t) => `/matchups/?comp=${t === 't20wc' ? 'T20WC' : 'IPL'}`,
-  '/content-studio': (t) => `/studio/?format=${t === 't20wc' ? 'T20I' : 'IPL'}`,
-  '/fantasy': (t) => (t === 't20wc' ? '/fantasy/?comp=T20I-Men' : '/fantasy/'),
-  '/quiz': (t) => `/quiz/?mode=${t === 't20wc' ? 't20wc' : 'ipl'}`,
-}
-
-function Item({ path, slug, className, children }) {
-  const shared = SHARED[path]
-  if (shared) return <a href={shared(slug)} className={typeof className === 'function' ? className({ isActive: false }) : className}>{children}</a>
+function Item({ path, className, children }) {
   return <NavLink to={path} className={className}>{children}</NavLink>
 }
 

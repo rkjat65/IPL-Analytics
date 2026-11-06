@@ -128,7 +128,9 @@ jobs:
           check crickrida.com /data/quiz/ipl.json 200 || ok=0
           check crickrida.com /privacy/ 200 || ok=0
           check crickrida.com /no-such-page-here/ 404 || ok=0
-          check crickrida.com /ipl/matchups 301 || ok=0
+          check crickrida.com /ipl/matchups 200 || ok=0
+          check crickrida.com /ipl/content-studio 200 || ok=0
+          check crickrida.com /t20-world-cup/dashboard 200 || ok=0
           check crickrida.com /ipl/matches/1529284 200 || ok=0
           check crickrida.com /ipl/batting 200 || ok=0
           check crickrida.com /live 301 || ok=0

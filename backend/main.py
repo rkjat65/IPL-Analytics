@@ -102,9 +102,9 @@ def spa_prefix(path: str) -> tuple[str, str] | None:
     return None
 
 
-# Tools rebuilt on the shared site, one page for every competition. Their app
-# addresses 301 there with the matching competition filter.
-MOVED_TOOLS = ("/matchups", "/phases", "/fantasy", "/quiz", "/content-studio")
+# Tools that moved to the shared site (none now: Matchups, Phases, Fantasy, Quiz and the
+# social-card Studio run in this app again, for IPL and the T20 World Cup alike).
+MOVED_TOOLS = ()
 # One privacy policy, one set of terms and one account-deletion page for the whole site.
 MOVED_PAGES = {"/privacy": "/privacy/", "/terms": "/terms/", "/account-deletion": "/account-deletion/"}
 

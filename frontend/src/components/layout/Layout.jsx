@@ -1,24 +1,24 @@
 import { Suspense, useEffect, useRef, useState } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
-import SiteHeader from './SiteHeader'
-import SectionNav from './SectionNav'
+import Sidebar from './Sidebar'
+import Header from './Header'
 import MobileTabBar from './MobileTabBar'
 import CommandPalette from '../ui/CommandPalette'
 import PageSkeleton from '../ui/PageSkeleton'
 import useScrollReveal from '../../hooks/useScrollReveal'
 import { useTournament } from '../../contexts/TournamentContext'
 
-// crickrida.com's header on top, this section's pages in a sticky bar below it,
-// and the page scrolling with the window like the rest of the site.
 export default function Layout({ children }) {
+  const [sidebarOpen, setSidebarOpen] = useState(false)
   const { tournament } = useTournament()
   const { pathname } = useLocation()
   const mainRef = useRef(null)
   useScrollReveal(mainRef, [pathname, tournament])
 
-  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+  // The page scrolls inside <main>, so reset it when moving to a new page.
+  useEffect(() => { mainRef.current?.scrollTo(0, 0) }, [pathname])
 
-  // Player search: Ctrl/Cmd+K anywhere, or "/" when not typing in a field.
+  // Global search: Ctrl/Cmd+K anywhere, or "/" when not typing in a field.
   const [searchOpen, setSearchOpen] = useState(false)
   useEffect(() => {
     const onKey = (e) => {
@@ -34,18 +34,23 @@ export default function Layout({ children }) {
   }, [])
 
   return (
-    <div className="min-h-screen bg-bg-primary">
-      <SiteHeader />
-      <SectionNav onSearch={() => setSearchOpen(true)} />
-      <main ref={mainRef} className="p-4 pb-24 sm:p-6 sm:pb-24 lg:pb-10">
-        <div className="mx-auto max-w-[1440px]">
-          <div key={`${tournament}:${pathname}`} className="page-enter">
-            <Suspense fallback={<PageSkeleton />}>
-              {children || <Outlet />}
-            </Suspense>
+    <div className="flex h-screen overflow-hidden bg-bg-primary text-text-primary">
+      {/* Left slim sidebar: branding + navigation */}
+      <Sidebar open={sidebarOpen} onToggle={() => setSidebarOpen(!sidebarOpen)} />
+
+      {/* Right area: top nav bar + content */}
+      <div className="flex-1 flex flex-col overflow-hidden">
+        <Header onSidebarToggle={() => setSidebarOpen(!sidebarOpen)} onSearch={() => setSearchOpen(true)} />
+        <main ref={mainRef} className="flex-1 overflow-auto p-4 pb-24 sm:p-6 sm:pb-24 lg:pb-6">
+          <div className="max-w-[1440px] mx-auto">
+            <div key={`${tournament}:${pathname}`} className="page-enter">
+              <Suspense fallback={<PageSkeleton />}>
+                {children || <Outlet />}
+              </Suspense>
+            </div>
           </div>
-        </div>
-      </main>
+        </main>
+      </div>
       <MobileTabBar onSearch={() => setSearchOpen(true)} />
       <CommandPalette open={searchOpen} onClose={() => setSearchOpen(false)} />
     </div>
