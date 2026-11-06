@@ -96,13 +96,16 @@ class RouteTest(unittest.TestCase):
 
     def test_app_tools_render_in_app_and_legal_pages_redirect(self):
         # Matchups, Phases, Fantasy, Quiz and ContentStudio are full interactive app pages
-        self.assertEqual(get("/ipl/matchups").status_code, 200)
-        self.assertEqual(get("/t20-world-cup/phases").status_code, 200)
-        self.assertEqual(get("/ipl/phases").status_code, 200)
-        self.assertEqual(get("/t20-world-cup/fantasy").status_code, 200)
-        self.assertEqual(get("/ipl/quiz").status_code, 200)
-        self.assertEqual(get("/ipl/content-studio").status_code, 200)
-        self.assertEqual(get("/t20-world-cup/content-studio").status_code, 200)
+        if (FRONTEND_DIST / "index.html").is_file():
+            self.assertEqual(get("/ipl/matchups").status_code, 200)
+            self.assertEqual(get("/t20-world-cup/phases").status_code, 200)
+            self.assertEqual(get("/ipl/phases").status_code, 200)
+            self.assertEqual(get("/t20-world-cup/fantasy").status_code, 200)
+            self.assertEqual(get("/ipl/quiz").status_code, 200)
+            self.assertEqual(get("/ipl/content-studio").status_code, 200)
+            self.assertEqual(get("/t20-world-cup/content-studio").status_code, 200)
+        else:
+            self.assertEqual(get("/ipl/matchups").status_code, 404)
         # Legal pages redirect to shared site
         for page in ("privacy", "terms", "account-deletion"):
             self.assertEqual(get(f"/ipl/{page}").headers["location"], f"/{page}/")
