@@ -6,8 +6,9 @@ crickrida.com {
 	import crickrida-redirects.caddy
 
 
-	# The app, its files and its API run in the ipl-analytics container.
-	@app path /api/* /app/* /ipl /ipl/* /t20-world-cup /t20-world-cup/* /sw.js /sitemap-ipl.xml /llms.txt
+	# The app, its files and its API run in the ipl-analytics container. llms.txt is the archive's:
+	# its build writes one for the whole site (tools/ai_surface.py), with llms-full.txt and the feed.
+	@app path /api/* /app/* /ipl /ipl/* /t20-world-cup /t20-world-cup/* /sw.js /sitemap-ipl.xml
 	handle @app {
 		reverse_proxy 127.0.0.1:8000
 	}
